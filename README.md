@@ -7,7 +7,7 @@
 
 **Un guide complet et progressif pour découvrir et maîtriser Linux Mint, du premier démarrage à l'utilisation avancée.**
 
-![Linux Mint Banner](https://www.linuxmint.com/web/img/logo-mono.svg)
+![Linux Mint Banner](https://www.linuxmint.com/web/img/logo.svg)
 
 ---
 
