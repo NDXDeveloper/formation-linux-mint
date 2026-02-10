@@ -362,8 +362,8 @@ L'équipe Linux Mint privilégie :
 
 **1. Installer la session Wayland** (si pas déjà fait)
 ```bash
-sudo apt update
-sudo apt install cinnamon-session-wayland
+sudo apt update  
+sudo apt install cinnamon-session-wayland  
 ```
 
 **2. Déconnectez-vous**

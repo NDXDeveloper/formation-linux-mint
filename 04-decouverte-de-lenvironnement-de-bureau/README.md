@@ -225,10 +225,10 @@ Bonne découverte ! 🚀
 | 4.6 | X11 vs Wayland | Avancé | ⭐⭐⭐ Informatif |
 | 4.7 | Personnalisation | Intermédiaire | ⭐⭐⭐⭐ Très utile |
 
-**Temps de lecture estimé :** 3-4 heures (selon votre rythme)
-**Temps de pratique recommandé :** 2-3 heures supplémentaires
+**Temps de lecture estimé :** 3-4 heures (selon votre rythme)  
+**Temps de pratique recommandé :** 2-3 heures supplémentaires  
 
-**Prérequis :** Avoir installé Linux Mint (chapitre 2)
-**Après ce chapitre :** Vous serez prêt pour découvrir les applications essentielles (chapitre 5)
+**Prérequis :** Avoir installé Linux Mint (chapitre 2)  
+**Après ce chapitre :** Vous serez prêt pour découvrir les applications essentielles (chapitre 5)  
 
 ⏭️ [Le bureau Cinnamon (ou MATE/Xfce)](/04-decouverte-de-lenvironnement-de-bureau/01-le-bureau-cinnamon.md)

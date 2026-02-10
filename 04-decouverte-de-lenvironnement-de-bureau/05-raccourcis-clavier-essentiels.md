@@ -893,28 +893,28 @@ Linux Mint inclut des raccourcis pour améliorer l'accessibilité.
 MES RACCOURCIS ESSENTIELS
 
 === SYSTÈME ===
-Super                    Menu
-Ctrl + Alt + T          Terminal
-Ctrl + Alt + L          Verrouiller
-Impr écran              Capture écran
+Super                    Menu  
+Ctrl + Alt + T          Terminal  
+Ctrl + Alt + L          Verrouiller  
+Impr écran              Capture écran  
 
 === FENÊTRES ===
-Alt + Tab               Changer fenêtre
-Alt + F4                Fermer
-Super + ←/→             Snap gauche/droite
-Ctrl + Alt + flèches    Espaces de travail
+Alt + Tab               Changer fenêtre  
+Alt + F4                Fermer  
+Super + ←/→             Snap gauche/droite  
+Ctrl + Alt + flèches    Espaces de travail  
 
 === ÉDITION ===
-Ctrl + C/V/X            Copier/Coller/Couper
-Ctrl + Z                Annuler
-Ctrl + S                Enregistrer
-Ctrl + F                Rechercher
+Ctrl + C/V/X            Copier/Coller/Couper  
+Ctrl + Z                Annuler  
+Ctrl + S                Enregistrer  
+Ctrl + F                Rechercher  
 
 === NAVIGATION ===
-Ctrl + L                Barre d'adresse
-Ctrl + T                Nouvel onglet
-Ctrl + W                Fermer onglet
-F2                      Renommer
+Ctrl + L                Barre d'adresse  
+Ctrl + T                Nouvel onglet  
+Ctrl + W                Fermer onglet  
+F2                      Renommer  
 ```
 
 **Imprimez-la et affichez-la !**
