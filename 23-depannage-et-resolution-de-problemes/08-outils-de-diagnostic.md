@@ -69,11 +69,11 @@ inxi
 
 **Résultat exemple :**
 ```
-CPU: quad core Intel Core i5-8250U (-MT MCP-)
-speed/min/max: 800/400/3400 MHz Kernel: 5.15.0-91-generic x86_64
-Up: 3h 42m Mem: 3891.2/7858.2 MiB (49.5%)
-Storage: 476.94 GiB (24.3% used) Procs: 245 Shell: bash 5.1.16
-inxi: 3.3.13
+CPU: quad core Intel Core i5-8250U (-MT MCP-)  
+speed/min/max: 800/400/3400 MHz Kernel: 5.15.0-91-generic x86_64  
+Up: 3h 42m Mem: 3891.2/7858.2 MiB (49.5%)  
+Storage: 476.94 GiB (24.3% used) Procs: 245 Shell: bash 5.1.16  
+inxi: 3.3.13  
 ```
 
 **Informations affichées :**
@@ -330,8 +330,8 @@ Sensors:
 
 **Note :** Nécessite le paquet `lm-sensors` :
 ```bash
-sudo apt install lm-sensors
-sudo sensors-detect  # Configuration initiale
+sudo apt install lm-sensors  
+sudo sensors-detect  # Configuration initiale  
 ```
 
 ---
@@ -521,8 +521,8 @@ hardinfo
 
 L'interface est divisée en deux parties :
 
-**Panneau de gauche :** Catégories d'informations
-**Panneau de droite :** Détails de la catégorie sélectionnée
+**Panneau de gauche :** Catégories d'informations  
+**Panneau de droite :** Détails de la catégorie sélectionnée  
 
 ---
 
@@ -679,9 +679,9 @@ sudo lshw -short
 sudo lshw -html > ~/materiel.html
 
 # Classe spécifique
-sudo lshw -C network   # Réseau
-sudo lshw -C disk      # Disques
-sudo lshw -C memory    # Mémoire
+sudo lshw -C network   # Réseau  
+sudo lshw -C disk      # Disques  
+sudo lshw -C memory    # Mémoire  
 ```
 
 **Utilisation graphique :**
@@ -711,10 +711,10 @@ sudo hwinfo
 sudo hwinfo --short
 
 # Catégorie spécifique
-sudo hwinfo --cpu
-sudo hwinfo --gfxcard
-sudo hwinfo --netcard
-sudo hwinfo --disk
+sudo hwinfo --cpu  
+sudo hwinfo --gfxcard  
+sudo hwinfo --netcard  
+sudo hwinfo --disk  
 ```
 
 **Très verbeux :** hwinfo donne BEAUCOUP de détails, parfois trop pour un débutant.
@@ -731,12 +731,12 @@ Lit les informations du BIOS/UEFI (DMI/SMBIOS).
 sudo dmidecode
 
 # Type spécifique
-sudo dmidecode -t bios      # BIOS
-sudo dmidecode -t system    # Système
-sudo dmidecode -t baseboard # Carte mère
-sudo dmidecode -t processor # CPU
-sudo dmidecode -t memory    # RAM
-sudo dmidecode -t chassis   # Châssis
+sudo dmidecode -t bios      # BIOS  
+sudo dmidecode -t system    # Système  
+sudo dmidecode -t baseboard # Carte mère  
+sudo dmidecode -t processor # CPU  
+sudo dmidecode -t memory    # RAM  
+sudo dmidecode -t chassis   # Châssis  
 ```
 
 **Exemple pratique - Voir les emplacements RAM :**
@@ -771,9 +771,9 @@ lspci -vv
 lspci -k  # Montre les pilotes kernel utilisés
 
 # Catégorie spécifique
-lspci | grep -i vga      # Carte graphique
-lspci | grep -i network  # Carte réseau
-lspci | grep -i audio    # Carte son
+lspci | grep -i vga      # Carte graphique  
+lspci | grep -i network  # Carte réseau  
+lspci | grep -i audio    # Carte son  
 ```
 
 **Exemple pratique :**
@@ -899,8 +899,8 @@ Températures et capteurs.
 
 **Installation :**
 ```bash
-sudo apt install lm-sensors
-sudo sensors-detect  # Détection (répondre YES à tout)
+sudo apt install lm-sensors  
+sudo sensors-detect  # Détection (répondre YES à tout)  
 ```
 
 **Utilisation :**
@@ -1001,8 +1001,8 @@ Un affichage coloré avec le logo de votre distribution et les informations clé
 Moniteur de processus amélioré.
 
 ```bash
-sudo apt install htop
-htop
+sudo apt install htop  
+htop  
 ```
 
 **Navigation :**
@@ -1021,8 +1021,8 @@ htop
 Version moderne et très esthétique.
 
 ```bash
-sudo apt install btop
-btop
+sudo apt install btop  
+btop  
 ```
 
 Interface magnifique avec graphiques en temps réel.
@@ -1034,8 +1034,8 @@ Interface magnifique avec graphiques en temps réel.
 Monitoring complet en un seul outil.
 
 ```bash
-sudo apt install glances
-glances
+sudo apt install glances  
+glances  
 ```
 
 **Affiche :**
@@ -1053,8 +1053,8 @@ glances
 Outil de performance système.
 
 ```bash
-sudo apt install nmon
-nmon
+sudo apt install nmon  
+nmon  
 ```
 
 **Touches :**
@@ -1115,9 +1115,9 @@ sysbench memory run
 sysbench threads run
 
 # Test I/O fichiers
-sysbench fileio --file-test-mode=seqwr prepare
-sysbench fileio --file-test-mode=seqwr run
-sysbench fileio cleanup
+sysbench fileio --file-test-mode=seqwr prepare  
+sysbench fileio --file-test-mode=seqwr run  
+sysbench fileio cleanup  
 ```
 
 ---
@@ -1192,8 +1192,8 @@ netstat -tuln
 ss -tuln
 
 # Programmes utilisant le réseau
-sudo netstat -tulnp
-sudo ss -tulnp
+sudo netstat -tulnp  
+sudo ss -tulnp  
 ```
 
 ---
@@ -1242,41 +1242,41 @@ Créez un script pour générer un rapport complet :
 
 RAPPORT=~/diagnostic-$(date +%Y%m%d-%H%M).txt
 
-echo "=== RAPPORT DE DIAGNOSTIC SYSTÈME ===" > $RAPPORT
-echo "Date : $(date)" >> $RAPPORT
-echo "" >> $RAPPORT
+echo "=== RAPPORT DE DIAGNOSTIC SYSTÈME ===" > $RAPPORT  
+echo "Date : $(date)" >> $RAPPORT  
+echo "" >> $RAPPORT  
 
-echo "=== SYSTÈME ===" >> $RAPPORT
-inxi -Sxz >> $RAPPORT
-echo "" >> $RAPPORT
+echo "=== SYSTÈME ===" >> $RAPPORT  
+inxi -Sxz >> $RAPPORT  
+echo "" >> $RAPPORT  
 
-echo "=== MATÉRIEL ===" >> $RAPPORT
-inxi -Fxz >> $RAPPORT
-echo "" >> $RAPPORT
+echo "=== MATÉRIEL ===" >> $RAPPORT  
+inxi -Fxz >> $RAPPORT  
+echo "" >> $RAPPORT  
 
-echo "=== DISQUES ===" >> $RAPPORT
-df -h >> $RAPPORT
-echo "" >> $RAPPORT
+echo "=== DISQUES ===" >> $RAPPORT  
+df -h >> $RAPPORT  
+echo "" >> $RAPPORT  
 
-echo "=== MÉMOIRE ===" >> $RAPPORT
-free -h >> $RAPPORT
-echo "" >> $RAPPORT
+echo "=== MÉMOIRE ===" >> $RAPPORT  
+free -h >> $RAPPORT  
+echo "" >> $RAPPORT  
 
-echo "=== TEMPÉRATURES ===" >> $RAPPORT
-sensors 2>/dev/null >> $RAPPORT
-echo "" >> $RAPPORT
+echo "=== TEMPÉRATURES ===" >> $RAPPORT  
+sensors 2>/dev/null >> $RAPPORT  
+echo "" >> $RAPPORT  
 
-echo "=== PROCESSUS TOP 10 CPU ===" >> $RAPPORT
-ps aux --sort=-%cpu | head -11 >> $RAPPORT
-echo "" >> $RAPPORT
+echo "=== PROCESSUS TOP 10 CPU ===" >> $RAPPORT  
+ps aux --sort=-%cpu | head -11 >> $RAPPORT  
+echo "" >> $RAPPORT  
 
-echo "=== PROCESSUS TOP 10 RAM ===" >> $RAPPORT
-ps aux --sort=-%mem | head -11 >> $RAPPORT
-echo "" >> $RAPPORT
+echo "=== PROCESSUS TOP 10 RAM ===" >> $RAPPORT  
+ps aux --sort=-%mem | head -11 >> $RAPPORT  
+echo "" >> $RAPPORT  
 
-echo "=== UPTIME ===" >> $RAPPORT
-uptime >> $RAPPORT
-echo "" >> $RAPPORT
+echo "=== UPTIME ===" >> $RAPPORT  
+uptime >> $RAPPORT  
+echo "" >> $RAPPORT  
 
 echo "Rapport généré : $RAPPORT"
 ```
@@ -1357,8 +1357,8 @@ chmod +x ~/diagnostic.sh
 sudo smartctl -H /dev/sda
 ```
 
-**PASSED** = OK ✅
-**FAILED** = Problème, sauvegarder immédiatement ! ❌
+**PASSED** = OK ✅  
+**FAILED** = Problème, sauvegarder immédiatement ! ❌  
 
 ---
 
@@ -1386,9 +1386,9 @@ lspci | grep -i network
 
 ### Quelle est la température normale de mon CPU ?
 
-**Au repos :** 30-50°C
-**Sous charge :** 60-80°C
-**Critique :** > 90°C (throttling, ralentissements)
+**Au repos :** 30-50°C  
+**Sous charge :** 60-80°C  
+**Critique :** > 90°C (throttling, ralentissements)  
 
 **Vérifier :**
 ```bash
@@ -1442,36 +1442,36 @@ inxi -M | grep BIOS
 
 ```bash
 # Vue d'ensemble
-inxi -F
-inxi -Fxz  # Avec détails et masquage
+inxi -F  
+inxi -Fxz  # Avec détails et masquage  
 
 # Par catégorie
-inxi -S    # Système
-inxi -M    # Machine
-inxi -C    # CPU
-inxi -G    # GPU
-inxi -A    # Audio
-inxi -N    # Réseau
-inxi -D    # Disques
-inxi -P    # Partitions
-inxi -s    # Capteurs
-inxi -B    # Batterie
+inxi -S    # Système  
+inxi -M    # Machine  
+inxi -C    # CPU  
+inxi -G    # GPU  
+inxi -A    # Audio  
+inxi -N    # Réseau  
+inxi -D    # Disques  
+inxi -P    # Partitions  
+inxi -s    # Capteurs  
+inxi -B    # Batterie  
 ```
 
 ### Matériel détaillé
 
 ```bash
 # Tout le matériel
-sudo lshw
-sudo lshw-gtk  # GUI
+sudo lshw  
+sudo lshw-gtk  # GUI  
 
 # PCI et USB
-lspci
-lsusb
+lspci  
+lsusb  
 
 # BIOS/UEFI info
-sudo dmidecode -t bios
-sudo dmidecode -t memory
+sudo dmidecode -t bios  
+sudo dmidecode -t memory  
 ```
 
 ### Diagnostics spécifiques
@@ -1487,28 +1487,28 @@ sudo smartctl -H /dev/sda
 free -h
 
 # Disques
-df -h
-lsblk
+df -h  
+lsblk  
 
 # Réseau
-ip a
-nmcli device status
-speedtest-cli
+ip a  
+nmcli device status  
+speedtest-cli  
 ```
 
 ### Monitoring
 
 ```bash
 # Processus
-htop
-btop
+htop  
+btop  
 
 # Complet
 glances
 
 # Ressources
-top
-nmon
+top  
+nmon  
 ```
 
 ---

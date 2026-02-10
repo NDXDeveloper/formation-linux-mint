@@ -87,8 +87,8 @@ GRUB_TIMEOUT_STYLE=hidden
 
 Modifiez-la en :
 ```
-GRUB_TIMEOUT_STYLE=menu
-GRUB_TIMEOUT=10
+GRUB_TIMEOUT_STYLE=menu  
+GRUB_TIMEOUT=10  
 ```
 
 Mettez à jour GRUB :
@@ -402,9 +402,9 @@ Maintenant vous pouvez modifier des fichiers.
 5. Trouvez les gros fichiers : `du -sh /var/* | sort -h`
 6. Nettoyez manuellement :
 ```bash
-apt clean
-apt autoremove
-journalctl --vacuum-time=7d  # Garde 7 jours de logs
+apt clean  
+apt autoremove  
+journalctl --vacuum-time=7d  # Garde 7 jours de logs  
 ```
 7. Redémarrez : `reboot`
 
@@ -430,10 +430,10 @@ journalctl --vacuum-time=7d  # Garde 7 jours de logs
 4. Montez en écriture : `mount -o remount,rw /`
 5. Réparez manuellement :
 ```bash
-dpkg --configure -a
-apt update
-apt --fix-broken install
-apt upgrade
+dpkg --configure -a  
+apt update  
+apt --fix-broken install  
+apt upgrade  
 ```
 6. Redémarrez : `reboot`
 
@@ -479,8 +479,8 @@ passwd nom-utilisateur
 **Vérification après réparation :**
 ```bash
 # Une fois démarré normalement
-touch /tmp/test  # Devrait créer un fichier sans erreur
-rm /tmp/test
+touch /tmp/test  # Devrait créer un fichier sans erreur  
+rm /tmp/test  
 ```
 
 ---
@@ -500,8 +500,8 @@ rm /tmp/test
 
 **Pour NVIDIA :**
 ```bash
-apt remove --purge nvidia-*
-apt install xserver-xorg-video-nouveau
+apt remove --purge nvidia-*  
+apt install xserver-xorg-video-nouveau  
 ```
 
 **Pour AMD :**
@@ -563,16 +563,16 @@ du -sh /* | sort -h
 
 ```bash
 # Réparer les paquets cassés
-dpkg --configure -a
-apt --fix-broken install
+dpkg --configure -a  
+apt --fix-broken install  
 
 # Mettre à jour
-apt update
-apt upgrade
+apt update  
+apt upgrade  
 
 # Nettoyer
-apt clean
-apt autoremove
+apt clean  
+apt autoremove  
 
 # Réinstaller un paquet
 apt install --reinstall nom-du-paquet

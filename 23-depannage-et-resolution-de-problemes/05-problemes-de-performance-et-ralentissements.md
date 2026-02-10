@@ -147,11 +147,11 @@ top
 **Lecture de l'affichage :**
 
 ```
-top - 14:23:15 up 2:34,  1 user,  load average: 0.52, 0.58, 0.59
-Tasks: 245 total,   1 running, 244 sleeping,   0 stopped,   0 zombie
+top - 14:23:15 up 2:34,  1 user,  load average: 0.52, 0.58, 0.59  
+Tasks: 245 total,   1 running, 244 sleeping,   0 stopped,   0 zombie  
 %Cpu(s):  5.2 us,  1.8 sy,  0.0 ni, 92.8 id,  0.2 wa,  0.0 hi,  0.0 si
-MiB Mem :   7876.5 total,   1234.2 free,   4567.3 used,   2075.0 buff/cache
-MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   2891.7 avail Mem
+MiB Mem :   7876.5 total,   1234.2 free,   4567.3 used,   2075.0 buff/cache  
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   2891.7 avail Mem  
 
   PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
  1234 user      20   0 4123456 567890  12345 S   8.3   7.2   12:34.56 firefox
@@ -280,8 +280,8 @@ balooctl disable
 - **snapd** (si vous l'avez activé)
 ```bash
 # Désactiver snap si vous ne l'utilisez pas
-sudo systemctl disable snapd
-sudo systemctl stop snapd
+sudo systemctl disable snapd  
+sudo systemctl stop snapd  
 ```
 
 #### Solution 3 : Limiter un processus gourmand
@@ -310,8 +310,8 @@ free -h
 **Résultat exemple :**
 ```
               total        used        free      shared  buff/cache   available
-Mem:          7.7Gi       5.2Gi       1.1Gi       234Mi       1.4Gi       2.0Gi
-Swap:         2.0Gi       512Mi       1.5Gi
+Mem:          7.7Gi       5.2Gi       1.1Gi       234Mi       1.4Gi       2.0Gi  
+Swap:         2.0Gi       512Mi       1.5Gi  
 ```
 
 **Interprétation :**
@@ -347,8 +347,8 @@ ps aux --sort=-%mem | head -11
 
 Tapez `about:config` dans la barre d'adresse et modifiez :
 ```
-browser.cache.memory.capacity = 51200  (limite cache à 50 Mo)
-browser.sessionhistory.max_entries = 10  (historique de session)
+browser.cache.memory.capacity = 51200  (limite cache à 50 Mo)  
+browser.sessionhistory.max_entries = 10  (historique de session)  
 ```
 
 Installez des extensions anti-fuite :
@@ -502,8 +502,8 @@ sudo systemctl status fstrim.timer
 
 **Activer TRIM hebdomadaire :**
 ```bash
-sudo systemctl enable fstrim.timer
-sudo systemctl start fstrim.timer
+sudo systemctl enable fstrim.timer  
+sudo systemctl start fstrim.timer  
 ```
 
 **Optimiser /etc/fstab pour SSD :**
@@ -556,8 +556,8 @@ Le swap est une zone du disque utilisée comme "extension" de la RAM quand celle
 
 **Vérifier l'utilisation du swap :**
 ```bash
-free -h
-swapon --show
+free -h  
+swapon --show  
 ```
 
 #### Solution 1 : Vider le swap
@@ -655,8 +655,8 @@ Montre la chaîne de dépendances qui ralentit le démarrage.
 sudo systemctl disable bluetooth.service
 
 # Imprimante (si vous n'imprimez pas)
-sudo systemctl disable cups.service
-sudo systemctl disable cups-browsed.service
+sudo systemctl disable cups.service  
+sudo systemctl disable cups-browsed.service  
 
 # ModemManager (si pas de modem 3G/4G)
 sudo systemctl disable ModemManager.service
@@ -872,9 +872,9 @@ firefox -ProfileManager
 echo "Nettoyage du système..."
 
 # Nettoyer APT
-sudo apt autoremove -y
-sudo apt autoclean
-sudo apt clean
+sudo apt autoremove -y  
+sudo apt autoclean  
+sudo apt clean  
 
 # Vider les corbeilles
 rm -rf ~/.local/share/Trash/*
@@ -1101,8 +1101,8 @@ Pour éviter les ralentissements futurs :
 
 ```bash
 # Nettoyer le système
-sudo apt autoremove
-sudo apt clean
+sudo apt autoremove  
+sudo apt clean  
 
 # Vider la corbeille
 # Fermer les onglets navigateur inutiles
@@ -1205,10 +1205,10 @@ ps aux --sort=-%mem | head -10
 
 ### Combien de RAM me faut-il pour Linux Mint ?
 
-**Minimum :** 2 Go (navigation web très légère)
-**Recommandé :** 4 Go (usage bureautique normal)
-**Confortable :** 8 Go (multitâche, développement)
-**Idéal :** 16 Go+ (machines virtuelles, montage vidéo)
+**Minimum :** 2 Go (navigation web très légère)  
+**Recommandé :** 4 Go (usage bureautique normal)  
+**Confortable :** 8 Go (multitâche, développement)  
+**Idéal :** 16 Go+ (machines virtuelles, montage vidéo)  
 
 ### Dois-je défragmenter mon disque sous Linux ?
 
@@ -1232,15 +1232,15 @@ cat /proc/sys/vm/swappiness  # Devrait être <= 10
 
 ### Quelle est une température CPU normale ?
 
-**Au repos :** 30-50°C
-**Sous charge :** 60-80°C
-**Critique :** > 90°C (throttling, ralentissements)
+**Au repos :** 30-50°C  
+**Sous charge :** 60-80°C  
+**Critique :** > 90°C (throttling, ralentissements)  
 
 **Vérifier la température :**
 ```bash
 # Installer sensors
-sudo apt install lm-sensors
-sudo sensors-detect  # Répondre YES à tout
+sudo apt install lm-sensors  
+sudo sensors-detect  # Répondre YES à tout  
 
 # Lire les températures
 sensors
@@ -1262,13 +1262,13 @@ sensors
 
 ```bash
 # Vue d'ensemble ressources
-htop
-btop
-glances
+htop  
+btop  
+glances  
 
 # Utilisation disque
-df -h
-ncdu /
+df -h  
+ncdu /  
 
 # Mémoire
 free -h
@@ -1280,12 +1280,12 @@ ps aux --sort=-%cpu | head -10
 ps aux --sort=-%mem | head -10
 
 # Activité disque
-iotop
-sudo iotop
+iotop  
+sudo iotop  
 
 # Temps de démarrage
-systemd-analyze
-systemd-analyze blame
+systemd-analyze  
+systemd-analyze blame  
 
 # Température
 sensors
@@ -1295,9 +1295,9 @@ sensors
 
 ```bash
 # Nettoyage APT
-sudo apt clean
-sudo apt autoremove
-sudo apt autoclean
+sudo apt clean  
+sudo apt autoremove  
+sudo apt autoclean  
 
 # Vider les caches utilisateur
 rm -rf ~/.cache/*
@@ -1322,8 +1322,8 @@ sudo swapoff -a && sudo swapon -a
 sudo systemctl enable fstrim.timer
 
 # Désactiver services inutiles
-sudo systemctl disable bluetooth.service
-sudo systemctl disable cups.service
+sudo systemctl disable bluetooth.service  
+sudo systemctl disable cups.service  
 ```
 
 ---

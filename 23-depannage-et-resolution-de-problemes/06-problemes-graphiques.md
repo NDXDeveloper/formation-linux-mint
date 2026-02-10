@@ -267,12 +267,12 @@ Une fois démarré :
 
 ```bash
 # Désinstaller le pilote NVIDIA problématique
-sudo apt remove --purge nvidia-*
-sudo apt autoremove
+sudo apt remove --purge nvidia-*  
+sudo apt autoremove  
 
 # Installer le pilote stable
-sudo apt update
-sudo ubuntu-drivers autoinstall
+sudo apt update  
+sudo ubuntu-drivers autoinstall  
 
 # Redémarrer
 sudo reboot
@@ -456,8 +456,8 @@ Cherchez la ligne "Kernel driver in use".
 sudo nano /etc/modprobe.d/amdgpu.conf
 
 # Ajouter (selon votre carte) :
-options amdgpu si_support=1
-options amdgpu cik_support=1
+options amdgpu si_support=1  
+options amdgpu cik_support=1  
 
 # Blacklister radeon
 sudo nano /etc/modprobe.d/blacklist-radeon.conf
@@ -592,8 +592,8 @@ xrandr
 
 **Exemple de sortie :**
 ```
-Screen 0: minimum 320 x 200, current 1024 x 768, maximum 16384 x 16384
-HDMI-1 connected 1024x768+0+0 (normal left inverted right x axis y axis) 527mm x 296mm
+Screen 0: minimum 320 x 200, current 1024 x 768, maximum 16384 x 16384  
+HDMI-1 connected 1024x768+0+0 (normal left inverted right x axis y axis) 527mm x 296mm  
    1920x1080     60.00 +
    1024x768      60.00*
 ```
@@ -783,8 +783,8 @@ nano ~/.config/monitors.sh
 
 # Ajouter votre configuration xrandr (exemple) :
 #!/bin/bash
-xrandr --output eDP-1 --mode 1920x1080 --primary
-xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1
+xrandr --output eDP-1 --mode 1920x1080 --primary  
+xrandr --output HDMI-1 --mode 1920x1080 --right-of eDP-1  
 
 # Rendre exécutable
 chmod +x ~/.config/monitors.sh
@@ -828,8 +828,8 @@ cat /sys/class/drm/card*/card*-*/status
 sudo systemctl restart lightdm
 
 # Ou forcer le rechargement du pilote (exemple NVIDIA) :
-sudo rmmod nvidia_drm nvidia_modeset nvidia
-sudo modprobe nvidia nvidia_modeset nvidia_drm
+sudo rmmod nvidia_drm nvidia_modeset nvidia  
+sudo modprobe nvidia nvidia_modeset nvidia_drm  
 ```
 
 ---
@@ -844,8 +844,8 @@ Menu → Préférences → **Paramètres système** → **Général**
 
 Cochez **"Vsync"** (si disponible)
 
-Ou dans les effets :
-Menu → Préférences → **Effets**
+Ou dans les effets :  
+Menu → Préférences → **Effets**  
 
 Activez la synchronisation verticale.
 
@@ -858,8 +858,8 @@ Activez la synchronisation verticale.
 pgrep -a cinnamon
 
 # Le redémarrer
-killall cinnamon
-nohup cinnamon --replace &
+killall cinnamon  
+nohup cinnamon --replace &  
 ```
 
 ---
@@ -974,8 +974,8 @@ watch -n 1 nvidia-smi
 ### radeontop (monitoring AMD)
 
 ```bash
-sudo apt install radeontop
-radeontop
+sudo apt install radeontop  
+radeontop  
 ```
 
 Équivalent de nvidia-smi pour AMD.
@@ -985,8 +985,8 @@ radeontop
 ### intel_gpu_top (monitoring Intel)
 
 ```bash
-sudo apt install intel-gpu-tools
-sudo intel_gpu_top
+sudo apt install intel-gpu-tools  
+sudo intel_gpu_top  
 ```
 
 Monitoring pour cartes Intel.
@@ -1119,8 +1119,8 @@ Si tout est cassé et que vous voulez repartir de zéro :
 sudo cp -r /etc/X11 /etc/X11.backup
 
 # Supprimer les configurations personnalisées
-sudo rm -rf /etc/X11/xorg.conf
-sudo rm -rf /etc/X11/xorg.conf.d/*.conf
+sudo rm -rf /etc/X11/xorg.conf  
+sudo rm -rf /etc/X11/xorg.conf.d/*.conf  
 
 # Laisser le système reconfigurer automatiquement
 sudo dpkg-reconfigure xserver-xorg
@@ -1138,8 +1138,8 @@ sudo reboot
 dconf reset -f /org/cinnamon/
 
 # Ou sauvegarder puis supprimer le dossier de config
-mv ~/.cinnamon ~/.cinnamon.backup
-mv ~/.config/cinnamon ~/.config/cinnamon.backup
+mv ~/.cinnamon ~/.cinnamon.backup  
+mv ~/.config/cinnamon ~/.config/cinnamon.backup  
 
 # Redémarrer la session
 ```
@@ -1163,8 +1163,8 @@ Ou pour un scaling personnalisé :
 gsettings set org.cinnamon.desktop.interface scaling-factor 2
 
 # Dans ~/.Xresources pour les apps X11
-echo "Xft.dpi: 144" >> ~/.Xresources
-xrdb -merge ~/.Xresources
+echo "Xft.dpi: 144" >> ~/.Xresources  
+xrdb -merge ~/.Xresources  
 ```
 
 ---
@@ -1212,12 +1212,12 @@ EndSection
 # Dans VirtualBox : Périphériques → Insérer l'image CD des Additions invité
 
 # Monter le CD
-sudo mkdir /mnt/cdrom
-sudo mount /dev/cdrom /mnt/cdrom
+sudo mkdir /mnt/cdrom  
+sudo mount /dev/cdrom /mnt/cdrom  
 
 # Installer
-cd /mnt/cdrom
-sudo sh ./VBoxLinuxAdditions.run
+cd /mnt/cdrom  
+sudo sh ./VBoxLinuxAdditions.run  
 
 # Redémarrer
 sudo reboot
@@ -1237,8 +1237,8 @@ Pour du matériel très récent, les pilotes du système peuvent être trop vieu
 
 ```bash
 # PPA Graphics Drivers
-sudo add-apt-repository ppa:graphics-drivers/ppa
-sudo apt update
+sudo add-apt-repository ppa:graphics-drivers/ppa  
+sudo apt update  
 
 # Lister les nouveaux pilotes disponibles
 ubuntu-drivers list
@@ -1324,8 +1324,8 @@ glxinfo | grep "OpenGL renderer"
 
 Pour signer (avancé) :
 ```bash
-sudo apt install mokutil
-sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
+sudo apt install mokutil  
+sudo mokutil --import /var/lib/shim-signed/mok/MOK.der  
 ```
 
 ---
@@ -1349,13 +1349,13 @@ sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
 
 ```bash
 # Carte graphique
-lspci | grep -i vga
-inxi -G
+lspci | grep -i vga  
+inxi -G  
 
 # Pilote actuel
-lsmod | grep -i nvidia  # NVIDIA
-lsmod | grep -i amdgpu  # AMD
-lsmod | grep -i i915    # Intel
+lsmod | grep -i nvidia  # NVIDIA  
+lsmod | grep -i amdgpu  # AMD  
+lsmod | grep -i i915    # Intel  
 
 # Renderer OpenGL
 glxinfo | grep "OpenGL renderer"
@@ -1403,15 +1403,15 @@ xrandr --output HDMI-1 --brightness 1.2
 sudo systemctl restart lightdm
 
 # Désinstaller NVIDIA
-sudo apt remove --purge nvidia-*
-sudo apt autoremove
+sudo apt remove --purge nvidia-*  
+sudo apt autoremove  
 
 # Reconfigurer X11
 sudo dpkg-reconfigure xserver-xorg
 
 # Logs graphiques
-cat /var/log/Xorg.0.log | grep -i error
-journalctl -b | grep -i gpu
+cat /var/log/Xorg.0.log | grep -i error  
+journalctl -b | grep -i gpu  
 ```
 
 ---
@@ -1440,8 +1440,8 @@ lspci | grep -i vga
 
 **☐ 2. Vérifier le pilote actuel**
 ```bash
-inxi -G
-glxinfo | grep "OpenGL renderer"
+inxi -G  
+glxinfo | grep "OpenGL renderer"  
 ```
 
 **☐ 3. Installer le bon pilote si nécessaire**

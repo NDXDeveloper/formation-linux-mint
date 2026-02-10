@@ -137,9 +137,9 @@ Si le problème persiste, vous devrez accéder au menu de récupération de GRUB
 
 Une fois le menu GRUB visible, vous verrez :
 ```
-Ubuntu (ou Linux Mint)
-Options avancées pour Ubuntu
-Memory test (memtest86+)
+Ubuntu (ou Linux Mint)  
+Options avancées pour Ubuntu  
+Memory test (memtest86+)  
 ```
 
 ---
@@ -184,8 +184,8 @@ Menu → Administration → Gestionnaire de pilotes
 - Généralement, les pilotes open-source fonctionnent bien
 - Assurez-vous que le système est à jour :
 ```bash
-sudo apt update
-sudo apt upgrade
+sudo apt update  
+sudo apt upgrade  
 ```
 
 ---
@@ -223,8 +223,8 @@ Remplacez `1920x1080` par la résolution native de votre écran.
 
 #### Symptôme :
 ```
-error: no such partition
-grub rescue>
+error: no such partition  
+grub rescue>  
 ```
 
 Cela signifie que GRUB ne trouve plus la partition où Linux est installé.
@@ -249,9 +249,9 @@ Vous verrez quelque chose comme :
 
 Testez chaque partition pour trouver celle de Linux :
 ```
-ls (hd0,gpt1)/
-ls (hd0,gpt2)/
-ls (hd0,gpt3)/
+ls (hd0,gpt1)/  
+ls (hd0,gpt2)/  
+ls (hd0,gpt3)/  
 ```
 
 Cherchez celle qui contient un dossier `/boot` ou `/boot/grub`.
@@ -260,10 +260,10 @@ Cherchez celle qui contient un dossier `/boot` ou `/boot/grub`.
 
 Une fois la bonne partition trouvée (par exemple hd0,gpt2) :
 ```
-set prefix=(hd0,gpt2)/boot/grub
-set root=(hd0,gpt2)
-insmod normal
-normal
+set prefix=(hd0,gpt2)/boot/grub  
+set root=(hd0,gpt2)  
+insmod normal  
+normal  
 ```
 
 Cela devrait charger le menu GRUB normal.
@@ -348,8 +348,8 @@ Parfois, un fichier de configuration corrompu empêche la connexion :
 cd ~
 
 # Renommer (sauvegarder) les fichiers de configuration
-mv .Xauthority .Xauthority.backup
-mv .ICEauthority .ICEauthority.backup
+mv .Xauthority .Xauthority.backup  
+mv .ICEauthority .ICEauthority.backup  
 
 # Si vous utilisez Cinnamon
 mv .cinnamon .cinnamon.backup
@@ -424,21 +424,21 @@ Vous pouvez maintenant :
 
 **Mettre à jour le système :**
 ```bash
-apt update
-apt upgrade
+apt update  
+apt upgrade  
 ```
 
 **Réparer les paquets cassés :**
 ```bash
-dpkg --configure -a
-apt --fix-broken install
+dpkg --configure -a  
+apt --fix-broken install  
 ```
 
 **Vérifier l'espace disque :**
 ```bash
-df -h
-apt clean
-apt autoremove
+df -h  
+apt clean  
+apt autoremove  
 ```
 
 **Recréer le fichier initramfs (image de démarrage) :**
@@ -481,8 +481,8 @@ blkid
 **Solution rapide :**
 ```bash
 # En mode recovery, shell root
-systemctl status lightdm  # Voir l'erreur
-systemctl restart lightdm  # Essayer de redémarrer
+systemctl status lightdm  # Voir l'erreur  
+systemctl restart lightdm  # Essayer de redémarrer  
 
 # Si ça ne fonctionne pas, réinstaller
 apt install --reinstall lightdm

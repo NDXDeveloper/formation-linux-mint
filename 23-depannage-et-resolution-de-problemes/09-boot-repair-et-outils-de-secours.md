@@ -47,8 +47,8 @@ Boot-repair est **l'outil numéro 1** pour réparer les problèmes de démarrage
 - Génère des rapports de diagnostic
 - Fonctionne depuis une clé USB Live
 
-**Créé par :** YannUbuntu (développeur français)
-**Licence :** Open source (GPL)
+**Créé par :** YannUbuntu (développeur français)  
+**Licence :** Open source (GPL)  
 
 ---
 
@@ -93,9 +93,9 @@ Si vous avez déjà une clé USB Linux Mint :
 4. **Installez Boot-repair :**
 
 ```bash
-sudo add-apt-repository ppa:yannubuntu/boot-repair
-sudo apt update
-sudo apt install -y boot-repair
+sudo add-apt-repository ppa:yannubuntu/boot-repair  
+sudo apt update  
+sudo apt install -y boot-repair  
 ```
 
 5. **Lancez Boot-repair :**
@@ -353,8 +353,8 @@ testdisk
 photorec
 
 # Voir les disques
-lsblk
-fdisk -l
+lsblk  
+fdisk -l  
 
 # Monter une partition
 mount /dev/sda1 /mnt
@@ -371,8 +371,8 @@ mount /dev/sda1 /mnt
 e2fsck -f /dev/sda1
 
 # Pour autres systèmes de fichiers
-fsck /dev/sda1  # Générique
-ntfsfix /dev/sda1  # NTFS (Windows)
+fsck /dev/sda1  # Générique  
+ntfsfix /dev/sda1  # NTFS (Windows)  
 ```
 
 ---
@@ -516,8 +516,8 @@ sudo photorec
 
 ### Types de Clonezilla
 
-**Clonezilla Live :** Pour un utilisateur unique
-**Clonezilla SE (Server Edition) :** Pour clonage en réseau
+**Clonezilla Live :** Pour un utilisateur unique  
+**Clonezilla SE (Server Edition) :** Pour clonage en réseau  
 
 Nous nous concentrons sur **Clonezilla Live**.
 

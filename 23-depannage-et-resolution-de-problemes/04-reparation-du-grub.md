@@ -30,13 +30,13 @@ Vous avez probablement déjà vu GRUB sans le savoir :
 ```
                     GNU GRUB version 2.06
 
-Ubuntu
-Options avancées pour Ubuntu
-Windows Boot Manager (sur /dev/sda1)
-Memory test (memtest86+)
+Ubuntu  
+Options avancées pour Ubuntu  
+Windows Boot Manager (sur /dev/sda1)  
+Memory test (memtest86+)  
 
-Use ↑ and ↓ to select which entry is highlighted.
-Press enter to boot the selected OS...
+Use ↑ and ↓ to select which entry is highlighted.  
+Press enter to boot the selected OS...  
 ```
 
 C'est cet écran avec fond noir (ou violet) qui liste vos systèmes d'exploitation.
@@ -63,9 +63,9 @@ Comment savoir si votre problème vient de GRUB ?
 
 **Ce que vous voyez :**
 ```
-error: no such partition
-Entering rescue mode...
-grub rescue>
+error: no such partition  
+Entering rescue mode...  
+grub rescue>  
 ```
 
 **Ce que ça signifie :**
@@ -241,13 +241,13 @@ sudo update-grub
 **Résultat attendu :**
 
 ```
-Sourcing file `/etc/default/grub'
-Sourcing file `/etc/default/grub.d/50_linuxmint.cfg'
-Generating grub configuration file ...
-Found linux image: /boot/vmlinuz-5.15.0-91-generic
-Found initrd image: /boot/initrd.img-5.15.0-91-generic
-Found Windows Boot Manager on /dev/sda1
-done
+Sourcing file `/etc/default/grub'  
+Sourcing file `/etc/default/grub.d/50_linuxmint.cfg'  
+Generating grub configuration file ...  
+Found linux image: /boot/vmlinuz-5.15.0-91-generic  
+Found initrd image: /boot/initrd.img-5.15.0-91-generic  
+Found Windows Boot Manager on /dev/sda1  
+done  
 ```
 
 La ligne **"Found Windows Boot Manager"** confirme que Windows a été détecté.
@@ -307,9 +307,9 @@ Si vous voyez des réponses, c'est bon.
 Ouvrez un terminal et tapez (ligne par ligne) :
 
 ```bash
-sudo add-apt-repository ppa:yannubuntu/boot-repair
-sudo apt update
-sudo apt install -y boot-repair
+sudo add-apt-repository ppa:yannubuntu/boot-repair  
+sudo apt update  
+sudo apt install -y boot-repair  
 ```
 
 **Note :** Ces commandes sont sûres, elles ne modifient rien encore.
@@ -394,8 +394,8 @@ lsblk
 
 **Exemple de sortie :**
 ```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0   500G  0 disk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT  
+sda      8:0    0   500G  0 disk  
 ├─sda1   8:1    0   512M  0 part         ← Partition EFI (si UEFI)
 ├─sda2   8:2    0   100G  0 part         ← Windows
 └─sda3   8:3    0   400G  0 part         ← Linux Mint
@@ -432,10 +432,10 @@ Vous devriez voir : `bin  boot  dev  etc  home  lib  ...`
 Ces montages permettent à chroot de fonctionner correctement :
 
 ```bash
-sudo mount --bind /dev /mnt/linux/dev
-sudo mount --bind /dev/pts /mnt/linux/dev/pts
-sudo mount --bind /proc /mnt/linux/proc
-sudo mount --bind /sys /mnt/linux/sys
+sudo mount --bind /dev /mnt/linux/dev  
+sudo mount --bind /dev/pts /mnt/linux/dev/pts  
+sudo mount --bind /proc /mnt/linux/proc  
+sudo mount --bind /sys /mnt/linux/sys  
 ```
 
 ### Étape 5 : Monter la partition EFI (UNIQUEMENT si UEFI)
@@ -488,12 +488,12 @@ update-grub
 **Résultat attendu :**
 
 ```
-Installing for x86_64-efi platform.
-Installation finished. No error reported.
-Sourcing file `/etc/default/grub'
+Installing for x86_64-efi platform.  
+Installation finished. No error reported.  
+Sourcing file `/etc/default/grub'  
 ...
-Found Windows Boot Manager on /dev/sda2
-done
+Found Windows Boot Manager on /dev/sda2  
+done  
 ```
 
 ### Étape 8 : Sortir de chroot et démonter
@@ -503,12 +503,12 @@ done
 exit
 
 # Démonter dans l'ordre inverse
-sudo umount /mnt/linux/boot/efi  # Si UEFI seulement
-sudo umount /mnt/linux/dev/pts
-sudo umount /mnt/linux/dev
-sudo umount /mnt/linux/proc
-sudo umount /mnt/linux/sys
-sudo umount /mnt/linux
+sudo umount /mnt/linux/boot/efi  # Si UEFI seulement  
+sudo umount /mnt/linux/dev/pts  
+sudo umount /mnt/linux/dev  
+sudo umount /mnt/linux/proc  
+sudo umount /mnt/linux/sys  
+sudo umount /mnt/linux  
 ```
 
 ### Étape 9 : Redémarrer
@@ -541,9 +541,9 @@ ls
 Testez chaque partition pour trouver celle qui contient Linux :
 
 ```
-ls (hd0,gpt1)/
-ls (hd0,gpt2)/
-ls (hd0,gpt3)/
+ls (hd0,gpt1)/  
+ls (hd0,gpt2)/  
+ls (hd0,gpt3)/  
 ```
 
 Cherchez celle qui affiche des dossiers comme `boot`, `etc`, `home`, `usr`.
@@ -553,10 +553,10 @@ Cherchez celle qui affiche des dossiers comme `boot`, `etc`, `home`, `usr`.
 ### Étape 2 : Configurer GRUB temporairement
 
 ```
-set prefix=(hd0,gpt3)/boot/grub
-set root=(hd0,gpt3)
-insmod normal
-normal
+set prefix=(hd0,gpt3)/boot/grub  
+set root=(hd0,gpt3)  
+insmod normal  
+normal  
 ```
 
 **Remplacez (hd0,gpt3) par votre partition identifiée à l'étape 1.**
@@ -572,8 +572,8 @@ Sélectionnez Linux Mint et démarrez.
 Une fois Linux démarré, ouvrez un terminal :
 
 ```bash
-sudo update-grub
-sudo grub-install /dev/sda  # Remplacez sda par votre disque
+sudo update-grub  
+sudo grub-install /dev/sda  # Remplacez sda par votre disque  
 ```
 
 **Redémarrez** pour vérifier que c'est réparé définitivement.
@@ -616,8 +616,8 @@ sudo update-grub
 sudo apt install --reinstall os-prober
 
 # Forcer la détection
-sudo os-prober
-sudo update-grub
+sudo os-prober  
+sudo update-grub  
 ```
 
 ---
@@ -663,8 +663,8 @@ sudo mount /dev/sda1 /mnt  # Remplacez sda1 par votre partition EFI
 sudo cp -r /mnt/EFI /mnt/EFI.backup
 
 # Supprimer les anciennes entrées Ubuntu/Linux
-sudo rm -rf /mnt/EFI/ubuntu.old
-sudo rm -rf /mnt/EFI/debian
+sudo rm -rf /mnt/EFI/ubuntu.old  
+sudo rm -rf /mnt/EFI/debian  
 
 # Vérifier l'espace
 df -h /mnt
@@ -672,8 +672,8 @@ df -h /mnt
 
 3. Réinstaller GRUB :
 ```bash
-sudo grub-install /dev/sda
-sudo update-grub
+sudo grub-install /dev/sda  
+sudo update-grub  
 ```
 
 ---
@@ -694,8 +694,8 @@ sudo update-grub
 Si vous voulez garder Secure Boot activé :
 
 ```bash
-sudo apt install shim-signed grub-efi-amd64-signed
-sudo update-grub
+sudo apt install shim-signed grub-efi-amd64-signed  
+sudo update-grub  
 ```
 
 ---
@@ -854,16 +854,16 @@ Gardez toujours une clé USB bootable de Linux Mint à jour.
 
 ```bash
 # Créer une sauvegarde
-sudo cp -r /boot/grub /boot/grub.backup
-sudo cp /etc/default/grub /etc/default/grub.backup
+sudo cp -r /boot/grub /boot/grub.backup  
+sudo cp /etc/default/grub /etc/default/grub.backup  
 ```
 
 ### Bonne pratique 4 : Noter votre configuration de partitions
 
 Documentez vos partitions :
 ```bash
-lsblk > ~/mes-partitions.txt
-sudo blkid >> ~/mes-partitions.txt
+lsblk > ~/mes-partitions.txt  
+sudo blkid >> ~/mes-partitions.txt  
 ```
 
 Gardez ce fichier sur un cloud ou une clé USB.
@@ -883,9 +883,9 @@ Dans Windows, vous pouvez désactiver les modifications du bootloader (GPO ou re
 Un outil graphique pour configurer GRUB sans éditer des fichiers :
 
 ```bash
-sudo add-apt-repository ppa:danielrichter2007/grub-customizer
-sudo apt update
-sudo apt install grub-customizer
+sudo add-apt-repository ppa:danielrichter2007/grub-customizer  
+sudo apt update  
+sudo apt install grub-customizer  
 ```
 
 **Lancement :**
@@ -980,9 +980,9 @@ Super GRUB2 Disk peut démarrer votre système même si GRUB est complètement c
 [ -d /sys/firmware/efi ] && echo "UEFI" || echo "BIOS Legacy"
 
 # Lister les partitions
-lsblk
-sudo fdisk -l
-sudo blkid
+lsblk  
+sudo fdisk -l  
+sudo blkid  
 
 # Entrées de boot UEFI
 sudo efibootmgr -v
@@ -1008,9 +1008,9 @@ sudo grub-install --version
 sudo mount /dev/sdXY /mnt
 
 # Monter les systèmes virtuels
-sudo mount --bind /dev /mnt/dev
-sudo mount --bind /proc /mnt/proc
-sudo mount --bind /sys /mnt/sys
+sudo mount --bind /dev /mnt/dev  
+sudo mount --bind /proc /mnt/proc  
+sudo mount --bind /sys /mnt/sys  
 
 # Si UEFI, monter EFI
 sudo mount /dev/sdXY /mnt/boot/efi
@@ -1019,18 +1019,18 @@ sudo mount /dev/sdXY /mnt/boot/efi
 sudo chroot /mnt
 
 # Réparer GRUB
-grub-install /dev/sdX
-update-grub
+grub-install /dev/sdX  
+update-grub  
 
 # Sortir
 exit
 
 # Démonter tout
-sudo umount /mnt/boot/efi
-sudo umount /mnt/dev
-sudo umount /mnt/proc
-sudo umount /mnt/sys
-sudo umount /mnt
+sudo umount /mnt/boot/efi  
+sudo umount /mnt/dev  
+sudo umount /mnt/proc  
+sudo umount /mnt/sys  
+sudo umount /mnt  
 ```
 
 ---

@@ -449,10 +449,10 @@ Compétence
               problèmes    régulière
 ```
 
-**Au début :** Tout semble compliqué, vous avez besoin d'aide.
-**Après quelques problèmes :** Vous commencez à reconnaître des patterns.
-**Avec la pratique :** Vous devenez autonome sur les problèmes courants.
-**Expert :** Vous aidez les autres et contribuez à la communauté.
+**Au début :** Tout semble compliqué, vous avez besoin d'aide.  
+**Après quelques problèmes :** Vous commencez à reconnaître des patterns.  
+**Avec la pratique :** Vous devenez autonome sur les problèmes courants.  
+**Expert :** Vous aidez les autres et contribuez à la communauté.  
 
 **Message d'encouragement :** Chacun a commencé débutant. Avec de la pratique et de la patience, vous progresserez rapidement.
 

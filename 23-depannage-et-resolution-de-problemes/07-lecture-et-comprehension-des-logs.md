@@ -124,9 +124,9 @@ journalctl -b
 
 **Variantes :**
 ```bash
-journalctl -b 0   # Démarrage actuel
-journalctl -b -1  # Démarrage précédent
-journalctl -b -2  # Avant-dernier démarrage
+journalctl -b 0   # Démarrage actuel  
+journalctl -b -1  # Démarrage précédent  
+journalctl -b -2  # Avant-dernier démarrage  
 ```
 
 **Lister les démarrages :**
@@ -207,10 +207,10 @@ journalctl --since "60 minutes ago"
 journalctl -u nom-du-service
 
 # Exemples :
-journalctl -u apache2         # Serveur web
-journalctl -u bluetooth       # Bluetooth
-journalctl -u NetworkManager  # Gestion réseau
-journalctl -u lightdm         # Gestionnaire d'affichage
+journalctl -u apache2         # Serveur web  
+journalctl -u bluetooth       # Bluetooth  
+journalctl -u NetworkManager  # Gestion réseau  
+journalctl -u lightdm         # Gestionnaire d'affichage  
 ```
 
 **Combiner avec temps réel :**
@@ -229,8 +229,8 @@ journalctl _PID=1234
 
 **Trouver le PID d'abord :**
 ```bash
-pidof firefox
-journalctl _PID=$(pidof firefox)
+pidof firefox  
+journalctl _PID=$(pidof firefox)  
 ```
 
 ---
@@ -386,8 +386,8 @@ sudo journalctl --vacuum-files=5
 sudo nano /etc/systemd/journald.conf
 
 # Décommenter et modifier :
-SystemMaxUse=500M
-MaxRetentionSec=7day
+SystemMaxUse=500M  
+MaxRetentionSec=7day  
 
 # Redémarrer le service
 sudo systemctl restart systemd-journald
@@ -415,8 +415,8 @@ journalctl -b > ~/logs-boot.txt
 #### Format JSON (pour analyse automatisée)
 
 ```bash
-journalctl -o json > ~/logs.json
-journalctl -o json-pretty > ~/logs-readable.json
+journalctl -o json > ~/logs.json  
+journalctl -o json-pretty > ~/logs-readable.json  
 ```
 
 ---
@@ -923,8 +923,8 @@ journalctl -u NetworkManager --since "30 minutes ago"
 journalctl | grep -i "disconnected\|down"
 
 # État actuel du réseau
-ip link show
-nmcli device status
+ip link show  
+nmcli device status  
 
 # Logs kernel réseau
 dmesg | grep -i "network\|eth\|wlan"
@@ -969,8 +969,8 @@ journalctl | grep -i "segfault" | grep -i firefox
 grep -i firefox /var/log/syslog
 
 # Vérifier les core dumps
-coredumpctl list
-coredumpctl info firefox
+coredumpctl list  
+coredumpctl info firefox  
 ```
 
 ---
@@ -1047,8 +1047,8 @@ grep -c "error" /var/log/syslog
 journalctl -b | awk '{print $5}' | sort | uniq -c | sort -nr | head -10
 
 # Compter par niveau de gravité
-journalctl -b | grep -c "ERROR"
-journalctl -b | grep -c "WARNING"
+journalctl -b | grep -c "ERROR"  
+journalctl -b | grep -c "WARNING"  
 ```
 
 ---
@@ -1091,9 +1091,9 @@ dmesg -w  # (-w = wait, suivi en temps réel)
 Ces messages sont normaux et peuvent être ignorés :
 
 ```
-systemd[1]: Starting User Manager for UID 1000...
-NetworkManager[567]: <info> device (wlan0): state change: activated -> activated
-CRON[1234]: (root) CMD (/usr/lib/update-notifier/update-motd-updates-available)
+systemd[1]: Starting User Manager for UID 1000...  
+NetworkManager[567]: <info> device (wlan0): state change: activated -> activated  
+CRON[1234]: (root) CMD (/usr/lib/update-notifier/update-motd-updates-available)  
 ```
 
 **Caractéristiques :**
@@ -1106,9 +1106,9 @@ CRON[1234]: (root) CMD (/usr/lib/update-notifier/update-motd-updates-available)
 ### Messages à surveiller (warnings)
 
 ```
-kernel: [Hardware Error]: Machine check events logged
-systemd[1]: Unit some-service.service entered failed state
-NetworkManager[567]: <warn> connection timeout
+kernel: [Hardware Error]: Machine check events logged  
+systemd[1]: Unit some-service.service entered failed state  
+NetworkManager[567]: <warn> connection timeout  
 ```
 
 **Caractéristiques :**
@@ -1121,10 +1121,10 @@ NetworkManager[567]: <warn> connection timeout
 ### Messages critiques (à traiter)
 
 ```
-kernel: Out of memory: Kill process 1234 (firefox) score 856 or sacrifice child
-systemd[1]: Failed to start Apache Web Server.
-kernel: I/O error, dev sda, sector 12345678
-SMART: Device: /dev/sda, 1 Currently unreadable sectors
+kernel: Out of memory: Kill process 1234 (firefox) score 856 or sacrifice child  
+systemd[1]: Failed to start Apache Web Server.  
+kernel: I/O error, dev sda, sector 12345678  
+SMART: Device: /dev/sda, 1 Currently unreadable sectors  
 ```
 
 **Caractéristiques :**
@@ -1218,9 +1218,9 @@ mkdir -p ~/logs-backup-$(date +%Y%m%d)
 journalctl -b > ~/logs-backup-$(date +%Y%m%d)/journalctl.txt
 
 # Sauvegarder les logs principaux
-sudo cp /var/log/syslog ~/logs-backup-$(date +%Y%m%d)/
-sudo cp /var/log/auth.log ~/logs-backup-$(date +%Y%m%d)/
-sudo cp /var/log/Xorg.0.log ~/logs-backup-$(date +%Y%m%d)/
+sudo cp /var/log/syslog ~/logs-backup-$(date +%Y%m%d)/  
+sudo cp /var/log/auth.log ~/logs-backup-$(date +%Y%m%d)/  
+sudo cp /var/log/Xorg.0.log ~/logs-backup-$(date +%Y%m%d)/  
 ```
 
 ---
@@ -1231,11 +1231,11 @@ Ajoutez dans `~/.bashrc` :
 
 ```bash
 # Alias pour logs
-alias logerr='journalctl -p err -xe'
-alias logboot='journalctl -b -xe'
-alias logfollow='journalctl -f'
-alias logsyslog='sudo tail -f /var/log/syslog'
-alias logauth='sudo tail -f /var/log/auth.log'
+alias logerr='journalctl -p err -xe'  
+alias logboot='journalctl -b -xe'  
+alias logfollow='journalctl -f'  
+alias logsyslog='sudo tail -f /var/log/syslog'  
+alias logauth='sudo tail -f /var/log/auth.log'  
 ```
 
 Rechargez :
@@ -1306,8 +1306,8 @@ Afficher plusieurs logs côte à côte.
 sudo apt install multitail
 
 # Exemples
-multitail /var/log/syslog /var/log/auth.log
-multitail -s 2 /var/log/syslog /var/log/kern.log  # 2 colonnes
+multitail /var/log/syslog /var/log/auth.log  
+multitail -s 2 /var/log/syslog /var/log/kern.log  # 2 colonnes  
 ```
 
 ---
@@ -1418,58 +1418,58 @@ sudo systemctl restart NetworkManager
 
 ```bash
 # Basique
-journalctl                    # Tous les logs
-journalctl -b                 # Depuis le dernier boot
-journalctl -f                 # Temps réel
-journalctl -xe                # Fin + explications
+journalctl                    # Tous les logs  
+journalctl -b                 # Depuis le dernier boot  
+journalctl -f                 # Temps réel  
+journalctl -xe                # Fin + explications  
 
 # Filtres
-journalctl -p err             # Uniquement erreurs
-journalctl -u apache2         # Service spécifique
-journalctl --since "1h ago"   # Depuis 1h
-journalctl -n 50              # 50 dernières lignes
+journalctl -p err             # Uniquement erreurs  
+journalctl -u apache2         # Service spécifique  
+journalctl --since "1h ago"   # Depuis 1h  
+journalctl -n 50              # 50 dernières lignes  
 
 # Combinaisons
-journalctl -b -p err -xe      # Erreurs du boot avec explications
-journalctl -u nginx -f        # Nginx en temps réel
+journalctl -b -p err -xe      # Erreurs du boot avec explications  
+journalctl -u nginx -f        # Nginx en temps réel  
 
 # Gestion
-journalctl --disk-usage       # Espace utilisé
-sudo journalctl --vacuum-time=7d  # Nettoyer (garder 7j)
+journalctl --disk-usage       # Espace utilisé  
+sudo journalctl --vacuum-time=7d  # Nettoyer (garder 7j)  
 ```
 
 ### /var/log
 
 ```bash
 # Lecture
-tail /var/log/syslog          # Dernières lignes
-tail -f /var/log/syslog       # Temps réel
-less /var/log/syslog          # Navigation
-grep "error" /var/log/syslog  # Recherche
+tail /var/log/syslog          # Dernières lignes  
+tail -f /var/log/syslog       # Temps réel  
+less /var/log/syslog          # Navigation  
+grep "error" /var/log/syslog  # Recherche  
 
 # Logs spécifiques
-sudo tail /var/log/auth.log   # Authentifications
-tail /var/log/kern.log        # Kernel
-tail /var/log/Xorg.0.log      # Serveur X
-tail /var/log/apt/history.log # Installations
+sudo tail /var/log/auth.log   # Authentifications  
+tail /var/log/kern.log        # Kernel  
+tail /var/log/Xorg.0.log      # Serveur X  
+tail /var/log/apt/history.log # Installations  
 
 # Archives
-zcat /var/log/syslog.2.gz     # Lire .gz
-zgrep "error" /var/log/syslog*.gz  # Chercher dans .gz
+zcat /var/log/syslog.2.gz     # Lire .gz  
+zgrep "error" /var/log/syslog*.gz  # Chercher dans .gz  
 ```
 
 ### Recherche
 
 ```bash
 # Grep basique
-grep "error" fichier.log
-grep -i "error" fichier.log   # Ignore casse
-grep -r "error" /var/log/     # Récursif
+grep "error" fichier.log  
+grep -i "error" fichier.log   # Ignore casse  
+grep -r "error" /var/log/     # Récursif  
 
 # Grep avancé
-grep -C 3 "error" fichier     # 3 lignes de contexte
-grep -v "normal" fichier      # Inverse (exclure)
-grep -E "error|fail" fichier  # Plusieurs mots (regex)
+grep -C 3 "error" fichier     # 3 lignes de contexte  
+grep -v "normal" fichier      # Inverse (exclure)  
+grep -E "error|fail" fichier  # Plusieurs mots (regex)  
 ```
 
 ---
@@ -1482,8 +1482,8 @@ grep -E "error|fail" fichier  # Plusieurs mots (regex)
 
 **☐ 2. Commencer par journalctl**
 ```bash
-journalctl -xe
-journalctl -b -p err
+journalctl -xe  
+journalctl -b -p err  
 ```
 
 **☐ 3. Si problème spécifique à un service**

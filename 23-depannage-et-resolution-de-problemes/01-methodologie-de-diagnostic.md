@@ -280,9 +280,9 @@ Titre : Écran noir après mise à jour des pilotes NVIDIA sur Linux Mint 21.3
 
 Bonjour,
 
-Depuis la mise à jour de mes pilotes NVIDIA hier via le
-Gestionnaire de pilotes, mon écran reste noir après le logo
-de démarrage de Linux Mint.
+Depuis la mise à jour de mes pilotes NVIDIA hier via le  
+Gestionnaire de pilotes, mon écran reste noir après le logo  
+de démarrage de Linux Mint.  
 
 Configuration :
 - Linux Mint 21.3 Cinnamon
