@@ -62,8 +62,8 @@ Un serveur de fichiers est un ordinateur configuré pour partager des fichiers e
 Ouvrez un terminal et installez Samba :
 
 ```bash
-sudo apt update
-sudo apt install samba samba-common-bin
+sudo apt update  
+sudo apt install samba samba-common-bin  
 ```
 
 Vérifiez que Samba est installé :
@@ -136,15 +136,15 @@ Entrez un mot de passe (peut être différent de votre mot de passe Linux).
 ### Redémarrer Samba
 
 ```bash
-sudo systemctl restart smbd
-sudo systemctl restart nmbd
+sudo systemctl restart smbd  
+sudo systemctl restart nmbd  
 ```
 
 Activez Samba au démarrage :
 
 ```bash
-sudo systemctl enable smbd
-sudo systemctl enable nmbd
+sudo systemctl enable smbd  
+sudo systemctl enable nmbd  
 ```
 
 ### Configurer le pare-feu
@@ -251,16 +251,16 @@ Vous pouvez créer autant de partages que vous voulez. Dans `/etc/samba/smb.conf
 #### Créer des utilisateurs Samba
 
 ```bash
-sudo smbpasswd -a utilisateur2
-sudo smbpasswd -a utilisateur3
+sudo smbpasswd -a utilisateur2  
+sudo smbpasswd -a utilisateur3  
 ```
 
 #### Créer un groupe
 
 ```bash
-sudo groupadd partage
-sudo usermod -aG partage utilisateur1
-sudo usermod -aG partage utilisateur2
+sudo groupadd partage  
+sudo usermod -aG partage utilisateur1  
+sudo usermod -aG partage utilisateur2  
 ```
 
 #### Configurer le partage pour un groupe
@@ -277,9 +277,9 @@ sudo usermod -aG partage utilisateur2
 N'oubliez pas de créer le dossier et d'ajuster les permissions :
 
 ```bash
-sudo mkdir /home/partage_commun
-sudo chgrp partage /home/partage_commun
-sudo chmod 770 /home/partage_commun
+sudo mkdir /home/partage_commun  
+sudo chgrp partage /home/partage_commun  
+sudo chmod 770 /home/partage_commun  
 ```
 
 ### Partage en lecture seule
@@ -325,8 +325,8 @@ Nous utiliserons **vsftpd** pour ce tutoriel.
 ### Installation de vsftpd
 
 ```bash
-sudo apt update
-sudo apt install vsftpd
+sudo apt update  
+sudo apt install vsftpd  
 ```
 
 ### Configuration de base
@@ -365,18 +365,18 @@ allow_writeable_chroot=YES
 ftpd_banner=Bienvenue sur mon serveur FTP
 
 # Port FTP passif (important pour les pare-feu)
-pasv_enable=YES
-pasv_min_port=40000
-pasv_max_port=40100
+pasv_enable=YES  
+pasv_min_port=40000  
+pasv_max_port=40100  
 
 # Logs
-xferlog_enable=YES
-xferlog_file=/var/log/vsftpd.log
+xferlog_enable=YES  
+xferlog_file=/var/log/vsftpd.log  
 
 # Sécurité : liste d'utilisateurs autorisés
-userlist_enable=YES
-userlist_file=/etc/vsftpd.userlist
-userlist_deny=NO
+userlist_enable=YES  
+userlist_file=/etc/vsftpd.userlist  
+userlist_deny=NO  
 ```
 
 Sauvegardez et quittez.
@@ -390,8 +390,8 @@ sudo nano /etc/vsftpd.userlist
 Ajoutez les noms d'utilisateurs, un par ligne :
 
 ```
-utilisateur1
-utilisateur2
+utilisateur1  
+utilisateur2  
 ```
 
 Ces utilisateurs doivent être des utilisateurs Linux existants.
@@ -415,8 +415,8 @@ echo "ftpuser" | sudo tee -a /etc/vsftpd.userlist
 ### Redémarrer vsftpd
 
 ```bash
-sudo systemctl restart vsftpd
-sudo systemctl enable vsftpd
+sudo systemctl restart vsftpd  
+sudo systemctl enable vsftpd  
 ```
 
 ### Configurer le pare-feu
@@ -424,9 +424,9 @@ sudo systemctl enable vsftpd
 Autorisez FTP :
 
 ```bash
-sudo ufw allow 20/tcp
-sudo ufw allow 21/tcp
-sudo ufw allow 40000:40100/tcp
+sudo ufw allow 20/tcp  
+sudo ufw allow 21/tcp  
+sudo ufw allow 40000:40100/tcp  
 ```
 
 **Explication :**
@@ -445,8 +445,8 @@ ftp localhost
 Entrez votre nom d'utilisateur et mot de passe. Si ça fonctionne :
 
 ```
-ftp> ls
-ftp> bye
+ftp> ls  
+ftp> bye  
 ```
 
 #### Avec un client graphique
@@ -505,23 +505,23 @@ Ajoutez à la fin :
 
 ```ini
 # Activer SSL
-rsa_cert_file=/etc/ssl/certs/vsftpd.crt
-rsa_private_key_file=/etc/ssl/private/vsftpd.key
-ssl_enable=YES
+rsa_cert_file=/etc/ssl/certs/vsftpd.crt  
+rsa_private_key_file=/etc/ssl/private/vsftpd.key  
+ssl_enable=YES  
 
 # Forcer SSL pour les connexions
-allow_anon_ssl=NO
-force_local_data_ssl=YES
-force_local_logins_ssl=YES
+allow_anon_ssl=NO  
+force_local_data_ssl=YES  
+force_local_logins_ssl=YES  
 
 # Protocoles SSL
-ssl_tlsv1=YES
-ssl_sslv2=NO
-ssl_sslv3=NO
+ssl_tlsv1=YES  
+ssl_sslv2=NO  
+ssl_sslv3=NO  
 
 # Exiger SSL
-require_ssl_reuse=NO
-ssl_ciphers=HIGH
+require_ssl_reuse=NO  
+ssl_ciphers=HIGH  
 ```
 
 Redémarrez :
@@ -560,12 +560,12 @@ sftp utilisateur@192.168.1.100
 
 Commandes :
 ```
-sftp> ls              # Lister fichiers distants
-sftp> cd dossier      # Changer de dossier
-sftp> get fichier     # Télécharger
-sftp> put fichier     # Envoyer
-sftp> mkdir nouveau   # Créer dossier
-sftp> bye             # Quitter
+sftp> ls              # Lister fichiers distants  
+sftp> cd dossier      # Changer de dossier  
+sftp> get fichier     # Télécharger  
+sftp> put fichier     # Envoyer  
+sftp> mkdir nouveau   # Créer dossier  
+sftp> bye             # Quitter  
 ```
 
 #### Avec FileZilla
@@ -638,8 +638,8 @@ Exemple d'utilisation avec DuckDNS :
 3. Installez le client :
 
 ```bash
-mkdir ~/duckdns
-cd ~/duckdns
+mkdir ~/duckdns  
+cd ~/duckdns  
 ```
 
 Créez un script :
@@ -717,8 +717,8 @@ local_max_rate=1000000
 ### Limiter le nombre de connexions
 
 ```ini
-max_clients=10
-max_per_ip=2
+max_clients=10  
+max_per_ip=2  
 ```
 
 ---
@@ -774,10 +774,10 @@ nano ~/ftp_backup.sh
 
 ```bash
 #!/bin/bash
-lftp -u utilisateur,motdepasse ftp://192.168.1.100 <<EOF
-mirror -R ~/Documents /Backup/Documents
-bye
-EOF
+lftp -u utilisateur,motdepasse ftp://192.168.1.100 <<EOF  
+mirror -R ~/Documents /Backup/Documents  
+bye  
+EOF  
 ```
 
 ---
@@ -789,8 +789,8 @@ EOF
 Vérifiez les permissions :
 
 ```bash
-ls -la ~/Partage
-sudo chmod 755 ~/Partage
+ls -la ~/Partage  
+sudo chmod 755 ~/Partage  
 ```
 
 Vérifiez les utilisateurs Samba :
@@ -840,9 +840,9 @@ cat /etc/vsftpd.userlist
 Vérifiez les ports passifs dans `/etc/vsftpd.conf` :
 
 ```ini
-pasv_enable=YES
-pasv_min_port=40000
-pasv_max_port=40100
+pasv_enable=YES  
+pasv_min_port=40000  
+pasv_max_port=40100  
 ```
 
 Et dans le pare-feu :
@@ -856,8 +856,8 @@ sudo ufw allow 40000:40100/tcp
 Vérifiez les permissions SSH :
 
 ```bash
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/authorized_keys
+chmod 700 ~/.ssh  
+chmod 600 ~/.ssh/authorized_keys  
 ```
 
 ### Samba : Performances lentes
@@ -935,28 +935,28 @@ Si gérer un serveur de fichiers vous semble trop complexe, considérez ces alte
 
 ### Samba
 ```bash
-sudo systemctl start smbd nmbd      # Démarrer
-sudo systemctl stop smbd nmbd       # Arrêter
-sudo systemctl restart smbd nmbd    # Redémarrer
-sudo smbpasswd -a utilisateur       # Ajouter utilisateur
-sudo smbstatus                      # Voir connexions
-testparm                            # Tester configuration
+sudo systemctl start smbd nmbd      # Démarrer  
+sudo systemctl stop smbd nmbd       # Arrêter  
+sudo systemctl restart smbd nmbd    # Redémarrer  
+sudo smbpasswd -a utilisateur       # Ajouter utilisateur  
+sudo smbstatus                      # Voir connexions  
+testparm                            # Tester configuration  
 ```
 
 ### vsftpd
 ```bash
-sudo systemctl start vsftpd         # Démarrer
-sudo systemctl stop vsftpd          # Arrêter
-sudo systemctl restart vsftpd       # Redémarrer
-sudo tail -f /var/log/vsftpd.log    # Voir logs
+sudo systemctl start vsftpd         # Démarrer  
+sudo systemctl stop vsftpd          # Arrêter  
+sudo systemctl restart vsftpd       # Redémarrer  
+sudo tail -f /var/log/vsftpd.log    # Voir logs  
 ```
 
 ### SFTP
 ```bash
-sftp utilisateur@serveur            # Se connecter
-sftp> get fichier                   # Télécharger
-sftp> put fichier                   # Envoyer
-sftp> ls                            # Lister
+sftp utilisateur@serveur            # Se connecter  
+sftp> get fichier                   # Télécharger  
+sftp> put fichier                   # Envoyer  
+sftp> ls                            # Lister  
 ```
 
 ---

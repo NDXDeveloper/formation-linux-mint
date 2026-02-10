@@ -156,8 +156,8 @@ Si la commande renvoie 0 :
 #### Méthode 1 : Depuis les dépôts Ubuntu (recommandée pour débutants)
 
 ```bash
-sudo apt update
-sudo apt install virtualbox virtualbox-ext-pack
+sudo apt update  
+sudo apt install virtualbox virtualbox-ext-pack  
 ```
 
 Le paquet `virtualbox-ext-pack` ajoute :
@@ -173,15 +173,15 @@ Acceptez la licence quand demandé.
 Ajoutez le dépôt Oracle :
 
 ```bash
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -  
+echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list  
 ```
 
 Installez VirtualBox :
 
 ```bash
-sudo apt update
-sudo apt install virtualbox-7.0
+sudo apt update  
+sudo apt install virtualbox-7.0  
 ```
 
 Téléchargez l'Extension Pack depuis [virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
@@ -305,10 +305,10 @@ Une fois le système démarré dans la VM :
 3. **Linux :** Ouvrez un terminal dans la VM :
 
 ```bash
-sudo apt install build-essential dkms linux-headers-$(uname -r)
-sudo mount /dev/cdrom /mnt
-sudo /mnt/VBoxLinuxAdditions.run
-sudo reboot
+sudo apt install build-essential dkms linux-headers-$(uname -r)  
+sudo mount /dev/cdrom /mnt  
+sudo /mnt/VBoxLinuxAdditions.run  
+sudo reboot  
 ```
 
 Redémarrez la VM après l'installation.
@@ -433,22 +433,22 @@ Améliore les performances.
 
 ### Introduction à KVM/QEMU
 
-**KVM** (Kernel-based Virtual Machine) : Module du noyau Linux qui permet la virtualisation
-**QEMU** : Émulateur et virtualiseur qui utilise KVM
-**libvirt** : API et outils pour gérer KVM/QEMU
-**virt-manager** : Interface graphique pour libvirt
+**KVM** (Kernel-based Virtual Machine) : Module du noyau Linux qui permet la virtualisation  
+**QEMU** : Émulateur et virtualiseur qui utilise KVM  
+**libvirt** : API et outils pour gérer KVM/QEMU  
+**virt-manager** : Interface graphique pour libvirt  
 
 ### Vérifier le support KVM
 
 ```bash
-sudo apt install cpu-checker
-sudo kvm-ok
+sudo apt install cpu-checker  
+sudo kvm-ok  
 ```
 
 **Résultat attendu :**
 ```
-INFO: /dev/kvm exists
-KVM acceleration can be used
+INFO: /dev/kvm exists  
+KVM acceleration can be used  
 ```
 
 Si "KVM acceleration can NOT be used", vérifiez le BIOS.
@@ -456,8 +456,8 @@ Si "KVM acceleration can NOT be used", vérifiez le BIOS.
 ### Installation de KVM/QEMU
 
 ```bash
-sudo apt update
-sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+sudo apt update  
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager  
 ```
 
 **Explication des paquets :**
@@ -472,8 +472,8 @@ sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils vir
 Ajoutez votre utilisateur aux groupes nécessaires :
 
 ```bash
-sudo usermod -aG libvirt $USER
-sudo usermod -aG kvm $USER
+sudo usermod -aG libvirt $USER  
+sudo usermod -aG kvm $USER  
 ```
 
 Déconnectez-vous et reconnectez-vous.
@@ -489,8 +489,8 @@ Vous devriez voir `libvirt` et `kvm`.
 ### Démarrer le service libvirt
 
 ```bash
-sudo systemctl start libvirtd
-sudo systemctl enable libvirtd
+sudo systemctl start libvirtd  
+sudo systemctl enable libvirtd  
 ```
 
 Vérifiez :
@@ -667,8 +667,8 @@ virsh net-list --all
 **Démarrer le réseau par défaut :**
 
 ```bash
-virsh net-start default
-virsh net-autostart default
+virsh net-start default  
+virsh net-autostart default  
 ```
 
 #### Réseau Bridge (pont)
@@ -728,8 +728,8 @@ virsh net-define /dev/stdin <<EOF
 </network>
 EOF
 
-virsh net-start isolated
-virsh net-autostart isolated
+virsh net-start isolated  
+virsh net-autostart isolated  
 ```
 
 ### Performances et optimisation KVM
@@ -747,8 +747,8 @@ Dans virt-manager, lors de la création ou dans Configuration → Périphérique
 Attribuez des cœurs CPU spécifiques à une VM :
 
 ```bash
-virsh vcpupin Ubuntu-VM 0 2
-virsh vcpupin Ubuntu-VM 1 3
+virsh vcpupin Ubuntu-VM 0 2  
+virsh vcpupin Ubuntu-VM 1 3  
 ```
 
 Ici, vCPU 0 de la VM utilise le cœur physique 2, vCPU 1 utilise le cœur 3.
@@ -979,8 +979,8 @@ ls -la /var/lib/libvirt/images/
 Vérifiez que le réseau par défaut est actif :
 
 ```bash
-virsh net-list --all
-virsh net-start default
+virsh net-list --all  
+virsh net-start default  
 ```
 
 ### "Permission denied" lors du démarrage
@@ -1049,15 +1049,15 @@ sudo cp /var/lib/libvirt/images/Ubuntu-VM.qcow2 /backup/Ubuntu-VM.qcow2
 **Méthode 2 : Export XML + disque**
 
 ```bash
-virsh dumpxml Ubuntu-VM > Ubuntu-VM.xml
-sudo cp /var/lib/libvirt/images/Ubuntu-VM.qcow2 /backup/
+virsh dumpxml Ubuntu-VM > Ubuntu-VM.xml  
+sudo cp /var/lib/libvirt/images/Ubuntu-VM.qcow2 /backup/  
 ```
 
 **Restaurer :**
 
 ```bash
-virsh define Ubuntu-VM.xml
-sudo cp /backup/Ubuntu-VM.qcow2 /var/lib/libvirt/images/
+virsh define Ubuntu-VM.xml  
+sudo cp /backup/Ubuntu-VM.qcow2 /var/lib/libvirt/images/  
 ```
 
 ---
@@ -1191,22 +1191,22 @@ sudo apt install vagrant
 ### VirtualBox CLI
 
 ```bash
-VBoxManage list vms                    # Lister les VMs
-VBoxManage startvm "nom_vm"            # Démarrer une VM
-VBoxManage controlvm "nom_vm" poweroff # Éteindre une VM
-VBoxManage snapshot "nom_vm" take "snapshot1"  # Créer snapshot
-VBoxManage clonevm "nom_vm" --name "clone"     # Cloner
+VBoxManage list vms                    # Lister les VMs  
+VBoxManage startvm "nom_vm"            # Démarrer une VM  
+VBoxManage controlvm "nom_vm" poweroff # Éteindre une VM  
+VBoxManage snapshot "nom_vm" take "snapshot1"  # Créer snapshot  
+VBoxManage clonevm "nom_vm" --name "clone"     # Cloner  
 ```
 
 ### KVM/QEMU (virsh)
 
 ```bash
-virsh list --all                       # Lister les VMs
-virsh start nom_vm                     # Démarrer
-virsh shutdown nom_vm                  # Arrêter proprement
-virsh destroy nom_vm                   # Forcer l'arrêt
-virsh snapshot-create-as nom_vm snap1  # Snapshot
-virsh console nom_vm                   # Console série
+virsh list --all                       # Lister les VMs  
+virsh start nom_vm                     # Démarrer  
+virsh shutdown nom_vm                  # Arrêter proprement  
+virsh destroy nom_vm                   # Forcer l'arrêt  
+virsh snapshot-create-as nom_vm snap1  # Snapshot  
+virsh console nom_vm                   # Console série  
 ```
 
 ---

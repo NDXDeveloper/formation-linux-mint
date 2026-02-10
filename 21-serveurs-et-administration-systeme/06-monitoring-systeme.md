@@ -53,8 +53,8 @@ Affiche les processus en temps réel avec utilisation CPU/RAM.
 Plus coloré et interactif :
 
 ```bash
-sudo apt install htop
-htop
+sudo apt install htop  
+htop  
 ```
 
 **Avantages :**
@@ -181,8 +181,8 @@ L'installation prend 2-5 minutes.
 #### Méthode 2 : Depuis les dépôts (version plus ancienne)
 
 ```bash
-sudo apt update
-sudo apt install netdata
+sudo apt update  
+sudo apt install netdata  
 ```
 
 Version potentiellement plus ancienne mais installation plus rapide.
@@ -419,14 +419,14 @@ sudo nano /etc/netdata/health.d/cpu.conf
 Exemple d'alerte personnalisée :
 
 ```yaml
-alarm: cpu_usage
-on: system.cpu
-lookup: average -3s percentage foreach user,system
-units: %
-every: 10s
-warn: $this > 80
-crit: $this > 95
-info: CPU utilization is too high
+alarm: cpu_usage  
+on: system.cpu  
+lookup: average -3s percentage foreach user,system  
+units: %  
+every: 10s  
+warn: $this > 80  
+crit: $this > 95  
+info: CPU utilization is too high  
 ```
 
 Cette alerte :
@@ -452,8 +452,8 @@ sudo nano /etc/netdata/health_alarm_notify.conf
 Ajoutez :
 
 ```ini
-SEND_EMAIL="YES"
-DEFAULT_RECIPIENT_EMAIL="votre@email.com"
+SEND_EMAIL="YES"  
+DEFAULT_RECIPIENT_EMAIL="votre@email.com"  
 ```
 
 Redémarrez :
@@ -482,9 +482,9 @@ Netdata détecte automatiquement MySQL s'il tourne.
 Pour activer la surveillance complète, créez un utilisateur :
 
 ```sql
-CREATE USER 'netdata'@'localhost';
-GRANT USAGE ON *.* TO 'netdata'@'localhost';
-FLUSH PRIVILEGES;
+CREATE USER 'netdata'@'localhost';  
+GRANT USAGE ON *.* TO 'netdata'@'localhost';  
+FLUSH PRIVILEGES;  
 ```
 
 Netdata se connectera automatiquement.
@@ -496,8 +496,8 @@ Active le module status :
 **Apache :**
 
 ```bash
-sudo a2enmod status
-sudo systemctl restart apache2
+sudo a2enmod status  
+sudo systemctl restart apache2  
 ```
 
 **Nginx :**
@@ -519,9 +519,9 @@ Netdata détectera automatiquement.
 Si vous utilisez Docker :
 
 ```bash
-sudo groupadd docker
-sudo usermod -aG docker netdata
-sudo systemctl restart netdata
+sudo groupadd docker  
+sudo usermod -aG docker netdata  
+sudo systemctl restart netdata  
 ```
 
 Les conteneurs Docker apparaîtront automatiquement.
@@ -561,15 +561,15 @@ Le token est disponible sur le site Netdata Cloud.
 #### Depuis les dépôts (recommandé)
 
 ```bash
-sudo apt update
-sudo apt install glances
+sudo apt update  
+sudo apt install glances  
 ```
 
 #### Avec pip (dernière version)
 
 ```bash
-sudo apt install python3-pip
-sudo pip3 install glances
+sudo apt install python3-pip  
+sudo pip3 install glances  
 ```
 
 #### Vérifier l'installation
@@ -631,8 +631,8 @@ Charge moyenne du système (devrait être < nombre de cœurs CPU).
 #### Section Mémoire
 
 ```
-MEM     65.2%  active:    5.2G  inactive:    2.8G  free:    1.1G
-SWAP     5.3%  used:    512M  free:    9.5G
+MEM     65.2%  active:    5.2G  inactive:    2.8G  free:    1.1G  
+SWAP     5.3%  used:    512M  free:    9.5G  
 ```
 
 Utilisation RAM et swap.
@@ -640,8 +640,8 @@ Utilisation RAM et swap.
 #### Section Réseau
 
 ```
-NETWORK     Rx/s   Tx/s
-eth0        52KB   18KB
+NETWORK     Rx/s   Tx/s  
+eth0        52KB   18KB  
 ```
 
 Bande passante reçue/envoyée par seconde.
@@ -649,8 +649,8 @@ Bande passante reçue/envoyée par seconde.
 #### Section Disques
 
 ```
-DISK I/O    R/s    W/s
-sda         5.2M   1.8M
+DISK I/O    R/s    W/s  
+sda         5.2M   1.8M  
 ```
 
 Lectures et écritures par seconde.
@@ -668,9 +668,9 @@ Espace disque utilisé.
 #### Section Capteurs
 
 ```
-SENSORS
-CPU         45°C
-GPU         52°C
+SENSORS  
+CPU         45°C  
+GPU         52°C  
 ```
 
 Températures des composants (si disponibles).
@@ -795,22 +795,22 @@ Vous voyez les stats du serveur distant dans votre terminal !
 Le fichier de configuration (optionnel) :
 
 ```bash
-mkdir -p ~/.config/glances
-nano ~/.config/glances/glances.conf
+mkdir -p ~/.config/glances  
+nano ~/.config/glances/glances.conf  
 ```
 
 #### Personnaliser les seuils
 
 ```ini
 [cpu]
-user_careful=50
-user_warning=70
-user_critical=90
+user_careful=50  
+user_warning=70  
+user_critical=90  
 
 [mem]
-careful=50
-warning=70
-critical=90
+careful=50  
+warning=70  
+critical=90  
 ```
 
 **Couleurs :**
@@ -953,8 +953,8 @@ La section GPU affiche utilisation et température.
 Interface encore plus jolie que htop :
 
 ```bash
-sudo apt install btop
-btop
+sudo apt install btop  
+btop  
 ```
 
 **Avantages :**
@@ -967,8 +967,8 @@ btop
 Outil de monitoring très complet :
 
 ```bash
-sudo apt install nmon
-nmon
+sudo apt install nmon  
+nmon  
 ```
 
 Appuyez sur des touches pour activer des sections (c=CPU, m=RAM, etc.)
@@ -999,8 +999,8 @@ Solution enterprise de monitoring :
 - Alertes sophistiquées
 - Cartes réseau
 
-**Avantages :** Très complet, professionnel
-**Inconvénients :** Complexe à configurer
+**Avantages :** Très complet, professionnel  
+**Inconvénients :** Complexe à configurer  
 
 ---
 
@@ -1011,8 +1011,8 @@ Solution enterprise de monitoring :
 #### Installer lm-sensors
 
 ```bash
-sudo apt install lm-sensors
-sudo sensors-detect
+sudo apt install lm-sensors  
+sudo sensors-detect  
 ```
 
 Répondez "YES" à toutes les questions.
@@ -1026,11 +1026,11 @@ sensors
 Résultat :
 
 ```
-coretemp-isa-0000
-Adapter: ISA adapter
-Package id 0:  +45.0°C  (high = +80.0°C, crit = +100.0°C)
-Core 0:        +42.0°C  (high = +80.0°C, crit = +100.0°C)
-Core 1:        +44.0°C  (high = +80.0°C, crit = +100.0°C)
+coretemp-isa-0000  
+Adapter: ISA adapter  
+Package id 0:  +45.0°C  (high = +80.0°C, crit = +100.0°C)  
+Core 0:        +42.0°C  (high = +80.0°C, crit = +100.0°C)  
+Core 1:        +44.0°C  (high = +80.0°C, crit = +100.0°C)  
 ```
 
 Netdata et Glances afficheront automatiquement ces températures.
@@ -1076,8 +1076,8 @@ sudo smartctl -a /dev/sda | grep -A 10 "Self-test"
 #### iftop - Bande passante en temps réel
 
 ```bash
-sudo apt install iftop
-sudo iftop
+sudo apt install iftop  
+sudo iftop  
 ```
 
 Affiche quelles connexions utilisent la bande passante.
@@ -1085,8 +1085,8 @@ Affiche quelles connexions utilisent la bande passante.
 #### nethogs - Par processus
 
 ```bash
-sudo apt install nethogs
-sudo nethogs
+sudo apt install nethogs  
+sudo nethogs  
 ```
 
 Affiche quel processus utilise le réseau.
@@ -1094,8 +1094,8 @@ Affiche quel processus utilise le réseau.
 #### vnstat - Statistiques long terme
 
 ```bash
-sudo apt install vnstat
-vnstat -l
+sudo apt install vnstat  
+vnstat -l  
 ```
 
 Garde un historique de la consommation réseau.
@@ -1117,8 +1117,8 @@ Ajoutez :
 ```bash
 #!/bin/bash
 
-THRESHOLD=80
-CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}')
+THRESHOLD=80  
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}')  
 
 if (( $(echo "$CPU_USAGE > $THRESHOLD" | bc -l) )); then
     notify-send "Alerte CPU" "Utilisation CPU : ${CPU_USAGE}%"
@@ -1179,9 +1179,9 @@ Script :
 ```bash
 #!/bin/bash
 
-TOKEN="votre_token_bot"
-CHAT_ID="votre_chat_id"
-MESSAGE="⚠️ CPU élevé : ${CPU_USAGE}%"
+TOKEN="votre_token_bot"  
+CHAT_ID="votre_chat_id"  
+MESSAGE="⚠️ CPU élevé : ${CPU_USAGE}%"  
 
 curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
     -d chat_id="${CHAT_ID}" \
@@ -1237,9 +1237,9 @@ server {
 Activez :
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/netdata /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl reload nginx
+sudo ln -s /etc/nginx/sites-available/netdata /etc/nginx/sites-enabled/  
+sudo nginx -t  
+sudo systemctl reload nginx  
 ```
 
 Configurez Netdata pour écouter uniquement sur localhost :
@@ -1296,8 +1296,8 @@ Si un autre service utilise le port, changez le port de Netdata.
 **Installez lm-sensors :**
 
 ```bash
-sudo apt install lm-sensors
-sudo sensors-detect
+sudo apt install lm-sensors  
+sudo sensors-detect  
 ```
 
 Relancez Glances.
@@ -1383,33 +1383,33 @@ sudo /usr/libexec/netdata/plugins.d/alarm-notify.sh test
 ### Netdata
 
 ```bash
-sudo systemctl start netdata         # Démarrer
-sudo systemctl stop netdata          # Arrêter
-sudo systemctl restart netdata       # Redémarrer
-sudo systemctl status netdata        # État
-sudo journalctl -u netdata -f        # Voir les logs en temps réel
+sudo systemctl start netdata         # Démarrer  
+sudo systemctl stop netdata          # Arrêter  
+sudo systemctl restart netdata       # Redémarrer  
+sudo systemctl status netdata        # État  
+sudo journalctl -u netdata -f        # Voir les logs en temps réel  
 ```
 
 ### Glances
 
 ```bash
-glances                              # Mode terminal
-glances -w                           # Mode web
-glances -s                           # Mode serveur
-glances -c @192.168.1.100           # Se connecter à un serveur
-glances --export csv                 # Exporter en CSV
-glances -t 5                         # Rafraîchir toutes les 5 secondes
+glances                              # Mode terminal  
+glances -w                           # Mode web  
+glances -s                           # Mode serveur  
+glances -c @192.168.1.100           # Se connecter à un serveur  
+glances --export csv                 # Exporter en CSV  
+glances -t 5                         # Rafraîchir toutes les 5 secondes  
 ```
 
 ### Outils système
 
 ```bash
-top                                  # Processus basique
-htop                                 # Processus avancé
-sensors                              # Températures
-smartctl -a /dev/sda                 # Santé disque
-iotop                                # I/O disque
-iftop                                # Réseau
+top                                  # Processus basique  
+htop                                 # Processus avancé  
+sensors                              # Températures  
+smartctl -a /dev/sda                 # Santé disque  
+iotop                                # I/O disque  
+iftop                                # Réseau  
 ```
 
 ---

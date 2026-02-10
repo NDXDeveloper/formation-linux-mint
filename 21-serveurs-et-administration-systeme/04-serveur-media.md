@@ -103,8 +103,8 @@ Visitez [plex.tv/downloads](https://www.plex.tv/downloads/) et téléchargez la 
 Ou en ligne de commande :
 
 ```bash
-cd ~/Téléchargements
-wget https://downloads.plex.tv/plex-media-server-new/1.40.0.7998-c29d4c0c8/debian/plexmediaserver_1.40.0.7998-c29d4c0c8_amd64.deb
+cd ~/Téléchargements  
+wget https://downloads.plex.tv/plex-media-server-new/1.40.0.7998-c29d4c0c8/debian/plexmediaserver_1.40.0.7998-c29d4c0c8_amd64.deb  
 ```
 
 **Note :** Le numéro de version change. Vérifiez sur le site pour la dernière version.
@@ -148,8 +148,8 @@ curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
 Installez Plex :
 
 ```bash
-sudo apt update
-sudo apt install plexmediaserver
+sudo apt update  
+sudo apt install plexmediaserver  
 ```
 
 ### Configuration initiale de Plex
@@ -230,9 +230,9 @@ Plex va scanner vos fichiers et télécharger automatiquement :
 Plex s'exécute sous l'utilisateur `plex`. Donnez-lui accès à vos médias :
 
 ```bash
-sudo usermod -aG votre_nom plex
-sudo chmod 755 /home/votre_nom
-sudo chmod -R 755 /home/votre_nom/Médias
+sudo usermod -aG votre_nom plex  
+sudo chmod 755 /home/votre_nom  
+sudo chmod -R 755 /home/votre_nom/Médias  
 ```
 
 Redémarrez Plex :
@@ -276,15 +276,15 @@ echo "deb [signed-by=/usr/share/keyrings/jellyfin-archive-keyring.gpg arch=$( dp
 Installez Jellyfin :
 
 ```bash
-sudo apt update
-sudo apt install jellyfin
+sudo apt update  
+sudo apt install jellyfin  
 ```
 
 #### Démarrer Jellyfin
 
 ```bash
-sudo systemctl start jellyfin
-sudo systemctl enable jellyfin
+sudo systemctl start jellyfin  
+sudo systemctl enable jellyfin  
 ```
 
 Vérifiez :
@@ -298,16 +298,16 @@ sudo systemctl status jellyfin
 Téléchargez depuis [jellyfin.org/downloads](https://jellyfin.org/downloads):
 
 ```bash
-cd ~/Téléchargements
-wget https://repo.jellyfin.org/releases/server/ubuntu/stable/server/jellyfin-server_10.8.13+deb12_amd64.deb
-wget https://repo.jellyfin.org/releases/server/ubuntu/stable/web/jellyfin-web_10.8.13+deb12_all.deb
+cd ~/Téléchargements  
+wget https://repo.jellyfin.org/releases/server/ubuntu/stable/server/jellyfin-server_10.8.13+deb12_amd64.deb  
+wget https://repo.jellyfin.org/releases/server/ubuntu/stable/web/jellyfin-web_10.8.13+deb12_all.deb  
 ```
 
 Installez :
 
 ```bash
-sudo dpkg -i jellyfin-*.deb
-sudo apt-get install -f
+sudo dpkg -i jellyfin-*.deb  
+sudo apt-get install -f  
 ```
 
 ### Configuration initiale de Jellyfin
@@ -354,9 +354,9 @@ http://votre_ip:8096
 Jellyfin s'exécute sous l'utilisateur `jellyfin` :
 
 ```bash
-sudo usermod -aG votre_nom jellyfin
-sudo chmod 755 /home/votre_nom
-sudo chmod -R 755 /home/votre_nom/Médias
+sudo usermod -aG votre_nom jellyfin  
+sudo chmod 755 /home/votre_nom  
+sudo chmod -R 755 /home/votre_nom/Médias  
 ```
 
 Redémarrez Jellyfin :
@@ -411,15 +411,15 @@ Titre du Film (Année).extension
 
 **Exemples :**
 ```
-Inception (2010).mkv
-Le Parrain (1972).mp4
-Intouchables (2011).avi
+Inception (2010).mkv  
+Le Parrain (1972).mp4  
+Intouchables (2011).avi  
 ```
 
 **Avec qualité et source (optionnel) :**
 ```
-Avatar (2009) [1080p BluRay].mkv
-Matrix (1999) [4K HDR].mkv
+Avatar (2009) [1080p BluRay].mkv  
+Matrix (1999) [4K HDR].mkv  
 ```
 
 #### Séries TV
@@ -442,8 +442,8 @@ Breaking Bad/
 
 **Format alternatif (compatible) :**
 ```
-Breaking Bad - S01E01.mkv
-Breaking Bad - 1x01.mkv
+Breaking Bad - S01E01.mkv  
+Breaking Bad - 1x01.mkv  
 ```
 
 #### Musique
@@ -520,13 +520,13 @@ http://votre_ip:8096
 
 #### Android
 
-**Plex :** [Play Store - Plex](https://play.google.com/store/apps/details?id=com.plexapp.android)
-**Jellyfin :** [Play Store - Jellyfin](https://play.google.com/store/apps/details?id=org.jellyfin.mobile)
+**Plex :** [Play Store - Plex](https://play.google.com/store/apps/details?id=com.plexapp.android)  
+**Jellyfin :** [Play Store - Jellyfin](https://play.google.com/store/apps/details?id=org.jellyfin.mobile)  
 
 #### iOS
 
-**Plex :** [App Store - Plex](https://apps.apple.com/app/plex/id383457673)
-**Jellyfin :** [App Store - Jellyfin](https://apps.apple.com/app/jellyfin-mobile/id1480192618)
+**Plex :** [App Store - Plex](https://apps.apple.com/app/plex/id383457673)  
+**Jellyfin :** [App Store - Jellyfin](https://apps.apple.com/app/jellyfin-mobile/id1480192618)  
 
 ### Box TV et lecteurs média
 
@@ -735,9 +735,9 @@ server {
 Activez :
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/jellyfin /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl reload nginx
+sudo ln -s /etc/nginx/sites-available/jellyfin /etc/nginx/sites-enabled/  
+sudo nginx -t  
+sudo systemctl reload nginx  
 ```
 
 Obtenez un certificat SSL :
@@ -767,9 +767,9 @@ Maintenant, accédez via `https://monserveur.duckdns.org` !
 #### Installer WebTools
 
 ```bash
-cd "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Plug-ins"
-sudo git clone https://github.com/ukdtom/WebTools.bundle.git
-sudo systemctl restart plexmediaserver
+cd "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Plug-ins"  
+sudo git clone https://github.com/ukdtom/WebTools.bundle.git  
+sudo systemctl restart plexmediaserver  
 ```
 
 Accédez à : `http://localhost:33400`
@@ -883,11 +883,11 @@ Accédez au tableau de bord pour voir :
 Application tierce pour statistiques avancées :
 
 ```bash
-sudo apt install python3-pip
-pip3 install plexapi
-git clone https://github.com/Tautulli/Tautulli.git
-cd Tautulli
-python3 Tautulli.py
+sudo apt install python3-pip  
+pip3 install plexapi  
+git clone https://github.com/Tautulli/Tautulli.git  
+cd Tautulli  
+python3 Tautulli.py  
 ```
 
 Accédez à : `http://localhost:8181`
@@ -916,9 +916,9 @@ Installez le plugin pour des statistiques détaillées.
 #### Plex
 
 ```bash
-sudo systemctl stop plexmediaserver
-sudo -u plex sqlite3 "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Plug-in Support/Databases/com.plexapp.plugins.library.db" "VACUUM;"
-sudo systemctl start plexmediaserver
+sudo systemctl stop plexmediaserver  
+sudo -u plex sqlite3 "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Plug-in Support/Databases/com.plexapp.plugins.library.db" "VACUUM;"  
+sudo systemctl start plexmediaserver  
 ```
 
 #### Jellyfin
@@ -995,8 +995,8 @@ sudo chmod -R 755 /home/votre_nom/Médias
 
 **Forcez un scan :**
 
-Plex : Bibliothèque → Scanner les fichiers de la bibliothèque
-Jellyfin : Tableau de bord → Scanner la bibliothèque
+Plex : Bibliothèque → Scanner les fichiers de la bibliothèque  
+Jellyfin : Tableau de bord → Scanner la bibliothèque  
 
 ### Métadonnées incorrectes
 

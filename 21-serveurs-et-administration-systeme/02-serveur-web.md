@@ -48,8 +48,8 @@ Il existe deux serveurs web majeurs sous Linux :
 Ouvrez un terminal et installez Apache :
 
 ```bash
-sudo apt update
-sudo apt install apache2
+sudo apt update  
+sudo apt install apache2  
 ```
 
 Apache s'installe et démarre automatiquement.
@@ -169,8 +169,8 @@ Les Virtual Hosts permettent d'héberger plusieurs sites sur un même serveur.
 #### Créer la structure du site
 
 ```bash
-sudo mkdir -p /var/www/monsite
-sudo chown -R $USER:$USER /var/www/monsite
+sudo mkdir -p /var/www/monsite  
+sudo chown -R $USER:$USER /var/www/monsite  
 ```
 
 Créez une page d'accueil :
@@ -226,8 +226,8 @@ Ajoutez cette configuration :
 #### Activer le site
 
 ```bash
-sudo a2ensite monsite.conf
-sudo systemctl reload apache2
+sudo a2ensite monsite.conf  
+sudo systemctl reload apache2  
 ```
 
 #### Configurer /etc/hosts (pour test local)
@@ -255,15 +255,15 @@ Apache utilise des modules pour ajouter des fonctionnalités.
 Utile pour WordPress et les URLs propres :
 
 ```bash
-sudo a2enmod rewrite
-sudo systemctl restart apache2
+sudo a2enmod rewrite  
+sudo systemctl restart apache2  
 ```
 
 #### Activer SSL (HTTPS)
 
 ```bash
-sudo a2enmod ssl
-sudo systemctl restart apache2
+sudo a2enmod ssl  
+sudo systemctl restart apache2  
 ```
 
 #### Lister les modules activés
@@ -275,8 +275,8 @@ apache2ctl -M
 #### Désactiver un module
 
 ```bash
-sudo a2dismod nom_du_module
-sudo systemctl restart apache2
+sudo a2dismod nom_du_module  
+sudo systemctl restart apache2  
 ```
 
 ---
@@ -286,8 +286,8 @@ sudo systemctl restart apache2
 ### Installation
 
 ```bash
-sudo apt update
-sudo apt install nginx
+sudo apt update  
+sudo apt install nginx  
 ```
 
 Nginx démarre automatiquement après l'installation.
@@ -324,12 +324,12 @@ Vous devriez voir la page "Welcome to nginx!"
 Les commandes sont similaires à Apache :
 
 ```bash
-sudo systemctl start nginx      # Démarrer
-sudo systemctl stop nginx       # Arrêter
-sudo systemctl restart nginx    # Redémarrer
-sudo systemctl reload nginx     # Recharger la config
-sudo systemctl status nginx     # Vérifier l'état
-sudo systemctl enable nginx     # Activer au démarrage
+sudo systemctl start nginx      # Démarrer  
+sudo systemctl stop nginx       # Arrêter  
+sudo systemctl restart nginx    # Redémarrer  
+sudo systemctl reload nginx     # Recharger la config  
+sudo systemctl status nginx     # Vérifier l'état  
+sudo systemctl enable nginx     # Activer au démarrage  
 ```
 
 ### Créer votre première page
@@ -361,8 +361,8 @@ Rechargez la page dans votre navigateur.
 #### Créer la structure
 
 ```bash
-sudo mkdir -p /var/www/monsite-nginx
-sudo chown -R $USER:$USER /var/www/monsite-nginx
+sudo mkdir -p /var/www/monsite-nginx  
+sudo chown -R $USER:$USER /var/www/monsite-nginx  
 ```
 
 Créez une page :
@@ -602,8 +602,8 @@ sudo nano /etc/apache2/conf-available/security.conf
 Changez :
 
 ```apache
-ServerTokens Prod
-ServerSignature Off
+ServerTokens Prod  
+ServerSignature Off  
 ```
 
 Redémarrez :
@@ -689,8 +689,8 @@ WordPress est le système de gestion de contenu (CMS) le plus populaire.
 #### Prérequis
 
 ```bash
-sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql
-sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
+sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql  
+sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip  
 ```
 
 #### Créer la base de données
@@ -702,21 +702,21 @@ sudo mysql -u root -p
 Dans MySQL :
 
 ```sql
-CREATE DATABASE wordpress;
-CREATE USER 'wordpressuser'@'localhost' IDENTIFIED BY 'motdepasse_securise';
-GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpressuser'@'localhost';
-FLUSH PRIVILEGES;
-EXIT;
+CREATE DATABASE wordpress;  
+CREATE USER 'wordpressuser'@'localhost' IDENTIFIED BY 'motdepasse_securise';  
+GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpressuser'@'localhost';  
+FLUSH PRIVILEGES;  
+EXIT;  
 ```
 
 #### Télécharger WordPress
 
 ```bash
-cd /tmp
-wget https://wordpress.org/latest.tar.gz
-tar -xzf latest.tar.gz
-sudo mv wordpress /var/www/
-sudo chown -R www-data:www-data /var/www/wordpress
+cd /tmp  
+wget https://wordpress.org/latest.tar.gz  
+tar -xzf latest.tar.gz  
+sudo mv wordpress /var/www/  
+sudo chown -R www-data:www-data /var/www/wordpress  
 ```
 
 #### Configurer Apache pour WordPress
@@ -746,9 +746,9 @@ Ajoutez :
 Activez le site :
 
 ```bash
-sudo a2ensite wordpress.conf
-sudo a2enmod rewrite
-sudo systemctl reload apache2
+sudo a2ensite wordpress.conf  
+sudo a2enmod rewrite  
+sudo systemctl reload apache2  
 ```
 
 Ajoutez dans `/etc/hosts` :
@@ -801,8 +801,8 @@ sudo tail -f /var/log/apache2/error.log
 ### Consulter les logs Nginx
 
 ```bash
-sudo tail -f /var/log/nginx/access.log
-sudo tail -f /var/log/nginx/error.log
+sudo tail -f /var/log/nginx/access.log  
+sudo tail -f /var/log/nginx/error.log  
 ```
 
 ### Analyser les logs
@@ -834,15 +834,15 @@ sudo goaccess /var/log/nginx/access.log --log-format=COMBINED
 #### Activer la compression
 
 ```bash
-sudo a2enmod deflate
-sudo systemctl restart apache2
+sudo a2enmod deflate  
+sudo systemctl restart apache2  
 ```
 
 #### Mettre en cache les fichiers statiques
 
 ```bash
-sudo a2enmod expires
-sudo a2enmod headers
+sudo a2enmod expires  
+sudo a2enmod headers  
 ```
 
 Ajoutez dans votre Virtual Host :
@@ -868,11 +868,11 @@ Nginx est déjà optimisé par défaut, mais vous pouvez :
 Dans `/etc/nginx/nginx.conf`, vérifiez que ces lignes sont présentes :
 
 ```nginx
-gzip on;
-gzip_vary on;
-gzip_proxied any;
-gzip_comp_level 6;
-gzip_types text/plain text/css text/xml text/javascript application/javascript application/xml+rss;
+gzip on;  
+gzip_vary on;  
+gzip_proxied any;  
+gzip_comp_level 6;  
+gzip_types text/plain text/css text/xml text/javascript application/javascript application/xml+rss;  
 ```
 
 #### Augmenter les connexions simultanées
@@ -922,8 +922,8 @@ Si c'est Apache et Nginx qui se battent, arrêtez l'un des deux !
 Vérifiez les permissions :
 
 ```bash
-sudo chown -R www-data:www-data /var/www/monsite
-sudo chmod -R 755 /var/www/monsite
+sudo chown -R www-data:www-data /var/www/monsite  
+sudo chmod -R 755 /var/www/monsite  
 ```
 
 ### "502 Bad Gateway" (Nginx avec PHP)
@@ -931,8 +931,8 @@ sudo chmod -R 755 /var/www/monsite
 PHP-FPM n'est probablement pas démarré :
 
 ```bash
-sudo systemctl start php8.1-fpm
-sudo systemctl enable php8.1-fpm
+sudo systemctl start php8.1-fpm  
+sudo systemctl enable php8.1-fpm  
 ```
 
 ### Site inaccessible après modification
@@ -1011,26 +1011,26 @@ Oui ! Nginx peut servir de "reverse proxy" devant Apache :
 
 ### Apache
 ```bash
-sudo systemctl start apache2        # Démarrer
-sudo systemctl stop apache2         # Arrêter
-sudo systemctl restart apache2      # Redémarrer
-sudo systemctl reload apache2       # Recharger config
-sudo apache2ctl configtest          # Tester config
-sudo a2ensite monsite.conf          # Activer site
-sudo a2dissite monsite.conf         # Désactiver site
-sudo a2enmod rewrite                # Activer module
-sudo a2dismod rewrite               # Désactiver module
+sudo systemctl start apache2        # Démarrer  
+sudo systemctl stop apache2         # Arrêter  
+sudo systemctl restart apache2      # Redémarrer  
+sudo systemctl reload apache2       # Recharger config  
+sudo apache2ctl configtest          # Tester config  
+sudo a2ensite monsite.conf          # Activer site  
+sudo a2dissite monsite.conf         # Désactiver site  
+sudo a2enmod rewrite                # Activer module  
+sudo a2dismod rewrite               # Désactiver module  
 ```
 
 ### Nginx
 ```bash
-sudo systemctl start nginx          # Démarrer
-sudo systemctl stop nginx           # Arrêter
-sudo systemctl restart nginx        # Redémarrer
-sudo systemctl reload nginx         # Recharger config
-sudo nginx -t                       # Tester config
-sudo ln -s /etc/nginx/sites-available/site /etc/nginx/sites-enabled/  # Activer site
-sudo rm /etc/nginx/sites-enabled/site  # Désactiver site
+sudo systemctl start nginx          # Démarrer  
+sudo systemctl stop nginx           # Arrêter  
+sudo systemctl restart nginx        # Redémarrer  
+sudo systemctl reload nginx         # Recharger config  
+sudo nginx -t                       # Tester config  
+sudo ln -s /etc/nginx/sites-available/site /etc/nginx/sites-enabled/  # Activer site  
+sudo rm /etc/nginx/sites-enabled/site  # Désactiver site  
 ```
 
 ---

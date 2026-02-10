@@ -45,8 +45,8 @@ Si vous voyez "Unit ssh.service could not be found", le serveur n'est pas instal
 OpenSSH est l'implémentation SSH la plus populaire et celle recommandée pour Linux Mint.
 
 ```bash
-sudo apt update
-sudo apt install openssh-server
+sudo apt update  
+sudo apt install openssh-server  
 ```
 
 Entrez votre mot de passe administrateur lorsque demandé. L'installation prend quelques secondes.
@@ -120,8 +120,8 @@ Cette option permet de se connecter avec un mot de passe. Pour plus de sécurit�
 #### Temps d'inactivité
 
 ```
-ClientAliveInterval 300
-ClientAliveCountMax 2
+ClientAliveInterval 300  
+ClientAliveCountMax 2  
 ```
 
 Ces options déconnectent automatiquement les sessions inactives après un certain temps (ici, 10 minutes d'inactivité).
@@ -208,8 +208,8 @@ Le pare-feu protège votre serveur en bloquant les connexions non autorisées.
 #### Installer et activer UFW
 
 ```bash
-sudo apt install ufw
-sudo ufw enable
+sudo apt install ufw  
+sudo ufw enable  
 ```
 
 #### Autoriser SSH
@@ -254,12 +254,12 @@ sudo nano /etc/fail2ban/jail.local
 Ajoutez :
 ```
 [sshd]
-enabled = true
-port = ssh
-filter = sshd
-logpath = /var/log/auth.log
-maxretry = 3
-bantime = 3600
+enabled = true  
+port = ssh  
+filter = sshd  
+logpath = /var/log/auth.log  
+maxretry = 3  
+bantime = 3600  
 ```
 
 **Explications :**
@@ -269,8 +269,8 @@ bantime = 3600
 #### Redémarrer Fail2Ban
 
 ```bash
-sudo systemctl restart fail2ban
-sudo systemctl enable fail2ban
+sudo systemctl restart fail2ban  
+sudo systemctl enable fail2ban  
 ```
 
 ---
@@ -287,9 +287,9 @@ ssh utilisateur@adresse_ip
 
 Exemples :
 ```bash
-ssh jean@192.168.1.100
-ssh admin@monserveur.com
-ssh -p 2222 utilisateur@192.168.1.50  # Si vous avez changé le port
+ssh jean@192.168.1.100  
+ssh admin@monserveur.com  
+ssh -p 2222 utilisateur@192.168.1.50  # Si vous avez changé le port  
 ```
 
 Lors de la première connexion, vous verrez un message concernant l'authenticité de l'hôte. Tapez `yes` pour continuer.
@@ -465,8 +465,8 @@ Vérifiez régulièrement ce fichier pour détecter des activités suspectes.
 ### 5. Mettez à jour régulièrement
 
 ```bash
-sudo apt update
-sudo apt upgrade
+sudo apt update  
+sudo apt upgrade  
 ```
 
 Les mises à jour de sécurité sont cruciales pour garder SSH sécurisé.
