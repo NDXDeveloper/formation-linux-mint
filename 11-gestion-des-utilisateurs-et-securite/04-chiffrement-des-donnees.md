@@ -84,8 +84,8 @@ lsblk
 
 Résultat exemple :
 ```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sdb      8:16   0 238.5G  0 disk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT  
+sdb      8:16   0 238.5G  0 disk  
 └─sdb1   8:17   0 238.5G  0 part
 ```
 
@@ -118,8 +118,8 @@ sudo mkfs.ext4 /dev/mapper/mon_disque_chiffre
 #### Monter le volume
 
 ```bash
-sudo mkdir /mnt/mon_disque
-sudo mount /dev/mapper/mon_disque_chiffre /mnt/mon_disque
+sudo mkdir /mnt/mon_disque  
+sudo mount /dev/mapper/mon_disque_chiffre /mnt/mon_disque  
 ```
 
 Vous pouvez maintenant utiliser `/mnt/mon_disque` normalement.
@@ -128,8 +128,8 @@ Vous pouvez maintenant utiliser `/mnt/mon_disque` normalement.
 
 Après utilisation :
 ```bash
-sudo umount /mnt/mon_disque
-sudo cryptsetup luksClose mon_disque_chiffre
+sudo umount /mnt/mon_disque  
+sudo cryptsetup luksClose mon_disque_chiffre  
 ```
 
 ### Montage automatique au démarrage
@@ -152,8 +152,8 @@ Résultat exemple :
 Si vous ne voulez pas entrer le mot de passe à chaque fois :
 
 ```bash
-sudo dd if=/dev/urandom of=/root/.luks-key bs=1024 count=4
-sudo chmod 600 /root/.luks-key
+sudo dd if=/dev/urandom of=/root/.luks-key bs=1024 count=4  
+sudo chmod 600 /root/.luks-key  
 ```
 
 Ajouter la clé au volume LUKS :
@@ -268,10 +268,10 @@ sudo cryptsetup luksHeaderRestore /dev/sdb1 --header-backup-file /home/utilisate
 2. Téléchargez le paquet pour Linux (`.deb` pour Ubuntu/Mint)
 
 ```bash
-cd ~/Téléchargements
-wget https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Ubuntu-24.04-amd64.deb
-sudo dpkg -i veracrypt-*.deb
-sudo apt install -f
+cd ~/Téléchargements  
+wget https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-Ubuntu-24.04-amd64.deb  
+sudo dpkg -i veracrypt-*.deb  
+sudo apt install -f  
 ```
 
 > **Note** : Vérifiez la dernière version sur le site officiel.
@@ -279,9 +279,9 @@ sudo apt install -f
 #### Via PPA
 
 ```bash
-sudo add-apt-repository ppa:unit193/encryption
-sudo apt update
-sudo apt install veracrypt
+sudo add-apt-repository ppa:unit193/encryption  
+sudo apt update  
+sudo apt install veracrypt  
 ```
 
 ### Créer un conteneur chiffré

@@ -396,8 +396,8 @@ sudo groupadd projet
 
 **2. Ajouter Sophie et Jean au groupe** :
 ```bash
-sudo usermod -aG projet sophie
-sudo usermod -aG projet jean
+sudo usermod -aG projet sophie  
+sudo usermod -aG projet jean  
 ```
 
 **3. Créer un dossier partagé** :
@@ -452,9 +452,9 @@ Seul vous pouvez le lire et le modifier.
 Si les permissions de votre dossier `/home/utilisateur` sont incorrectes :
 
 ```bash
-sudo chown -R sophie:sophie /home/sophie
-sudo chmod 755 /home/sophie
-sudo chmod 700 /home/sophie/.ssh
+sudo chown -R sophie:sophie /home/sophie  
+sudo chmod 755 /home/sophie  
+sudo chmod 700 /home/sophie/.ssh  
 ```
 
 ---
@@ -487,8 +487,8 @@ chmod 4755 fichier
 
 ### Le bit SGID (Set Group ID)
 
-Pour les fichiers, similaire à SUID mais avec le groupe.
-Pour les dossiers, les nouveaux fichiers héritent du groupe du dossier.
+Pour les fichiers, similaire à SUID mais avec le groupe.  
+Pour les dossiers, les nouveaux fichiers héritent du groupe du dossier.  
 
 **Définir le bit SGID** :
 ```bash

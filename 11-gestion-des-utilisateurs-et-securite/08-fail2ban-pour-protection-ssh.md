@@ -126,8 +126,8 @@ Les **actions** définissent que faire quand une IP est bannie :
 ### Sur Linux Mint / Ubuntu / Debian
 
 ```bash
-sudo apt update
-sudo apt install fail2ban
+sudo apt update  
+sudo apt install fail2ban  
 ```
 
 ### Vérification de l'installation
@@ -204,9 +204,9 @@ Ajoutez ou modifiez :
 ```ini
 [DEFAULT]
 # Ban une IP pour 10 minutes après 5 échecs
-bantime  = 10m
-findtime = 10m
-maxretry = 5
+bantime  = 10m  
+findtime = 10m  
+maxretry = 5  
 
 # Action par défaut (avec UFW si installé, sinon iptables)
 banaction = ufw
@@ -217,10 +217,10 @@ banaction = ufw
 ignoreip = 127.0.0.1/8 ::1 192.168.1.0/24
 
 [sshd]
-enabled = true
-port    = ssh
-logpath = /var/log/auth.log
-maxretry = 5
+enabled = true  
+port    = ssh  
+logpath = /var/log/auth.log  
+maxretry = 5  
 ```
 
 ### Paramètres expliqués
@@ -254,9 +254,9 @@ Si vous avez changé le port SSH (recommandé pour la sécurité) :
 
 ```ini
 [sshd]
-enabled = true
-port    = 2222
-logpath = /var/log/auth.log
+enabled = true  
+port    = 2222  
+logpath = /var/log/auth.log  
 ```
 
 ### Redémarrer Fail2Ban après modification
@@ -372,17 +372,17 @@ Bannir définitivement une IP après 3 bans :
 
 ```ini
 [sshd]
-enabled = true
-port    = ssh
-logpath = /var/log/auth.log
-maxretry = 5
+enabled = true  
+port    = ssh  
+logpath = /var/log/auth.log  
+maxretry = 5  
 # Première offense : 10 min
 bantime = 10m
 # Seconde offense : 1 heure
 # Troisième offense : permanent (-1)
-bantime.increment = true
-bantime.multipliers = 1 2 4 8 16 32 64
-bantime.maxtime = -1
+bantime.increment = true  
+bantime.multipliers = 1 2 4 8 16 32 64  
+bantime.maxtime = -1  
 ```
 
 ### Ignorer certaines IP de confiance
@@ -416,9 +416,9 @@ sudo apt install mailutils
 ```ini
 [DEFAULT]
 # Votre email
-destemail = votre@email.com
-sendername = Fail2Ban
-mta = sendmail
+destemail = votre@email.com  
+sendername = Fail2Ban  
+mta = sendmail  
 
 # Action : ban + email
 action = %(action_mwl)s
@@ -435,8 +435,8 @@ Pour des IP qui ne doivent **jamais** être bannies, même si elles échouent :
 
 ```ini
 [DEFAULT]
-ignoreself = true
-ignoreip = 127.0.0.1/8 ::1
+ignoreself = true  
+ignoreip = 127.0.0.1/8 ::1  
            192.168.1.0/24
            10.0.0.0/8
            172.16.0.0/12
@@ -454,57 +454,57 @@ Fail2Ban peut protéger bien plus que SSH.
 
 ```ini
 [apache-auth]
-enabled = true
-port    = http,https
-logpath = /var/log/apache2/error.log
+enabled = true  
+port    = http,https  
+logpath = /var/log/apache2/error.log  
 
 [nginx-http-auth]
-enabled = true
-port    = http,https
-logpath = /var/log/nginx/error.log
+enabled = true  
+port    = http,https  
+logpath = /var/log/nginx/error.log  
 ```
 
 #### Protéger contre les scans de vulnérabilités
 
 ```ini
 [apache-badbots]
-enabled = true
-port    = http,https
-logpath = /var/log/apache2/access.log
-maxretry = 1
+enabled = true  
+port    = http,https  
+logpath = /var/log/apache2/access.log  
+maxretry = 1  
 ```
 
 ### Serveur mail (Postfix, Dovecot)
 
 ```ini
 [postfix]
-enabled = true
-port    = smtp,465,submission
-logpath = /var/log/mail.log
+enabled = true  
+port    = smtp,465,submission  
+logpath = /var/log/mail.log  
 
 [dovecot]
-enabled = true
-port    = pop3,pop3s,imap,imaps
-logpath = /var/log/mail.log
+enabled = true  
+port    = pop3,pop3s,imap,imaps  
+logpath = /var/log/mail.log  
 ```
 
 ### Base de données (MySQL)
 
 ```ini
 [mysqld-auth]
-enabled = true
-port    = 3306
-logpath = /var/log/mysql/error.log
-maxretry = 3
+enabled = true  
+port    = 3306  
+logpath = /var/log/mysql/error.log  
+maxretry = 3  
 ```
 
 ### FTP (vsftpd, ProFTPd)
 
 ```ini
 [vsftpd]
-enabled = true
-port    = ftp,ftp-data,ftps,ftps-data
-logpath = /var/log/vsftpd.log
+enabled = true  
+port    = ftp,ftp-data,ftps,ftps-data  
+logpath = /var/log/vsftpd.log  
 ```
 
 ### WordPress (attaques xmlrpc, wp-login)
@@ -521,12 +521,12 @@ ignoreregex =
 Puis dans `jail.local` :
 ```ini
 [wordpress]
-enabled = true
-port    = http,https
-filter  = wordpress
-logpath = /var/log/apache2/access.log
-maxretry = 3
-bantime = 1h
+enabled = true  
+port    = http,https  
+filter  = wordpress  
+logpath = /var/log/apache2/access.log  
+maxretry = 3  
+bantime = 1h  
 ```
 
 ---
@@ -582,8 +582,8 @@ sudo grep "Ban" /var/log/fail2ban.log | grep -oP 'Ban \K[0-9.]+' | sort | uniq -
 #### Pays d'origine des attaques (avec geoiplookup)
 
 ```bash
-sudo apt install geoip-bin
-sudo grep "Ban" /var/log/fail2ban.log | grep -oP 'Ban \K[0-9.]+' | head -20 | while read IP; do
+sudo apt install geoip-bin  
+sudo grep "Ban" /var/log/fail2ban.log | grep -oP 'Ban \K[0-9.]+' | head -20 | while read IP; do  
     echo -n "$IP : "
     geoiplookup $IP | cut -d':' -f2
 done
@@ -619,11 +619,11 @@ Pour plus de contrôle, créez `/etc/fail2ban/action.d/ufw.local` :
 
 ```ini
 [Definition]
-actionstart =
-actionstop =
-actioncheck =
-actionban = ufw insert 1 deny from <ip> to any
-actionunban = ufw delete deny from <ip> to any
+actionstart =  
+actionstop =  
+actioncheck =  
+actionban = ufw insert 1 deny from <ip> to any  
+actionunban = ufw delete deny from <ip> to any  
 ```
 
 ---
@@ -645,8 +645,8 @@ Dans `/etc/fail2ban/fail2ban.local` :
 
 ```ini
 [Definition]
-logtarget = /var/log/fail2ban.log
-loglevel = INFO
+logtarget = /var/log/fail2ban.log  
+loglevel = INFO  
 # Vérifier les logs toutes les 60 secondes au lieu de 10
 # (par défaut implicite)
 ```
@@ -655,8 +655,8 @@ loglevel = INFO
 
 ```ini
 [sshd]
-enabled = true
-backend = systemd
+enabled = true  
+backend = systemd  
 ```
 
 Le backend systemd lit directement le journal systemd au lieu de parser les fichiers texte, c'est plus rapide.
@@ -694,8 +694,8 @@ sudo nano /etc/fail2ban/filter.d/phpmyadmin.conf
 Contenu :
 ```ini
 [Definition]
-failregex = ^<HOST> -.*"(GET|POST).*(phpmyadmin|pma|myadmin)
-ignoreregex =
+failregex = ^<HOST> -.*"(GET|POST).*(phpmyadmin|pma|myadmin)  
+ignoreregex =  
 ```
 
 #### 2. Créer la jail
@@ -704,12 +704,12 @@ Dans `/etc/fail2ban/jail.local` :
 
 ```ini
 [phpmyadmin]
-enabled = true
-port    = http,https
-filter  = phpmyadmin
-logpath = /var/log/apache2/access.log
-maxretry = 3
-bantime = 1h
+enabled = true  
+port    = http,https  
+filter  = phpmyadmin  
+logpath = /var/log/apache2/access.log  
+maxretry = 3  
+bantime = 1h  
 ```
 
 #### 3. Tester le filtre
@@ -770,8 +770,8 @@ sudo fail2ban-client status
 
 Si `sshd` n'apparaît pas :
 ```bash
-sudo systemctl restart fail2ban
-sudo fail2ban-client status
+sudo systemctl restart fail2ban  
+sudo fail2ban-client status  
 ```
 
 #### Vérifier que les logs sont bien lus
@@ -802,8 +802,8 @@ sudo fail2ban-client set sshd unbanip VOTRE_IP
 
 Connectez-vous depuis une autre IP et débannissez :
 ```bash
-ssh -p 22 autre_user@serveur
-sudo fail2ban-client set sshd unbanip IP_BANNIE
+ssh -p 22 autre_user@serveur  
+sudo fail2ban-client set sshd unbanip IP_BANNIE  
 ```
 
 #### Option 3 : Arrêter Fail2Ban temporairement
@@ -883,19 +883,19 @@ sudo systemctl enable fail2ban
 #!/bin/bash
 # /usr/local/bin/fail2ban_rapport.sh
 
-DATE=$(date +%Y-%m-%d)
-LOGFILE="/var/log/fail2ban.log"
+DATE=$(date +%Y-%m-%d)  
+LOGFILE="/var/log/fail2ban.log"  
 
-echo "=== Rapport Fail2Ban du $DATE ==="
-echo ""
-echo "Nombre de bans aujourd'hui :"
-grep "Ban" "$LOGFILE" | grep "$DATE" | wc -l
-echo ""
-echo "Top 10 IP bannies :"
-grep "Ban" "$LOGFILE" | grep "$DATE" | grep -oP 'Ban \K[0-9.]+' | sort | uniq -c | sort -rn | head -10
-echo ""
-echo "Services ciblés :"
-fail2ban-client status | grep "Jail list"
+echo "=== Rapport Fail2Ban du $DATE ==="  
+echo ""  
+echo "Nombre de bans aujourd'hui :"  
+grep "Ban" "$LOGFILE" | grep "$DATE" | wc -l  
+echo ""  
+echo "Top 10 IP bannies :"  
+grep "Ban" "$LOGFILE" | grep "$DATE" | grep -oP 'Ban \K[0-9.]+' | sort | uniq -c | sort -rn | head -10  
+echo ""  
+echo "Services ciblés :"  
+fail2ban-client status | grep "Jail list"  
 ```
 
 Rendez-le exécutable :
@@ -1044,20 +1044,20 @@ sudo apt install fail2ban
 # Créer la configuration
 sudo tee /etc/fail2ban/jail.local > /dev/null <<EOF
 [DEFAULT]
-bantime  = 1h
-findtime = 10m
-maxretry = 5
-ignoreip = 127.0.0.1/8 VOTRE_IP
+bantime  = 1h  
+findtime = 10m  
+maxretry = 5  
+ignoreip = 127.0.0.1/8 VOTRE_IP  
 
 [sshd]
-enabled = true
-port    = ssh
-logpath = /var/log/auth.log
-EOF
+enabled = true  
+port    = ssh  
+logpath = /var/log/auth.log  
+EOF  
 
 # Redémarrer et activer
-sudo systemctl restart fail2ban
-sudo systemctl enable fail2ban
+sudo systemctl restart fail2ban  
+sudo systemctl enable fail2ban  
 
 # Vérifier
 sudo fail2ban-client status sshd
@@ -1067,8 +1067,8 @@ sudo fail2ban-client status sshd
 
 > **Fail2Ban transforme un serveur vulnérable en forteresse**
 
-Sans Fail2Ban : Des milliers de tentatives d'intrusion par jour.
-Avec Fail2Ban : Les attaquants sont bloqués après quelques tentatives.
+Sans Fail2Ban : Des milliers de tentatives d'intrusion par jour.  
+Avec Fail2Ban : Les attaquants sont bloqués après quelques tentatives.  
 
 **Installation : 2 minutes. Protection : permanente.**
 

@@ -170,8 +170,8 @@ Dans ces conditions, un antivirus est **inutile** et peut même :
 ### Installation via APT
 
 ```bash
-sudo apt update
-sudo apt install clamav clamav-daemon
+sudo apt update  
+sudo apt install clamav clamav-daemon  
 ```
 
 Paquets installés :
@@ -183,9 +183,9 @@ Paquets installés :
 Avant la première utilisation, mettez à jour la base de données des virus :
 
 ```bash
-sudo systemctl stop clamav-freshclam
-sudo freshclam
-sudo systemctl start clamav-freshclam
+sudo systemctl stop clamav-freshclam  
+sudo freshclam  
+sudo systemctl start clamav-freshclam  
 ```
 
 **Note** : `freshclam` est le service qui met à jour automatiquement les signatures de virus.
@@ -218,16 +218,16 @@ Résultat si le fichier est sain :
 fichier.txt: OK
 
 ----------- SCAN SUMMARY -----------
-Known viruses: 8623929
-Engine version: 1.0.0
-Scanned directories: 0
-Scanned files: 1
-Infected files: 0
-Data scanned: 0.00 MB
-Data read: 0.00 MB (ratio 0.00:1)
-Time: 0.152 sec (0 m 0 s)
-Start Date: 2024:11:29 10:45:00
-End Date:   2024:11:29 10:45:01
+Known viruses: 8623929  
+Engine version: 1.0.0  
+Scanned directories: 0  
+Scanned files: 1  
+Infected files: 0  
+Data scanned: 0.00 MB  
+Data read: 0.00 MB (ratio 0.00:1)  
+Time: 0.152 sec (0 m 0 s)  
+Start Date: 2024:11:29 10:45:00  
+End Date:   2024:11:29 10:45:01  
 ```
 
 ### Scanner un dossier (récursif)
@@ -266,8 +266,8 @@ Si vous avez Windows en dual-boot :
 
 ```bash
 # Monter la partition Windows (si pas déjà montée)
-sudo mkdir /mnt/windows
-sudo mount /dev/sda2 /mnt/windows
+sudo mkdir /mnt/windows  
+sudo mount /dev/sda2 /mnt/windows  
 
 # Scanner
 sudo clamscan -r -i /mnt/windows
@@ -378,8 +378,8 @@ Le daemon `clamd` reste en mémoire et peut scanner à la demande plus rapidemen
 #### Activer le daemon
 
 ```bash
-sudo systemctl enable clamav-daemon
-sudo systemctl start clamav-daemon
+sudo systemctl enable clamav-daemon  
+sudo systemctl start clamav-daemon  
 ```
 
 #### Scanner avec clamd (plus rapide)
@@ -412,8 +412,8 @@ Contenu du script :
 
 DOSSIER="/home/sophie/Téléchargements"
 
-inotifywait -m -r -e create,moved_to "$DOSSIER" --format '%w%f' | while read FICHIER
-do
+inotifywait -m -r -e create,moved_to "$DOSSIER" --format '%w%f' | while read FICHIER  
+do  
     echo "Nouveau fichier détecté: $FICHIER"
     clamscan "$FICHIER"
 done
@@ -553,9 +553,9 @@ Ou configurez un script pour scanner automatiquement les téléchargements.
 Pas un antivirus classique, mais un **détecteur de rootkits** :
 
 ```bash
-sudo apt install rkhunter
-sudo rkhunter --update
-sudo rkhunter --check
+sudo apt install rkhunter  
+sudo rkhunter --update  
+sudo rkhunter --check  
 ```
 
 RKHunter cherche :
@@ -569,8 +569,8 @@ RKHunter cherche :
 Similaire à RKHunter :
 
 ```bash
-sudo apt install chkrootkit
-sudo chkrootkit
+sudo apt install chkrootkit  
+sudo chkrootkit  
 ```
 
 ### LMD (Linux Malware Detect)
@@ -578,11 +578,11 @@ sudo chkrootkit
 Spécialisé dans la **détection de malwares Linux** sur les serveurs :
 
 ```bash
-cd /usr/local/src
-sudo wget http://www.rfxn.com/downloads/maldetect-current.tar.gz
-sudo tar -xzf maldetect-current.tar.gz
-cd maldetect-*
-sudo ./install.sh
+cd /usr/local/src  
+sudo wget http://www.rfxn.com/downloads/maldetect-current.tar.gz  
+sudo tar -xzf maldetect-current.tar.gz  
+cd maldetect-*  
+sudo ./install.sh  
 ```
 
 Scanner :
@@ -709,9 +709,9 @@ find /home/sophie/Téléchargements -type f -mtime -1 -exec clamscan {} \;
 
 **Solution** :
 ```bash
-sudo systemctl stop clamav-freshclam
-sudo freshclam
-sudo systemctl start clamav-freshclam
+sudo systemctl stop clamav-freshclam  
+sudo freshclam  
+sudo systemctl start clamav-freshclam  
 ```
 
 ### "Can't access file"
@@ -739,8 +739,8 @@ sudo clamscan -r /chemin/
 
 **Solution** :
 ```bash
-sudo systemctl start clamav-daemon
-sudo systemctl status clamav-daemon
+sudo systemctl start clamav-daemon  
+sudo systemctl status clamav-daemon  
 ```
 
 ### Faux positifs constants

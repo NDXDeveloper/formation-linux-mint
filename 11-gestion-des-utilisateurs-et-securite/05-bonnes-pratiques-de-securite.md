@@ -80,8 +80,8 @@ cat /var/run/reboot-required
 #### Supprimer les paquets inutilisés
 
 ```bash
-sudo apt autoremove
-sudo apt autoclean
+sudo apt autoremove  
+sudo apt autoclean  
 ```
 
 #### Nettoyer les fichiers temporaires
@@ -161,8 +161,8 @@ exit
 Pour les services en ligne et, si possible, pour les connexions SSH :
 
 ```bash
-sudo apt install libpam-google-authenticator
-google-authenticator
+sudo apt install libpam-google-authenticator  
+google-authenticator  
 ```
 
 Voir le chapitre précédent pour plus de détails.
@@ -224,8 +224,8 @@ sudo ufw allow 22/tcp
 
 Exemple pour un serveur web :
 ```bash
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp  
+sudo ufw allow 443/tcp  
 ```
 
 #### Bloquer des adresses IP spécifiques
@@ -247,8 +247,8 @@ sudo systemctl list-unit-files --type=service --state=enabled
 #### Désactiver un service
 
 ```bash
-sudo systemctl disable nom_du_service
-sudo systemctl stop nom_du_service
+sudo systemctl disable nom_du_service  
+sudo systemctl stop nom_du_service  
 ```
 
 #### Voir les ports en écoute
@@ -296,8 +296,8 @@ PermitRootLogin no
 
 Dans `/etc/ssh/sshd_config` :
 ```
-PasswordAuthentication no
-PubkeyAuthentication yes
+PasswordAuthentication no  
+PubkeyAuthentication yes  
 ```
 
 **Attention** : Configurez d'abord vos clés SSH avant de désactiver l'authentification par mot de passe !
@@ -307,9 +307,9 @@ PubkeyAuthentication yes
 Fail2Ban bloque automatiquement les IP qui tentent de se connecter trop souvent :
 
 ```bash
-sudo apt install fail2ban
-sudo systemctl enable fail2ban
-sudo systemctl start fail2ban
+sudo apt install fail2ban  
+sudo systemctl enable fail2ban  
+sudo systemctl start fail2ban  
 ```
 
 ### Utiliser un VPN pour le WiFi public
@@ -532,8 +532,8 @@ sudo dd if=/dev/urandom of=/dev/sdX bs=1M status=progress
 Principe du **moindre privilège** :
 
 ```bash
-chmod 600 fichier_personnel.txt
-chmod 700 dossier_prive/
+chmod 600 fichier_personnel.txt  
+chmod 700 dossier_prive/  
 ```
 
 Seul vous pouvez lire/écrire ces fichiers.
@@ -588,8 +588,8 @@ WARNING: The following packages cannot be authenticated!
 Moins il y a de logiciels, moins il y a de failles potentielles.
 
 ```bash
-sudo apt remove nom_du_paquet
-sudo apt autoremove
+sudo apt remove nom_du_paquet  
+sudo apt autoremove  
 ```
 
 ### Éviter les logiciels avec des permissions excessives
@@ -687,14 +687,14 @@ Les photos contiennent des **métadonnées EXIF** (lieu, date, appareil photo).
 #### Supprimer les métadonnées
 
 ```bash
-sudo apt install exiftool
-exiftool -all= photo.jpg
+sudo apt install exiftool  
+exiftool -all= photo.jpg  
 ```
 
 Ou avec l'interface graphique :
 ```bash
-sudo apt install mat2
-mat2 photo.jpg
+sudo apt install mat2  
+mat2 photo.jpg  
 ```
 
 ---
@@ -760,8 +760,8 @@ sudo ss -tulpn
 Pour les utilisateurs avancés :
 
 ```bash
-sudo apt install aide
-sudo aideinit
+sudo apt install aide  
+sudo aideinit  
 ```
 
 AIDE détecte les modifications non autorisées de fichiers système.
@@ -780,8 +780,8 @@ AIDE détecte les modifications non autorisées de fichiers système.
 #### ClamAV (gratuit, open source)
 
 ```bash
-sudo apt install clamav clamav-daemon
-sudo freshclam
+sudo apt install clamav clamav-daemon  
+sudo freshclam  
 ```
 
 Scanner un fichier :
@@ -830,9 +830,9 @@ Ou débranchez physiquement le câble Ethernet.
 #### 3. Examinez les logs
 
 ```bash
-sudo journalctl -xe
-sudo tail -100 /var/log/auth.log
-last
+sudo journalctl -xe  
+sudo tail -100 /var/log/auth.log  
+last  
 ```
 
 Notez toute activité suspecte.
@@ -840,16 +840,16 @@ Notez toute activité suspecte.
 #### 4. Analysez le système
 
 ```bash
-sudo clamscan -r /home
-sudo rkhunter --check
+sudo clamscan -r /home  
+sudo rkhunter --check  
 ```
 
 #### 5. Restaurez depuis une sauvegarde
 
 Si vous avez des snapshots Timeshift :
 ```bash
-sudo timeshift --list
-sudo timeshift --restore
+sudo timeshift --list  
+sudo timeshift --restore  
 ```
 
 #### 6. Réinstallez si nécessaire

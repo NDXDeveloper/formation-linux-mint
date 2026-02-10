@@ -189,14 +189,14 @@ sudo passwd sophie
 2. Ouvrez un terminal et tapez :
 
 ```bash
-sudo usermod -l nouveau_nom ancien_nom
-sudo usermod -d /home/nouveau_nom -m nouveau_nom
+sudo usermod -l nouveau_nom ancien_nom  
+sudo usermod -d /home/nouveau_nom -m nouveau_nom  
 ```
 
 Exemple :
 ```bash
-sudo usermod -l smartin sophie
-sudo usermod -d /home/smartin -m smartin
+sudo usermod -l smartin sophie  
+sudo usermod -d /home/smartin -m smartin  
 ```
 
 ### Verrouiller/déverrouiller temporairement un compte

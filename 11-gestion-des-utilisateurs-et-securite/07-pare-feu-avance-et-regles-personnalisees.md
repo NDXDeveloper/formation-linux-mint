@@ -88,10 +88,10 @@ sudo ufw status verbose
 
 Résultat :
 ```
-Status: active
-Logging: on (low)
-Default: deny (incoming), allow (outgoing), disabled (routed)
-New profiles: skip
+Status: active  
+Logging: on (low)  
+Default: deny (incoming), allow (outgoing), disabled (routed)  
+New profiles: skip  
 ```
 
 ### Règles de base
@@ -149,8 +149,8 @@ sudo ufw allow 53/udp
 #### Autoriser les deux explicitement
 
 ```bash
-sudo ufw allow 443/tcp
-sudo ufw allow 443/udp
+sudo ufw allow 443/tcp  
+sudo ufw allow 443/udp  
 ```
 
 ### Autoriser une plage de ports
@@ -255,16 +255,16 @@ Le serveur web n'est accessible que depuis localhost (127.0.0.1).
 UFW reconnaît les services communs définis dans `/etc/services`.
 
 ```bash
-sudo ufw allow ssh
-sudo ufw allow http
-sudo ufw allow https
+sudo ufw allow ssh  
+sudo ufw allow http  
+sudo ufw allow https  
 ```
 
 Équivalent à :
 ```bash
-sudo ufw allow 22/tcp
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
+sudo ufw allow 22/tcp  
+sudo ufw allow 80/tcp  
+sudo ufw allow 443/tcp  
 ```
 
 ### Règles de rejet vs refus
@@ -338,22 +338,22 @@ Supprime la règle numéro 3.
 
 **Mauvais ordre** :
 ```bash
-sudo ufw allow 22/tcp
-sudo ufw deny from 203.0.113.100
+sudo ufw allow 22/tcp  
+sudo ufw deny from 203.0.113.100  
 ```
 
 Résultat : L'IP 203.0.113.100 peut quand même se connecter en SSH (règle 1 appliquée en premier).
 
 **Bon ordre** :
 ```bash
-sudo ufw deny from 203.0.113.100
-sudo ufw allow 22/tcp
+sudo ufw deny from 203.0.113.100  
+sudo ufw allow 22/tcp  
 ```
 
 Ou mieux, avec insertion :
 ```bash
-sudo ufw allow 22/tcp
-sudo ufw insert 1 deny from 203.0.113.100
+sudo ufw allow 22/tcp  
+sudo ufw insert 1 deny from 203.0.113.100  
 ```
 
 ---
@@ -425,9 +425,9 @@ sudo ufw app info OpenSSH
 
 Résultat :
 ```
-Profile: OpenSSH
-Title: Secure shell server
-Description: SSH server and SFTP server
+Profile: OpenSSH  
+Title: Secure shell server  
+Description: SSH server and SFTP server  
 
 Port:
   22/tcp
@@ -470,9 +470,9 @@ sudo nano /etc/ufw/applications.d/mon-application
 Contenu exemple pour un serveur Node.js :
 ```
 [NodeJS]
-title=Node.js Web Server
-description=Node.js application server
-ports=3000/tcp
+title=Node.js Web Server  
+description=Node.js application server  
+ports=3000/tcp  
 ```
 
 #### Recharger les profils
@@ -627,8 +627,8 @@ Les règles sont listées dans la fenêtre principale.
 
 ```bash
 # Autoriser HTTP/HTTPS pour tous
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp  
+sudo ufw allow 443/tcp  
 
 # Autoriser SSH uniquement depuis votre IP
 sudo ufw allow from VOTRE_IP to any port 22
@@ -642,8 +642,8 @@ sudo ufw enable
 **Objectif** : Autoriser le port Minecraft (25565).
 
 ```bash
-sudo ufw allow 25565/tcp
-sudo ufw enable
+sudo ufw allow 25565/tcp  
+sudo ufw enable  
 ```
 
 ### Cas 3 : Partage de fichiers local (Samba)
@@ -651,8 +651,8 @@ sudo ufw enable
 **Objectif** : Autoriser Samba uniquement sur le réseau local.
 
 ```bash
-sudo ufw allow from 192.168.1.0/24 to any app Samba
-sudo ufw enable
+sudo ufw allow from 192.168.1.0/24 to any app Samba  
+sudo ufw enable  
 ```
 
 ### Cas 4 : Serveur de développement local
@@ -660,9 +660,9 @@ sudo ufw enable
 **Objectif** : Autoriser les ports 3000 (Node.js), 8080 (autre app) uniquement en localhost.
 
 ```bash
-sudo ufw allow in on lo to any port 3000
-sudo ufw allow in on lo to any port 8080
-sudo ufw enable
+sudo ufw allow in on lo to any port 3000  
+sudo ufw allow in on lo to any port 8080  
+sudo ufw enable  
 ```
 
 ### Cas 5 : VPN WireGuard
@@ -674,8 +674,8 @@ sudo ufw enable
 sudo ufw allow 51820/udp
 
 # Autoriser le transfert
-sudo ufw route allow in on wg0 out on eth0
-sudo ufw route allow in on eth0 out on wg0
+sudo ufw route allow in on wg0 out on eth0  
+sudo ufw route allow in on eth0 out on wg0  
 
 sudo ufw enable
 ```
@@ -913,18 +913,18 @@ Fail2Ban :
 ### Configuration de base
 
 ```bash
-sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-sudo nano /etc/fail2ban/jail.local
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local  
+sudo nano /etc/fail2ban/jail.local  
 ```
 
 Configuration SSH :
 ```
 [sshd]
-enabled = true
-port = ssh
-logpath = /var/log/auth.log
-maxretry = 5
-bantime = 3600
+enabled = true  
+port = ssh  
+logpath = /var/log/auth.log  
+maxretry = 5  
+bantime = 3600  
 ```
 
 - `maxretry` : Nombre d'échecs avant ban
@@ -1010,8 +1010,8 @@ sudo fail2ban-client set sshd unbanip 203.0.113.50
 
 **Prévention** : Toujours autoriser SSH AVANT d'activer UFW sur un serveur distant :
 ```bash
-sudo ufw allow 22/tcp
-sudo ufw enable
+sudo ufw allow 22/tcp  
+sudo ufw enable  
 ```
 
 ### UFW et Docker
@@ -1103,15 +1103,15 @@ sudo ufw disable
 sudo ufw --force reset
 
 # Politique par défaut
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
+sudo ufw default deny incoming  
+sudo ufw default allow outgoing  
 
 # SSH avec limitation (protection brute force)
 sudo ufw limit 22/tcp
 
 # HTTP et HTTPS
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp  
+sudo ufw allow 443/tcp  
 
 # Autoriser ping
 sudo ufw allow proto icmp from any
@@ -1132,8 +1132,8 @@ sudo ufw status verbose
 #!/bin/bash
 # Script à exécuter via cron pour alerter des attaques
 
-LOG_FILE="/var/log/ufw.log"
-ALERT_THRESHOLD=10
+LOG_FILE="/var/log/ufw.log"  
+ALERT_THRESHOLD=10  
 
 # Compter les tentatives SSH bloquées dans la dernière heure
 ATTEMPTS=$(grep "DPT=22" "$LOG_FILE" | grep "$(date +%Y-%m-%d)" | wc -l)
@@ -1244,20 +1244,20 @@ sudo ipset save > /etc/ipset.conf
 
 Pour un ordinateur de bureau :
 ```bash
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw enable
+sudo ufw default deny incoming  
+sudo ufw default allow outgoing  
+sudo ufw enable  
 ```
 
 Pour un serveur web :
 ```bash
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw limit ssh
-sudo ufw allow http
-sudo ufw allow https
-sudo ufw logging low
-sudo ufw enable
+sudo ufw default deny incoming  
+sudo ufw default allow outgoing  
+sudo ufw limit ssh  
+sudo ufw allow http  
+sudo ufw allow https  
+sudo ufw logging low  
+sudo ufw enable  
 ```
 
 ### Quand utiliser quoi ?

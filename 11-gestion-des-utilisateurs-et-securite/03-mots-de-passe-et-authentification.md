@@ -103,10 +103,10 @@ Le système vous demandera :
 
 Exemple d'interaction :
 ```
-Current password: ********
-New password: ************
-Retype new password: ************
-passwd: password updated successfully
+Current password: ********  
+New password: ************  
+Retype new password: ************  
+passwd: password updated successfully  
 ```
 
 ### Changer le mot de passe d'un autre utilisateur
@@ -213,14 +213,14 @@ Utilisez plusieurs mots aléatoires séparés par des caractères spéciaux :
 
 Linux affiche souvent un indicateur de force lors de la création :
 ```
-New password:
-Bad password: too short
+New password:  
+Bad password: too short  
 ```
 
 Ou
 ```
-New password:
-Good password
+New password:  
+Good password  
 ```
 
 Pour tester la force d'un mot de passe :
@@ -298,13 +298,13 @@ sudo chage -l sophie
 
 Résultat :
 ```
-Last password change                    : nov 15, 2024
-Password expires                        : fév 13, 2025
-Password inactive                       : never
-Account expires                         : never
-Minimum number of days between password change : 0
-Maximum number of days between password change : 90
-Number of days of warning before password expires : 7
+Last password change                    : nov 15, 2024  
+Password expires                        : fév 13, 2025  
+Password inactive                       : never  
+Account expires                         : never  
+Minimum number of days between password change : 0  
+Maximum number of days between password change : 90  
+Number of days of warning before password expires : 7  
 ```
 
 #### Paramètres de chage
@@ -326,9 +326,9 @@ sudo nano /etc/login.defs
 
 Recherchez et modifiez :
 ```bash
-PASS_MAX_DAYS   90      # Expiration tous les 90 jours
-PASS_MIN_DAYS   1       # Minimum 1 jour entre les changements
-PASS_WARN_AGE   7       # Avertissement 7 jours avant
+PASS_MAX_DAYS   90      # Expiration tous les 90 jours  
+PASS_MIN_DAYS   1       # Minimum 1 jour entre les changements  
+PASS_WARN_AGE   7       # Avertissement 7 jours avant  
 ```
 
 ---
@@ -539,10 +539,10 @@ cat ~/.ssh/id_ed25519.pub | ssh utilisateur@serveur.com "mkdir -p ~/.ssh && cat 
 
 **Permissions correctes** (critiques) :
 ```bash
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/id_ed25519
-chmod 644 ~/.ssh/id_ed25519.pub
-chmod 600 ~/.ssh/authorized_keys
+chmod 700 ~/.ssh  
+chmod 600 ~/.ssh/id_ed25519  
+chmod 644 ~/.ssh/id_ed25519.pub  
+chmod 600 ~/.ssh/authorized_keys  
 ```
 
 SSH refusera d'utiliser des clés avec des permissions trop ouvertes.
@@ -550,8 +550,8 @@ SSH refusera d'utiliser des clés avec des permissions trop ouvertes.
 ### Utiliser ssh-agent pour éviter de ressaisir la passphrase
 
 ```bash
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
+eval "$(ssh-agent -s)"  
+ssh-add ~/.ssh/id_ed25519  
 ```
 
 Entrez la passphrase une fois, elle sera mémorisée pour la session.
