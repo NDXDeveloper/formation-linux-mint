@@ -67,17 +67,17 @@ linux mint [votre problème]
 
 **Exemples** :
 ```
-linux mint wifi ne se connecte pas
-linux mint mise à jour bloquée
-linux mint dual boot windows disparu
+linux mint wifi ne se connecte pas  
+linux mint mise à jour bloquée  
+linux mint dual boot windows disparu  
 ```
 
 **Syntaxe avancée** :
 
 **Recherche sur un site spécifique** :
 ```
-site:forums.linuxmint.com [problème]
-site:doc.ubuntu-fr.org [problème]
+site:forums.linuxmint.com [problème]  
+site:doc.ubuntu-fr.org [problème]  
 ```
 
 **Recherche exacte avec guillemets** :
@@ -418,21 +418,21 @@ inxi -Fxz
 
 **Pour les problèmes réseau** :
 ```bash
-ip link
-iwconfig
-nmcli device status
+ip link  
+iwconfig  
+nmcli device status  
 ```
 
 **Pour les problèmes graphiques** :
 ```bash
-lspci | grep -i vga
-glxinfo | grep "OpenGL"
+lspci | grep -i vga  
+glxinfo | grep "OpenGL"  
 ```
 
 **Pour les problèmes de logiciel** :
 ```bash
-apt policy nom-du-logiciel
-dpkg -l | grep nom-du-logiciel
+apt policy nom-du-logiciel  
+dpkg -l | grep nom-du-logiciel  
 ```
 
 ### Formater votre message
@@ -509,8 +509,8 @@ Ou utilisez les balises spécifiques du forum (souvent `[code]...[/code]`)
 
 **Si ça marche** :
 ```
-Merci beaucoup ! La solution a parfaitement fonctionné.
-J'ai suivi les étapes 1 à 3 et maintenant le WiFi est détecté.
+Merci beaucoup ! La solution a parfaitement fonctionné.  
+J'ai suivi les étapes 1 à 3 et maintenant le WiFi est détecté.  
 
 Pour information, voici exactement ce que j'ai fait :
 [détails si pertinent]
@@ -520,8 +520,8 @@ Je marque le sujet comme [RÉSOLU].
 
 **Si ça ne marche pas** :
 ```
-Merci pour votre aide. J'ai essayé votre solution mais
-malheureusement ça ne résout pas le problème.
+Merci pour votre aide. J'ai essayé votre solution mais  
+malheureusement ça ne résout pas le problème.  
 
 Voici ce que j'ai fait :
 1. [étape 1] → Résultat : [...]
@@ -532,12 +532,12 @@ Avez-vous une autre piste à me suggérer ?
 
 **Si vous ne comprenez pas** :
 ```
-Merci pour votre réponse. Cependant, je ne suis pas sûr de
-comprendre l'étape 2. Pourriez-vous détailler un peu plus ?
+Merci pour votre réponse. Cependant, je ne suis pas sûr de  
+comprendre l'étape 2. Pourriez-vous détailler un peu plus ?  
 
-Par exemple, quand vous dites "modifiez le fichier",
-quel éditeur dois-je utiliser et où se trouve ce fichier
-exactement ?
+Par exemple, quand vous dites "modifiez le fichier",  
+quel éditeur dois-je utiliser et où se trouve ce fichier  
+exactement ?  
 ```
 
 ### Si vous ne recevez pas de réponse
@@ -552,8 +552,8 @@ exactement ?
 ```
 Bonjour,
 
-Je me permets de relancer ce sujet car je n'ai pas encore
-trouvé de solution. Si quelqu'un a une piste, je suis preneur.
+Je me permets de relancer ce sujet car je n'ai pas encore  
+trouvé de solution. Si quelqu'un a une piste, je suis preneur.  
 
 Merci !
 ```
@@ -623,8 +623,8 @@ Lancez l'application depuis le terminal pour voir les erreurs :
 nom-de-lapplication
 
 # Exemple
-firefox
-thunderbird
+firefox  
+thunderbird  
 ```
 
 Les messages d'erreur s'afficheront dans le terminal.
@@ -638,14 +638,14 @@ inxi -Fxz
 
 **hardinfo** : Interface graphique pour le matériel
 ```bash
-sudo apt install hardinfo
-hardinfo
+sudo apt install hardinfo  
+hardinfo  
 ```
 
 **dmesg** : Messages du noyau
 ```bash
-dmesg | tail -50
-dmesg | grep -i error
+dmesg | tail -50  
+dmesg | grep -i error  
 ```
 
 **lshw** : Liste du matériel
@@ -691,10 +691,10 @@ linux mint [version] [hardware/software] [problem]
 
 **Exemples** :
 ```
-linux mint 21 wifi not working
-linux mint cinnamon slow performance
-linux mint nvidia driver black screen
-linux mint dual boot windows not showing
+linux mint 21 wifi not working  
+linux mint cinnamon slow performance  
+linux mint nvidia driver black screen  
+linux mint dual boot windows not showing  
 ```
 
 ### Utiliser la traduction automatique

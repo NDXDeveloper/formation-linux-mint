@@ -967,7 +967,7 @@ sudo apt install gpodder
 
 **Structure de notes pour vidéo** :
 
-```markdown
+````markdown
 # [Titre de la vidéo]
 
 **Chaîne** : [Nom]
@@ -1001,7 +1001,7 @@ commande à retenir
 ## Ressources liées
 - Lien documentation
 - Vidéo connexe
-```
+````
 
 ### Créer votre parcours d'apprentissage
 

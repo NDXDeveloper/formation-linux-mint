@@ -323,9 +323,9 @@ site:linuxmint.com [votre recherche]
 
 **Exemples** :
 ```
-site:linuxmint.com timeshift backup
-site:linuxmint.com driver nvidia
-site:linuxmint.com dual boot
+site:linuxmint.com timeshift backup  
+site:linuxmint.com driver nvidia  
+site:linuxmint.com dual boot  
 ```
 
 **Pour la doc Ubuntu francophone** :
@@ -359,9 +359,9 @@ Linux inclut une documentation intégrée pour toutes les commandes.
 man nom-de-la-commande
 
 # Exemples
-man ls
-man cp
-man chmod
+man ls  
+man cp  
+man chmod  
 ```
 
 **Navigation dans man** :
@@ -376,8 +376,8 @@ man chmod
 nom-de-la-commande --help
 
 # Exemple
-ls --help
-apt --help
+ls --help  
+apt --help  
 ```
 
 ### Documentation des logiciels installés
@@ -536,12 +536,12 @@ Gardez un fichier de notes personnelles :
 sudo apt update && sudo apt upgrade -y
 
 # Nettoyer le système
-sudo apt autoremove
-sudo apt autoclean
+sudo apt autoremove  
+sudo apt autoclean  
 
 # Mon imprimante HP
-Pilote : hplip
-Configuration : via CUPS http://localhost:631
+Pilote : hplip  
+Configuration : via CUPS http://localhost:631  
 
 === PROBLÈMES RÉSOLUS ===
 

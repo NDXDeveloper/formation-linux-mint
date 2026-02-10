@@ -159,8 +159,8 @@ Bonjour,
 
 J'utilise Linux Mint 21.3 Cinnamon sur un Dell Inspiron 15.
 
-Depuis la dernière mise à jour, ma carte WiFi ne se connecte plus.
-Elle apparaît dans les paramètres réseau mais impossible de se connecter
+Depuis la dernière mise à jour, ma carte WiFi ne se connecte plus.  
+Elle apparaît dans les paramètres réseau mais impossible de se connecter  
 à mon réseau habituel.
 
 J'ai essayé :

@@ -182,9 +182,9 @@ Récapitulatif et ressources complémentaires
 ```
 Titre : Le gestionnaire de mise à jour se ferme au clic sur "Installer"
 
-Description :
-Lors de l'installation de mises à jour, le gestionnaire se ferme
-inopinément quand je clique sur "Installer les mises à jour".
+Description :  
+Lors de l'installation de mises à jour, le gestionnaire se ferme  
+inopinément quand je clique sur "Installer les mises à jour".  
 
 Étapes pour reproduire :
 1. Ouvrir le Gestionnaire de mises à jour

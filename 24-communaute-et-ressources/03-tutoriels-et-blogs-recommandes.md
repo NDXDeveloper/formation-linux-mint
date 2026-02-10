@@ -663,10 +663,10 @@ Ce chapitre vous présente une sélection de ressources de qualité, en françai
 
 **Ajoutez les flux RSS** :
 ```
-https://korben.info/feed
-https://blog.linuxmint.com/?feed=rss2
-https://itsfoss.com/feed
-https://www.omgubuntu.co.uk/feed
+https://korben.info/feed  
+https://blog.linuxmint.com/?feed=rss2  
+https://itsfoss.com/feed  
+https://www.omgubuntu.co.uk/feed  
 ```
 
 **Gestionnaire de favoris** :
