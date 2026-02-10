@@ -26,9 +26,9 @@ Linux lit cette liste au démarrage et exécute les montages automatiquement.
 **Sans fstab** :
 ```bash
 # À chaque démarrage, vous devriez taper :
-sudo mount /dev/sdb1 /mnt/donnees
-sudo mount /dev/sdc1 /mnt/musique
-sudo mount //192.168.1.10/partage /mnt/reseau
+sudo mount /dev/sdb1 /mnt/donnees  
+sudo mount /dev/sdc1 /mnt/musique  
+sudo mount //192.168.1.10/partage /mnt/reseau  
 # Fastidieux !
 ```
 
@@ -109,8 +109,8 @@ Chaque ligne de montage contient **6 champs** séparés par des espaces ou tabul
 
 ```
 # Système fichiers    Point montage  Type   Options         Dump  Pass
-UUID=abc123-def456    /              ext4   defaults        0     1
-UUID=jkl012-mno345    /home          ext4   defaults        0     2
+UUID=abc123-def456    /              ext4   defaults        0     1  
+UUID=jkl012-mno345    /home          ext4   defaults        0     2  
 /dev/sdb1             /mnt/donnees   ext4   defaults        0     2
 ```
 
@@ -203,8 +203,8 @@ UUID=stu901-vwx234-yza567
 
 ## Colonne 2 : Point de montage
 
-**Qu'est-ce que c'est ?**
-**Où** la partition sera accessible dans l'arborescence.
+**Qu'est-ce que c'est ?**  
+**Où** la partition sera accessible dans l'arborescence.  
 
 ### Points de montage standards
 
@@ -271,8 +271,8 @@ Le **type** de système de fichiers de la partition.
 
 ## Colonne 4 : Options de montage
 
-**Qu'est-ce que c'est ?**
-**Comment** monter la partition (permissions, comportement).
+**Qu'est-ce que c'est ?**  
+**Comment** monter la partition (permissions, comportement).  
 
 ### Option par défaut
 
@@ -329,9 +329,9 @@ C'est le choix standard pour la plupart des partitions Linux.
 **Syntaxe** : Séparées par des virgules (sans espaces) :
 
 ```
-defaults,noatime,nofail
-ro,noexec,nodev
-rw,uid=1000,gid=1000,umask=022
+defaults,noatime,nofail  
+ro,noexec,nodev  
+rw,uid=1000,gid=1000,umask=022  
 ```
 
 ### Exemples courants
@@ -400,9 +400,9 @@ Ordre de vérification du système de fichiers au démarrage avec `fsck`.
 /         →  1  (partition racine)
 /home     →  2  (autre partition Linux)
 /boot/efi →  1  (partition de boot)
-swap      →  0  (pas de vérification)
-NTFS      →  0  (Windows le vérifie)
-Réseau    →  0  (pas de vérification)
+swap      →  0  (pas de vérification)  
+NTFS      →  0  (Windows le vérifie)  
+Réseau    →  0  (pas de vérification)  
 ```
 
 ---
@@ -536,9 +536,9 @@ UUID=jkl012-mno345-pqr678  /mnt/donnees  ext4  defaults,nofail  0  2
 
 ### Étape 5 : Sauvegarder
 
-**Dans nano** : `Ctrl+O` puis `Entrée` puis `Ctrl+X`
-**Dans vim** : `:wq` puis `Entrée`
-**Dans xed** : Menu Fichier → Enregistrer
+**Dans nano** : `Ctrl+O` puis `Entrée` puis `Ctrl+X`  
+**Dans vim** : `:wq` puis `Entrée`  
+**Dans xed** : Menu Fichier → Enregistrer  
 
 ### Étape 6 : Tester SANS redémarrer
 
@@ -569,8 +569,8 @@ mount: wrong fs type, bad option, bad superblock...
 
 **Vérifier que tout est OK** :
 ```bash
-mount | grep mon-disque
-ls /mnt/mon-disque
+mount | grep mon-disque  
+ls /mnt/mon-disque  
 ```
 
 **Si tout fonctionne** :
@@ -611,8 +611,8 @@ UUID=AB12CD34EF567890  /mnt/windows  ntfs-3g  defaults,permissions,nofail  0  0
 
 **4. Tester** :
 ```bash
-sudo mount -a
-ls /mnt/windows
+sudo mount -a  
+ls /mnt/windows  
 ```
 
 ⚠️ **Note** : Désactivez Fast Startup dans Windows, sinon la partition peut être en lecture seule.
@@ -676,9 +676,9 @@ nano ~/.smbcredentials
 
 **Contenu** :
 ```
-username=votre_utilisateur
-password=votre_mot_de_passe
-domain=WORKGROUP
+username=votre_utilisateur  
+password=votre_mot_de_passe  
+domain=WORKGROUP  
 ```
 
 **Protéger le fichier** :
@@ -698,8 +698,8 @@ sudo mkdir /mnt/nas
 
 **4. Tester** :
 ```bash
-sudo mount -a
-ls /mnt/nas
+sudo mount -a  
+ls /mnt/nas  
 ```
 
 ### 6. Optimisation SSD
@@ -810,31 +810,31 @@ UUID=ABC123  /mnt/data  ntfs-3g  defaults,uid=1000,gid=1000,umask=022  0  0
 ### Voir les montages actuels
 
 ```bash
-mount                    # Tous les montages
-df -h                    # Utilisation de l'espace
-findmnt                  # Arbre des montages (lisible)
-cat /proc/mounts         # Montages du kernel
+mount                    # Tous les montages  
+df -h                    # Utilisation de l'espace  
+findmnt                  # Arbre des montages (lisible)  
+cat /proc/mounts         # Montages du kernel  
 ```
 
 ### Tester fstab
 
 ```bash
-sudo mount -a            # Monter tout ce qui n'est pas monté
-sudo umount -a           # Démonter (attention !)
+sudo mount -a            # Monter tout ce qui n'est pas monté  
+sudo umount -a           # Démonter (attention !)  
 ```
 
 ### Vérifier un système de fichiers
 
 ```bash
-sudo fsck /dev/sdX1      # Vérifier et réparer
-sudo fsck -n /dev/sdX1   # Vérifier sans réparer (simulation)
+sudo fsck /dev/sdX1      # Vérifier et réparer  
+sudo fsck -n /dev/sdX1   # Vérifier sans réparer (simulation)  
 ```
 
 ### Démonter une partition
 
 ```bash
-sudo umount /point/montage
-sudo umount /dev/sdX1
+sudo umount /point/montage  
+sudo umount /dev/sdX1  
 ```
 
 ### Remonter avec nouvelles options
@@ -943,11 +943,11 @@ UUID=xyz-789  none  swap  sw  0  0
 ### Commandes essentielles
 
 ```bash
-sudo blkid                          # Voir les UUID
-sudo nano /etc/fstab               # Éditer
-sudo mount -a                      # Tester
-df -h                              # Vérifier
-sudo cp /etc/fstab /etc/fstab.bak  # Sauvegarder
+sudo blkid                          # Voir les UUID  
+sudo nano /etc/fstab               # Éditer  
+sudo mount -a                      # Tester  
+df -h                              # Vérifier  
+sudo cp /etc/fstab /etc/fstab.bak  # Sauvegarder  
 ```
 
 ### Pour aller plus loin

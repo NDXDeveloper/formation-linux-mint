@@ -35,10 +35,10 @@ Imaginez un disque dur de 500 Go que vous pourriez diviser ainsi :
 ### Sous Windows
 
 ```
-C:\ ──→ Disque principal (partition 1)
-D:\ ──→ Deuxième partition ou disque
-E:\ ──→ Clé USB
-F:\ ──→ Lecteur DVD
+C:\ ──→ Disque principal (partition 1)  
+D:\ ──→ Deuxième partition ou disque  
+E:\ ──→ Clé USB  
+F:\ ──→ Lecteur DVD  
 ```
 
 Chaque partition ou périphérique a sa **propre lettre** et est **indépendant**.
@@ -214,8 +214,8 @@ lsblk
 
 **Résultat exemple** :
 ```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 465.8G  0 disk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT  
+sda      8:0    0 465.8G  0 disk  
 ├─sda1   8:1    0   512M  0 part /boot/efi
 ├─sda2   8:2    0    50G  0 part /
 ├─sda3   8:3    0     8G  0 part [SWAP]
@@ -247,8 +247,8 @@ Disque de 256 Go
 └── /dev/sda3 - 8 Go    - swap   → [SWAP]
 ```
 
-**Avantage** : Simple, tout en un
-**Inconvénient** : Réinstallation = perte des données
+**Avantage** : Simple, tout en un  
+**Inconvénient** : Réinstallation = perte des données  
 
 ### Installation recommandée (un seul disque)
 
@@ -261,8 +261,8 @@ Disque de 512 Go
 └── /dev/sda4 - 453 Go  - ext4   → /home (données)
 ```
 
-**Avantage** : Vos données restent intactes lors d'une réinstallation
-**Utilisation** : Configuration idéale pour la plupart des utilisateurs
+**Avantage** : Vos données restent intactes lors d'une réinstallation  
+**Utilisation** : Configuration idéale pour la plupart des utilisateurs  
 
 ### Configuration dual-boot Windows + Linux
 

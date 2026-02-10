@@ -107,8 +107,8 @@ ln -s /home/pierre/Documents/projet ~/Bureau/projet
 
 **Chemin relatif** :
 ```bash
-cd ~/Bureau
-ln -s ../Documents/projet projet
+cd ~/Bureau  
+ln -s ../Documents/projet projet  
 ```
 
 💡 **Conseil** : Utilisez des chemins **absolus** (commençant par `/`) pour éviter les surprises si le lien est déplacé.
@@ -167,8 +167,8 @@ Un lien qui pointe vers un fichier qui n'existe plus.
 **Comment ça arrive ?** :
 ```bash
 # Créer un fichier et un lien
-echo "test" > original.txt
-ln -s original.txt lien.txt
+echo "test" > original.txt  
+ln -s original.txt lien.txt  
 
 # Supprimer l'original
 rm original.txt
@@ -229,8 +229,8 @@ echo "Données importantes" > ~/Documents/original.txt
 ln ~/Documents/original.txt ~/Bureau/copie.txt
 
 # Les deux fichiers sont identiques et partagent les mêmes données
-cat ~/Documents/original.txt
-cat ~/Bureau/copie.txt
+cat ~/Documents/original.txt  
+cat ~/Bureau/copie.txt  
 # Tous deux affichent : Données importantes
 
 # Modifier via un nom
@@ -450,8 +450,8 @@ ln -s /chemin/vers/original .
 
 **Voir où pointe un lien symbolique** :
 ```bash
-readlink lien
-readlink -f lien  # Chemin absolu complet
+readlink lien  
+readlink -f lien  # Chemin absolu complet  
 ```
 
 **Voir le nombre de liens durs** :
@@ -481,8 +481,8 @@ find /chemin -xtype l
 **Pour changer la cible d'un lien symbolique** :
 ```bash
 # Méthode 1 : Supprimer et recréer
-rm lien
-ln -s nouvelle-cible lien
+rm lien  
+ln -s nouvelle-cible lien  
 
 # Méthode 2 : Utiliser -f (force) et -n (no-dereference)
 ln -sfn nouvelle-cible lien
@@ -528,8 +528,8 @@ unlink lien-dossier
 ln -s ../Documents/fichier.txt lien.txt
 
 # Si vous déplacez le lien, il devient cassé !
-mv lien.txt ~/Bureau/
-cat ~/Bureau/lien.txt
+mv lien.txt ~/Bureau/  
+cat ~/Bureau/lien.txt  
 # Erreur : cherche ~/Bureau/../Documents/fichier.txt (qui n'existe pas)
 ```
 
@@ -558,8 +558,8 @@ ln -s /home/pierre/fichier.txt /mnt/autre-disque/lien.txt
 
 ### Piège 5 : Éditer un lien avec certains éditeurs
 
-**Certains éditeurs** (comme `nano` ou `vim`) suivent le lien et éditent le fichier original.
-**D'autres** (comme certaines configurations de `vim`) peuvent remplacer le lien par un nouveau fichier !
+**Certains éditeurs** (comme `nano` ou `vim`) suivent le lien et éditent le fichier original.  
+**D'autres** (comme certaines configurations de `vim`) peuvent remplacer le lien par un nouveau fichier !  
 
 **Solution** : Soyez conscient du comportement de votre éditeur, ou éditez directement le fichier original.
 
@@ -621,14 +621,14 @@ ln -s /home/pierre/fichier.txt /mnt/autre-disque/lien.txt
 # Mais les applications les cherchent dans ~/
 
 # Créer les liens
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/.config/Code ~/.config/Code
+ln -s ~/dotfiles/.bashrc ~/.bashrc  
+ln -s ~/dotfiles/.vimrc ~/.vimrc  
+ln -s ~/dotfiles/.config/Code ~/.config/Code  
 
 # Maintenant vous pouvez versionner vos configs facilement
-cd ~/dotfiles
-git add .
-git commit -m "Update config"
+cd ~/dotfiles  
+git add .  
+git commit -m "Update config"  
 ```
 
 ### Exemple 2 : Gérer un serveur web
@@ -660,10 +660,10 @@ sudo ln -sfn /var/www/site-v1.0 /var/www/site
 #!/bin/bash
 # Script de sauvegarde avec liens durs
 
-PROJET="/home/pierre/Documents/MonProjet"
-SAUVEGARDES="/media/sauvegarde"
-DATE=$(date +%Y-%m-%d)
-DERNIERE=$(ls -td $SAUVEGARDES/* | head -1)
+PROJET="/home/pierre/Documents/MonProjet"  
+SAUVEGARDES="/media/sauvegarde"  
+DATE=$(date +%Y-%m-%d)  
+DERNIERE=$(ls -td $SAUVEGARDES/* | head -1)  
 
 # Créer nouvelle sauvegarde avec liens durs vers la dernière
 if [ -d "$DERNIERE" ]; then
@@ -711,20 +711,20 @@ rsync -av --delete "$PROJET/" "$SAUVEGARDES/backup-$DATE/"
 
 ```bash
 # Créer
-ln -s /cible /lien              # Lien symbolique
-ln /cible /lien                 # Lien dur
+ln -s /cible /lien              # Lien symbolique  
+ln /cible /lien                 # Lien dur  
 
 # Inspecter
-readlink -f lien                # Où pointe ?
-ls -l                           # Voir les liens (l et →)
-ls -li                          # Voir les inodes
-find . -type l                  # Trouver liens symboliques
-find . -xtype l                 # Trouver liens cassés
+readlink -f lien                # Où pointe ?  
+ls -l                           # Voir les liens (l et →)  
+ls -li                          # Voir les inodes  
+find . -type l                  # Trouver liens symboliques  
+find . -xtype l                 # Trouver liens cassés  
 
 # Supprimer
-rm lien                         # ✅ BON
-rm lien/                        # ❌ MAUVAIS (dossiers)
-unlink lien                     # Alternative
+rm lien                         # ✅ BON  
+rm lien/                        # ❌ MAUVAIS (dossiers)  
+unlink lien                     # Alternative  
 
 # Mettre à jour
 ln -sfn nouvelle-cible lien     # Changer la cible

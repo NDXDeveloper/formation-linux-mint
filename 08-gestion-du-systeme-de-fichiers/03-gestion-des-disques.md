@@ -176,8 +176,8 @@ GParted n'est pas toujours installé par défaut :
 
 **Terminal** :
 ```bash
-sudo apt update
-sudo apt install gparted
+sudo apt update  
+sudo apt install gparted  
 ```
 
 **Gestionnaire de logiciels** :

@@ -177,8 +177,8 @@ Voici les répertoires les plus importants que vous rencontrerez sous Linux Mint
 Installez et utilisez la commande `tree` pour une vue graphique :
 
 ```bash
-sudo apt install tree
-tree -L 1 /
+sudo apt install tree  
+tree -L 1 /  
 ```
 
 Cette commande affiche l'arborescence à partir de la racine (`/`) sur un niveau de profondeur (`-L 1`).

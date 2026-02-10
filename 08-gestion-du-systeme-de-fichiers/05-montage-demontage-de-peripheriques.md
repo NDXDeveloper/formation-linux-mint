@@ -98,8 +98,8 @@ lsblk
 
 **Résultat de `lsblk`** :
 ```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 465.8G  0 disk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT  
+sda      8:0    0 465.8G  0 disk  
 ├─sda1   8:1    0   512M  0 part /boot/efi
 ├─sda2   8:2    0    50G  0 part /
 └─sda3   8:3    0 407.3G  0 part /home
@@ -330,8 +330,8 @@ sudo mkdir /mnt/windows
 sudo mount -t ntfs-3g /dev/sda3 /mnt/windows
 
 # Accéder
-cd /mnt/windows
-ls
+cd /mnt/windows  
+ls  
 ```
 
 ⚠️ **Si Windows est en hibernation** (Fast Startup), le montage sera en lecture seule. Désactivez Fast Startup dans Windows.
@@ -380,9 +380,9 @@ sudo mount -t cifs //192.168.1.10/Public /mnt/partage-reseau -o guest
 **Version plus sécurisée** (mot de passe dans un fichier) :
 ```bash
 # Créer un fichier de credentials
-echo "username=utilisateur" > ~/.smbcredentials
-echo "password=motdepasse" >> ~/.smbcredentials
-chmod 600 ~/.smbcredentials
+echo "username=utilisateur" > ~/.smbcredentials  
+echo "password=motdepasse" >> ~/.smbcredentials  
+chmod 600 ~/.smbcredentials  
 
 # Monter avec le fichier
 sudo mount -t cifs //192.168.1.10/Partage /mnt/partage-reseau -o credentials=/home/votrenom/.smbcredentials
@@ -399,8 +399,8 @@ sudo apt install nfs-common
 
 **Monter** :
 ```bash
-sudo mkdir /mnt/nfs-partage
-sudo mount -t nfs 192.168.1.10:/export/partage /mnt/nfs-partage
+sudo mkdir /mnt/nfs-partage  
+sudo mount -t nfs 192.168.1.10:/export/partage /mnt/nfs-partage  
 ```
 
 ### 5. Monter une clé USB qui ne se monte pas automatiquement
@@ -421,8 +421,8 @@ dmesg | tail -20
 
 **3. Monter manuellement** :
 ```bash
-sudo mkdir /mnt/cle-usb
-sudo mount /dev/sdb1 /mnt/cle-usb
+sudo mkdir /mnt/cle-usb  
+sudo mount /dev/sdb1 /mnt/cle-usb  
 ```
 
 **4. Si erreur "système de fichiers inconnu"** :
@@ -469,9 +469,9 @@ cat /etc/fstab
 **Exemple de contenu** :
 ```
 # <système de fichiers>  <point de montage>  <type>  <options>  <dump>  <pass>
-UUID=abc-123-def         /                   ext4    defaults   0       1
-UUID=456-789-ghi         /home               ext4    defaults   0       2
-UUID=A4B2-C3D4           /boot/efi           vfat    umask=0077 0       1
+UUID=abc-123-def         /                   ext4    defaults   0       1  
+UUID=456-789-ghi         /home               ext4    defaults   0       2  
+UUID=A4B2-C3D4           /boot/efi           vfat    umask=0077 0       1  
 ```
 
 ### Ajouter un montage automatique
@@ -610,8 +610,8 @@ sudo mount /dev/sdb1 /mnt/test
 
 **Solution** :
 ```bash
-sudo mkdir /mnt/test
-sudo mount /dev/sdb1 /mnt/test
+sudo mkdir /mnt/test  
+sudo mount /dev/sdb1 /mnt/test  
 ```
 
 ### "umount: target is busy"
@@ -676,8 +676,8 @@ L'outil **Disques** que nous avons vu est parfait pour :
 
 **Périphérique non détecté** :
 ```bash
-lsusb  # Voir les périphériques USB
-dmesg | tail -20  # Voir les messages du kernel
+lsusb  # Voir les périphériques USB  
+dmesg | tail -20  # Voir les messages du kernel  
 ```
 
 **Partition corrompue** :
@@ -695,35 +695,35 @@ sudo mount -o uid=$(id -u),gid=$(id -g) /dev/sdb1 /mnt/test
 
 **Lister les périphériques** :
 ```bash
-lsblk                    # Vue arborescente
-df -h                    # Espace disque
-mount                    # Tous les montages
-sudo fdisk -l            # Détails complets
-sudo blkid               # UUID et types
+lsblk                    # Vue arborescente  
+df -h                    # Espace disque  
+mount                    # Tous les montages  
+sudo fdisk -l            # Détails complets  
+sudo blkid               # UUID et types  
 ```
 
 **Monter** :
 ```bash
-sudo mount /dev/sdb1 /mnt/point            # Montage basique
-sudo mount -t ntfs /dev/sdb1 /mnt/point    # Avec type
-sudo mount -o ro /dev/sdb1 /mnt/point      # Lecture seule
-sudo mount -a                              # Monter tout dans fstab
+sudo mount /dev/sdb1 /mnt/point            # Montage basique  
+sudo mount -t ntfs /dev/sdb1 /mnt/point    # Avec type  
+sudo mount -o ro /dev/sdb1 /mnt/point      # Lecture seule  
+sudo mount -a                              # Monter tout dans fstab  
 ```
 
 **Démonter** :
 ```bash
-sudo umount /mnt/point           # Démontage normal
-sudo umount /dev/sdb1            # Par périphérique
-sudo umount -f /mnt/point        # Forcer
-sudo umount -l /mnt/point        # Lazy (attend que libre)
-eject /dev/sr0                   # Éjecter CD/DVD
+sudo umount /mnt/point           # Démontage normal  
+sudo umount /dev/sdb1            # Par périphérique  
+sudo umount -f /mnt/point        # Forcer  
+sudo umount -l /mnt/point        # Lazy (attend que libre)  
+eject /dev/sr0                   # Éjecter CD/DVD  
 ```
 
 **Diagnostiquer** :
 ```bash
-lsof /mnt/point                  # Qui utilise ?
-mount | grep sdb1                # Où est monté ?
-sudo fsck /dev/sdb1              # Vérifier/réparer
+lsof /mnt/point                  # Qui utilise ?  
+mount | grep sdb1                # Où est monté ?  
+sudo fsck /dev/sdb1              # Vérifier/réparer  
 ```
 
 ## Résumé
@@ -740,10 +740,10 @@ sudo fsck /dev/sdb1              # Vérifier/réparer
 ### Commandes essentielles
 
 ```bash
-lsblk                           # Lister les périphériques
-sudo mount /dev/sdb1 /mnt/test  # Monter
-sudo umount /mnt/test           # Démonter
-sudo blkid                      # Voir les UUID
+lsblk                           # Lister les périphériques  
+sudo mount /dev/sdb1 /mnt/test  # Monter  
+sudo umount /mnt/test           # Démonter  
+sudo blkid                      # Voir les UUID  
 ```
 
 ### Pour aller plus loin

@@ -225,9 +225,9 @@ Chaque système de fichiers a été conçu avec des objectifs différents :
 
 #### Inconvénients
 
-❌ **Limite de 4 Go par fichier** : IMPOSSIBLE de copier un fichier > 4 Go
-❌ **Pas de permissions** : Tout le monde peut tout lire/écrire
-❌ **Pas de journalisation** : Sensible aux coupures brutales
+❌ **Limite de 4 Go par fichier** : IMPOSSIBLE de copier un fichier > 4 Go  
+❌ **Pas de permissions** : Tout le monde peut tout lire/écrire  
+❌ **Pas de journalisation** : Sensible aux coupures brutales  
 ❌ **Fragmentation** : Se fragmente rapidement
 
 #### Quand l'utiliser ?
@@ -518,8 +518,8 @@ sudo mkfs.exfat -n "NomPartition" /dev/sdX1
 
 ```bash
 # Convertir ext3 en ext4 (sans perte)
-sudo tune2fs -O extents,uninit_bg,dir_index /dev/sdX1
-sudo e2fsck -fD /dev/sdX1
+sudo tune2fs -O extents,uninit_bg,dir_index /dev/sdX1  
+sudo e2fsck -fD /dev/sdX1  
 ```
 
 ⚠️ **Attention** : Ne faites ceci que si vous savez ce que vous faites et après une sauvegarde !
@@ -595,9 +595,9 @@ Détection automatique de la corruption silencieuse (bit-rot).
 
 ### Quel système de fichiers pour un dual-boot ?
 
-**Pour Linux** : ext4 ou Btrfs
-**Pour Windows** : NTFS
-**Pour partager** : NTFS ou exFAT
+**Pour Linux** : ext4 ou Btrfs  
+**Pour Windows** : NTFS  
+**Pour partager** : NTFS ou exFAT  
 
 💡 **Astuce** : Créez une partition NTFS ou exFAT séparée pour partager des fichiers entre Windows et Linux.
 
