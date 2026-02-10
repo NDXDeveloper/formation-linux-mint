@@ -293,9 +293,9 @@ Extension qui ajoute des effets de fermeture spectaculaires.
 sudo apt install gnome-shell-extension-manager
 
 # Ou télécharger depuis GitHub
-git clone https://github.com/Schneegans/Burn-My-Windows.git
-cd Burn-My-Windows
-make install
+git clone https://github.com/Schneegans/Burn-My-Windows.git  
+cd Burn-My-Windows  
+make install  
 ```
 
 **Effets disponibles :**
@@ -408,36 +408,36 @@ sudo apt install picom
 
 **Configuration :**
 ```bash
-mkdir -p ~/.config/picom
-nano ~/.config/picom/picom.conf
+mkdir -p ~/.config/picom  
+nano ~/.config/picom/picom.conf  
 ```
 
 **Exemple de configuration Picom :**
 ```conf
 # Ombres
-shadow = true;
-shadow-radius = 12;
-shadow-opacity = 0.75;
-shadow-offset-x = -12;
-shadow-offset-y = -12;
+shadow = true;  
+shadow-radius = 12;  
+shadow-opacity = 0.75;  
+shadow-offset-x = -12;  
+shadow-offset-y = -12;  
 
 # Fondu
-fading = true;
-fade-in-step = 0.03;
-fade-out-step = 0.03;
-fade-delta = 5;
+fading = true;  
+fade-in-step = 0.03;  
+fade-out-step = 0.03;  
+fade-delta = 5;  
 
 # Opacité
-inactive-opacity = 0.95;
-frame-opacity = 1.0;
+inactive-opacity = 0.95;  
+frame-opacity = 1.0;  
 
 # Arrière-plans flous
-blur-method = "dual_kawase";
-blur-strength = 5;
+blur-method = "dual_kawase";  
+blur-strength = 5;  
 
 # Performance
-backend = "glx";
-vsync = true;
+backend = "glx";  
+vsync = true;  
 ```
 
 **Lancer Picom :**
@@ -458,14 +458,14 @@ Ajoutez dans Applications au démarrage : `picom --config ~/.config/picom/picom.
 
 **Paramètres recommandés :**
 ```
-Effets : Tous activés
-Animations : Toutes
-Vitesse : Moyenne
-Ombres : Activées (rayon : 12-15)
-Transparence : Oui (panneau : 85-95%)
-Extensions : Desktop Cube, Burn My Windows
-Compositeur : Activé
-Compiz : Possible
+Effets : Tous activés  
+Animations : Toutes  
+Vitesse : Moyenne  
+Ombres : Activées (rayon : 12-15)  
+Transparence : Oui (panneau : 85-95%)  
+Extensions : Desktop Cube, Burn My Windows  
+Compositeur : Activé  
+Compiz : Possible  
 ```
 
 **Résultat :** Bureau magnifique et fluide
@@ -476,14 +476,14 @@ Compiz : Possible
 
 **Paramètres recommandés :**
 ```
-Effets : Activés
-Animations : Basiques (fondu uniquement)
-Vitesse : Rapide
-Ombres : Activées (rayon : 8-10)
-Transparence : Légère (panneau : 90-100%)
-Extensions : Une ou deux maximum
-Compositeur : Activé
-Compiz : Non recommandé
+Effets : Activés  
+Animations : Basiques (fondu uniquement)  
+Vitesse : Rapide  
+Ombres : Activées (rayon : 8-10)  
+Transparence : Légère (panneau : 90-100%)  
+Extensions : Une ou deux maximum  
+Compositeur : Activé  
+Compiz : Non recommandé  
 ```
 
 **Résultat :** Bureau agréable sans ralentissement
@@ -494,14 +494,14 @@ Compiz : Non recommandé
 
 **Paramètres recommandés :**
 ```
-Effets : Désactivés ou minimaux
-Animations : Aucune
-Vitesse : N/A
-Ombres : Désactivées
-Transparence : Aucune
-Extensions : Aucune liée aux effets
-Compositeur : Désactivé (Alt+Maj+F12)
-Compiz : Absolument pas
+Effets : Désactivés ou minimaux  
+Animations : Aucune  
+Vitesse : N/A  
+Ombres : Désactivées  
+Transparence : Aucune  
+Extensions : Aucune liée aux effets  
+Compositeur : Désactivé (Alt+Maj+F12)  
+Compiz : Absolument pas  
 ```
 
 **Alternative :** Utilisez Xfce ou MATE qui sont plus légers
@@ -514,13 +514,13 @@ Compiz : Absolument pas
 
 **Paramètres recommandés :**
 ```
-Effets : Modérés
-Animations : Limitées
-Vitesse : Rapide (transitions courtes)
-Ombres : Légères (rayon : 5-8)
-Transparence : Minimale
-Extensions : Aucune gourmande
-Compositeur : Activé mais léger
+Effets : Modérés  
+Animations : Limitées  
+Vitesse : Rapide (transitions courtes)  
+Ombres : Légères (rayon : 5-8)  
+Transparence : Minimale  
+Extensions : Aucune gourmande  
+Compositeur : Activé mais léger  
 ```
 
 **Astuce :** Créez un profil "Batterie" et un profil "Secteur"
@@ -624,12 +624,12 @@ Nécessite un compositeur supportant le flou (comme Picom).
 
 **Dans la configuration de Picom :**
 ```conf
-blur-background = true;
-blur-method = "dual_kawase";
-blur-strength = 5;
+blur-background = true;  
+blur-method = "dual_kawase";  
+blur-strength = 5;  
 
-blur-background-frame = true;
-blur-background-fixed = false;
+blur-background-frame = true;  
+blur-background-fixed = false;  
 ```
 
 ### Terminaux avec effets intégrés
@@ -705,8 +705,8 @@ sudo apt install cool-retro-term
 nvidia-smi
 
 # Pour Intel/AMD
-sudo apt install intel-gpu-tools
-sudo intel_gpu_top
+sudo apt install intel-gpu-tools  
+sudo intel_gpu_top  
 
 # Pour AMD
 radeontop
@@ -761,18 +761,18 @@ backend = "glx";
 ```bash
 #!/bin/bash
 # disable-effects.sh
-gsettings set org.cinnamon.desktop.wm.preferences compositing-manager false
-gsettings set org.cinnamon enable-animations false
-notify-send "Effets désactivés" "Performances maximales"
+gsettings set org.cinnamon.desktop.wm.preferences compositing-manager false  
+gsettings set org.cinnamon enable-animations false  
+notify-send "Effets désactivés" "Performances maximales"  
 ```
 
 **Script "Beauté" (tout activé) :**
 ```bash
 #!/bin/bash
 # enable-effects.sh
-gsettings set org.cinnamon.desktop.wm.preferences compositing-manager true
-gsettings set org.cinnamon enable-animations true
-notify-send "Effets activés" "Mode visuel"
+gsettings set org.cinnamon.desktop.wm.preferences compositing-manager true  
+gsettings set org.cinnamon enable-animations true  
+notify-send "Effets activés" "Mode visuel"  
 ```
 
 **Rendre exécutables :**
@@ -901,11 +901,11 @@ sudo apt install picom
 **Objectif :** Performances maximales en jeu
 
 ```
-Effets : Désactivés pendant le jeu
-Animations : Aucune
-Compositeur : Désactivé (Alt+Maj+F12)
-Ombres : Non
-Transparence : Non
+Effets : Désactivés pendant le jeu  
+Animations : Aucune  
+Compositeur : Désactivé (Alt+Maj+F12)  
+Ombres : Non  
+Transparence : Non  
 ```
 
 **Script de lancement de jeu :**
@@ -926,12 +926,12 @@ gsettings set org.cinnamon.desktop.wm.preferences compositing-manager true
 **Objectif :** Équilibre beauté/performance
 
 ```
-Effets : Modérés
-Animations : Rapides et subtiles
-Vitesse : Rapide
-Ombres : Légères (rayon : 8)
-Transparence : Panneau uniquement (95%)
-Extensions : Aucune gourmande
+Effets : Modérés  
+Animations : Rapides et subtiles  
+Vitesse : Rapide  
+Ombres : Légères (rayon : 8)  
+Transparence : Panneau uniquement (95%)  
+Extensions : Aucune gourmande  
 ```
 
 ### Configuration "Showoff" (démonstration)
@@ -939,13 +939,13 @@ Extensions : Aucune gourmande
 **Objectif :** Impressionner visuellement
 
 ```
-Effets : Tous
-Animations : Toutes + personnalisées
-Vitesse : Moyenne (pour voir les animations)
-Ombres : Importantes (rayon : 15)
-Transparence : Partout (80-90%)
-Extensions : Desktop Cube, Burn My Windows, Wobbly
-Compositeur : Picom avec flou
+Effets : Tous  
+Animations : Toutes + personnalisées  
+Vitesse : Moyenne (pour voir les animations)  
+Ombres : Importantes (rayon : 15)  
+Transparence : Partout (80-90%)  
+Extensions : Desktop Cube, Burn My Windows, Wobbly  
+Compositeur : Picom avec flou  
 ```
 
 ### Configuration "Minimaliste"
@@ -953,12 +953,12 @@ Compositeur : Picom avec flou
 **Objectif :** Sobre et efficace
 
 ```
-Effets : Basiques uniquement
-Animations : Fondu simple
-Vitesse : Rapide
-Ombres : Discrètes (rayon : 5)
-Transparence : Aucune
-Extensions : Aucune visuelle
+Effets : Basiques uniquement  
+Animations : Fondu simple  
+Vitesse : Rapide  
+Ombres : Discrètes (rayon : 5)  
+Transparence : Aucune  
+Extensions : Aucune visuelle  
 ```
 
 ---

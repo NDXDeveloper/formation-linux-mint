@@ -86,8 +86,8 @@ Dans ce chapitre, nous allons découvrir comment installer, configurer et person
 
 **Via le terminal (recommandé) :**
 ```bash
-sudo apt update
-sudo apt install conky-all
+sudo apt update  
+sudo apt install conky-all  
 ```
 
 **Note :** Nous installons `conky-all` qui contient toutes les fonctionnalités. Il existe aussi `conky-std` (version standard, plus limitée).
@@ -155,8 +155,8 @@ Conky utilise un fichier de configuration pour savoir quoi afficher et comment.
 Si le fichier n'existe pas déjà, créez-le :
 
 ```bash
-mkdir -p ~/.config/conky
-conky --print-config > ~/.config/conky/conky.conf
+mkdir -p ~/.config/conky  
+conky --print-config > ~/.config/conky/conky.conf  
 ```
 
 Cette commande crée un fichier de configuration avec les paramètres par défaut.
@@ -247,26 +247,26 @@ Comprendre les paramètres principaux vous aidera à personnaliser Conky selon v
 
 **alignment** : Position de Conky sur l'écran
 ```lua
-alignment = 'top_left'      -- En haut à gauche
-alignment = 'top_right'     -- En haut à droite
-alignment = 'top_middle'    -- En haut au centre
-alignment = 'bottom_left'   -- En bas à gauche
-alignment = 'bottom_right'  -- En bas à droite
-alignment = 'middle_left'   -- Au milieu à gauche
-alignment = 'middle_right'  -- Au milieu à droite
+alignment = 'top_left'      -- En haut à gauche  
+alignment = 'top_right'     -- En haut à droite  
+alignment = 'top_middle'    -- En haut au centre  
+alignment = 'bottom_left'   -- En bas à gauche  
+alignment = 'bottom_right'  -- En bas à droite  
+alignment = 'middle_left'   -- Au milieu à gauche  
+alignment = 'middle_right'  -- Au milieu à droite  
 ```
 
 **gap_x et gap_y** : Distance depuis le bord de l'écran
 ```lua
-gap_x = 20,  -- 20 pixels depuis le bord horizontal
-gap_y = 60,  -- 60 pixels depuis le bord vertical
+gap_x = 20,  -- 20 pixels depuis le bord horizontal  
+gap_y = 60,  -- 60 pixels depuis le bord vertical  
 ```
 
 **minimum_width et minimum_height** : Dimensions minimales
 ```lua
-minimum_width = 250,   -- Largeur minimum 250 pixels
-minimum_height = 5,    -- Hauteur minimum 5 pixels
-maximum_width = 300,   -- Largeur maximum (optionnel)
+minimum_width = 250,   -- Largeur minimum 250 pixels  
+minimum_height = 5,    -- Hauteur minimum 5 pixels  
+maximum_width = 300,   -- Largeur maximum (optionnel)  
 ```
 
 ### Apparence de la fenêtre
@@ -278,53 +278,53 @@ own_window = true,  -- Active la fenêtre propre
 
 **own_window_type** : Type de fenêtre
 ```lua
-own_window_type = 'desktop',  -- Se comporte comme le fond d'écran
-own_window_type = 'normal',   -- Fenêtre normale
-own_window_type = 'override', -- Ignore le gestionnaire de fenêtres
+own_window_type = 'desktop',  -- Se comporte comme le fond d'écran  
+own_window_type = 'normal',   -- Fenêtre normale  
+own_window_type = 'override', -- Ignore le gestionnaire de fenêtres  
 ```
 
 **own_window_transparent** : Transparence
 ```lua
-own_window_transparent = true,   -- Fond transparent
-own_window_transparent = false,  -- Fond opaque
+own_window_transparent = true,   -- Fond transparent  
+own_window_transparent = false,  -- Fond opaque  
 ```
 
 **own_window_argb_visual** : Transparence moderne (avec valeur alpha)
 ```lua
-own_window_argb_visual = true,
-own_window_argb_value = 150,  -- Valeur de 0 (transparent) à 255 (opaque)
+own_window_argb_visual = true,  
+own_window_argb_value = 150,  -- Valeur de 0 (transparent) à 255 (opaque)  
 ```
 
 ### Couleurs et polices
 
 **default_color** : Couleur par défaut du texte
 ```lua
-default_color = 'white',
-default_color = '#FFFFFF',  -- Format hexadécimal
-default_color = 'cyan',
+default_color = 'white',  
+default_color = '#FFFFFF',  -- Format hexadécimal  
+default_color = 'cyan',  
 ```
 
 **font** : Police par défaut
 ```lua
-font = 'DejaVu Sans Mono:size=10',
-font = 'Ubuntu:size=12:bold',
-font = 'Monospace:size=9',
+font = 'DejaVu Sans Mono:size=10',  
+font = 'Ubuntu:size=12:bold',  
+font = 'Monospace:size=9',  
 ```
 
 **Autres couleurs :**
 ```lua
-color0 = 'white',      -- Couleur personnalisée 0
-color1 = 'cyan',       -- Couleur personnalisée 1
-color2 = 'yellow',     -- Couleur personnalisée 2
+color0 = 'white',      -- Couleur personnalisée 0  
+color1 = 'cyan',       -- Couleur personnalisée 1  
+color2 = 'yellow',     -- Couleur personnalisée 2  
 ```
 
 ### Mise à jour et performance
 
 **update_interval** : Fréquence de rafraîchissement (en secondes)
 ```lua
-update_interval = 1.0,    -- Mise à jour chaque seconde
-update_interval = 2.0,    -- Mise à jour toutes les 2 secondes
-update_interval = 0.5,    -- Mise à jour toutes les 0.5 secondes
+update_interval = 1.0,    -- Mise à jour chaque seconde  
+update_interval = 2.0,    -- Mise à jour toutes les 2 secondes  
+update_interval = 0.5,    -- Mise à jour toutes les 0.5 secondes  
 ```
 
 **cpu_avg_samples** : Nombre d'échantillons pour lisser l'affichage CPU
@@ -356,9 +356,9 @@ $uptime_short   -- Version courte de uptime
 
 **Exemple d'utilisation :**
 ```lua
-Système: $nodename
-Kernel: $kernel
-Uptime: $uptime
+Système: $nodename  
+Kernel: $kernel  
+Uptime: $uptime  
 ```
 
 ### CPU
@@ -448,9 +448,9 @@ ip link show
 
 **Exemple d'utilisation :**
 ```lua
-IP: ${addr wlan0}
-Download: ${downspeed wlan0}
-Upload: ${upspeed wlan0}
+IP: ${addr wlan0}  
+Download: ${downspeed wlan0}  
+Upload: ${upspeed wlan0}  
 ```
 
 ### Processus
@@ -773,8 +773,8 @@ conky.text = [[
 ${time %H:%M}
 ${time %A %d %B}
 
-CPU  $cpu%
-RAM  $memperc%
+CPU  $cpu%  
+RAM  $memperc%  
 /    ${fs_used_perc /}%
 
 ${downspeed wlan0} ↓
@@ -812,12 +812,12 @@ nano ~/.config/autostart/conky.desktop
 Contenu du fichier :
 ```
 [Desktop Entry]
-Type=Application
-Name=Conky
-Exec=sh -c 'sleep 10 && conky -d'
-Hidden=false
-NoDisplay=false
-X-GNOME-Autostart-enabled=true
+Type=Application  
+Name=Conky  
+Exec=sh -c 'sleep 10 && conky -d'  
+Hidden=false  
+NoDisplay=false  
+X-GNOME-Autostart-enabled=true  
 ```
 
 Sauvegardez et fermez (`Ctrl+O`, `Entrée`, `Ctrl+X`).
@@ -834,12 +834,12 @@ nano ~/start-conky.sh
 Contenu :
 ```bash
 #!/bin/bash
-sleep 10
-conky -c ~/.config/conky/conky1.conf &
-sleep 2
-conky -c ~/.config/conky/conky2.conf &
-sleep 2
-conky -c ~/.config/conky/conky3.conf &
+sleep 10  
+conky -c ~/.config/conky/conky1.conf &  
+sleep 2  
+conky -c ~/.config/conky/conky2.conf &  
+sleep 2  
+conky -c ~/.config/conky/conky3.conf &  
 ```
 
 Rendez-le exécutable :
@@ -1025,8 +1025,8 @@ update_interval = 2.0,  -- Au lieu de 1.0
 
 **2. Réduisez le nombre d'échantillons**
 ```lua
-cpu_avg_samples = 2,  -- Ne pas mettre plus de 4
-net_avg_samples = 2,
+cpu_avg_samples = 2,  -- Ne pas mettre plus de 4  
+net_avg_samples = 2,  
 ```
 
 **3. Limitez les commandes externes**
@@ -1090,23 +1090,23 @@ Regardez les messages d'erreur dans le terminal.
 
 **Solution :**
 ```lua
-own_window_type = 'desktop',  -- Ou 'override'
-own_window = true,
+own_window_type = 'desktop',  -- Ou 'override'  
+own_window = true,  
 ```
 
 Si cela ne fonctionne pas :
 ```lua
-own_window_type = 'normal',
-own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+own_window_type = 'normal',  
+own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',  
 ```
 
 ### Texte flou ou mal rendu
 
 **Solution :**
 ```lua
-use_xft = true,
-xftalpha = 1.0,
-override_utf8_locale = true,
+use_xft = true,  
+xftalpha = 1.0,  
+override_utf8_locale = true,  
 ```
 
 **Changez la police :**
@@ -1123,17 +1123,17 @@ own_window_type = 'desktop',
 
 **Pour qu'il reste visible :**
 ```lua
-own_window_type = 'normal',
-own_window_hints = 'undecorated,above,sticky,skip_taskbar,skip_pager',
+own_window_type = 'normal',  
+own_window_hints = 'undecorated,above,sticky,skip_taskbar,skip_pager',  
 ```
 
 ### Les graphiques ne s'affichent pas
 
 **Assurez-vous que :**
 ```lua
-draw_graph_borders = true,
-show_graph_scale = false,
-show_graph_range = false,
+draw_graph_borders = true,  
+show_graph_scale = false,  
+show_graph_range = false,  
 ```
 
 **Vérifiez la syntaxe :**
@@ -1145,18 +1145,18 @@ ${cpugraph 40,200}  -- Hauteur 40, largeur 200
 
 **Pour transparence moderne :**
 ```lua
-own_window = true,
-own_window_type = 'desktop',
-own_window_transparent = false,  -- Important!
-own_window_argb_visual = true,
-own_window_argb_value = 150,  -- 0-255
+own_window = true,  
+own_window_type = 'desktop',  
+own_window_transparent = false,  -- Important!  
+own_window_argb_visual = true,  
+own_window_argb_value = 150,  -- 0-255  
 ```
 
 **Pour transparence simple :**
 ```lua
-own_window = true,
-own_window_type = 'desktop',
-own_window_transparent = true,
+own_window = true,  
+own_window_type = 'desktop',  
+own_window_transparent = true,  
 ```
 
 ---

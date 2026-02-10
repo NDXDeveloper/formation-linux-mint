@@ -289,8 +289,8 @@ Avant de personnaliser, sauvegardez vos configurations importantes :
 dconf dump /org/cinnamon/ > ~/sauvegarde-cinnamon.dconf
 
 # Sauvegarde de vos dotfiles
-cp ~/.bashrc ~/.bashrc.backup
-cp ~/.zshrc ~/.zshrc.backup 2>/dev/null || true
+cp ~/.bashrc ~/.bashrc.backup  
+cp ~/.zshrc ~/.zshrc.backup 2>/dev/null || true  
 ```
 
 ### 2. Testez une chose à la fois
@@ -317,11 +317,11 @@ Avant et après chaque modification :
 
 Tenez un petit journal de vos personnalisations :
 ```
-Date : 29/11/2024
-Modification : Installé thème Arc-Dark
-Chemin : ~/.themes/Arc-Dark/
-Ressource : gnome-look.org
-Notes : Très beau mais texte du panneau à ajuster
+Date : 29/11/2024  
+Modification : Installé thème Arc-Dark  
+Chemin : ~/.themes/Arc-Dark/  
+Ressource : gnome-look.org  
+Notes : Très beau mais texte du panneau à ajuster  
 ```
 
 ### 5. Inspirez-vous mais restez vous-même
@@ -396,11 +396,11 @@ Notes : Très beau mais texte du panneau à ajuster
 
 **Exemple de palette "Ocean" :**
 ```
-Fond principal : #1e272e (gris très foncé)
-Secondaire : #2d3436 (gris foncé)
-Accent 1 : #74b9ff (bleu clair)
-Accent 2 : #00cec9 (turquoise)
-Texte : #dfe6e9 (gris très clair)
+Fond principal : #1e272e (gris très foncé)  
+Secondaire : #2d3436 (gris foncé)  
+Accent 1 : #74b9ff (bleu clair)  
+Accent 2 : #00cec9 (turquoise)  
+Texte : #dfe6e9 (gris très clair)  
 ```
 
 **Appliquez partout :**
@@ -451,8 +451,8 @@ Texte : #dfe6e9 (gris très clair)
 gnome-system-monitor
 
 # htop (plus détaillé)
-sudo apt install htop
-htop
+sudo apt install htop  
+htop  
 
 # Utilisation GPU
 nvidia-smi  # Pour NVIDIA

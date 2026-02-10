@@ -131,9 +131,9 @@ Certains thèmes proposent des scripts d'installation automatique :
 
 ```bash
 # Exemple générique (suivez toujours les instructions du thème)
-cd ~/Téléchargements
-git clone https://github.com/utilisateur/nom-du-theme.git
-cd nom-du-theme
+cd ~/Téléchargements  
+git clone https://github.com/utilisateur/nom-du-theme.git  
+cd nom-du-theme  
 ./install.sh
 ```
 

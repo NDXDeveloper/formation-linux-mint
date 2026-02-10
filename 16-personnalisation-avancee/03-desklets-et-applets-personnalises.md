@@ -552,9 +552,9 @@ function main(metadata, orientation, panel_height, instance_id) {
 
 **desklet.js :**
 ```javascript
-const Desklet = imports.ui.desklet;
-const St = imports.gi.St;
-const Mainloop = imports.mainloop;
+const Desklet = imports.ui.desklet;  
+const St = imports.gi.St;  
+const Mainloop = imports.mainloop;  
 
 class MyDesklet extends Desklet.Desklet {
     constructor(metadata, desklet_id) {
@@ -692,8 +692,8 @@ dconf dump /org/cinnamon/ > cinnamon-settings.dconf
 **Restaurer sur une autre machine :**
 ```bash
 # Copier les fichiers
-cp -r ~/sauvegarde-applets/* ~/.local/share/cinnamon/applets/
-cp -r ~/sauvegarde-desklets/* ~/.local/share/cinnamon/desklets/
+cp -r ~/sauvegarde-applets/* ~/.local/share/cinnamon/applets/  
+cp -r ~/sauvegarde-desklets/* ~/.local/share/cinnamon/desklets/  
 
 # Restaurer les paramètres
 dconf load /org/cinnamon/ < cinnamon-settings.dconf

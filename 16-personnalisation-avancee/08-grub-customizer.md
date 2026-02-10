@@ -369,9 +369,9 @@ Par défaut, quelques thèmes basiques sont disponibles.
 
 **Exemple de configuration :**
 ```
-Texte normal : Blanc (#FFFFFF)
-Surbrillance texte : Jaune (#FFFF00)
-Fond surbrillance : Bleu foncé (#0000AA)
+Texte normal : Blanc (#FFFFFF)  
+Surbrillance texte : Jaune (#FFFF00)  
+Fond surbrillance : Bleu foncé (#0000AA)  
 ```
 
 ### 4. Police personnalisée
@@ -458,8 +458,8 @@ sudo grub-mkfont -o /boot/grub/fonts/ma-police.pf2 -s 24 /chemin/vers/police.ttf
 
 **1. Télécharger le thème**
 ```bash
-cd ~/Téléchargements
-wget URL-du-theme.tar.gz
+cd ~/Téléchargements  
+wget URL-du-theme.tar.gz  
 # Ou téléchargez via navigateur
 ```
 
@@ -486,8 +486,8 @@ sudo cp -r nom-theme /boot/grub/themes/
 
 ```bash
 # Télécharger
-git clone https://github.com/vinceliuice/grub2-themes.git
-cd grub2-themes
+git clone https://github.com/vinceliuice/grub2-themes.git  
+cd grub2-themes  
 
 # Installer (script automatique)
 sudo ./install.sh -t vimix
@@ -541,14 +541,14 @@ sudo nano /etc/default/grub
 
 **Exemple de configuration :**
 ```bash
-GRUB_DEFAULT=0
-GRUB_TIMEOUT_STYLE=menu
-GRUB_TIMEOUT=10
-GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
-GRUB_CMDLINE_LINUX=""
-GRUB_BACKGROUND="/boot/grub/backgrounds/mon-fond.png"
-GRUB_GFXMODE=1920x1080
+GRUB_DEFAULT=0  
+GRUB_TIMEOUT_STYLE=menu  
+GRUB_TIMEOUT=10  
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`  
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"  
+GRUB_CMDLINE_LINUX=""  
+GRUB_BACKGROUND="/boot/grub/backgrounds/mon-fond.png"  
+GRUB_GFXMODE=1920x1080  
 ```
 
 **Après modification manuelle, TOUJOURS exécuter :**
@@ -612,8 +612,8 @@ sudo reboot
 
 ```bash
 # Supprimer les personnalisations
-sudo rm /etc/default/grub
-sudo rm -rf /boot/grub/themes/*
+sudo rm /etc/default/grub  
+sudo rm -rf /boot/grub/themes/*  
 
 # Réinstaller GRUB
 sudo apt install --reinstall grub-common grub-pc
@@ -655,8 +655,8 @@ sudo update-grub
 sudo apt install os-prober
 
 # Re-scanner
-sudo os-prober
-sudo update-grub
+sudo os-prober  
+sudo update-grub  
 ```
 
 ### Windows en système par défaut
@@ -689,8 +689,8 @@ sudo nano /etc/default/grub
 
 Modifiez :
 ```bash
-GRUB_GFXMODE=1920x1080
-GRUB_GFXPAYLOAD_LINUX=keep
+GRUB_GFXMODE=1920x1080  
+GRUB_GFXPAYLOAD_LINUX=keep  
 ```
 
 Puis :
@@ -728,30 +728,30 @@ sudo plymouth-set-default-theme -R nom-du-theme
 sudo fdisk -l
 
 # Monter votre partition (exemple : /dev/sda1)
-sudo mount /dev/sda1 /mnt
-sudo mount --bind /dev /mnt/dev
-sudo mount --bind /proc /mnt/proc
-sudo mount --bind /sys /mnt/sys
+sudo mount /dev/sda1 /mnt  
+sudo mount --bind /dev /mnt/dev  
+sudo mount --bind /proc /mnt/proc  
+sudo mount --bind /sys /mnt/sys  
 
 # Chroot
 sudo chroot /mnt
 
 # Réinstaller GRUB
-grub-install /dev/sda
-update-grub
+grub-install /dev/sda  
+update-grub  
 
 # Sortir et redémarrer
-exit
-sudo reboot
+exit  
+sudo reboot  
 ```
 
 **3. Utiliser Boot Repair**
 ```bash
 # Sur la clé USB Live
-sudo add-apt-repository ppa:yannubuntu/boot-repair
-sudo apt update
-sudo apt install boot-repair
-boot-repair
+sudo add-apt-repository ppa:yannubuntu/boot-repair  
+sudo apt update  
+sudo apt install boot-repair  
+boot-repair  
 ```
 
 Suivez l'assistant (généralement "Réparation recommandée").
@@ -796,8 +796,8 @@ sudo update-grub
 
 3. **Copier l'image au bon endroit**
 ```bash
-sudo cp ~/mon-image.png /boot/grub/backgrounds/
-sudo chmod 644 /boot/grub/backgrounds/mon-image.png
+sudo cp ~/mon-image.png /boot/grub/backgrounds/  
+sudo chmod 644 /boot/grub/backgrounds/mon-image.png  
 ```
 
 4. **Forcer dans /etc/default/grub**
@@ -839,8 +839,8 @@ sudo update-grub
 1. Dans Grub Customizer, masquez ou supprimez les doublons
 2. Si cela persiste :
 ```bash
-sudo os-prober
-sudo update-grub
+sudo os-prober  
+sudo update-grub  
 ```
 
 ### Texte illisible sur l'image de fond
@@ -861,12 +861,12 @@ sudo update-grub
 **Objectif :** Démarrage rapide avec minimum de distractions
 
 ```
-Entrée par défaut : Linux Mint
-Délai : 3 secondes
-Affichage du menu : Si autres systèmes
-Thème : Aucun (défaut)
-Fond : Uni, sombre
-Entrées masquées : Memtest, UEFI Settings, anciens kernels
+Entrée par défaut : Linux Mint  
+Délai : 3 secondes  
+Affichage du menu : Si autres systèmes  
+Thème : Aucun (défaut)  
+Fond : Uni, sombre  
+Entrées masquées : Memtest, UEFI Settings, anciens kernels  
 ```
 
 ### Configuration "Dual-boot élégant"
@@ -874,14 +874,14 @@ Entrées masquées : Memtest, UEFI Settings, anciens kernels
 **Objectif :** Beau menu pour choisir entre Linux et Windows
 
 ```
-Entrée par défaut : Dernière sélection
-Délai : 10 secondes
-Affichage du menu : Toujours
-Thème : Vimix ou Tela
-Fond : Image HD cohérente avec le thème
-Entrées affichées : Linux Mint, Windows, Recovery
-Entrées masquées : Memtest, anciens kernels
-Résolution : 1920x1080 (native)
+Entrée par défaut : Dernière sélection  
+Délai : 10 secondes  
+Affichage du menu : Toujours  
+Thème : Vimix ou Tela  
+Fond : Image HD cohérente avec le thème  
+Entrées affichées : Linux Mint, Windows, Recovery  
+Entrées masquées : Memtest, anciens kernels  
+Résolution : 1920x1080 (native)  
 ```
 
 ### Configuration "Tech/Geek"
@@ -889,14 +889,14 @@ Résolution : 1920x1080 (native)
 **Objectif :** Style technique avec toutes les options
 
 ```
-Entrée par défaut : Linux Mint (dernière version)
-Délai : 15 secondes
-Affichage du menu : Toujours
-Thème : Cyberpunk ou style Matrix
-Fond : Image technique/code
-Entrées affichées : Toutes (y compris memtest, UEFI)
-Police : Monospace style terminal
-Couleurs : Vert néon sur noir
+Entrée par défaut : Linux Mint (dernière version)  
+Délai : 15 secondes  
+Affichage du menu : Toujours  
+Thème : Cyberpunk ou style Matrix  
+Fond : Image technique/code  
+Entrées affichées : Toutes (y compris memtest, UEFI)  
+Police : Monospace style terminal  
+Couleurs : Vert néon sur noir  
 ```
 
 ### Configuration "Minimaliste"
@@ -904,13 +904,13 @@ Couleurs : Vert néon sur noir
 **Objectif :** Propre et discret
 
 ```
-Entrée par défaut : Linux Mint
-Délai : 5 secondes
-Affichage du menu : Caché (Shift pour afficher)
-Thème : Aucun
-Fond : Noir uni
-Entrées : Uniquement le système principal
-Texte : Blanc sur noir
+Entrée par défaut : Linux Mint  
+Délai : 5 secondes  
+Affichage du menu : Caché (Shift pour afficher)  
+Thème : Aucun  
+Fond : Noir uni  
+Entrées : Uniquement le système principal  
+Texte : Blanc sur noir  
 ```
 
 ---
@@ -932,8 +932,8 @@ sudo nano /etc/grub.d/40_custom
 
 Ajoutez :
 ```
-set superusers="admin"
-password_pbkdf2 admin [HASH-GÉNÉRÉ]
+set superusers="admin"  
+password_pbkdf2 admin [HASH-GÉNÉRÉ]  
 ```
 
 **Mettre à jour :**
@@ -978,17 +978,17 @@ sudo update-grub
 ```bash
 #!/bin/bash
 # Garder seulement les 2 derniers kernels
-sudo apt autoremove --purge
-sudo update-grub
+sudo apt autoremove --purge  
+sudo update-grub  
 ```
 
 **Script pour sauvegarder GRUB avant modification :**
 
 ```bash
 #!/bin/bash
-DATE=$(date +%Y%m%d-%H%M%S)
-sudo tar -czf ~/grub-backup-$DATE.tar.gz /boot/grub /etc/default/grub
-echo "Sauvegarde créée : ~/grub-backup-$DATE.tar.gz"
+DATE=$(date +%Y%m%d-%H%M%S)  
+sudo tar -czf ~/grub-backup-$DATE.tar.gz /boot/grub /etc/default/grub  
+echo "Sauvegarde créée : ~/grub-backup-$DATE.tar.gz"  
 ```
 
 ---
@@ -1123,16 +1123,16 @@ mon-theme/
 
 **Exemple de theme.txt :**
 ```
-title-text: ""
-desktop-image: "background.png"
-desktop-color: "#000000"
-terminal-font: "Unifont Regular 16"
-terminal-box: "terminal_box_*.png"
-terminal-left: "0"
-terminal-top: "0"
-terminal-width: "100%"
-terminal-height: "100%"
-terminal-border: "0"
+title-text: ""  
+desktop-image: "background.png"  
+desktop-color: "#000000"  
+terminal-font: "Unifont Regular 16"  
+terminal-box: "terminal_box_*.png"  
+terminal-left: "0"  
+terminal-top: "0"  
+terminal-width: "100%"  
+terminal-height: "100%"  
+terminal-border: "0"  
 
 + boot_menu {
     left = 15%

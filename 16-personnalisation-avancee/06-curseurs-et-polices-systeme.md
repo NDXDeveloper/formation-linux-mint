@@ -169,8 +169,8 @@ fc-list | grep "NomDeLaPolice"
 sudo cp /chemin/vers/police.ttf /usr/share/fonts/truetype/
 
 # Ou créer un dossier spécifique
-sudo mkdir -p /usr/share/fonts/truetype/ma-police
-sudo cp /chemin/vers/police.ttf /usr/share/fonts/truetype/ma-police/
+sudo mkdir -p /usr/share/fonts/truetype/ma-police  
+sudo cp /chemin/vers/police.ttf /usr/share/fonts/truetype/ma-police/  
 
 # Mettre à jour le cache
 sudo fc-cache -fv
@@ -253,9 +253,9 @@ Si vous voulez avoir accès à toutes les Google Fonts :
 sudo apt install fonts-google-fonts
 
 # Ou via Git pour avoir les dernières versions
-git clone https://github.com/google/fonts.git
-sudo cp -r fonts/* /usr/share/fonts/truetype/
-sudo fc-cache -fv
+git clone https://github.com/google/fonts.git  
+sudo cp -r fonts/* /usr/share/fonts/truetype/  
+sudo fc-cache -fv  
 ```
 
 **Attention :** Cela installera des centaines de polices et peut ralentir le chargement des menus de polices dans certaines applications.
@@ -338,39 +338,39 @@ Ou :
 
 **Configuration "Productivité" (lisible, moderne)**
 ```
-Police d'application : Noto Sans 10
-Police de document : Noto Sans 11
-Police de bureau : Noto Sans 10
-Police de titre : Noto Sans Bold 10
-Police monospace : JetBrains Mono 11
+Police d'application : Noto Sans 10  
+Police de document : Noto Sans 11  
+Police de bureau : Noto Sans 10  
+Police de titre : Noto Sans Bold 10  
+Police monospace : JetBrains Mono 11  
 ```
 
 **Configuration "Élégante" (style Ubuntu)**
 ```
-Police d'application : Ubuntu 10
-Police de document : Ubuntu 11
-Police de bureau : Ubuntu 11
-Police de titre : Ubuntu Bold 10
-Police monospace : Ubuntu Mono 11
+Police d'application : Ubuntu 10  
+Police de document : Ubuntu 11  
+Police de bureau : Ubuntu 11  
+Police de titre : Ubuntu Bold 10  
+Police monospace : Ubuntu Mono 11  
 ```
 
 **Configuration "Classique" (style Windows)**
 ```
-Police d'application : Liberation Sans 10
-Police de document : Liberation Serif 11
-Police de bureau : Liberation Sans 10
-Police de titre : Liberation Sans Bold 10
-Police monospace : Liberation Mono 10
+Police d'application : Liberation Sans 10  
+Police de document : Liberation Serif 11  
+Police de bureau : Liberation Sans 10  
+Police de titre : Liberation Sans Bold 10  
+Police monospace : Liberation Mono 10  
 ```
 
 **Configuration "Grande lisibilité" (pour malvoyants)**
 ```
-Police d'application : Noto Sans 14
-Police de document : Noto Sans 14
-Police de bureau : Noto Sans 14
-Police de titre : Noto Sans Bold 14
-Police monospace : DejaVu Sans Mono 13
-Facteur d'échelle : 1.25
+Police d'application : Noto Sans 14  
+Police de document : Noto Sans 14  
+Police de bureau : Noto Sans 14  
+Police de titre : Noto Sans Bold 14  
+Police monospace : DejaVu Sans Mono 13  
+Facteur d'échelle : 1.25  
 ```
 
 ---
@@ -402,10 +402,10 @@ sudo apt install fonts-noto
 - Très moderne
 ```bash
 # Via téléchargement depuis GitHub
-wget https://github.com/rsms/inter/releases/download/v3.19/Inter-3.19.zip
-unzip Inter-3.19.zip
-cp Inter\ Desktop/*.ttf ~/.local/share/fonts/
-fc-cache -fv
+wget https://github.com/rsms/inter/releases/download/v3.19/Inter-3.19.zip  
+unzip Inter-3.19.zip  
+cp Inter\ Desktop/*.ttf ~/.local/share/fonts/  
+fc-cache -fv  
 ```
 
 **4. SF Pro / SF Compact (style macOS)**
@@ -434,10 +434,10 @@ sudo apt install fonts-firacode
 - Excellente lisibilité
 ```bash
 # Via téléchargement
-wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
-unzip JetBrainsMono-2.304.zip
-cp fonts/ttf/*.ttf ~/.local/share/fonts/
-fc-cache -fv
+wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip  
+unzip JetBrainsMono-2.304.zip  
+cp fonts/ttf/*.ttf ~/.local/share/fonts/  
+fc-cache -fv  
 ```
 
 **3. Cascadia Code**
@@ -576,9 +576,9 @@ nom-du-theme/
 - Différentes tailles disponibles
 - **Installation :**
 ```bash
-wget https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.3/Bibata-Modern-Classic.tar.gz
-tar -xvf Bibata-Modern-Classic.tar.gz
-mv Bibata-Modern-Classic ~/.icons/
+wget https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.3/Bibata-Modern-Classic.tar.gz  
+tar -xvf Bibata-Modern-Classic.tar.gz  
+mv Bibata-Modern-Classic ~/.icons/  
 ```
 
 **2. Capitaine Cursors**
@@ -586,9 +586,9 @@ mv Bibata-Modern-Classic ~/.icons/
 - Épuré et professionnel
 - Plusieurs couleurs
 ```bash
-wget https://github.com/keeferrourke/capitaine-cursors/releases/download/r4/capitaine-cursors-r4.tar.gz
-tar -xvf capitaine-cursors-r4.tar.gz
-mv capitaine-cursors* ~/.icons/
+wget https://github.com/keeferrourke/capitaine-cursors/releases/download/r4/capitaine-cursors-r4.tar.gz  
+tar -xvf capitaine-cursors-r4.tar.gz  
+mv capitaine-cursors* ~/.icons/  
 ```
 
 **3. Breeze (KDE)**
@@ -685,11 +685,11 @@ Certains thèmes proposent des versions "left-handed" (miroir du curseur).
 
 **Polices :**
 ```
-Interface : Inter 10
-Document : Inter 11
-Bureau : Inter 10
-Titre : Inter Semibold 10
-Monospace : JetBrains Mono 11
+Interface : Inter 10  
+Document : Inter 11  
+Bureau : Inter 10  
+Titre : Inter Semibold 10  
+Monospace : JetBrains Mono 11  
 ```
 
 **Curseur :**
@@ -705,11 +705,11 @@ Monospace : JetBrains Mono 11
 
 **Polices :**
 ```
-Interface : Roboto 10
-Document : Roboto 11
-Bureau : Roboto 10
-Titre : Roboto Bold 10
-Monospace : Fira Code 11 (avec ligatures)
+Interface : Roboto 10  
+Document : Roboto 11  
+Bureau : Roboto 10  
+Titre : Roboto Bold 10  
+Monospace : Fira Code 11 (avec ligatures)  
 ```
 
 **Curseur :**
@@ -725,11 +725,11 @@ Monospace : Fira Code 11 (avec ligatures)
 
 **Polices :**
 ```
-Interface : SF Pro 10
-Document : SF Pro 11
-Bureau : SF Pro 10
-Titre : SF Pro Semibold 10
-Monospace : SF Mono 11
+Interface : SF Pro 10  
+Document : SF Pro 11  
+Bureau : SF Pro 10  
+Titre : SF Pro Semibold 10  
+Monospace : SF Mono 11  
 ```
 
 **Curseur :**
@@ -745,12 +745,12 @@ Monospace : SF Mono 11
 
 **Polices :**
 ```
-Interface : Noto Sans 14
-Document : Noto Sans 15
-Bureau : Noto Sans 14
-Titre : Noto Sans Bold 14
-Monospace : DejaVu Sans Mono 13
-Facteur d'échelle : 1.3
+Interface : Noto Sans 14  
+Document : Noto Sans 15  
+Bureau : Noto Sans 14  
+Titre : Noto Sans Bold 14  
+Monospace : DejaVu Sans Mono 13  
+Facteur d'échelle : 1.3  
 ```
 
 **Curseur :**
@@ -825,16 +825,16 @@ sudo rm -rf /usr/share/icons/nom-theme-curseur
 
 **Créer des catégories :**
 ```bash
-mkdir -p ~/.local/share/fonts/Sans-Serif
-mkdir -p ~/.local/share/fonts/Serif
-mkdir -p ~/.local/share/fonts/Monospace
-mkdir -p ~/.local/share/fonts/Decoratives
+mkdir -p ~/.local/share/fonts/Sans-Serif  
+mkdir -p ~/.local/share/fonts/Serif  
+mkdir -p ~/.local/share/fonts/Monospace  
+mkdir -p ~/.local/share/fonts/Decoratives  
 ```
 
 **Organiser par projet :**
 ```bash
-mkdir -p ~/.local/share/fonts/Projet-A
-mkdir -p ~/.local/share/fonts/Projet-B
+mkdir -p ~/.local/share/fonts/Projet-A  
+mkdir -p ~/.local/share/fonts/Projet-B  
 ```
 
 ---
@@ -901,8 +901,8 @@ mkdir -p ~/.local/share/fonts/Projet-B
 
 Créez le fichier s'il n'existe pas :
 ```bash
-mkdir -p ~/.config/fontconfig
-nano ~/.config/fontconfig/fonts.conf
+mkdir -p ~/.config/fontconfig  
+nano ~/.config/fontconfig/fonts.conf  
 ```
 
 **Configuration optimale :**
@@ -962,8 +962,8 @@ fc-cache -fv
 **Ou via variable d'environnement :**
 ```bash
 # Ajouter dans ~/.profile
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+export GDK_SCALE=2  
+export GDK_DPI_SCALE=0.5  
 ```
 
 ### Polices légères pour anciennes machines
@@ -1014,8 +1014,8 @@ Doit contenir une section `[Icon Theme]`
 
 2. **Appliquer via gsettings (Cinnamon)**
 ```bash
-gsettings set org.cinnamon.desktop.interface cursor-theme 'nom-theme'
-gsettings set org.cinnamon.desktop.interface cursor-size 24
+gsettings set org.cinnamon.desktop.interface cursor-theme 'nom-theme'  
+gsettings set org.cinnamon.desktop.interface cursor-size 24  
 ```
 
 3. **Créer un lien symbolique**
@@ -1087,8 +1087,8 @@ sudo ubuntu-drivers devices
 
 4. **Réinitialiser les paramètres**
 ```bash
-gsettings reset org.cinnamon.desktop.interface cursor-theme
-gsettings reset org.cinnamon.desktop.interface cursor-size
+gsettings reset org.cinnamon.desktop.interface cursor-theme  
+gsettings reset org.cinnamon.desktop.interface cursor-size  
 ```
 
 ---
@@ -1157,8 +1157,8 @@ dconf dump /org/cinnamon/desktop/interface/ > interface-settings.dconf
 
 **Polices :**
 ```bash
-tar -xzf mes-polices.tar.gz -C ~/
-fc-cache -fv
+tar -xzf mes-polices.tar.gz -C ~/  
+fc-cache -fv  
 ```
 
 **Curseurs :**

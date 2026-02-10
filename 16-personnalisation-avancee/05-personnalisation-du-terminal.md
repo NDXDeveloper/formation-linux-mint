@@ -121,8 +121,8 @@ Si vous voyez quelque chose comme `zsh 5.8`, c'est déjà installé. Sinon, cont
 ### Installer Zsh
 
 ```bash
-sudo apt update
-sudo apt install zsh
+sudo apt update  
+sudo apt install zsh  
 ```
 
 ### Vérifier l'installation
@@ -335,11 +335,11 @@ Les polices Nerd Fonts contiennent tous les symboles et icônes nécessaires.
 mkdir -p ~/.local/share/fonts
 
 # Télécharger une police (exemple : MesloLGS NF)
-cd ~/.local/share/fonts
-wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+cd ~/.local/share/fonts  
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf  
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf  
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf  
+wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf  
 
 # Mettre à jour le cache des polices
 fc-cache -fv
@@ -618,8 +618,8 @@ Starship utilise un fichier de configuration au format **TOML**.
 **Créer le fichier de configuration :**
 
 ```bash
-mkdir -p ~/.config
-touch ~/.config/starship.toml
+mkdir -p ~/.config  
+touch ~/.config/starship.toml  
 ```
 
 **Éditer :**
@@ -642,12 +642,12 @@ $git_status\
 $character"""
 
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[✗](bold red)"
+success_symbol = "[➜](bold green)"  
+error_symbol = "[✗](bold red)"  
 
 [directory]
-truncation_length = 3
-truncate_to_repo = true
+truncation_length = 3  
+truncate_to_repo = true  
 ```
 
 #### Configuration avec icônes
@@ -668,42 +668,42 @@ $docker_context\
 $character"""
 
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+success_symbol = "[❯](bold green)"  
+error_symbol = "[❯](bold red)"  
 
 [directory]
-style = "bold cyan"
-truncation_length = 4
-truncate_to_repo = true
+style = "bold cyan"  
+truncation_length = 4  
+truncate_to_repo = true  
 
 [git_branch]
-symbol = " "
-style = "bold purple"
+symbol = " "  
+style = "bold purple"  
 
 [git_status]
-style = "bold red"
-conflicted = "🏳"
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-untracked = "🤷"
-stashed = "📦"
-modified = "📝"
-staged = '[++\($count\)](green)'
-renamed = "👅"
-deleted = "🗑"
+style = "bold red"  
+conflicted = "🏳"  
+ahead = "⇡${count}"  
+behind = "⇣${count}"  
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"  
+untracked = "🤷"  
+stashed = "📦"  
+modified = "📝"  
+staged = '[++\($count\)](green)'  
+renamed = "👅"  
+deleted = "🗑"  
 
 [python]
-symbol = " "
-style = "bold yellow"
+symbol = " "  
+style = "bold yellow"  
 
 [nodejs]
-symbol = " "
-style = "bold green"
+symbol = " "  
+style = "bold green"  
 
 [rust]
-symbol = " "
-style = "bold orange"
+symbol = " "  
+style = "bold orange"  
 ```
 
 #### Configuration deux lignes
@@ -714,8 +714,8 @@ format = """
 [└─](bold green)$character"""
 
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+success_symbol = "[❯](bold green)"  
+error_symbol = "[❯](bold red)"  
 ```
 
 #### Configuration complète et colorée
@@ -726,28 +726,28 @@ format = """
 [╰─](bold green)$character"""
 
 [username]
-style_user = "bold yellow"
-style_root = "bold red"
-show_always = true
+style_user = "bold yellow"  
+style_root = "bold red"  
+show_always = true  
 
 [hostname]
-ssh_only = false
-style = "bold yellow"
+ssh_only = false  
+style = "bold yellow"  
 
 [directory]
-style = "bold cyan"
-truncation_length = 3
-truncate_to_repo = true
+style = "bold cyan"  
+truncation_length = 3  
+truncate_to_repo = true  
 
 [git_branch]
-symbol = " "
-style = "bold purple"
+symbol = " "  
+style = "bold purple"  
 
 [git_status]
-style = "bold red"
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
+style = "bold red"  
+ahead = "⇡${count}"  
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"  
+behind = "⇣${count}"  
 ```
 
 ### Modules disponibles
@@ -770,29 +770,29 @@ Starship détecte automatiquement de nombreux contextes :
 
 ```toml
 [python]
-symbol = "🐍 "
-pyenv_version_name = true
+symbol = "🐍 "  
+pyenv_version_name = true  
 
 [nodejs]
-symbol = "⬢ "
-format = "via [$symbol($version )]($style)"
+symbol = "⬢ "  
+format = "via [$symbol($version )]($style)"  
 
 [docker_context]
-symbol = "🐳 "
-format = "via [$symbol$context]($style) "
+symbol = "🐳 "  
+format = "via [$symbol$context]($style) "  
 
 [battery]
-full_symbol = "🔋 "
-charging_symbol = "⚡️ "
-discharging_symbol = "💀 "
+full_symbol = "🔋 "  
+charging_symbol = "⚡️ "  
+discharging_symbol = "💀 "  
 
 [[battery.display]]
-threshold = 10
-style = "bold red"
+threshold = 10  
+style = "bold red"  
 
 [[battery.display]]
-threshold = 30
-style = "bold yellow"
+threshold = 30  
+style = "bold yellow"  
 ```
 
 ### Presets Starship
@@ -846,10 +846,10 @@ Les **Nerd Fonts** sont des polices patchées avec des milliers d'icônes suppl�
 mkdir -p ~/.local/share/fonts
 
 # Télécharger et installer FiraCode Nerd Font
-cd ~/.local/share/fonts
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip
-unzip FiraCode.zip
-rm FiraCode.zip
+cd ~/.local/share/fonts  
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip  
+unzip FiraCode.zip  
+rm FiraCode.zip  
 
 # Mettre à jour le cache
 fc-cache -fv
@@ -858,8 +858,8 @@ fc-cache -fv
 **Méthode 3 : Toutes les polices (grand téléchargement)**
 
 ```bash
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-cd nerd-fonts
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git  
+cd nerd-fonts  
 ./install.sh
 ```
 
@@ -924,45 +924,45 @@ Les alias sont des raccourcis pour des commandes.
 
 ```bash
 # Alias système
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ll='ls -alF'  
+alias la='ls -A'  
+alias l='ls -CF'  
+alias ..='cd ..'  
+alias ...='cd ../..'  
+alias ....='cd ../../..'  
 
 # Alias de sécurité
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+alias rm='rm -i'  
+alias cp='cp -i'  
+alias mv='mv -i'  
 
 # Alias de productivité
-alias update='sudo apt update && sudo apt upgrade'
-alias install='sudo apt install'
-alias remove='sudo apt remove'
-alias search='apt search'
+alias update='sudo apt update && sudo apt upgrade'  
+alias install='sudo apt install'  
+alias remove='sudo apt remove'  
+alias search='apt search'  
 
 # Alias Git
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git log --oneline --graph'
+alias gs='git status'  
+alias ga='git add'  
+alias gc='git commit'  
+alias gp='git push'  
+alias gl='git log --oneline --graph'  
 
 # Alias réseau
-alias myip='curl ifconfig.me'
-alias ports='netstat -tulanp'
+alias myip='curl ifconfig.me'  
+alias ports='netstat -tulanp'  
 
 # Alias système
-alias meminfo='free -m -l -t'
-alias cpuinfo='lscpu'
-alias diskspace='df -h'
+alias meminfo='free -m -l -t'  
+alias cpuinfo='lscpu'  
+alias diskspace='df -h'  
 
 # Alias navigation rapide
-alias home='cd ~'
-alias docs='cd ~/Documents'
-alias dl='cd ~/Téléchargements'
-alias dev='cd ~/Développement'
+alias home='cd ~'  
+alias docs='cd ~/Documents'  
+alias dl='cd ~/Téléchargements'  
+alias dev='cd ~/Développement'  
 ```
 
 **Recharger la configuration :**
@@ -1114,8 +1114,8 @@ La plupart des terminaux permettent de personnaliser :
 sudo apt install dconf-cli
 
 # Cloner le thème
-git clone https://github.com/dracula/gnome-terminal
-cd gnome-terminal
+git clone https://github.com/dracula/gnome-terminal  
+cd gnome-terminal  
 
 # Installer
 ./install.sh
@@ -1145,44 +1145,44 @@ Ajoutez dans `~/.zshrc` :
 
 ```bash
 # Taille de l'historique
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
+HISTSIZE=10000  
+SAVEHIST=10000  
+HISTFILE=~/.zsh_history  
 
 # Options d'historique
-setopt HIST_IGNORE_ALL_DUPS  # Pas de doublons
-setopt HIST_FIND_NO_DUPS     # Pas de doublons dans la recherche
-setopt HIST_SAVE_NO_DUPS     # Pas de doublons sauvegardés
-setopt HIST_REDUCE_BLANKS    # Supprime les espaces inutiles
-setopt SHARE_HISTORY         # Partage l'historique entre sessions
-setopt APPEND_HISTORY        # Ajoute à l'historique (ne remplace pas)
+setopt HIST_IGNORE_ALL_DUPS  # Pas de doublons  
+setopt HIST_FIND_NO_DUPS     # Pas de doublons dans la recherche  
+setopt HIST_SAVE_NO_DUPS     # Pas de doublons sauvegardés  
+setopt HIST_REDUCE_BLANKS    # Supprime les espaces inutiles  
+setopt SHARE_HISTORY         # Partage l'historique entre sessions  
+setopt APPEND_HISTORY        # Ajoute à l'historique (ne remplace pas)  
 ```
 
 ### Autocomplétion avancée
 
 ```bash
 # Autocomplétion améliorée
-autoload -Uz compinit
-compinit
+autoload -Uz compinit  
+compinit  
 
 # Options de complétion
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select  
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"  
 ```
 
 ### Navigation intelligente
 
 ```bash
 # Correction automatique
-setopt CORRECT
-setopt CORRECT_ALL
+setopt CORRECT  
+setopt CORRECT_ALL  
 
 # Navigation cd améliorée
-setopt AUTO_CD              # Tape juste le nom du dossier pour y aller
-setopt AUTO_PUSHD           # cd ajoute au stack
-setopt PUSHD_IGNORE_DUPS    # Pas de doublons dans le stack
-setopt PUSHD_SILENT         # Pas de message
+setopt AUTO_CD              # Tape juste le nom du dossier pour y aller  
+setopt AUTO_PUSHD           # cd ajoute au stack  
+setopt PUSHD_IGNORE_DUPS    # Pas de doublons dans le stack  
+setopt PUSHD_SILENT         # Pas de message  
 
 # Glob amélioré
 setopt EXTENDED_GLOB
@@ -1194,20 +1194,20 @@ Définir des variables utiles dans `~/.zshrc` :
 
 ```bash
 # Éditeur par défaut
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='nano'  
+export VISUAL='nano'  
 
 # Couleurs pour ls
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
 
 # Couleurs pour less (man pages)
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
+export LESS_TERMCAP_mb=$'\e[1;32m'  
+export LESS_TERMCAP_md=$'\e[1;32m'  
+export LESS_TERMCAP_me=$'\e[0m'  
+export LESS_TERMCAP_se=$'\e[0m'  
+export LESS_TERMCAP_so=$'\e[01;33m'  
+export LESS_TERMCAP_ue=$'\e[0m'  
+export LESS_TERMCAP_us=$'\e[1;4;31m'  
 ```
 
 ---
@@ -1282,17 +1282,17 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 ```bash
 # Expansion de globbing
-ls **/*.txt           # Tous les .txt récursivement
-ls *.{jpg,png}        # Tous les jpg et png
-ls file<1-10>.txt     # file1.txt à file10.txt
+ls **/*.txt           # Tous les .txt récursivement  
+ls *.{jpg,png}        # Tous les jpg et png  
+ls file<1-10>.txt     # file1.txt à file10.txt  
 
 # Corrections
 cd /usr/lcoal/bin     # Zsh propose: /usr/local/bin ?
 
 # Stack de dossiers
-dirs                  # Voir le stack
-pushd /chemin         # Aller dans /chemin et empiler
-popd                  # Revenir au dossier précédent
+dirs                  # Voir le stack  
+pushd /chemin         # Aller dans /chemin et empiler  
+popd                  # Revenir au dossier précédent  
 ```
 
 ---
@@ -1323,8 +1323,8 @@ popd                  # Revenir au dossier précédent
 **Solution :**
 ```bash
 # Reconstruire le cache
-rm ~/.zcompdump*
-compinit
+rm ~/.zcompdump*  
+compinit  
 ```
 
 **4. "Command not found" après installation**
@@ -1390,42 +1390,42 @@ source $ZSH/oh-my-zsh.sh
 # ============================================
 # HISTORIQUE
 # ============================================
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
-setopt HIST_IGNORE_ALL_DUPS
-setopt SHARE_HISTORY
+HISTSIZE=10000  
+SAVEHIST=10000  
+HISTFILE=~/.zsh_history  
+setopt HIST_IGNORE_ALL_DUPS  
+setopt SHARE_HISTORY  
 
 # ============================================
 # ALIAS
 # ============================================
 
 # Navigation
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ..='cd ..'  
+alias ...='cd ../..'  
+alias ....='cd ../../..'  
 
 # Listings
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alF'  
+alias la='ls -A'  
+alias l='ls -CF'  
 
 # Sécurité
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+alias rm='rm -i'  
+alias cp='cp -i'  
+alias mv='mv -i'  
 
 # Système
-alias update='sudo apt update && sudo apt upgrade'
-alias install='sudo apt install'
-alias search='apt search'
+alias update='sudo apt update && sudo apt upgrade'  
+alias install='sudo apt install'  
+alias search='apt search'  
 
 # Git
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git log --oneline --graph'
+alias gs='git status'  
+alias ga='git add'  
+alias gc='git commit'  
+alias gp='git push'  
+alias gl='git log --oneline --graph'  
 
 # Réseau
 alias myip='curl ifconfig.me'
