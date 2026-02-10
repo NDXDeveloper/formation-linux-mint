@@ -466,9 +466,9 @@ grep -l "motif" *.txt
 grep -c "motif" fichier.txt
 
 # Afficher N lignes de contexte
-grep -C 3 "motif" fichier.txt  # 3 lignes avant et après
-grep -A 3 "motif" fichier.txt  # 3 lignes après
-grep -B 3 "motif" fichier.txt  # 3 lignes avant
+grep -C 3 "motif" fichier.txt  # 3 lignes avant et après  
+grep -A 3 "motif" fichier.txt  # 3 lignes après  
+grep -B 3 "motif" fichier.txt  # 3 lignes avant  
 
 # Recherche récursive dans tous les fichiers
 grep -r "motif" /chemin/dossier/
@@ -640,20 +640,20 @@ find . -regex ".*\.\(jpg\|png\|gif\)$"
 
 ```bash
 # Ces caractères doivent être échappés : . * [ ] ^ $ \
-grep "\." fichier.txt       # Point littéral
-grep "\*" fichier.txt       # Astérisque littéral
-grep "\$" fichier.txt       # Dollar littéral
-grep "c\.txt" fichier.txt   # Chercher "c.txt"
+grep "\." fichier.txt       # Point littéral  
+grep "\*" fichier.txt       # Astérisque littéral  
+grep "\$" fichier.txt       # Dollar littéral  
+grep "c\.txt" fichier.txt   # Chercher "c.txt"  
 ```
 
 ### Dans grep -E (regex étendues)
 
 ```bash
 # Ces caractères doivent être échappés : . [ ] ^ $ \ + ? { } | ( )
-grep -E "\." fichier.txt
-grep -E "\+" fichier.txt
-grep -E "\?" fichier.txt
-grep -E "\(" fichier.txt
+grep -E "\." fichier.txt  
+grep -E "\+" fichier.txt  
+grep -E "\?" fichier.txt  
+grep -E "\(" fichier.txt  
 ```
 
 ### Dans sed
@@ -801,8 +801,8 @@ fi
 # test-regex.sh
 # Usage : ./test-regex.sh "regex" "texte à tester"
 
-REGEX="$1"
-TEXTE="$2"
+REGEX="$1"  
+TEXTE="$2"  
 
 if echo "$TEXTE" | grep -qE "$REGEX"; then
     echo "✅ CORRESPOND : '$TEXTE' correspond à '$REGEX'"
@@ -936,10 +936,10 @@ Utilisez regex101.com ou créez un petit fichier de test :
 
 ```bash
 # test.txt
-email@example.com
-not-an-email
-test@domain.co.uk
-invalid@@example.com
+email@example.com  
+not-an-email  
+test@domain.co.uk  
+invalid@@example.com  
 
 # Testez
 grep -E "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" test.txt
@@ -997,8 +997,8 @@ grep "^123$" fichier.txt
 grep "\." fichier.txt
 
 # Pour chercher une parenthèse littérale
-grep "(" fichier.txt  # ❌ Erreur
-grep "\(" fichier.txt  # ✅ Correct
+grep "(" fichier.txt  # ❌ Erreur  
+grep "\(" fichier.txt  # ✅ Correct  
 ```
 
 ## Pièges courants et solutions
@@ -1020,8 +1020,8 @@ grep "fichier\.txt" liste.txt
 grep "a+" fichier.txt  # Cherche littéralement "a+"
 
 # ✅ Correct
-grep "a\+" fichier.txt  # Ou mieux :
-grep -E "a+" fichier.txt
+grep "a\+" fichier.txt  # Ou mieux :  
+grep -E "a+" fichier.txt  
 ```
 
 ### Piège 3 : Regex trop gourmande
@@ -1072,17 +1072,17 @@ grep "^[0-9]{5}$" fichier.txt  # Uniquement 5 chiffres, rien d'autre
 
 ```bash
 # Créer un fichier de test avec différents formats
-cat > test_regex.txt << EOF
-Jean Dupont - jean.dupont@example.com - 06 12 34 56 78
-Marie Martin - marie@test.fr - 01.23.45.67.89
-Pierre Durant - pierre_durant@email.com - 0623456789
-Invalid Email - notanemail - 12345
-Site web : https://www.example.com
-Date : 25/12/2024
-Prix : 29.99€
-Code postal : 75001
-IP : 192.168.1.1
-EOF
+cat > test_regex.txt << EOF  
+Jean Dupont - jean.dupont@example.com - 06 12 34 56 78  
+Marie Martin - marie@test.fr - 01.23.45.67.89  
+Pierre Durant - pierre_durant@email.com - 0623456789  
+Invalid Email - notanemail - 12345  
+Site web : https://www.example.com  
+Date : 25/12/2024  
+Prix : 29.99€  
+Code postal : 75001  
+IP : 192.168.1.1  
+EOF  
 
 # Extraire les emails
 grep -oE "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" test_regex.txt

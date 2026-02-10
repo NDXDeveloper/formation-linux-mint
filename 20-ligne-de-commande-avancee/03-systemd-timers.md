@@ -87,12 +87,12 @@ Contenu :
 
 ```ini
 [Unit]
-Description=Rappel quotidien matinal
-Documentation=man:notify-send(1)
+Description=Rappel quotidien matinal  
+Documentation=man:notify-send(1)  
 
 [Service]
-Type=oneshot
-ExecStart=/usr/bin/notify-send "Bonjour !" "N'oubliez pas de faire votre sauvegarde quotidienne" --icon=dialog-information
+Type=oneshot  
+ExecStart=/usr/bin/notify-send "Bonjour !" "N'oubliez pas de faire votre sauvegarde quotidienne" --icon=dialog-information  
 ```
 
 **Étape 3 : Créer le fichier timer**
@@ -105,12 +105,12 @@ Contenu :
 
 ```ini
 [Unit]
-Description=Timer pour le rappel quotidien
-Requires=rappel-quotidien.service
+Description=Timer pour le rappel quotidien  
+Requires=rappel-quotidien.service  
 
 [Timer]
-OnCalendar=*-*-* 09:00:00
-Persistent=true
+OnCalendar=*-*-* 09:00:00  
+Persistent=true  
 
 [Install]
 WantedBy=timers.target
@@ -155,21 +155,21 @@ Décortiquons le fichier service :
 
 ```ini
 [Unit]
-Description=Description courte de ce que fait le service
-Documentation=man:commande(1)
-After=network.target  # Optionnel : attendre que le réseau soit actif
+Description=Description courte de ce que fait le service  
+Documentation=man:commande(1)  
+After=network.target  # Optionnel : attendre que le réseau soit actif  
 
 [Service]
-Type=oneshot          # Type d'exécution (oneshot = une fois puis s'arrête)
-User=utilisateur      # Optionnel : utilisateur qui exécute la commande
-WorkingDirectory=/home/utilisateur  # Optionnel : répertoire de travail
-ExecStart=/chemin/vers/commande     # La commande à exécuter
-StandardOutput=journal              # Où envoyer la sortie (journal = logs systemd)
-StandardError=journal               # Où envoyer les erreurs
+Type=oneshot          # Type d'exécution (oneshot = une fois puis s'arrête)  
+User=utilisateur      # Optionnel : utilisateur qui exécute la commande  
+WorkingDirectory=/home/utilisateur  # Optionnel : répertoire de travail  
+ExecStart=/chemin/vers/commande     # La commande à exécuter  
+StandardOutput=journal              # Où envoyer la sortie (journal = logs systemd)  
+StandardError=journal               # Où envoyer les erreurs  
 
 # Gestion des ressources (optionnel)
-CPUQuota=20%          # Limiter à 20% du CPU
-MemoryLimit=500M      # Limiter à 500 Mo de RAM
+CPUQuota=20%          # Limiter à 20% du CPU  
+MemoryLimit=500M      # Limiter à 500 Mo de RAM  
 
 [Install]
 WantedBy=multi-user.target  # Pour les services système
@@ -189,8 +189,8 @@ Décortiquons le fichier timer :
 
 ```ini
 [Unit]
-Description=Description du timer
-Requires=mon-service.service  # Service associé (même nom sans .timer)
+Description=Description du timer  
+Requires=mon-service.service  # Service associé (même nom sans .timer)  
 
 [Timer]
 # QUAND le timer se déclenche
@@ -201,9 +201,9 @@ OnBootSec=5min                # 5 minutes après le démarrage
 OnUnitActiveSec=1h            # 1 heure après la dernière exécution
 
 # Options
-Persistent=true               # Rattraper les exécutions manquées
-AccuracySec=1min             # Fenêtre de précision (économie d'énergie)
-RandomizedDelaySec=10min     # Délai aléatoire (éviter surcharges simultanées)
+Persistent=true               # Rattraper les exécutions manquées  
+AccuracySec=1min             # Fenêtre de précision (économie d'énergie)  
+RandomizedDelaySec=10min     # Délai aléatoire (éviter surcharges simultanées)  
 
 [Install]
 WantedBy=timers.target        # Cible pour activation automatique
@@ -311,26 +311,26 @@ Normalized form: Mon..Fri *-*-* 09:00:00
 
 ```ini
 [Unit]
-Description=Sauvegarde quotidienne des documents
-After=network.target
+Description=Sauvegarde quotidienne des documents  
+After=network.target  
 
 [Service]
-Type=oneshot
-ExecStart=/usr/bin/tar -czf /home/utilisateur/Sauvegardes/docs_%Y%m%d.tar.gz /home/utilisateur/Documents
-StandardOutput=journal
-StandardError=journal
+Type=oneshot  
+ExecStart=/usr/bin/tar -czf /home/utilisateur/Sauvegardes/docs_%Y%m%d.tar.gz /home/utilisateur/Documents  
+StandardOutput=journal  
+StandardError=journal  
 ```
 
 **Fichier : `~/.config/systemd/user/backup-documents.timer`**
 
 ```ini
 [Unit]
-Description=Timer pour sauvegarde quotidienne
-Requires=backup-documents.service
+Description=Timer pour sauvegarde quotidienne  
+Requires=backup-documents.service  
 
 [Timer]
-OnCalendar=daily
-Persistent=true
+OnCalendar=daily  
+Persistent=true  
 
 [Install]
 WantedBy=timers.target
@@ -339,8 +339,8 @@ WantedBy=timers.target
 **Activation** :
 
 ```bash
-systemctl --user daemon-reload
-systemctl --user enable --now backup-documents.timer
+systemctl --user daemon-reload  
+systemctl --user enable --now backup-documents.timer  
 ```
 
 ### Exemple 2 : Nettoyage hebdomadaire
@@ -352,21 +352,21 @@ systemctl --user enable --now backup-documents.timer
 Description=Nettoyage hebdomadaire du système
 
 [Service]
-Type=oneshot
-ExecStart=/bin/bash -c 'rm -rf ~/.cache/thumbnails/* && rm -rf ~/.local/share/Trash/*'
-StandardOutput=journal
+Type=oneshot  
+ExecStart=/bin/bash -c 'rm -rf ~/.cache/thumbnails/* && rm -rf ~/.local/share/Trash/*'  
+StandardOutput=journal  
 ```
 
 **Fichier : `~/.config/systemd/user/nettoyage-hebdo.timer`**
 
 ```ini
 [Unit]
-Description=Timer pour nettoyage hebdomadaire
-Requires=nettoyage-hebdo.service
+Description=Timer pour nettoyage hebdomadaire  
+Requires=nettoyage-hebdo.service  
 
 [Timer]
-OnCalendar=Sun 03:00:00
-Persistent=true
+OnCalendar=Sun 03:00:00  
+Persistent=true  
 
 [Install]
 WantedBy=timers.target
@@ -381,10 +381,10 @@ WantedBy=timers.target
 Description=Vérification de l'espace disque
 
 [Service]
-Type=oneshot
-ExecStart=/home/utilisateur/scripts/check-disk.sh
-StandardOutput=journal
-StandardError=journal
+Type=oneshot  
+ExecStart=/home/utilisateur/scripts/check-disk.sh  
+StandardOutput=journal  
+StandardError=journal  
 ```
 
 **Fichier script : `~/scripts/check-disk.sh`**
@@ -410,12 +410,12 @@ chmod +x ~/scripts/check-disk.sh
 
 ```ini
 [Unit]
-Description=Vérification horaire de l'espace disque
-Requires=check-disk.service
+Description=Vérification horaire de l'espace disque  
+Requires=check-disk.service  
 
 [Timer]
-OnCalendar=hourly
-Persistent=true
+OnCalendar=hourly  
+Persistent=true  
 
 [Install]
 WantedBy=timers.target
@@ -427,29 +427,29 @@ WantedBy=timers.target
 
 ```ini
 [Unit]
-Description=Synchronisation avec le cloud
-After=network-online.target
-Wants=network-online.target
+Description=Synchronisation avec le cloud  
+After=network-online.target  
+Wants=network-online.target  
 
 [Service]
-Type=oneshot
-ExecStart=/usr/bin/rclone sync /home/utilisateur/Documents remote:Documents
-StandardOutput=journal
-StandardError=journal
-TimeoutSec=600
+Type=oneshot  
+ExecStart=/usr/bin/rclone sync /home/utilisateur/Documents remote:Documents  
+StandardOutput=journal  
+StandardError=journal  
+TimeoutSec=600  
 ```
 
 **Fichier : `~/.config/systemd/user/sync-cloud.timer`**
 
 ```ini
 [Unit]
-Description=Timer de synchronisation cloud
-Requires=sync-cloud.service
+Description=Timer de synchronisation cloud  
+Requires=sync-cloud.service  
 
 [Timer]
-OnCalendar=*-*-* 00/2:00:00
-Persistent=true
-RandomizedDelaySec=5min
+OnCalendar=*-*-* 00/2:00:00  
+Persistent=true  
+RandomizedDelaySec=5min  
 
 [Install]
 WantedBy=timers.target
@@ -461,25 +461,25 @@ WantedBy=timers.target
 
 ```ini
 [Unit]
-Description=Script de démarrage personnalisé
-After=graphical-session.target
+Description=Script de démarrage personnalisé  
+After=graphical-session.target  
 
 [Service]
-Type=oneshot
-ExecStart=/home/utilisateur/scripts/startup.sh
-StandardOutput=journal
+Type=oneshot  
+ExecStart=/home/utilisateur/scripts/startup.sh  
+StandardOutput=journal  
 ```
 
 **Fichier : `~/.config/systemd/user/startup-script.timer`**
 
 ```ini
 [Unit]
-Description=Exécution du script au démarrage
-Requires=startup-script.service
+Description=Exécution du script au démarrage  
+Requires=startup-script.service  
 
 [Timer]
-OnBootSec=2min
-Persistent=true
+OnBootSec=2min  
+Persistent=true  
 
 [Install]
 WantedBy=timers.target
@@ -607,10 +607,10 @@ Affiche une liste avec :
 ### Exemple de sortie
 
 ```
-NEXT                        LEFT          LAST                        PASSED       UNIT                     ACTIVATES
-Mon 2024-01-15 09:00:00 CET 2h 30min left Sun 2024-01-14 09:00:00 CET 21h ago     rappel-quotidien.timer   rappel-quotidien.service
-Mon 2024-01-15 00:00:00 CET 17h left      Sun 2024-01-14 00:00:00 CET 6h ago      backup-documents.timer   backup-documents.service
-Sun 2024-01-21 03:00:00 CET 6 days left   Sun 2024-01-14 03:00:00 CET 3h ago      nettoyage-hebdo.timer    nettoyage-hebdo.service
+NEXT                        LEFT          LAST                        PASSED       UNIT                     ACTIVATES  
+Mon 2024-01-15 09:00:00 CET 2h 30min left Sun 2024-01-14 09:00:00 CET 21h ago     rappel-quotidien.timer   rappel-quotidien.service  
+Mon 2024-01-15 00:00:00 CET 17h left      Sun 2024-01-14 00:00:00 CET 6h ago      backup-documents.timer   backup-documents.service  
+Sun 2024-01-21 03:00:00 CET 6 days left   Sun 2024-01-14 03:00:00 CET 3h ago      nettoyage-hebdo.timer    nettoyage-hebdo.service  
 ```
 
 ## Scripts complexes avec systemd
@@ -628,21 +628,21 @@ Sun 2024-01-21 03:00:00 CET 6 days left   Sun 2024-01-14 03:00:00 CET 3h ago    
 set -e  # Arrêter en cas d'erreur
 
 # Configuration
-SOURCE="/home/$USER/Documents"
-DEST="/home/$USER/Sauvegardes"
-MAX_BACKUPS=7
-DATE=$(date +%Y%m%d_%H%M%S)
-BACKUP_NAME="backup_$DATE.tar.gz"
-LOG_PREFIX="[BACKUP]"
+SOURCE="/home/$USER/Documents"  
+DEST="/home/$USER/Sauvegardes"  
+MAX_BACKUPS=7  
+DATE=$(date +%Y%m%d_%H%M%S)  
+BACKUP_NAME="backup_$DATE.tar.gz"  
+LOG_PREFIX="[BACKUP]"  
 
 # Fonction de log (utilise echo, systemd capturera via journal)
 log() {
     echo "$LOG_PREFIX $1"
 }
 
-log "Début de la sauvegarde"
-log "Source : $SOURCE"
-log "Destination : $DEST/$BACKUP_NAME"
+log "Début de la sauvegarde"  
+log "Source : $SOURCE"  
+log "Destination : $DEST/$BACKUP_NAME"  
 
 # Vérifications
 if [ ! -d "$SOURCE" ]; then
@@ -653,8 +653,8 @@ fi
 mkdir -p "$DEST"
 
 # Création de la sauvegarde
-log "Compression en cours..."
-tar -czf "$DEST/$BACKUP_NAME" "$SOURCE"
+log "Compression en cours..."  
+tar -czf "$DEST/$BACKUP_NAME" "$SOURCE"  
 
 if [ $? -eq 0 ]; then
     SIZE=$(du -h "$DEST/$BACKUP_NAME" | cut -f1)
@@ -665,8 +665,8 @@ else
 fi
 
 # Rotation des anciennes sauvegardes
-log "Rotation des sauvegardes..."
-BACKUP_COUNT=$(ls -1 "$DEST"/backup_*.tar.gz 2>/dev/null | wc -l)
+log "Rotation des sauvegardes..."  
+BACKUP_COUNT=$(ls -1 "$DEST"/backup_*.tar.gz 2>/dev/null | wc -l)  
 
 if [ $BACKUP_COUNT -gt $MAX_BACKUPS ]; then
     TO_DELETE=$((BACKUP_COUNT - MAX_BACKUPS))
@@ -674,41 +674,41 @@ if [ $BACKUP_COUNT -gt $MAX_BACKUPS ]; then
     ls -1t "$DEST"/backup_*.tar.gz | tail -n $TO_DELETE | xargs rm -f
 fi
 
-log "Nombre de sauvegardes : $(ls -1 "$DEST"/backup_*.tar.gz | wc -l)/$MAX_BACKUPS"
-log "Sauvegarde terminée avec succès"
+log "Nombre de sauvegardes : $(ls -1 "$DEST"/backup_*.tar.gz | wc -l)/$MAX_BACKUPS"  
+log "Sauvegarde terminée avec succès"  
 ```
 
 **Fichier : `~/.config/systemd/user/backup-advanced.service`**
 
 ```ini
 [Unit]
-Description=Sauvegarde avancée avec rotation
-After=network.target
+Description=Sauvegarde avancée avec rotation  
+After=network.target  
 
 [Service]
-Type=oneshot
-ExecStart=/home/utilisateur/scripts/backup-advanced.sh
-StandardOutput=journal
-StandardError=journal
-TimeoutSec=600
+Type=oneshot  
+ExecStart=/home/utilisateur/scripts/backup-advanced.sh  
+StandardOutput=journal  
+StandardError=journal  
+TimeoutSec=600  
 
 # Gestion des ressources
-CPUQuota=50%
-IOWeight=100
+CPUQuota=50%  
+IOWeight=100  
 ```
 
 **Fichier : `~/.config/systemd/user/backup-advanced.timer`**
 
 ```ini
 [Unit]
-Description=Timer pour sauvegarde avancée quotidienne
-Requires=backup-advanced.service
+Description=Timer pour sauvegarde avancée quotidienne  
+Requires=backup-advanced.service  
 
 [Timer]
-OnCalendar=daily
-Persistent=true
-AccuracySec=1min
-RandomizedDelaySec=10min
+OnCalendar=daily  
+Persistent=true  
+AccuracySec=1min  
+RandomizedDelaySec=10min  
 
 [Install]
 WantedBy=timers.target
@@ -744,21 +744,21 @@ WantedBy=timers.target
 Description=Sauvegarde quotidienne
 
 [Service]
-Type=oneshot
-ExecStart=/home/utilisateur/scripts/backup.sh
-StandardOutput=journal
-StandardError=journal
+Type=oneshot  
+ExecStart=/home/utilisateur/scripts/backup.sh  
+StandardOutput=journal  
+StandardError=journal  
 ```
 
 **backup.timer** :
 ```ini
 [Unit]
-Description=Timer pour sauvegarde quotidienne
-Requires=backup.service
+Description=Timer pour sauvegarde quotidienne  
+Requires=backup.service  
 
 [Timer]
-OnCalendar=*-*-* 02:00:00
-Persistent=true
+OnCalendar=*-*-* 02:00:00  
+Persistent=true  
 
 [Install]
 WantedBy=timers.target
@@ -781,32 +781,32 @@ ConditionACPower=true
 ConditionVirtualization=no
 
 [Service]
-Type=oneshot
-ExecStart=/usr/bin/rclone sync /home/utilisateur/Documents remote:Documents
+Type=oneshot  
+ExecStart=/usr/bin/rclone sync /home/utilisateur/Documents remote:Documents  
 ```
 
 ### Exécution avec limites de ressources
 
 ```ini
 [Service]
-Type=oneshot
-ExecStart=/home/utilisateur/scripts/tache-lourde.sh
+Type=oneshot  
+ExecStart=/home/utilisateur/scripts/tache-lourde.sh  
 
 # Limites de ressources
-CPUQuota=25%              # Max 25% d'un cœur CPU
-MemoryLimit=500M          # Max 500 Mo de RAM
-IOWeight=50               # Priorité I/O basse (1-10000, défaut 100)
-Nice=19                   # Priorité CPU basse (-20 à 19, défaut 0)
+CPUQuota=25%              # Max 25% d'un cœur CPU  
+MemoryLimit=500M          # Max 500 Mo de RAM  
+IOWeight=50               # Priorité I/O basse (1-10000, défaut 100)  
+Nice=19                   # Priorité CPU basse (-20 à 19, défaut 0)  
 ```
 
 ### Retry automatique en cas d'échec
 
 ```ini
 [Service]
-Type=oneshot
-ExecStart=/home/utilisateur/scripts/backup.sh
-Restart=on-failure
-RestartSec=5min
+Type=oneshot  
+ExecStart=/home/utilisateur/scripts/backup.sh  
+Restart=on-failure  
+RestartSec=5min  
 ```
 
 ### Exécutions multiples
@@ -832,13 +832,13 @@ WantedBy=timers.target
 
 ```ini
 [Unit]
-Description=Sauvegarde cloud
-After=backup-local.service
-Requires=backup-local.service
+Description=Sauvegarde cloud  
+After=backup-local.service  
+Requires=backup-local.service  
 
 [Service]
-Type=oneshot
-ExecStart=/home/utilisateur/scripts/backup-cloud.sh
+Type=oneshot  
+ExecStart=/home/utilisateur/scripts/backup-cloud.sh  
 ```
 
 Ce service ne s'exécutera qu'après `backup-local.service` et seulement si celui-ci a réussi.
@@ -867,8 +867,8 @@ Surtout important pour les ordinateurs portables qui s'éteignent.
 
 ```ini
 [Service]
-StandardOutput=journal
-StandardError=journal
+StandardOutput=journal  
+StandardError=journal  
 ```
 
 Les logs seront accessibles via `journalctl`.
@@ -894,8 +894,8 @@ ExecStart=tar -czf ~/backup.tar.gz ~/Documents
 
 ```bash
 # 1. Créer les fichiers
-nano ~/.config/systemd/user/test.service
-nano ~/.config/systemd/user/test.timer
+nano ~/.config/systemd/user/test.service  
+nano ~/.config/systemd/user/test.timer  
 
 # 2. Recharger
 systemctl --user daemon-reload
@@ -923,8 +923,8 @@ Description=Description claire de ce que fait le timer
 
 ```ini
 [Timer]
-OnCalendar=daily
-AccuracySec=1h  # Peut se déclencher dans une fenêtre d'1h
+OnCalendar=daily  
+AccuracySec=1h  # Peut se déclencher dans une fenêtre d'1h  
 ```
 
 Systemd regroupera les tâches pour économiser la batterie.
@@ -933,8 +933,8 @@ Systemd regroupera les tâches pour économiser la batterie.
 
 ```ini
 [Timer]
-OnCalendar=hourly
-RandomizedDelaySec=10min  # Délai aléatoire jusqu'à 10 min
+OnCalendar=hourly  
+RandomizedDelaySec=10min  # Délai aléatoire jusqu'à 10 min  
 ```
 
 Utile si vous avez beaucoup de timers qui se déclenchent en même temps.
@@ -983,8 +983,8 @@ systemctl --user status mon-timer.timer
 **3. Vérifier les logs**
 
 ```bash
-journalctl --user -u mon-timer.timer
-journalctl --user -u mon-timer.service
+journalctl --user -u mon-timer.timer  
+journalctl --user -u mon-timer.service  
 ```
 
 **4. Tester le service manuellement**
@@ -1024,8 +1024,8 @@ Devrait afficher : `Linger=yes`
 Vérifiez les permissions du script :
 
 ```bash
-ls -l ~/scripts/mon-script.sh
-chmod +x ~/scripts/mon-script.sh
+ls -l ~/scripts/mon-script.sh  
+chmod +x ~/scripts/mon-script.sh  
 ```
 
 ### Les chemins relatifs ne fonctionnent pas
@@ -1045,8 +1045,8 @@ ExecStart=/home/utilisateur/scripts/backup.sh
 ### Vérifier la validité des fichiers systemd
 
 ```bash
-systemd-analyze verify ~/.config/systemd/user/mon-timer.service
-systemd-analyze verify ~/.config/systemd/user/mon-timer.timer
+systemd-analyze verify ~/.config/systemd/user/mon-timer.service  
+systemd-analyze verify ~/.config/systemd/user/mon-timer.timer  
 ```
 
 ### Créer un calendrier visuel

@@ -310,10 +310,10 @@ ss -lu
 
 **Exemple de sortie** :
 ```
-State    Recv-Q   Send-Q     Local Address:Port       Peer Address:Port
-LISTEN   0        128        0.0.0.0:22                0.0.0.0:*
-LISTEN   0        128        127.0.0.1:631             0.0.0.0:*
-LISTEN   0        5          127.0.0.1:5432            0.0.0.0:*
+State    Recv-Q   Send-Q     Local Address:Port       Peer Address:Port  
+LISTEN   0        128        0.0.0.0:22                0.0.0.0:*  
+LISTEN   0        128        127.0.0.1:631             0.0.0.0:*  
+LISTEN   0        5          127.0.0.1:5432            0.0.0.0:*  
 ```
 
 **Explication** :
@@ -343,8 +343,8 @@ sudo ss -tap
 
 **Exemple de sortie** :
 ```
-State    Recv-Q   Send-Q     Local Address:Port    Peer Address:Port    Process
-ESTAB    0        0          192.168.1.100:45678   93.184.216.34:443   users:(("firefox",pid=1234,fd=45))
+State    Recv-Q   Send-Q     Local Address:Port    Peer Address:Port    Process  
+ESTAB    0        0          192.168.1.100:45678   93.184.216.34:443   users:(("firefox",pid=1234,fd=45))  
 ```
 
 **Explication** :
@@ -385,10 +385,10 @@ ss -s
 
 **Exemple de sortie** :
 ```
-Total: 587
-TCP:   12 (estab 3, closed 1, orphaned 0, timewait 1)
-UDP:   8
-RAW:   1
+Total: 587  
+TCP:   12 (estab 3, closed 1, orphaned 0, timewait 1)  
+UDP:   8  
+RAW:   1  
 ```
 
 ### Afficher avec informations étendues
@@ -855,8 +855,8 @@ dig google.com
 dig @8.8.8.8 google.com
 
 # 4. Comparer les temps de réponse
-time nslookup google.com
-time nslookup google.com 8.8.8.8
+time nslookup google.com  
+time nslookup google.com 8.8.8.8  
 ```
 
 ### Surveillance : Connexions suspectes
@@ -885,8 +885,8 @@ sudo ip addr del 192.168.1.100/24 dev enp3s0
 sudo ip addr add 192.168.1.200/24 dev enp3s0
 
 # Redémarrer l'interface pour revenir à la normale
-sudo ip link set enp3s0 down
-sudo ip link set enp3s0 up
+sudo ip link set enp3s0 down  
+sudo ip link set enp3s0 up  
 ```
 
 **Note** : Ces changements sont temporaires et disparaissent au redémarrage.
@@ -901,59 +901,59 @@ sudo ip link set enp3s0 up
 #!/bin/bash
 # check-network.sh - Diagnostic réseau complet
 
-echo "======================================"
-echo "  DIAGNOSTIC RÉSEAU COMPLET"
-echo "======================================"
-echo ""
+echo "======================================"  
+echo "  DIAGNOSTIC RÉSEAU COMPLET"  
+echo "======================================"  
+echo ""  
 
 # Interfaces réseau
-echo "=== INTERFACES RÉSEAU ==="
-ip -c -br addr
-echo ""
+echo "=== INTERFACES RÉSEAU ==="  
+ip -c -br addr  
+echo ""  
 
 # Passerelle par défaut
-echo "=== PASSERELLE PAR DÉFAUT ==="
-ip route | grep default
-echo ""
+echo "=== PASSERELLE PAR DÉFAUT ==="  
+ip route | grep default  
+echo ""  
 
 # DNS
-echo "=== SERVEURS DNS ==="
-cat /etc/resolv.conf | grep nameserver
-echo ""
+echo "=== SERVEURS DNS ==="  
+cat /etc/resolv.conf | grep nameserver  
+echo ""  
 
 # Test de connectivité
-echo "=== TEST DE CONNECTIVITÉ ==="
-echo -n "Passerelle : "
-if ping -c 1 -W 2 $(ip route | grep default | awk '{print $3}') &>/dev/null; then
+echo "=== TEST DE CONNECTIVITÉ ==="  
+echo -n "Passerelle : "  
+if ping -c 1 -W 2 $(ip route | grep default | awk '{print $3}') &>/dev/null; then  
     echo "✅ OK"
 else
     echo "❌ ÉCHEC"
 fi
 
-echo -n "DNS Google : "
-if ping -c 1 -W 2 8.8.8.8 &>/dev/null; then
+echo -n "DNS Google : "  
+if ping -c 1 -W 2 8.8.8.8 &>/dev/null; then  
     echo "✅ OK"
 else
     echo "❌ ÉCHEC"
 fi
 
-echo -n "Résolution DNS : "
-if ping -c 1 -W 2 google.com &>/dev/null; then
+echo -n "Résolution DNS : "  
+if ping -c 1 -W 2 google.com &>/dev/null; then  
     echo "✅ OK"
 else
     echo "❌ ÉCHEC"
-fi
-echo ""
+fi  
+echo ""  
 
 # Connexions actives
-echo "=== CONNEXIONS ACTIVES ==="
-echo "Nombre de connexions établies : $(ss -tan | grep ESTABLISHED | wc -l)"
-echo ""
+echo "=== CONNEXIONS ACTIVES ==="  
+echo "Nombre de connexions établies : $(ss -tan | grep ESTABLISHED | wc -l)"  
+echo ""  
 
 # Ports en écoute
-echo "=== PORTS EN ÉCOUTE (TOP 5) ==="
-sudo ss -tlnp | grep LISTEN | head -5
-echo ""
+echo "=== PORTS EN ÉCOUTE (TOP 5) ==="  
+sudo ss -tlnp | grep LISTEN | head -5  
+echo ""  
 
 echo "======================================"
 ```
@@ -988,8 +988,8 @@ done
 
 HOST=${1:-localhost}
 
-echo "Scan des ports courants sur $HOST..."
-echo ""
+echo "Scan des ports courants sur $HOST..."  
+echo ""  
 
 PORTS=(20 21 22 25 53 80 110 143 443 465 587 993 995 3306 5432 8080)
 
@@ -1001,8 +1001,8 @@ for PORT in "${PORTS[@]}"; do
     fi
 done
 
-echo ""
-echo "Scan terminé"
+echo ""  
+echo "Scan terminé"  
 ```
 
 ### Script : Afficher son IP publique
@@ -1011,20 +1011,20 @@ echo "Scan terminé"
 #!/bin/bash
 # mon-ip.sh - Afficher son IP publique
 
-echo "=== VOS ADRESSES IP ==="
-echo ""
+echo "=== VOS ADRESSES IP ==="  
+echo ""  
 
-echo "IP publique :"
-curl -s https://api.ipify.org
-echo ""
-echo ""
+echo "IP publique :"  
+curl -s https://api.ipify.org  
+echo ""  
+echo ""  
 
-echo "IP locale :"
-ip -4 addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127.0.0.1
-echo ""
+echo "IP locale :"  
+ip -4 addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep -v 127.0.0.1  
+echo ""  
 
-echo "Informations détaillées :"
-curl -s https://ipinfo.io/json | grep -E '(ip|city|region|country)' | sed 's/[",]//g'
+echo "Informations détaillées :"  
+curl -s https://ipinfo.io/json | grep -E '(ip|city|region|country)' | sed 's/[",]//g'  
 ```
 
 ---
@@ -1040,8 +1040,8 @@ cat /etc/resolv.conf
 
 Exemple :
 ```
-nameserver 8.8.8.8
-nameserver 8.8.4.4
+nameserver 8.8.8.8  
+nameserver 8.8.4.4  
 ```
 
 ### /etc/hosts - Associations IP/noms locaux
@@ -1227,16 +1227,16 @@ cat /etc/netplan/*.yaml
 
 ✅ **Préférez** :
 ```bash
-ip addr
-ss -tan
-ip route
+ip addr  
+ss -tan  
+ip route  
 ```
 
 ❌ **Évitez** :
 ```bash
-ifconfig
-netstat -tan
-route -n
+ifconfig  
+netstat -tan  
+route -n  
 ```
 
 ### 2. Toujours vérifier avec sudo pour voir tous les processus
@@ -1252,8 +1252,8 @@ sudo ss -tp
 ### 3. Utiliser les couleurs pour plus de lisibilité
 
 ```bash
-ip -c addr
-ss -c
+ip -c addr  
+ss -c  
 ```
 
 ### 4. Sauvegarder les configurations avant modification
@@ -1268,9 +1268,9 @@ sudo cp /etc/netplan/01-netcfg.yaml /etc/netplan/01-netcfg.yaml.bak
 ```bash
 # Ne pas tout changer d'un coup
 # Tester étape par étape :
-ping routeur  → OK
-ping 8.8.8.8  → OK
-ping google.com → OK
+ping routeur  → OK  
+ping 8.8.8.8  → OK  
+ping google.com → OK  
 ```
 
 ### 6. Documenter vos configurations
@@ -1285,9 +1285,9 @@ nano ~/network-config.txt
 
 Ajoutez à `~/.bashrc` :
 ```bash
-alias myip='ip -c -br addr'
-alias ports='sudo ss -tlnp'
-alias conns='ss -tan | grep ESTABLISHED'
+alias myip='ip -c -br addr'  
+alias ports='sudo ss -tlnp'  
+alias conns='ss -tan | grep ESTABLISHED'  
 ```
 
 ---
@@ -1335,11 +1335,11 @@ ss -s
 ### Documentation
 
 ```bash
-man ip
-man ss
-man netstat
-man ping
-man dig
+man ip  
+man ss  
+man netstat  
+man ping  
+man dig  
 ```
 
 ### Sites web

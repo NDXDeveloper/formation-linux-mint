@@ -224,10 +224,10 @@ sed -e 's/chat/chien/g' -e 's/rouge/bleu/g' fichier.txt
 sed 's/chat/chien/g; s/rouge/bleu/g' fichier.txt
 
 # Option 3 : Utiliser des retours à la ligne
-sed '
-s/chat/chien/g
-s/rouge/bleu/g
-s/petit/grand/g
+sed '  
+s/chat/chien/g  
+s/rouge/bleu/g  
+s/petit/grand/g  
 ' fichier.txt
 ```
 
@@ -267,8 +267,8 @@ Par défaut, le séparateur est `/`, mais vous pouvez utiliser n'importe quel ca
 sed 's/\/home\/utilisateur/\/home\/admin/g' fichier.txt
 
 # Utilisez | ou # comme séparateur :
-sed 's|/home/utilisateur|/home/admin|g' fichier.txt
-sed 's#/home/utilisateur#/home/admin#g' fichier.txt
+sed 's|/home/utilisateur|/home/admin|g' fichier.txt  
+sed 's#/home/utilisateur#/home/admin#g' fichier.txt  
 ```
 
 ### Exemples pratiques sed
@@ -444,12 +444,12 @@ awk '{sum += $3; count++} END {print "Moyenne:", sum/count}' personnes.txt
 ### Variables intégrées utiles
 
 ```bash
-NR     # Numéro de la ligne actuelle
-NF     # Nombre de champs dans la ligne
-FS     # Séparateur de champs (Field Separator)
-OFS    # Séparateur de sortie (Output Field Separator)
-RS     # Séparateur d'enregistrements (Record Separator)
-ORS    # Séparateur de sortie d'enregistrements
+NR     # Numéro de la ligne actuelle  
+NF     # Nombre de champs dans la ligne  
+FS     # Séparateur de champs (Field Separator)  
+OFS    # Séparateur de sortie (Output Field Separator)  
+RS     # Séparateur d'enregistrements (Record Separator)  
+ORS    # Séparateur de sortie d'enregistrements  
 ```
 
 **Exemples** :
@@ -841,8 +841,8 @@ s/<[^>]*>//g
 s/  */ /g
 
 # Supprimer espaces début/fin de ligne
-s/^ *//
-s/ *$//
+s/^ *//  
+s/ *$//  
 
 # Supprimer lignes vides
 /^$/d
@@ -1061,18 +1061,18 @@ awk '{printf "%-10s %5d\n", $1, $2}' fichier.txt
 ### Sed - Commandes essentielles
 
 ```bash
-s/ancien/nouveau/     # Substitution
-s/ancien/nouveau/g    # Substitution globale
-s/ancien/nouveau/gi   # Insensible à la casse
+s/ancien/nouveau/     # Substitution  
+s/ancien/nouveau/g    # Substitution globale  
+s/ancien/nouveau/gi   # Insensible à la casse  
 10s/ancien/nouveau/   # Ligne 10 seulement
 10,20s/ancien/nouveau/ # Lignes 10 à 20
 /motif/s/ancien/nouveau/ # Lignes avec "motif"
 
-d                     # Supprimer
-p                     # Afficher
-a\texte              # Ajouter après
-i\texte              # Insérer avant
-c\texte              # Changer (remplacer)
+d                     # Supprimer  
+p                     # Afficher  
+a\texte              # Ajouter après  
+i\texte              # Insérer avant  
+c\texte              # Changer (remplacer)  
 
 -i                    # Modifier en place
 -i.bak               # Modifier avec sauvegarde
@@ -1094,11 +1094,11 @@ c\texte              # Changer (remplacer)
 /motif/              # Lignes contenant "motif"
 $3 > 100             # Champ 3 > 100
 $1 == "test"         # Champ 1 égal à "test"
-NF > 5               # Plus de 5 champs
-NR > 10              # Après ligne 10
+NF > 5               # Plus de 5 champs  
+NR > 10              # Après ligne 10  
 
-BEGIN {}             # Avant traitement
-END {}               # Après traitement
+BEGIN {}             # Avant traitement  
+END {}               # Après traitement  
 
 {sum += $1}          # Somme
 {count++}            # Compteur
@@ -1111,10 +1111,10 @@ END {}               # Après traitement
 ### Documentation
 
 ```bash
-man sed
-man awk
-info sed
-info gawk
+man sed  
+man awk  
+info sed  
+info gawk  
 ```
 
 ### Sites web

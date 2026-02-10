@@ -237,8 +237,8 @@ Créons un script de maintenance à lancer régulièrement :
 #
 
 # Configuration
-LOG_FILE="$HOME/maintenance.log"
-DATE=$(date '+%Y-%m-%d %H:%M:%S')
+LOG_FILE="$HOME/maintenance.log"  
+DATE=$(date '+%Y-%m-%d %H:%M:%S')  
 
 # Fonction de log
 log() {
@@ -249,21 +249,21 @@ log() {
 log "=== Début de la maintenance ==="
 
 # 1. Nettoyage APT
-log "Nettoyage APT..."
-apt autoremove -y >> "$LOG_FILE" 2>&1
-apt autoclean >> "$LOG_FILE" 2>&1
+log "Nettoyage APT..."  
+apt autoremove -y >> "$LOG_FILE" 2>&1  
+apt autoclean >> "$LOG_FILE" 2>&1  
 
 # 2. Vider la corbeille
-log "Vidage de la corbeille..."
-rm -rf "$HOME/.local/share/Trash/"* >> "$LOG_FILE" 2>&1
+log "Vidage de la corbeille..."  
+rm -rf "$HOME/.local/share/Trash/"* >> "$LOG_FILE" 2>&1  
 
 # 3. Nettoyage des logs anciens
-log "Nettoyage des logs..."
-find /var/log -type f -name "*.log" -mtime +30 -delete 2>/dev/null
+log "Nettoyage des logs..."  
+find /var/log -type f -name "*.log" -mtime +30 -delete 2>/dev/null  
 
 # 4. Vérification de l'espace disque
-espace=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')
-log "Espace disque utilisé : $espace%"
+espace=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')  
+log "Espace disque utilisé : $espace%"  
 
 if [ $espace -gt 80 ]; then
     log "ALERTE : Espace disque critique !"
@@ -271,15 +271,15 @@ if [ $espace -gt 80 ]; then
 fi
 
 # 5. Sauvegarde rapide
-log "Sauvegarde des fichiers de configuration..."
-tar -czf "$HOME/Sauvegardes/config_$(date +%Y%m%d).tar.gz" \
+log "Sauvegarde des fichiers de configuration..."  
+tar -czf "$HOME/Sauvegardes/config_$(date +%Y%m%d).tar.gz" \  
     "$HOME/.bashrc" \
     "$HOME/.profile" \
     2>> "$LOG_FILE"
 
 # Fin
-log "=== Maintenance terminée ==="
-log ""
+log "=== Maintenance terminée ==="  
+log ""  
 ```
 
 Rendez-le exécutable :
@@ -305,10 +305,10 @@ Cron exécute les tâches dans un environnement minimal. Vous pouvez définir de
 
 ```bash
 # Variables d'environnement
-SHELL=/bin/bash
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-MAILTO=utilisateur@example.com
-HOME=/home/utilisateur
+SHELL=/bin/bash  
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  
+MAILTO=utilisateur@example.com  
+HOME=/home/utilisateur  
 
 # Tâches
 0 2 * * * /home/utilisateur/scripts/sauvegarde.sh
@@ -326,8 +326,8 @@ HOME=/home/utilisateur
 
 ```bash
 # Pour les notifications
-DISPLAY=:0
-DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+DISPLAY=:0  
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus  
 
 # Notification quotidienne
 0 9 * * * notify-send "Bonjour" "Votre session commence !"
@@ -404,8 +404,8 @@ Ajoutez des logs détaillés dans vos scripts pour faciliter le débogage :
 
 ```bash
 #!/bin/bash
-LOG="/home/utilisateur/logs/mon_script.log"
-echo "$(date) - Début du script" >> "$LOG"
+LOG="/home/utilisateur/logs/mon_script.log"  
+echo "$(date) - Début du script" >> "$LOG"  
 
 # Votre code ici
 
@@ -512,9 +512,9 @@ sudo run-parts /etc/cron.daily
 ### Vérifier quand Anacron a exécuté les tâches
 
 ```bash
-cat /var/spool/anacron/cron.daily
-cat /var/spool/anacron/cron.weekly
-cat /var/spool/anacron/cron.monthly
+cat /var/spool/anacron/cron.daily  
+cat /var/spool/anacron/cron.weekly  
+cat /var/spool/anacron/cron.monthly  
 ```
 
 Ces fichiers contiennent la date de la dernière exécution.
@@ -585,8 +585,8 @@ if [ $(date +%u) -le 5 ]; then
 fi
 
 # Vérifier l'heure
-heure=$(date +%H)
-if [ $heure -ge 9 ] && [ $heure -le 17 ]; then
+heure=$(date +%H)  
+if [ $heure -ge 9 ] && [ $heure -le 17 ]; then  
     echo "Nous sommes pendant les heures de bureau"
 fi
 
@@ -715,8 +715,8 @@ sudo systemctl status cron
 Si nécessaire, démarrez-le :
 
 ```bash
-sudo systemctl start cron
-sudo systemctl enable cron
+sudo systemctl start cron  
+sudo systemctl enable cron  
 ```
 
 **2. Vérifiez la syntaxe**
@@ -764,9 +764,9 @@ Exécutez la commande exacte telle que cron le ferait :
 **Problème d'environnement** : Définissez les variables nécessaires dans votre crontab :
 
 ```bash
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-HOME=/home/utilisateur
-SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  
+HOME=/home/utilisateur  
+SHELL=/bin/bash  
 
 0 2 * * * /home/utilisateur/scripts/backup.sh
 ```
@@ -782,8 +782,8 @@ SHELL=/bin/bash
 
 ```bash
 # Installation de crontab-ui (interface web pour gérer cron)
-npm install -g crontab-ui
-crontab-ui
+npm install -g crontab-ui  
+crontab-ui  
 ```
 
 Accédez ensuite à `http://localhost:8000`
@@ -804,8 +804,8 @@ if [ -z "$ligne" ]; then
 fi
 
 # Test basique
-echo "$ligne" | crontab -
-if [ $? -eq 0 ]; then
+echo "$ligne" | crontab -  
+if [ $? -eq 0 ]; then  
     echo "✅ Syntaxe valide"
     crontab -r  # Supprimer la ligne de test
 else

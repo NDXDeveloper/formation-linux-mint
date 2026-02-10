@@ -56,15 +56,15 @@ Dans nano, tapez :
 # Auteur : Votre nom
 # Date : 2024
 
-echo "=================================="
-echo "  Bienvenue dans mon script !"
-echo "=================================="
-echo ""
-echo "Nom d'utilisateur : $USER"
-echo "Répertoire actuel : $PWD"
-echo "Date et heure : $(date)"
-echo ""
-echo "Script terminé avec succès !"
+echo "=================================="  
+echo "  Bienvenue dans mon script !"  
+echo "=================================="  
+echo ""  
+echo "Nom d'utilisateur : $USER"  
+echo "Répertoire actuel : $PWD"  
+echo "Date et heure : $(date)"  
+echo ""  
+echo "Script terminé avec succès !"  
 ```
 
 Sauvegardez avec `Ctrl+O`, puis quittez avec `Ctrl+X`.
@@ -95,14 +95,14 @@ Les variables permettent de stocker des informations pour les réutiliser plus t
 #!/bin/bash
 
 # Définir des variables
-nom="Linux Mint"
-version="21.3"
-bureau="Cinnamon"
+nom="Linux Mint"  
+version="21.3"  
+bureau="Cinnamon"  
 
 # Utiliser les variables
-echo "Système d'exploitation : $nom"
-echo "Version : $version"
-echo "Environnement de bureau : $bureau"
+echo "Système d'exploitation : $nom"  
+echo "Version : $version"  
+echo "Environnement de bureau : $bureau"  
 ```
 
 **Important :**
@@ -116,11 +116,11 @@ Bash propose de nombreuses variables déjà définies :
 ```bash
 #!/bin/bash
 
-echo "Nom d'utilisateur : $USER"
-echo "Répertoire personnel : $HOME"
-echo "Répertoire actuel : $PWD"
-echo "Shell utilisé : $SHELL"
-echo "Nom de la machine : $HOSTNAME"
+echo "Nom d'utilisateur : $USER"  
+echo "Répertoire personnel : $HOME"  
+echo "Répertoire actuel : $PWD"  
+echo "Shell utilisé : $SHELL"  
+echo "Nom de la machine : $HOSTNAME"  
 ```
 
 ### Récupérer des entrées utilisateur
@@ -130,8 +130,8 @@ Vous pouvez demander des informations à l'utilisateur :
 ```bash
 #!/bin/bash
 
-echo "Comment vous appelez-vous ?"
-read nom
+echo "Comment vous appelez-vous ?"  
+read nom  
 
 echo "Bonjour $nom, bienvenue !"
 ```
@@ -147,10 +147,10 @@ La commande `read` attend que l'utilisateur tape quelque chose et appuie sur Ent
 # Script de sauvegarde de documents
 
 # Variables
-SOURCE="$HOME/Documents"
-DESTINATION="$HOME/Sauvegardes"
-DATE=$(date +%Y-%m-%d_%H-%M-%S)
-NOM_ARCHIVE="documents_$DATE.tar.gz"
+SOURCE="$HOME/Documents"  
+DESTINATION="$HOME/Sauvegardes"  
+DATE=$(date +%Y-%m-%d_%H-%M-%S)  
+NOM_ARCHIVE="documents_$DATE.tar.gz"  
 
 # Création du répertoire de destination si nécessaire
 mkdir -p "$DESTINATION"
@@ -182,37 +182,37 @@ fi
 #!/bin/bash
 # Script de nettoyage basique
 
-echo "======================================="
-echo "  Script de nettoyage du système"
-echo "======================================="
-echo ""
+echo "======================================="  
+echo "  Script de nettoyage du système"  
+echo "======================================="  
+echo ""  
 
 # Mise à jour de la liste des paquets
-echo "1. Mise à jour de la liste des paquets..."
-sudo apt update
+echo "1. Mise à jour de la liste des paquets..."  
+sudo apt update  
 
 # Suppression des paquets inutiles
-echo ""
-echo "2. Suppression des paquets inutiles..."
-sudo apt autoremove -y
+echo ""  
+echo "2. Suppression des paquets inutiles..."  
+sudo apt autoremove -y  
 
 # Nettoyage du cache
-echo ""
-echo "3. Nettoyage du cache APT..."
-sudo apt autoclean
+echo ""  
+echo "3. Nettoyage du cache APT..."  
+sudo apt autoclean  
 
 # Vider la corbeille
-echo ""
-echo "4. Vidage de la corbeille..."
-rm -rf ~/.local/share/Trash/*
+echo ""  
+echo "4. Vidage de la corbeille..."  
+rm -rf ~/.local/share/Trash/*  
 
 # Affichage de l'espace disque
-echo ""
-echo "5. Espace disque disponible :"
-df -h / | tail -n 1
+echo ""  
+echo "5. Espace disque disponible :"  
+df -h / | tail -n 1  
 
-echo ""
-echo "Nettoyage terminé !"
+echo ""  
+echo "Nettoyage terminé !"  
 ```
 
 ### Script d'information système
@@ -221,44 +221,44 @@ echo "Nettoyage terminé !"
 #!/bin/bash
 # Affiche des informations sur le système
 
-clear
-echo "╔════════════════════════════════════════╗"
-echo "║   INFORMATIONS SYSTÈME - LINUX MINT    ║"
-echo "╔════════════════════════════════════════╗"
-echo ""
+clear  
+echo "╔════════════════════════════════════════╗"  
+echo "║   INFORMATIONS SYSTÈME - LINUX MINT    ║"  
+echo "╔════════════════════════════════════════╗"  
+echo ""  
 
-echo "📅 DATE ET HEURE"
-echo "   $(date '+%A %d %B %Y - %H:%M:%S')"
-echo ""
+echo "📅 DATE ET HEURE"  
+echo "   $(date '+%A %d %B %Y - %H:%M:%S')"  
+echo ""  
 
-echo "👤 UTILISATEUR"
-echo "   Nom : $USER"
-echo "   Répertoire : $HOME"
-echo ""
+echo "👤 UTILISATEUR"  
+echo "   Nom : $USER"  
+echo "   Répertoire : $HOME"  
+echo ""  
 
-echo "💻 SYSTÈME"
-echo "   Distribution : $(lsb_release -d | cut -f2)"
-echo "   Noyau : $(uname -r)"
-echo "   Architecture : $(uname -m)"
-echo ""
+echo "💻 SYSTÈME"  
+echo "   Distribution : $(lsb_release -d | cut -f2)"  
+echo "   Noyau : $(uname -r)"  
+echo "   Architecture : $(uname -m)"  
+echo ""  
 
-echo "🖥️  MATÉRIEL"
-echo "   Processeur : $(grep "model name" /proc/cpuinfo | head -1 | cut -d: -f2 | xargs)"
-echo "   Mémoire RAM : $(free -h | grep Mem | awk '{print $2}')"
-echo ""
+echo "🖥️  MATÉRIEL"  
+echo "   Processeur : $(grep "model name" /proc/cpuinfo | head -1 | cut -d: -f2 | xargs)"  
+echo "   Mémoire RAM : $(free -h | grep Mem | awk '{print $2}')"  
+echo ""  
 
-echo "💾 ESPACE DISQUE"
-df -h / | tail -n 1 | awk '{print "   Total : " $2 "\n   Utilisé : " $3 "\n   Disponible : " $4 "\n   Utilisation : " $5}'
-echo ""
+echo "💾 ESPACE DISQUE"  
+df -h / | tail -n 1 | awk '{print "   Total : " $2 "\n   Utilisé : " $3 "\n   Disponible : " $4 "\n   Utilisation : " $5}'  
+echo ""  
 
-echo "🌐 RÉSEAU"
-echo "   Adresse IP locale : $(hostname -I | awk '{print $1}')"
-echo "   Nom de la machine : $HOSTNAME"
-echo ""
+echo "🌐 RÉSEAU"  
+echo "   Adresse IP locale : $(hostname -I | awk '{print $1}')"  
+echo "   Nom de la machine : $HOSTNAME"  
+echo ""  
 
-echo "⏱️  TEMPS DE FONCTIONNEMENT"
-echo "   $(uptime -p)"
-echo ""
+echo "⏱️  TEMPS DE FONCTIONNEMENT"  
+echo "   $(uptime -p)"  
+echo ""  
 ```
 
 ## Conditions (if/else)
@@ -283,8 +283,8 @@ fi
 #!/bin/bash
 # Vérifier si un fichier existe
 
-echo "Entrez le nom d'un fichier :"
-read fichier
+echo "Entrez le nom d'un fichier :"  
+read fichier  
 
 if [ -f "$fichier" ]; then
     echo "Le fichier existe !"
@@ -411,10 +411,10 @@ additionner() {
 }
 
 # Utilisation des fonctions
-dire_bonjour "Alice"
-dire_bonjour "Bob"
-additionner 5 3
-additionner 12 8
+dire_bonjour "Alice"  
+dire_bonjour "Bob"  
+additionner 5 3  
+additionner 12 8  
 ```
 
 ### Exemple de fonction utile
@@ -434,12 +434,12 @@ verifier_logiciel() {
 }
 
 # Vérifier plusieurs logiciels
-echo "Vérification des logiciels..."
-echo ""
-verifier_logiciel "firefox"
-verifier_logiciel "git"
-verifier_logiciel "htop"
-verifier_logiciel "code"
+echo "Vérification des logiciels..."  
+echo ""  
+verifier_logiciel "firefox"  
+verifier_logiciel "git"  
+verifier_logiciel "htop"  
+verifier_logiciel "code"  
 ```
 
 ## Arguments de ligne de commande
@@ -450,11 +450,11 @@ Vos scripts peuvent accepter des paramètres lorsqu'on les lance.
 #!/bin/bash
 # Script qui utilise des arguments
 
-echo "Nom du script : $0"
-echo "Premier argument : $1"
-echo "Deuxième argument : $2"
-echo "Nombre d'arguments : $#"
-echo "Tous les arguments : $@"
+echo "Nom du script : $0"  
+echo "Premier argument : $1"  
+echo "Deuxième argument : $2"  
+echo "Nombre d'arguments : $#"  
+echo "Tous les arguments : $@"  
 ```
 
 Si vous lancez ce script avec `./script.sh fichier1.txt fichier2.txt`, vous obtiendrez :
@@ -484,14 +484,14 @@ fi
 
 nom_base="${fichier%.*}"
 
-echo "Conversion de $fichier..."
-convert "$fichier" "${nom_base}.png"
-convert "$fichier" "${nom_base}.jpg"
-convert "$fichier" "${nom_base}.webp"
+echo "Conversion de $fichier..."  
+convert "$fichier" "${nom_base}.png"  
+convert "$fichier" "${nom_base}.jpg"  
+convert "$fichier" "${nom_base}.webp"  
 
-echo "Conversion terminée !"
-echo "Fichiers créés :"
-ls -lh "${nom_base}".{png,jpg,webp}
+echo "Conversion terminée !"  
+echo "Fichiers créés :"  
+ls -lh "${nom_base}".{png,jpg,webp}  
 ```
 
 ## Gestion des erreurs
@@ -521,12 +521,12 @@ fi
 # Arrêter le script à la première erreur
 set -e
 
-echo "Mise à jour du système..."
-sudo apt update
-sudo apt upgrade -y
+echo "Mise à jour du système..."  
+sudo apt update  
+sudo apt upgrade -y  
 
-echo "Installation de logiciels..."
-sudo apt install -y htop neofetch
+echo "Installation de logiciels..."  
+sudo apt install -y htop neofetch  
 
 echo "Tout s'est bien passé !"
 ```
@@ -540,10 +540,10 @@ Avec `set -e`, le script s'arrêtera automatiquement si une commande échoue.
 # Afficher chaque commande avant de l'exécuter
 set -x
 
-mkdir test
-cd test
-touch fichier.txt
-ls -la
+mkdir test  
+cd test  
+touch fichier.txt  
+ls -la  
 ```
 
 `set -x` affiche chaque commande avant son exécution, très utile pour comprendre ce qui se passe.
@@ -560,12 +560,12 @@ Voici un exemple de script plus complet qui combine plusieurs concepts :
 #
 
 # Configuration
-SOURCE="${1:-$HOME/Documents}"
-DESTINATION="$HOME/Sauvegardes"
-MAX_SAUVEGARDES=7
-DATE=$(date +%Y-%m-%d_%H-%M-%S)
-NOM_ARCHIVE="backup_$DATE.tar.gz"
-LOG_FILE="$DESTINATION/backup.log"
+SOURCE="${1:-$HOME/Documents}"  
+DESTINATION="$HOME/Sauvegardes"  
+MAX_SAUVEGARDES=7  
+DATE=$(date +%Y-%m-%d_%H-%M-%S)  
+NOM_ARCHIVE="backup_$DATE.tar.gz"  
+LOG_FILE="$DESTINATION/backup.log"  
 
 # Fonction pour logger
 log() {
@@ -587,18 +587,18 @@ fi
 mkdir -p "$DESTINATION" || erreur "Impossible de créer le répertoire de destination"
 
 # Début de la sauvegarde
-log "=========================================="
-log "Début de la sauvegarde"
-log "Source : $SOURCE"
-log "Destination : $DESTINATION/$NOM_ARCHIVE"
+log "=========================================="  
+log "Début de la sauvegarde"  
+log "Source : $SOURCE"  
+log "Destination : $DESTINATION/$NOM_ARCHIVE"  
 
 # Calcul de la taille à sauvegarder
-taille=$(du -sh "$SOURCE" | cut -f1)
-log "Taille à sauvegarder : $taille"
+taille=$(du -sh "$SOURCE" | cut -f1)  
+log "Taille à sauvegarder : $taille"  
 
 # Création de l'archive
-log "Création de l'archive en cours..."
-if tar -czf "$DESTINATION/$NOM_ARCHIVE" "$SOURCE" 2>/dev/null; then
+log "Création de l'archive en cours..."  
+if tar -czf "$DESTINATION/$NOM_ARCHIVE" "$SOURCE" 2>/dev/null; then  
     taille_archive=$(du -h "$DESTINATION/$NOM_ARCHIVE" | cut -f1)
     log "✅ Sauvegarde réussie : $NOM_ARCHIVE ($taille_archive)"
 else
@@ -606,8 +606,8 @@ else
 fi
 
 # Rotation des anciennes sauvegardes
-log "Nettoyage des anciennes sauvegardes..."
-nb_sauvegardes=$(ls -1 "$DESTINATION"/backup_*.tar.gz 2>/dev/null | wc -l)
+log "Nettoyage des anciennes sauvegardes..."  
+nb_sauvegardes=$(ls -1 "$DESTINATION"/backup_*.tar.gz 2>/dev/null | wc -l)  
 
 if [ $nb_sauvegardes -gt $MAX_SAUVEGARDES ]; then
     nb_a_supprimer=$((nb_sauvegardes - MAX_SAUVEGARDES))
@@ -620,10 +620,10 @@ if [ $nb_sauvegardes -gt $MAX_SAUVEGARDES ]; then
 fi
 
 # Résumé
-log "Nombre de sauvegardes conservées : $(ls -1 "$DESTINATION"/backup_*.tar.gz | wc -l)/$MAX_SAUVEGARDES"
-log "Espace disque utilisé par les sauvegardes : $(du -sh "$DESTINATION" | cut -f1)"
-log "Sauvegarde terminée avec succès"
-log "=========================================="
+log "Nombre de sauvegardes conservées : $(ls -1 "$DESTINATION"/backup_*.tar.gz | wc -l)/$MAX_SAUVEGARDES"  
+log "Espace disque utilisé par les sauvegardes : $(du -sh "$DESTINATION" | cut -f1)"  
+log "Sauvegarde terminée avec succès"  
+log "=========================================="  
 
 # Notification
 notify-send "Sauvegarde terminée" "La sauvegarde de $SOURCE a été effectuée avec succès" -i dialog-information
@@ -649,8 +649,8 @@ notify-send "Sauvegarde terminée" "La sauvegarde de $SOURCE a été effectuée 
 
 ```bash
 # ✅ Bon
-DESTINATION="/chemin/vers/destination"
-cp fichier.txt "$DESTINATION"
+DESTINATION="/chemin/vers/destination"  
+cp fichier.txt "$DESTINATION"  
 
 # ❌ Moins bon
 cp fichier.txt /chemin/vers/destination
@@ -704,8 +704,8 @@ mkdir -p ~/scripts
 Ajoutez ce dossier à votre PATH en modifiant `~/.bashrc` :
 
 ```bash
-echo 'export PATH="$HOME/scripts:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+echo 'export PATH="$HOME/scripts:$PATH"' >> ~/.bashrc  
+source ~/.bashrc  
 ```
 
 Maintenant, vous pourrez lancer vos scripts depuis n'importe où sans `./`
@@ -715,8 +715,8 @@ Maintenant, vous pourrez lancer vos scripts depuis n'importe où sans `./`
 Pour que vos scripts soient accessibles à tous les utilisateurs :
 
 ```bash
-sudo cp mon_script.sh /usr/local/bin/mon_script
-sudo chmod +x /usr/local/bin/mon_script
+sudo cp mon_script.sh /usr/local/bin/mon_script  
+sudo chmod +x /usr/local/bin/mon_script  
 ```
 
 ## Ressources pour aller plus loin

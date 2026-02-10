@@ -230,9 +230,9 @@ Pour approfondir vos connaissances au-delà de ce chapitre :
 
 📚 **Documentation système**
 ```bash
-man bash          # Manuel de bash
-info coreutils    # Informations sur les utilitaires GNU
-help              # Aide intégrée de bash
+man bash          # Manuel de bash  
+info coreutils    # Informations sur les utilitaires GNU  
+help              # Aide intégrée de bash  
 ```
 
 🌐 **Sites web recommandés**
