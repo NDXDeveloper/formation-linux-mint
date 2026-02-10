@@ -46,8 +46,8 @@ Python 3.11.x
 `pip` permet d'installer des bibliothèques Python facilement.
 
 ```bash
-sudo apt update
-sudo apt install python3-pip
+sudo apt update  
+sudo apt install python3-pip  
 ```
 
 Vérification :
@@ -99,9 +99,9 @@ Si vous avez besoin d'une version spécifique :
 
 ```bash
 # Python 3.12 (exemple)
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt update
-sudo apt install python3.12
+sudo add-apt-repository ppa:deadsnakes/ppa  
+sudo apt update  
+sudo apt install python3.12  
 ```
 
 ---
@@ -151,8 +151,8 @@ sudo dpkg -i jdk-21_linux-x64_bin.deb
 ### Vérification
 
 ```bash
-java --version
-javac --version
+java --version  
+javac --version  
 ```
 
 Vous devriez voir la version installée.
@@ -174,8 +174,8 @@ sudo update-alternatives --config javac
 Ajoutez à votre `~/.bashrc` :
 
 ```bash
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-export PATH=$PATH:$JAVA_HOME/bin
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64  
+export PATH=$PATH:$JAVA_HOME/bin  
 ```
 
 Puis rechargez :
@@ -207,8 +207,8 @@ sudo apt install nodejs npm
 Vérification :
 
 ```bash
-node --version
-npm --version
+node --version  
+npm --version  
 ```
 
 ### Installation via NodeSource (version récente recommandée)
@@ -217,12 +217,12 @@ Pour avoir la dernière version LTS :
 
 ```bash
 # Installer Node.js 20.x (LTS)
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt install nodejs
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -  
+sudo apt install nodejs  
 
 # Vérification
-node --version
-npm --version
+node --version  
+npm --version  
 ```
 
 **Versions disponibles** :
@@ -251,8 +251,8 @@ nvm use --lts
 nvm ls
 
 # Installer une version spécifique
-nvm install 18.19.0
-nvm use 18.19.0
+nvm install 18.19.0  
+nvm use 18.19.0  
 ```
 
 ### npm : gestionnaire de paquets
@@ -266,8 +266,8 @@ npm install -g nom-du-paquet
 Installer un paquet dans un projet :
 
 ```bash
-cd mon-projet
-npm install nom-du-paquet
+cd mon-projet  
+npm install nom-du-paquet  
 ```
 
 ### Yarn (alternative à npm)
@@ -316,8 +316,8 @@ Installer une version spécifique (via PPA Ondřej Surý) :
 
 ```bash
 # Ajouter le dépôt
-sudo add-apt-repository ppa:ondrej/php
-sudo apt update
+sudo add-apt-repository ppa:ondrej/php  
+sudo apt update  
 
 # Installer PHP 8.3
 sudo apt install php8.3 php8.3-cli php8.3-common php8.3-mysql
@@ -384,9 +384,9 @@ sudo apt install build-essential
 Vérification :
 
 ```bash
-gcc --version
-g++ --version
-make --version
+gcc --version  
+g++ --version  
+make --version  
 ```
 
 ### Compiler un programme C
@@ -435,8 +435,8 @@ g++ hello.cpp -o hello
 sudo apt install clang
 
 # Utilisation
-clang hello.c -o hello
-clang++ hello.cpp -o hello
+clang hello.c -o hello  
+clang++ hello.cpp -o hello  
 ```
 
 ---
@@ -472,9 +472,9 @@ sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
 
 # Ajouter à votre PATH dans ~/.bashrc
-echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
-echo 'export GOPATH=$HOME/go' >> ~/.bashrc
-source ~/.bashrc
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc  
+echo 'export GOPATH=$HOME/go' >> ~/.bashrc  
+source ~/.bashrc  
 ```
 
 Vérification :
@@ -537,8 +537,8 @@ source ~/.bashrc
 Vérification :
 
 ```bash
-rustc --version
-cargo --version
+rustc --version  
+cargo --version  
 ```
 
 ### Cargo : gestionnaire de projets Rust
@@ -546,8 +546,8 @@ cargo --version
 Créer un nouveau projet :
 
 ```bash
-cargo new mon_projet
-cd mon_projet
+cargo new mon_projet  
+cd mon_projet  
 ```
 
 Compiler et exécuter :
@@ -668,8 +668,8 @@ Kotlin nécessite Java (JDK).
 
 ```bash
 # Installer SDKMAN (gestionnaire de kits de développement)
-curl -s "https://get.sdkman.io" | bash
-source ~/.sdkman/bin/sdkman-init.sh
+curl -s "https://get.sdkman.io" | bash  
+source ~/.sdkman/bin/sdkman-init.sh  
 
 # Installer Kotlin
 sdk install kotlin
@@ -700,8 +700,8 @@ tar xzf swift-5.9.2-RELEASE-ubuntu22.04.tar.gz
 sudo mv swift-5.9.2-RELEASE-ubuntu22.04 /usr/share/swift
 
 # Ajouter au PATH
-echo 'export PATH=/usr/share/swift/usr/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
+echo 'export PATH=/usr/share/swift/usr/bin:$PATH' >> ~/.bashrc  
+source ~/.bashrc  
 ```
 
 Vérification :
@@ -741,8 +741,8 @@ Téléchargez depuis : https://posit.co/download/rstudio-desktop/
 
 ```bash
 # Installer le .deb téléchargé
-sudo dpkg -i rstudio-*.deb
-sudo apt install -f  # Résoudre les dépendances
+sudo dpkg -i rstudio-*.deb  
+sudo apt install -f  # Résoudre les dépendances  
 ```
 
 ---
@@ -860,10 +860,10 @@ Chaque langage a sa documentation officielle :
 Les langages évoluent. Certains projets nécessitent des versions spécifiques.
 
 ```bash
-python3 --version
-node --version
-java --version
-php --version
+python3 --version  
+node --version  
+java --version  
+php --version  
 ```
 
 ### 5. Sauvegardez vos projets avec Git
@@ -898,14 +898,14 @@ N'utilisez jamais `sudo` avec pip ou npm pour installer des paquets utilisateur.
 
 **Bon** :
 ```bash
-pip3 install --user nom-paquet
-npm install nom-paquet
+pip3 install --user nom-paquet  
+npm install nom-paquet  
 ```
 
 **Mauvais** :
 ```bash
-sudo pip3 install nom-paquet  # ❌ Ne faites pas ça
-sudo npm install nom-paquet   # ❌ Ne faites pas ça
+sudo pip3 install nom-paquet  # ❌ Ne faites pas ça  
+sudo npm install nom-paquet   # ❌ Ne faites pas ça  
 ```
 
 ### Plusieurs versions installées

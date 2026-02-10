@@ -48,8 +48,8 @@ Imaginez que vous construisez une maison :
 
 **Sans CI/CD** :
 ```
-Développeur → Code pendant 2 semaines → Push → Build manuel →
-Tests manuels → Bugs découverts → Corrections → Redéploiement manuel
+Développeur → Code pendant 2 semaines → Push → Build manuel →  
+Tests manuels → Bugs découverts → Corrections → Redéploiement manuel  
 ⏱️ Délai : Plusieurs jours/semaines
 ```
 
@@ -87,9 +87,9 @@ sudo apt install build-essential
 # Makefile simple pour un projet C
 
 # Variables
-CC = gcc
-CFLAGS = -Wall -g
-TARGET = mon_programme
+CC = gcc  
+CFLAGS = -Wall -g  
+TARGET = mon_programme  
 
 # Règle par défaut
 all: $(TARGET)
@@ -215,11 +215,11 @@ npm run deploy
 **Commandes** :
 
 ```bash
-mvn clean      # Nettoyer
-mvn compile    # Compiler
-mvn test       # Tests
-mvn package    # Créer le JAR
-mvn install    # Installer localement
+mvn clean      # Nettoyer  
+mvn compile    # Compiler  
+mvn test       # Tests  
+mvn package    # Créer le JAR  
+mvn install    # Installer localement  
 ```
 
 **Gradle - build.gradle** :
@@ -229,8 +229,8 @@ plugins {
     id 'java'
 }
 
-group = 'com.exemple'
-version = '1.0'
+group = 'com.exemple'  
+version = '1.0'  
 
 repositories {
     mavenCentral()
@@ -244,9 +244,9 @@ dependencies {
 **Commandes** :
 
 ```bash
-gradle build     # Construire
-gradle test      # Tests
-gradle run       # Exécuter
+gradle build     # Construire  
+gradle test      # Tests  
+gradle run       # Exécuter  
 ```
 
 ### setuptools (pour Python)
@@ -327,9 +327,9 @@ tasks:
 **Utilisation** :
 
 ```bash
-task build
-task test
-task deploy
+task build  
+task test  
+task deploy  
 ```
 
 ---
@@ -687,8 +687,8 @@ Pour exécuter les pipelines sur votre propre serveur :
 
 ```bash
 # Installation
-curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
-sudo apt install gitlab-runner
+curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash  
+sudo apt install gitlab-runner  
 
 # Enregistrement
 sudo gitlab-runner register
@@ -714,8 +714,8 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 
 # Installer
-sudo apt update
-sudo apt install jenkins
+sudo apt update  
+sudo apt install jenkins  
 
 # Démarrer
 sudo systemctl start jenkins
@@ -766,8 +766,8 @@ workflows:
 **.travis.yml** :
 
 ```yaml
-language: python
-python:
+language: python  
+python:  
   - "3.11"
 
 install:
@@ -782,9 +782,9 @@ script:
 **.drone.yml** :
 
 ```yaml
-kind: pipeline
-type: docker
-name: default
+kind: pipeline  
+type: docker  
+name: default  
 
 steps:
   - name: test
@@ -1188,9 +1188,9 @@ ${{ secrets.api_key }}  # ❌
 
 ```yaml
 # Workflow minimal
-name: CI
-on: [push]
-jobs:
+name: CI  
+on: [push]  
+jobs:  
   test:
     runs-on: ubuntu-latest
     steps:
@@ -1245,8 +1245,8 @@ CI/CD est devenu **indispensable** dans le développement moderne. Voici l'essen
 
 **Workflow minimal** :
 ```yaml
-on: [push]
-jobs:
+on: [push]  
+jobs:  
   test:
     runs-on: ubuntu-latest
     steps:

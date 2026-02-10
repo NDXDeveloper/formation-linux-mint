@@ -382,8 +382,8 @@ version: '3.8'
 
 ### ✅ ❌ Exemples
 
-**✅ Bon** : Pratiques recommandées
-**❌ Mauvais** : À éviter
+**✅ Bon** : Pratiques recommandées  
+**❌ Mauvais** : À éviter  
 
 ---
 

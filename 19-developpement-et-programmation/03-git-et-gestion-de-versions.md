@@ -46,8 +46,8 @@ Sinon, installez-le :
 ### Installation
 
 ```bash
-sudo apt update
-sudo apt install git
+sudo apt update  
+sudo apt install git  
 ```
 
 Vérification après installation :
@@ -65,14 +65,14 @@ Avant d'utiliser Git, vous **devez** configurer votre identité. Ces information
 ### Configurer votre nom et email
 
 ```bash
-git config --global user.name "Votre Nom"
-git config --global user.email "votre.email@example.com"
+git config --global user.name "Votre Nom"  
+git config --global user.email "votre.email@example.com"  
 ```
 
 **Exemple** :
 ```bash
-git config --global user.name "Marie Dupont"
-git config --global user.email "marie.dupont@gmail.com"
+git config --global user.name "Marie Dupont"  
+git config --global user.email "marie.dupont@gmail.com"  
 ```
 
 ### Configurer l'éditeur par défaut
@@ -97,8 +97,8 @@ git config --list
 Ou voir une configuration spécifique :
 
 ```bash
-git config user.name
-git config user.email
+git config user.name  
+git config user.email  
 ```
 
 ---
@@ -161,8 +161,8 @@ feature :         ●──●──●
 
 ```bash
 # Créer un dossier
-mkdir mon-projet
-cd mon-projet
+mkdir mon-projet  
+cd mon-projet  
 
 # Initialiser Git
 git init
@@ -251,26 +251,26 @@ git commit -m "Description de vos modifications"
 
 **Exemple** :
 ```bash
-git commit -m "Ajout de la page d'accueil"
-git commit -m "Correction du bug d'affichage"
-git commit -m "Amélioration des performances"
+git commit -m "Ajout de la page d'accueil"  
+git commit -m "Correction du bug d'affichage"  
+git commit -m "Amélioration des performances"  
 ```
 
 ### Messages de commit : bonnes pratiques
 
 ✅ **Bon** :
 ```bash
-git commit -m "Correction du bug de connexion"
-git commit -m "Ajout de la validation email"
-git commit -m "Mise à jour de la documentation"
+git commit -m "Correction du bug de connexion"  
+git commit -m "Ajout de la validation email"  
+git commit -m "Mise à jour de la documentation"  
 ```
 
 ❌ **Mauvais** :
 ```bash
-git commit -m "test"
-git commit -m "modif"
-git commit -m "ça marche"
-git commit -m "final final v2"
+git commit -m "test"  
+git commit -m "modif"  
+git commit -m "ça marche"  
+git commit -m "final final v2"  
 ```
 
 **Règles d'or** :
@@ -594,8 +594,8 @@ git pull
 
 Équivalent à :
 ```bash
-git fetch  # Télécharge les modifications
-git merge  # Les fusionne avec votre branche
+git fetch  # Télécharge les modifications  
+git merge  # Les fusionne avec votre branche  
 ```
 
 **Voir les dépôts distants** :
@@ -639,8 +639,8 @@ Appuyez sur Entrée pour accepter l'emplacement par défaut.
 **Ajouter la clé à l'agent SSH** :
 
 ```bash
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
+eval "$(ssh-agent -s)"  
+ssh-add ~/.ssh/id_ed25519  
 ```
 
 **Copier la clé publique** :
@@ -690,8 +690,8 @@ nano .gitignore
 **Pour Python** :
 ```
 # Environnements virtuels
-venv/
-env/
+venv/  
+env/  
 .venv/
 
 # Fichiers Python compilés
@@ -716,8 +716,8 @@ __pycache__/
 **Pour Node.js** :
 ```
 # Dépendances
-node_modules/
-npm-debug.log
+node_modules/  
+npm-debug.log  
 
 # Production
 /build
@@ -795,14 +795,14 @@ git log -S "fonction_recherchee"
 Pour raccourcir les commandes :
 
 ```bash
-git config --global alias.co checkout
-git config --global alias.br branch
-git config --global alias.st status
-git config --global alias.cm commit
+git config --global alias.co checkout  
+git config --global alias.br branch  
+git config --global alias.st status  
+git config --global alias.cm commit  
 
 # Maintenant vous pouvez taper
-git st    # au lieu de git status
-git co    # au lieu de git checkout
+git st    # au lieu de git status  
+git co    # au lieu de git checkout  
 ```
 
 ### Sauvegarder temporairement (stash)
@@ -851,8 +851,8 @@ git push
 git checkout -b ma-nouvelle-feature
 
 # 2. Travailler et commiter
-git add .
-git commit -m "Ajout de la nouvelle fonctionnalité"
+git add .  
+git commit -m "Ajout de la nouvelle fonctionnalité"  
 
 # 3. Retourner sur main
 git checkout main
@@ -919,8 +919,8 @@ VS Code intègre déjà Git visuellement :
 
 Mieux vaut de nombreux petits commits qu'un énorme commit.
 
-**Bon** : Un commit par fonctionnalité/correction
-**Mauvais** : Un commit après une semaine de travail
+**Bon** : Un commit par fonctionnalité/correction  
+**Mauvais** : Un commit après une semaine de travail  
 
 ### 2. Synchronisez régulièrement
 
@@ -943,8 +943,8 @@ Suivez cette structure :
 ```
 Résumé court (50 caractères max)
 
-Description plus détaillée si nécessaire.
-Expliquez POURQUOI, pas comment.
+Description plus détaillée si nécessaire.  
+Expliquez POURQUOI, pas comment.  
 
 - Point 1
 - Point 2
@@ -953,8 +953,8 @@ Expliquez POURQUOI, pas comment.
 ### 5. Relisez avant de commiter
 
 ```bash
-git diff
-git status
+git diff  
+git status  
 ```
 
 ### 6. Ne commitez jamais de :
@@ -990,40 +990,40 @@ Commandes essentielles :
 
 ```bash
 # Configuration
-git config --global user.name "Nom"
-git config --global user.email "email"
+git config --global user.name "Nom"  
+git config --global user.email "email"  
 
 # Initialisation
-git init
-git clone <url>
+git init  
+git clone <url>  
 
 # État et différences
-git status
-git diff
+git status  
+git diff  
 
 # Ajout et commit
-git add <fichier>
-git add .
-git commit -m "message"
+git add <fichier>  
+git add .  
+git commit -m "message"  
 
 # Historique
-git log
-git log --oneline
+git log  
+git log --oneline  
 
 # Branches
-git branch
-git checkout <branche>
-git checkout -b <nouvelle-branche>
-git merge <branche>
+git branch  
+git checkout <branche>  
+git checkout -b <nouvelle-branche>  
+git merge <branche>  
 
 # Distant
-git remote add origin <url>
-git push -u origin main
-git pull
+git remote add origin <url>  
+git push -u origin main  
+git pull  
 
 # Annulation
-git restore <fichier>
-git restore --staged <fichier>
+git restore <fichier>  
+git restore --staged <fichier>  
 ```
 
 ---
@@ -1074,11 +1074,11 @@ Git peut sembler compliqué au début, mais il devient vite indispensable. Voici
 
 **Les commandes essentielles pour 90% de votre travail** :
 ```bash
-git status
-git add .
-git commit -m "message"
-git push
-git pull
+git status  
+git add .  
+git commit -m "message"  
+git push  
+git pull  
 ```
 
 **Conseils finaux** :

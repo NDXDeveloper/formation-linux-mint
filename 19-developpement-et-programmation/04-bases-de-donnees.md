@@ -17,9 +17,9 @@ Une **base de données** est un système organisé pour stocker, gérer et récu
 Sans base de données :
 ```python
 # Stocker dans un fichier texte (problématique !)
-utilisateurs.txt:
-Jean,30,jean@email.com
-Marie,25,marie@email.com
+utilisateurs.txt:  
+Jean,30,jean@email.com  
+Marie,25,marie@email.com  
 ```
 
 **Problèmes** :
@@ -141,8 +141,8 @@ Table "commandes"
 **Via le gestionnaire de paquets** :
 
 ```bash
-sudo apt update
-sudo apt install mysql-server
+sudo apt update  
+sudo apt install mysql-server  
 ```
 
 **Vérification** :
@@ -217,8 +217,8 @@ CREATE TABLE utilisateurs (
 **Insérer des données** :
 
 ```sql
-INSERT INTO utilisateurs (nom, email, age)
-VALUES ('Jean Dupont', 'jean@email.com', 30);
+INSERT INTO utilisateurs (nom, email, age)  
+VALUES ('Jean Dupont', 'jean@email.com', 30);  
 ```
 
 **Lire des données** :
@@ -234,9 +234,9 @@ SELECT * FROM utilisateurs WHERE age > 25;
 **Modifier des données** :
 
 ```sql
-UPDATE utilisateurs
-SET age = 31
-WHERE nom = 'Jean Dupont';
+UPDATE utilisateurs  
+SET age = 31  
+WHERE nom = 'Jean Dupont';  
 ```
 
 **Supprimer des données** :
@@ -293,13 +293,13 @@ Plus léger que phpMyAdmin :
 
 ```bash
 # Télécharger
-sudo mkdir -p /usr/share/adminer
-sudo wget "https://www.adminer.org/latest.php" -O /usr/share/adminer/adminer.php
+sudo mkdir -p /usr/share/adminer  
+sudo wget "https://www.adminer.org/latest.php" -O /usr/share/adminer/adminer.php  
 
 # Créer un alias Apache (si installé)
-echo "Alias /adminer /usr/share/adminer/adminer.php" | sudo tee /etc/apache2/conf-available/adminer.conf
-sudo a2enconf adminer
-sudo systemctl reload apache2
+echo "Alias /adminer /usr/share/adminer/adminer.php" | sudo tee /etc/apache2/conf-available/adminer.conf  
+sudo a2enconf adminer  
+sudo systemctl reload apache2  
 ```
 
 **Accès** : http://localhost/adminer
@@ -329,14 +329,14 @@ sudo systemctl reload apache2
 | **Performance écriture** | Excellent | Très bon |
 | **Complexité** | Plus complexe | Plus simple |
 
-**Pour débuter** : MySQL est plus simple
-**Pour des projets avancés** : PostgreSQL est plus puissant
+**Pour débuter** : MySQL est plus simple  
+**Pour des projets avancés** : PostgreSQL est plus puissant  
 
 ### Installation de PostgreSQL
 
 ```bash
-sudo apt update
-sudo apt install postgresql postgresql-contrib
+sudo apt update  
+sudo apt install postgresql postgresql-contrib  
 ```
 
 **Vérification** :
@@ -394,8 +394,8 @@ CREATE TABLE utilisateurs (
 **Insérer des données** :
 
 ```sql
-INSERT INTO utilisateurs (nom, email, age)
-VALUES ('Marie Martin', 'marie@email.com', 25);
+INSERT INTO utilisateurs (nom, email, age)  
+VALUES ('Marie Martin', 'marie@email.com', 25);  
 ```
 
 **Lire des données** :
@@ -457,8 +457,8 @@ curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --d
 
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list'
 
-sudo apt update
-sudo apt install pgadmin4-desktop
+sudo apt update  
+sudo apt install pgadmin4-desktop  
 ```
 
 **Lancer** : Cherchez "pgAdmin 4" dans le menu Applications
@@ -513,15 +513,15 @@ curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg -o /usr/
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 
 # Installer
-sudo apt update
-sudo apt install -y mongodb-org
+sudo apt update  
+sudo apt install -y mongodb-org  
 ```
 
 **Démarrer MongoDB** :
 
 ```bash
-sudo systemctl start mongod
-sudo systemctl enable mongod
+sudo systemctl start mongod  
+sudo systemctl enable mongod  
 ```
 
 **Vérification** :
@@ -639,8 +639,8 @@ exit
 
 ```bash
 # Installer le .deb téléchargé
-sudo dpkg -i mongodb-compass_*_amd64.deb
-sudo apt install -f
+sudo dpkg -i mongodb-compass_*_amd64.deb  
+sudo apt install -f  
 ```
 
 **Lancer** : Cherchez "MongoDB Compass" dans le menu
@@ -765,8 +765,8 @@ mongorestore --db ma_base /chemin/sauvegarde/ma_base/
 **6. Mises à jour de sécurité**
 
 ```bash
-sudo apt update
-sudo apt upgrade mysql-server postgresql mongodb-org
+sudo apt update  
+sudo apt upgrade mysql-server postgresql mongodb-org  
 ```
 
 ---
@@ -791,8 +791,8 @@ conn = mysql.connector.connect(
 cursor = conn.cursor()
 
 # Requête
-cursor.execute("SELECT * FROM utilisateurs")
-resultats = cursor.fetchall()
+cursor.execute("SELECT * FROM utilisateurs")  
+resultats = cursor.fetchall()  
 
 for row in resultats:
     print(row)
@@ -815,9 +815,9 @@ conn = psycopg2.connect(
     password="mot_de_passe"
 )
 
-cursor = conn.cursor()
-cursor.execute("SELECT * FROM utilisateurs")
-resultats = cursor.fetchall()
+cursor = conn.cursor()  
+cursor.execute("SELECT * FROM utilisateurs")  
+resultats = cursor.fetchall()  
 
 for row in resultats:
     print(row)
@@ -833,9 +833,9 @@ Installation : `pip install psycopg2-binary`
 from pymongo import MongoClient
 
 # Connexion
-client = MongoClient('mongodb://localhost:27017/')
-db = client['ma_base']
-collection = db['utilisateurs']
+client = MongoClient('mongodb://localhost:27017/')  
+db = client['ma_base']  
+collection = db['utilisateurs']  
 
 # Requête
 for doc in collection.find():
@@ -878,10 +878,10 @@ const client = new Client({
     database: 'ma_base'
 });
 
-await client.connect();
-const res = await client.query('SELECT * FROM utilisateurs');
-console.log(res.rows);
-await client.end();
+await client.connect();  
+const res = await client.query('SELECT * FROM utilisateurs');  
+console.log(res.rows);  
+await client.end();  
 ```
 
 Installation : `npm install pg`
@@ -983,10 +983,10 @@ Un **ORM** (Object-Relational Mapping) vous permet d'interagir avec la base sans
 **Solution 1** : Réinitialiser le mot de passe
 
 ```bash
-sudo mysql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'nouveau_mot_de_passe';
-FLUSH PRIVILEGES;
-EXIT;
+sudo mysql  
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'nouveau_mot_de_passe';  
+FLUSH PRIVILEGES;  
+EXIT;  
 ```
 
 **Solution 2** : Utiliser sudo
@@ -1039,9 +1039,9 @@ df -h
 **Nettoyer les logs MySQL** :
 
 ```bash
-sudo mysql
-PURGE BINARY LOGS BEFORE DATE(NOW());
-EXIT;
+sudo mysql  
+PURGE BINARY LOGS BEFORE DATE(NOW());  
+EXIT;  
 ```
 
 ---
@@ -1079,8 +1079,8 @@ utilisateurs: id, nom, adresse_rue, adresse_ville, adresse_cp
 
 **✅ Bon** :
 ```
-utilisateurs: id, nom, adresse_id
-adresses: id, rue, ville, code_postal
+utilisateurs: id, nom, adresse_id  
+adresses: id, rue, ville, code_postal  
 ```
 
 ### 4. Validation des données
@@ -1100,10 +1100,10 @@ CREATE TABLE utilisateurs (
 Pour des opérations critiques (transferts bancaires, etc.) :
 
 ```sql
-START TRANSACTION;
-UPDATE comptes SET solde = solde - 100 WHERE id = 1;
-UPDATE comptes SET solde = solde + 100 WHERE id = 2;
-COMMIT;
+START TRANSACTION;  
+UPDATE comptes SET solde = solde - 100 WHERE id = 1;  
+UPDATE comptes SET solde = solde + 100 WHERE id = 2;  
+COMMIT;  
 ```
 
 ---

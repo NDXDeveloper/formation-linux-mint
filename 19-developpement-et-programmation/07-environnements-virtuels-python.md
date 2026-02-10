@@ -31,8 +31,8 @@ Système global
 
 **Problèmes** :
 
-**Projet A** : nécessite Django 4.2
-**Projet B** : nécessite Django 3.2 (ancienne version)
+**Projet A** : nécessite Django 4.2  
+**Projet B** : nécessite Django 3.2 (ancienne version)  
 
 ❌ **Conflit !** Vous ne pouvez pas avoir deux versions de Django en même temps sur votre système.
 
@@ -115,8 +115,8 @@ python3 -m venv nom_environnement
 
 ```bash
 # Créer un dossier pour votre projet
-mkdir mon_projet
-cd mon_projet
+mkdir mon_projet  
+cd mon_projet  
 
 # Créer l'environnement virtuel
 python3 -m venv venv
@@ -204,12 +204,12 @@ pip freeze > requirements.txt
 **Contenu de requirements.txt** :
 
 ```
-certifi==2023.7.22
-charset-normalizer==3.2.0
-Django==4.2.0
-idna==3.4
-requests==2.31.0
-urllib3==2.0.4
+certifi==2023.7.22  
+charset-normalizer==3.2.0  
+Django==4.2.0  
+idna==3.4  
+requests==2.31.0  
+urllib3==2.0.4  
 ```
 
 **Installer depuis requirements.txt** :
@@ -246,8 +246,8 @@ Puis recréez-en un nouveau si nécessaire.
 
 ```bash
 # 1. Créer le dossier du projet
-mkdir mon_projet
-cd mon_projet
+mkdir mon_projet  
+cd mon_projet  
 
 # 2. Créer l'environnement virtuel
 python3 -m venv venv
@@ -262,9 +262,9 @@ pip install flask requests
 pip freeze > requirements.txt
 
 # 6. Créer votre fichier .gitignore
-echo "venv/" > .gitignore
-echo "__pycache__/" >> .gitignore
-echo "*.pyc" >> .gitignore
+echo "venv/" > .gitignore  
+echo "__pycache__/" >> .gitignore  
+echo "*.pyc" >> .gitignore  
 
 # 7. Commencer à coder !
 nano app.py
@@ -323,8 +323,8 @@ python3 -m venv env_projet
 ```
 venv/
 .venv/
-env/
-ENV/
+env/  
+ENV/  
 *.pyc
 __pycache__/
 ```
@@ -374,8 +374,8 @@ pip install --upgrade pip
 sudo apt install direnv
 
 # Dans le dossier du projet
-echo "source venv/bin/activate" > .envrc
-direnv allow
+echo "source venv/bin/activate" > .envrc  
+direnv allow  
 
 # L'environnement s'active automatiquement quand vous entrez dans le dossier !
 ```
@@ -424,8 +424,8 @@ Si `pipenv` n'est pas trouvé après installation :
 
 ```bash
 # Ajouter à ~/.bashrc
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc  
+source ~/.bashrc  
 ```
 
 ---
@@ -436,8 +436,8 @@ source ~/.bashrc
 
 ```bash
 # Créer le dossier
-mkdir mon_projet
-cd mon_projet
+mkdir mon_projet  
+cd mon_projet  
 
 # Initialiser pipenv (crée automatiquement un environnement)
 pipenv install
@@ -473,14 +473,14 @@ pipenv install pytest --dev
 
 ```toml
 [[source]]
-url = "https://pypi.org/simple"
-verify_ssl = true
-name = "pypi"
+url = "https://pypi.org/simple"  
+verify_ssl = true  
+name = "pypi"  
 
 [packages]
-requests = "*"
-flask = "*"
-django = "==4.2.0"
+requests = "*"  
+flask = "*"  
+django = "==4.2.0"  
 
 [dev-packages]
 pytest = "*"
@@ -505,9 +505,9 @@ Vous entrez dans un shell avec l'environnement activé.
 
 ```bash
 # Sans activer l'environnement
-pipenv run python script.py
-pipenv run flask run
-pipenv run pytest
+pipenv run python script.py  
+pipenv run flask run  
+pipenv run pytest  
 ```
 
 ### 4. Voir les dépendances
@@ -577,9 +577,9 @@ pipenv --rm
 **Exemple** :
 
 ```txt
-django==4.2.0
-requests>=2.28.0
-pytest==7.4.0
+django==4.2.0  
+requests>=2.28.0  
+pytest==7.4.0  
 ```
 
 ### Pipfile (moderne)
@@ -594,8 +594,8 @@ pytest==7.4.0
 
 ```toml
 [packages]
-django = "==4.2.0"
-requests = ">=2.28.0"
+django = "==4.2.0"  
+requests = ">=2.28.0"  
 
 [dev-packages]
 pytest = "==7.4.0"
@@ -610,30 +610,30 @@ python_version = "3.11"
 
 ```bash
 # INITIALISATION
-pipenv install                    # Créer environnement
-pipenv install --python 3.11      # Spécifier version Python
+pipenv install                    # Créer environnement  
+pipenv install --python 3.11      # Spécifier version Python  
 
 # GESTION DES PAQUETS
-pipenv install paquet             # Installer
-pipenv install paquet --dev       # Dev seulement
-pipenv uninstall paquet           # Désinstaller
-pipenv update                     # Tout mettre à jour
-pipenv graph                      # Voir dépendances
+pipenv install paquet             # Installer  
+pipenv install paquet --dev       # Dev seulement  
+pipenv uninstall paquet           # Désinstaller  
+pipenv update                     # Tout mettre à jour  
+pipenv graph                      # Voir dépendances  
 
 # ENVIRONNEMENT
-pipenv shell                      # Activer shell
-pipenv run commande              # Exécuter commande
-exit                             # Quitter shell
-pipenv --rm                      # Supprimer environnement
+pipenv shell                      # Activer shell  
+pipenv run commande              # Exécuter commande  
+exit                             # Quitter shell  
+pipenv --rm                      # Supprimer environnement  
 
 # INFORMATIONS
-pipenv --where                   # Dossier du projet
-pipenv --venv                    # Dossier de l'environnement
-pipenv check                     # Vérifier sécurité
+pipenv --where                   # Dossier du projet  
+pipenv --venv                    # Dossier de l'environnement  
+pipenv check                     # Vérifier sécurité  
 
 # EXPORTS
-pipenv requirements > req.txt    # Générer requirements.txt
-pipenv requirements --dev > dev-req.txt
+pipenv requirements > req.txt    # Générer requirements.txt  
+pipenv requirements --dev > dev-req.txt  
 ```
 
 ---
@@ -665,10 +665,10 @@ pipenv requirements --dev > dev-req.txt
 curl -sSL https://install.python-poetry.org | python3 -
 
 # Utilisation
-poetry new mon_projet
-cd mon_projet
-poetry add requests
-poetry install
+poetry new mon_projet  
+cd mon_projet  
+poetry add requests  
+poetry install  
 ```
 
 **Avantages** :
@@ -683,13 +683,13 @@ poetry install
 
 ```bash
 # Installation Miniconda
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  
+bash Miniconda3-latest-Linux-x86_64.sh  
 
 # Créer environnement
-conda create -n mon_env python=3.11
-conda activate mon_env
-conda install numpy pandas
+conda create -n mon_env python=3.11  
+conda activate mon_env  
+conda install numpy pandas  
 ```
 
 **Avantages** :
@@ -710,12 +710,12 @@ conda install numpy pandas
 curl https://pyenv.run | bash
 
 # Installer plusieurs versions Python
-pyenv install 3.11.0
-pyenv install 3.10.0
+pyenv install 3.11.0  
+pyenv install 3.10.0  
 
 # Créer environnement
-pyenv virtualenv 3.11.0 mon_env
-pyenv activate mon_env
+pyenv virtualenv 3.11.0 mon_env  
+pyenv activate mon_env  
 ```
 
 **Idéal pour** : tester code sur plusieurs versions Python
@@ -728,18 +728,18 @@ pyenv activate mon_env
 
 ```bash
 # Créer le projet
-mkdir flask_app
-cd flask_app
+mkdir flask_app  
+cd flask_app  
 
 # Méthode 1 : avec venv
-python3 -m venv venv
-source venv/bin/activate
-pip install flask
-pip freeze > requirements.txt
+python3 -m venv venv  
+source venv/bin/activate  
+pip install flask  
+pip freeze > requirements.txt  
 
 # Méthode 2 : avec pipenv
-pipenv install flask
-pipenv shell
+pipenv install flask  
+pipenv shell  
 ```
 
 **app.py** :
@@ -761,8 +761,8 @@ if __name__ == '__main__':
 
 ```bash
 # Avec venv
-source venv/bin/activate
-python app.py
+source venv/bin/activate  
+python app.py  
 
 # Avec pipenv
 pipenv run python app.py
@@ -771,14 +771,14 @@ pipenv run python app.py
 ### Projet Data Science
 
 ```bash
-mkdir data_projet
-cd data_projet
+mkdir data_projet  
+cd data_projet  
 
 # Avec venv
-python3 -m venv venv
-source venv/bin/activate
-pip install numpy pandas matplotlib jupyter
-pip freeze > requirements.txt
+python3 -m venv venv  
+source venv/bin/activate  
+pip install numpy pandas matplotlib jupyter  
+pip freeze > requirements.txt  
 
 # Lancer Jupyter
 jupyter notebook
@@ -787,16 +787,16 @@ jupyter notebook
 ### Projet avec tests
 
 ```bash
-mkdir mon_package
-cd mon_package
+mkdir mon_package  
+cd mon_package  
 
 # Avec pipenv (séparation dev/prod)
-pipenv install requests  # Production
-pipenv install pytest pytest-cov --dev  # Développement
+pipenv install requests  # Production  
+pipenv install pytest pytest-cov --dev  # Développement  
 
 # Structure
-mkdir tests
-touch tests/test_main.py
+mkdir tests  
+touch tests/test_main.py  
 
 # Lancer tests
 pipenv run pytest
@@ -851,28 +851,28 @@ pip freeze > requirements.txt
 **Étape 5 : Git**
 
 ```bash
-git init
-echo "venv/" > .gitignore
-echo "__pycache__/" >> .gitignore
-git add .
-git commit -m "Initial commit"
+git init  
+echo "venv/" > .gitignore  
+echo "__pycache__/" >> .gitignore  
+git add .  
+git commit -m "Initial commit"  
 ```
 
 ### Pour rejoindre un projet existant
 
 ```bash
 # Cloner
-git clone url_projet
-cd projet
+git clone url_projet  
+cd projet  
 
 # Si requirements.txt existe (venv)
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+python3 -m venv venv  
+source venv/bin/activate  
+pip install -r requirements.txt  
 
 # Si Pipfile existe (pipenv)
-pipenv install
-pipenv shell
+pipenv install  
+pipenv shell  
 ```
 
 ---
@@ -890,8 +890,8 @@ sudo apt install python3-venv
 **pipenv** :
 
 ```bash
-pip install --user pipenv
-export PATH="$HOME/.local/bin:$PATH"
+pip install --user pipenv  
+export PATH="$HOME/.local/bin:$PATH"  
 ```
 
 ### L'environnement ne s'active pas
@@ -900,8 +900,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 ```bash
 # Doit pointer vers venv/bin/activate
-ls venv/bin/activate
-source venv/bin/activate
+ls venv/bin/activate  
+source venv/bin/activate  
 ```
 
 ### Packages s'installent globalement malgré l'environnement
@@ -921,8 +921,8 @@ which pip
 pipenv check
 
 # Résolution forcée
-pipenv lock --clear
-pipenv install
+pipenv lock --clear  
+pipenv install  
 ```
 
 ### Environnement pipenv introuvable
@@ -932,8 +932,8 @@ pipenv install
 pipenv --venv
 
 # Recréer si nécessaire
-pipenv --rm
-pipenv install
+pipenv --rm  
+pipenv install  
 ```
 
 ---
@@ -985,10 +985,10 @@ jupyter notebook
 
 ```bash
 # ✅ Bon
-cd mon_projet
-python3 -m venv venv
-source venv/bin/activate
-pip install ...
+cd mon_projet  
+python3 -m venv venv  
+source venv/bin/activate  
+pip install ...  
 
 # ❌ Mauvais
 pip install ...  # Installe globalement !
@@ -1028,9 +1028,9 @@ __pycache__/
 
 ```bash
 # Créer un nouvel environnement de test
-python3 -m venv test_env
-source test_env/bin/activate
-pip install -r requirements.txt
+python3 -m venv test_env  
+source test_env/bin/activate  
+pip install -r requirements.txt  
 # Votre code fonctionne-t-il ?
 ```
 
@@ -1091,8 +1091,8 @@ rm -rf venv
 pipenv install
 
 # Installer paquet
-pipenv install paquet
-pipenv install paquet --dev
+pipenv install paquet  
+pipenv install paquet --dev  
 
 # Activer
 pipenv shell
@@ -1136,9 +1136,9 @@ Les environnements virtuels sont **essentiels** pour tout développeur Python. V
 
 **Workflow minimal** :
 ```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+python3 -m venv venv  
+source venv/bin/activate  
+pip install -r requirements.txt  
 # Codez !
 deactivate
 ```

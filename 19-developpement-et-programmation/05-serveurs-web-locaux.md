@@ -51,9 +51,9 @@ Navigateur          Serveur Web         Fichiers/Base
 
 ![Le serveur web historique]
 
-**Créé en** : 1995
-**Part de marché** : ~30% du web mondial
-**Licence** : Open Source (Apache License)
+**Créé en** : 1995  
+**Part de marché** : ~30% du web mondial  
+**Licence** : Open Source (Apache License)  
 
 **Avantages** :
 - ✅ Très mature et stable
@@ -72,9 +72,9 @@ Navigateur          Serveur Web         Fichiers/Base
 
 ![Le serveur web moderne et performant]
 
-**Créé en** : 2004
-**Part de marché** : ~35% du web mondial
-**Licence** : Open Source (BSD-like)
+**Créé en** : 2004  
+**Part de marché** : ~35% du web mondial  
+**Licence** : Open Source (BSD-like)  
 
 **Avantages** :
 - ✅ Très performant et léger
@@ -109,8 +109,8 @@ Navigateur          Serveur Web         Fichiers/Base
 ### Installation
 
 ```bash
-sudo apt update
-sudo apt install apache2
+sudo apt update  
+sudo apt install apache2  
 ```
 
 Apache démarre automatiquement après l'installation.
@@ -214,8 +214,8 @@ sudo a2enmod userdir
 sudo systemctl restart apache2
 
 # Créer le dossier
-mkdir -p ~/public_html
-echo "<h1>Mon site perso</h1>" > ~/public_html/index.html
+mkdir -p ~/public_html  
+echo "<h1>Mon site perso</h1>" > ~/public_html/index.html  
 ```
 
 Accéder via : http://localhost/~votre_nom_utilisateur/
@@ -298,8 +298,8 @@ Contenu :
 **5. Activer le site** :
 
 ```bash
-sudo a2ensite monsite.conf
-sudo systemctl reload apache2
+sudo a2ensite monsite.conf  
+sudo systemctl reload apache2  
 ```
 
 **6. Modifier le fichier hosts** :
@@ -329,15 +329,15 @@ apache2ctl -M
 **Activer un module** :
 
 ```bash
-sudo a2enmod nom_module
-sudo systemctl restart apache2
+sudo a2enmod nom_module  
+sudo systemctl restart apache2  
 ```
 
 **Désactiver un module** :
 
 ```bash
-sudo a2dismod nom_module
-sudo systemctl restart apache2
+sudo a2dismod nom_module  
+sudo systemctl restart apache2  
 ```
 
 **Modules populaires** :
@@ -356,8 +356,8 @@ sudo a2enmod deflate
 sudo a2enmod headers
 
 # Proxy (pour Node.js, Python, etc.)
-sudo a2enmod proxy
-sudo a2enmod proxy_http
+sudo a2enmod proxy  
+sudo a2enmod proxy_http  
 ```
 
 ### Le fichier .htaccess
@@ -376,18 +376,18 @@ Contenu :
 
 ```apache
 # Redirection HTTP → HTTPS
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteEngine On  
+RewriteCond %{HTTPS} off  
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]  
 ```
 
 **Exemple : URLs propres (sans .php)**
 
 ```apache
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteEngine On  
+RewriteCond %{REQUEST_FILENAME} !-f  
+RewriteCond %{REQUEST_FILENAME} !-d  
+RewriteRule ^([^\.]+)$ $1.php [NC,L]  
 ```
 
 Maintenant `/contact` affichera `/contact.php`.
@@ -401,8 +401,8 @@ Maintenant `/contact` affichera `/contact.php`.
 ### Installation
 
 ```bash
-sudo apt update
-sudo apt install nginx
+sudo apt update  
+sudo apt install nginx  
 ```
 
 Nginx démarre automatiquement.
@@ -544,8 +544,8 @@ server {
 **Redémarrer Nginx** :
 
 ```bash
-sudo nginx -t  # Vérifier la syntaxe
-sudo systemctl restart nginx
+sudo nginx -t  # Vérifier la syntaxe  
+sudo systemctl restart nginx  
 ```
 
 **Tester PHP** :
@@ -623,9 +623,9 @@ server {
 **5. Activer le site** :
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/monprojet /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl reload nginx
+sudo ln -s /etc/nginx/sites-available/monprojet /etc/nginx/sites-enabled/  
+sudo nginx -t  
+sudo systemctl reload nginx  
 ```
 
 **6. Modifier /etc/hosts** :
@@ -715,8 +715,8 @@ Modifiez :
 **Activer** :
 
 ```bash
-sudo a2ensite default-ssl
-sudo systemctl restart apache2
+sudo a2ensite default-ssl  
+sudo systemctl restart apache2  
 ```
 
 Accédez à https://localhost (ignorez l'avertissement de sécurité du navigateur).
@@ -766,8 +766,8 @@ server {
 ```
 
 ```bash
-sudo nginx -t
-sudo systemctl restart nginx
+sudo nginx -t  
+sudo systemctl restart nginx  
 ```
 
 ---
@@ -847,9 +847,9 @@ sudo tail -f /var/log/nginx/error.log
 
 ```bash
 # Installation
-wget http://prdownloads.sourceforge.net/webadmin/webmin_2.105_all.deb
-sudo dpkg -i webmin_2.105_all.deb
-sudo apt install -f
+wget http://prdownloads.sourceforge.net/webadmin/webmin_2.105_all.deb  
+sudo dpkg -i webmin_2.105_all.deb  
+sudo apt install -f  
 ```
 
 Accès : https://localhost:10000
@@ -867,21 +867,21 @@ Accès : https://localhost:10000
 sudo apt install apache2 mysql-server php php-mysql
 
 # Télécharger WordPress
-cd /tmp
-wget https://wordpress.org/latest.tar.gz
-tar -xzf latest.tar.gz
-sudo cp -r wordpress /var/www/html/
+cd /tmp  
+wget https://wordpress.org/latest.tar.gz  
+tar -xzf latest.tar.gz  
+sudo cp -r wordpress /var/www/html/  
 
 # Permissions
 sudo chown -R www-data:www-data /var/www/html/wordpress
 
 # Créer la base de données
-sudo mysql -u root -p
-CREATE DATABASE wordpress;
-CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL ON wordpress.* TO 'wpuser'@'localhost';
-FLUSH PRIVILEGES;
-EXIT;
+sudo mysql -u root -p  
+CREATE DATABASE wordpress;  
+CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'password';  
+GRANT ALL ON wordpress.* TO 'wpuser'@'localhost';  
+FLUSH PRIVILEGES;  
+EXIT;  
 ```
 
 Accédez à http://localhost/wordpress et suivez l'installation.
@@ -919,8 +919,8 @@ Accès : http://localhost/phpmyadmin
 **Vérifier les erreurs** :
 
 ```bash
-sudo systemctl status apache2
-sudo journalctl -xeu apache2
+sudo systemctl status apache2  
+sudo journalctl -xeu apache2  
 ```
 
 **Port déjà utilisé** :
@@ -971,8 +971,8 @@ sudo chown -R www-data:www-data /var/www/html/
 
 ```bash
 # Vérifier que le module est activé
-sudo a2enmod php8.1  # Adaptez la version
-sudo systemctl restart apache2
+sudo a2enmod php8.1  # Adaptez la version  
+sudo systemctl restart apache2  
 ```
 
 **Nginx** :
@@ -999,8 +999,8 @@ chmod 644 /var/www/html/index.html
 
 **Vérifier la configuration** :
 
-Apache : `Require all granted` doit être présent
-Nginx : Vérifier que `root` pointe vers le bon dossier
+Apache : `Require all granted` doit être présent  
+Nginx : Vérifier que `root` pointe vers le bon dossier  
 
 ---
 
@@ -1013,8 +1013,8 @@ Nginx : Vérifier que `root` pointe vers le bon dossier
 **Apache** (`/etc/apache2/conf-available/security.conf`) :
 
 ```apache
-ServerTokens Prod
-ServerSignature Off
+ServerTokens Prod  
+ServerSignature Off  
 ```
 
 **Nginx** (`/etc/nginx/nginx.conf`) :
@@ -1032,9 +1032,9 @@ sudo nano /etc/php/8.1/apache2/php.ini
 Modifier :
 
 ```ini
-upload_max_filesize = 10M
-post_max_size = 10M
-max_execution_time = 30
+upload_max_filesize = 10M  
+post_max_size = 10M  
+max_execution_time = 30  
 ```
 
 **3. Désactiver les index de répertoires**
@@ -1066,8 +1066,8 @@ sudo ufw enable
 
 ```bash
 # Sauvegarder les configurations
-sudo cp -r /etc/apache2 ~/backup/apache2-$(date +%F)
-sudo cp -r /etc/nginx ~/backup/nginx-$(date +%F)
+sudo cp -r /etc/apache2 ~/backup/apache2-$(date +%F)  
+sudo cp -r /etc/nginx ~/backup/nginx-$(date +%F)  
 ```
 
 ---
@@ -1125,13 +1125,13 @@ sudo apt install nginx php-fpm php-mysql mysql-server
 **Commandes essentielles** :
 ```bash
 # Apache
-sudo systemctl restart apache2
-sudo a2enmod rewrite
-sudo apache2ctl configtest
+sudo systemctl restart apache2  
+sudo a2enmod rewrite  
+sudo apache2ctl configtest  
 
 # Nginx
-sudo systemctl reload nginx
-sudo nginx -t
+sudo systemctl reload nginx  
+sudo nginx -t  
 ```
 
 Maintenant vous avez tout pour développer des sites web en local ! N'hésitez pas à expérimenter, c'est en pratiquant que vous apprendrez le mieux.

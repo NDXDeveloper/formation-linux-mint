@@ -20,8 +20,8 @@ Imaginez que vous déménagez. Au lieu de transporter des objets en vrac, vous u
 
 **Sans Docker** :
 ```
-Développeur : "Ça marche sur ma machine !"
-Ops : "Mais pas en production..."
+Développeur : "Ça marche sur ma machine !"  
+Ops : "Mais pas en production..."  
 ```
 
 **Pourquoi ?**
@@ -32,8 +32,8 @@ Ops : "Mais pas en production..."
 
 **Avec Docker** :
 ```
-Développeur : "Voici mon conteneur Docker"
-Ops : "Ça fonctionne partout pareil !"
+Développeur : "Voici mon conteneur Docker"  
+Ops : "Ça fonctionne partout pareil !"  
 ```
 
 **Avantages** :
@@ -98,15 +98,15 @@ sudo apt remove docker docker-engine docker.io containerd runc
 **2. Installer les prérequis** :
 
 ```bash
-sudo apt update
-sudo apt install ca-certificates curl gnupg lsb-release
+sudo apt update  
+sudo apt install ca-certificates curl gnupg lsb-release  
 ```
 
 **3. Ajouter la clé GPG officielle** :
 
 ```bash
-sudo mkdir -m 0755 -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo mkdir -m 0755 -p /etc/apt/keyrings  
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg  
 ```
 
 **4. Ajouter le dépôt Docker** :
@@ -120,8 +120,8 @@ echo \
 **5. Installer Docker** :
 
 ```bash
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt update  
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin  
 ```
 
 **6. Vérifier l'installation** :
@@ -205,9 +205,9 @@ URL : https://hub.docker.com
 **Télécharger une image** :
 
 ```bash
-docker pull ubuntu
-docker pull nginx
-docker pull python:3.11
+docker pull ubuntu  
+docker pull nginx  
+docker pull python:3.11  
 ```
 
 **Lister les images** :
@@ -219,8 +219,8 @@ docker images
 **Supprimer une image** :
 
 ```bash
-docker rmi nom_image
-docker rmi image_id
+docker rmi nom_image  
+docker rmi image_id  
 ```
 
 **Chercher une image sur Docker Hub** :
@@ -238,8 +238,8 @@ docker search nginx
 docker run nom_image
 
 # Exemples
-docker run ubuntu
-docker run -d nginx  # -d = mode détaché (arrière-plan)
+docker run ubuntu  
+docker run -d nginx  # -d = mode détaché (arrière-plan)  
 ```
 
 **Lister les conteneurs** :
@@ -255,8 +255,8 @@ docker ps -a
 **Arrêter un conteneur** :
 
 ```bash
-docker stop id_conteneur
-docker stop nom_conteneur
+docker stop id_conteneur  
+docker stop nom_conteneur  
 ```
 
 **Démarrer un conteneur arrêté** :
@@ -361,8 +361,8 @@ docker logs -f mon-nginx
 **Personnaliser la page** :
 
 ```bash
-echo "<h1>Mon site Docker</h1>" > ~/index.html
-docker run -d --name custom-nginx -p 8081:80 -v ~/index.html:/usr/share/nginx/html/index.html nginx
+echo "<h1>Mon site Docker</h1>" > ~/index.html  
+docker run -d --name custom-nginx -p 8081:80 -v ~/index.html:/usr/share/nginx/html/index.html nginx  
 ```
 
 Ouvrez http://localhost:8081
@@ -370,8 +370,8 @@ Ouvrez http://localhost:8081
 **Arrêter et supprimer** :
 
 ```bash
-docker stop mon-nginx
-docker rm mon-nginx
+docker stop mon-nginx  
+docker rm mon-nginx  
 ```
 
 ### Exemple 2 : Base de données MySQL
@@ -414,8 +414,8 @@ Maintenant, les données survivent même si vous supprimez le conteneur !
 **Créer un fichier app.py** :
 
 ```python
-from flask import Flask
-app = Flask(__name__)
+from flask import Flask  
+app = Flask(__name__)  
 
 @app.route('/')
 def hello():
@@ -513,8 +513,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copier des fichiers
-COPY requirements.txt .
-COPY app.py .
+COPY requirements.txt .  
+COPY app.py .  
 
 # Installer les dépendances
 RUN pip3 install -r requirements.txt
@@ -576,21 +576,21 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # ❌ Mauvais (3 layers)
-RUN apt-get update
-RUN apt-get install -y package1
-RUN apt-get install -y package2
+RUN apt-get update  
+RUN apt-get install -y package1  
+RUN apt-get install -y package2  
 ```
 
 **3. Ordonnez intelligemment** :
 
 ```dockerfile
 # Les choses qui changent rarement en premier
-FROM python:3.11
-WORKDIR /app
+FROM python:3.11  
+WORKDIR /app  
 
 # Dépendances (changent rarement)
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+COPY requirements.txt .  
+RUN pip install -r requirements.txt  
 
 # Code source (change souvent) en dernier
 COPY . .
@@ -621,9 +621,9 @@ README.md
 
 **Problème sans Compose** :
 ```bash
-docker run -d --name db ...
-docker run -d --name web ...
-docker run -d --name cache ...
+docker run -d --name db ...  
+docker run -d --name web ...  
+docker run -d --name cache ...  
 # 10+ lignes de commandes !
 ```
 
@@ -811,8 +811,8 @@ docker compose down -v
 docker compose ps
 
 # Logs
-docker compose logs
-docker compose logs -f service_name
+docker compose logs  
+docker compose logs -f service_name  
 
 # Exécuter une commande
 docker compose exec service_name bash
@@ -1004,8 +1004,8 @@ docker system df
 
 ```bash
 # Solution
-sudo usermod -aG docker $USER
-newgrp docker
+sudo usermod -aG docker $USER  
+newgrp docker  
 ```
 
 **2. Port déjà utilisé**
@@ -1037,8 +1037,8 @@ docker run -it image_name bash
 sudo systemctl restart docker
 
 # Vérifier les réseaux
-docker network ls
-docker network inspect bridge
+docker network ls  
+docker network inspect bridge  
 ```
 
 **5. Espace disque plein**
@@ -1080,8 +1080,8 @@ docker events
 
 ```dockerfile
 # Dans votre Dockerfile
-RUN useradd -m -u 1000 appuser
-USER appuser
+RUN useradd -m -u 1000 appuser  
+USER appuser  
 ```
 
 **2. Analyser les images** :
@@ -1091,8 +1091,8 @@ USER appuser
 docker scout cves image_name
 
 # Avec Trivy
-sudo apt install trivy
-trivy image nginx
+sudo apt install trivy  
+trivy image nginx  
 ```
 
 **3. Utiliser des images officielles** :
@@ -1272,41 +1272,41 @@ Alternative : Docker Desktop avec interface graphique complète
 
 ```bash
 # IMAGES
-docker pull image                 # Télécharger
-docker images                     # Lister
-docker rmi image                  # Supprimer
-docker build -t nom .             # Construire
+docker pull image                 # Télécharger  
+docker images                     # Lister  
+docker rmi image                  # Supprimer  
+docker build -t nom .             # Construire  
 
 # CONTENEURS
-docker run image                  # Créer et lancer
-docker ps                         # Lister (actifs)
-docker ps -a                      # Lister (tous)
-docker stop id                    # Arrêter
-docker start id                   # Démarrer
-docker restart id                 # Redémarrer
-docker rm id                      # Supprimer
-docker logs id                    # Voir logs
-docker exec -it id bash           # Shell interactif
+docker run image                  # Créer et lancer  
+docker ps                         # Lister (actifs)  
+docker ps -a                      # Lister (tous)  
+docker stop id                    # Arrêter  
+docker start id                   # Démarrer  
+docker restart id                 # Redémarrer  
+docker rm id                      # Supprimer  
+docker logs id                    # Voir logs  
+docker exec -it id bash           # Shell interactif  
 
 # DOCKER COMPOSE
-docker compose up -d              # Lancer
-docker compose down               # Arrêter
-docker compose logs -f            # Logs
-docker compose ps                 # Status
-docker compose exec service bash  # Shell
+docker compose up -d              # Lancer  
+docker compose down               # Arrêter  
+docker compose logs -f            # Logs  
+docker compose ps                 # Status  
+docker compose exec service bash  # Shell  
 
 # NETTOYAGE
-docker system prune               # Nettoyer
-docker system df                  # Espace utilisé
+docker system prune               # Nettoyer  
+docker system df                  # Espace utilisé  
 
 # VOLUMES
-docker volume ls                  # Lister
-docker volume create nom          # Créer
-docker volume rm nom              # Supprimer
+docker volume ls                  # Lister  
+docker volume create nom          # Créer  
+docker volume rm nom              # Supprimer  
 
 # RÉSEAUX
-docker network ls                 # Lister
-docker network create nom         # Créer
+docker network ls                 # Lister  
+docker network create nom         # Créer  
 ```
 
 ---
@@ -1330,11 +1330,11 @@ Docker est devenu un outil incontournable dans le développement moderne. Voici 
 
 **Commandes à retenir** :
 ```bash
-docker run -d -p 8080:80 --name web nginx
-docker compose up -d
-docker ps
-docker logs -f conteneur
-docker exec -it conteneur bash
+docker run -d -p 8080:80 --name web nginx  
+docker compose up -d  
+docker ps  
+docker logs -f conteneur  
+docker exec -it conteneur bash  
 ```
 
 **Next steps** :
