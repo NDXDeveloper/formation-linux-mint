@@ -15,13 +15,13 @@
 **Schéma conceptuel :**
 
 ```
-Cloud traditionnel :
-PC 1 → Serveur Google/Dropbox → PC 2
+Cloud traditionnel :  
+PC 1 → Serveur Google/Dropbox → PC 2  
       ↓
   Smartphone
 
-Syncthing (P2P) :
-PC 1 ←→ PC 2
+Syncthing (P2P) :  
+PC 1 ←→ PC 2  
   ↕      ↕
 Smartphone
 ```
@@ -108,8 +108,8 @@ sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing
 echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 
 # Mettre à jour et installer
-sudo apt update
-sudo apt install syncthing
+sudo apt update  
+sudo apt install syncthing  
 ```
 
 ### Méthode 2 : Via le gestionnaire de logiciels
@@ -190,8 +190,8 @@ Pour que Syncthing démarre avec votre système :
 **Méthode systemd (recommandé) :**
 ```bash
 # Activer Syncthing au démarrage pour votre utilisateur
-systemctl --user enable syncthing.service
-systemctl --user start syncthing.service
+systemctl --user enable syncthing.service  
+systemctl --user start syncthing.service  
 
 # Vérifier le statut
 systemctl --user status syncthing.service
@@ -741,8 +741,8 @@ node_modules
 
 # Ignorer les caches
 .cache
-Cache
-Thumbs.db
+Cache  
+Thumbs.db  
 .DS_Store
 
 # Ignorer les fichiers volumineux
@@ -787,8 +787,8 @@ Settings → Connections → **Rate Limits**
 sudo ufw allow syncthing
 
 # Ou autoriser les ports spécifiques
-sudo ufw allow 22000/tcp  # Transfert de données
-sudo ufw allow 21027/udp  # Local discovery
+sudo ufw allow 22000/tcp  # Transfert de données  
+sudo ufw allow 21027/udp  # Local discovery  
 ```
 
 ---

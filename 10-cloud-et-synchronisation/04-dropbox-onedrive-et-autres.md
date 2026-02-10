@@ -77,8 +77,8 @@ sudo sh -c 'echo "deb [arch=amd64] https://linux.dropbox.com/ubuntu jammy main" 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
 
 # Installer Dropbox
-sudo apt update
-sudo apt install dropbox
+sudo apt update  
+sudo apt install dropbox  
 ```
 
 ---
@@ -315,15 +315,15 @@ Format : `fichier (conflit copie de Nom DATE).ext`
 rclone config
 
 # Créer un nouveau remote
-n) New remote
-name> onedrive
+n) New remote  
+name> onedrive  
 
 # Choisir le type
 Storage> onedrive
 
 # Client ID/Secret (laisser vide)
-client_id> [Enter]
-client_secret> [Enter]
+client_id> [Enter]  
+client_secret> [Enter]  
 
 # Choisir le type OneDrive
 1 / OneDrive Personal or Business
@@ -405,8 +405,8 @@ onedrive-d
 
 ```bash
 # Ajouter le dépôt
-sudo add-apt-repository ppa:yann1ck/onedrive
-sudo apt update
+sudo add-apt-repository ppa:yann1ck/onedrive  
+sudo apt update  
 
 # Installer
 sudo apt install onedrive
@@ -429,8 +429,8 @@ onedrive --synchronize
 
 ```bash
 # Activer le service systemd
-systemctl --user enable onedrive
-systemctl --user start onedrive
+systemctl --user enable onedrive  
+systemctl --user start onedrive  
 
 # Vérifier le statut
 systemctl --user status onedrive
@@ -442,9 +442,9 @@ Fichier de configuration : `~/.config/onedrive/config`
 
 ```
 # Synchronisation sélective
-sync_dir = "~/OneDrive"
-skip_file = "~*|.~*|*.tmp"
-skip_dir = "Cache|Temp"
+sync_dir = "~/OneDrive"  
+skip_file = "~*|.~*|*.tmp"  
+skip_dir = "Cache|Temp"  
 ```
 
 ---
@@ -527,12 +527,12 @@ La solution la plus simple : utilisez **OneDrive via le navigateur web**.
 
 ```bash
 # Ajouter le dépôt MEGA
-wget -O - https://mega.nz/linux/repo/xUbuntu_22.04/Release.key | sudo apt-key add -
-echo "deb https://mega.nz/linux/repo/xUbuntu_22.04/ ./" | sudo tee /etc/apt/sources.list.d/megasync.list
+wget -O - https://mega.nz/linux/repo/xUbuntu_22.04/Release.key | sudo apt-key add -  
+echo "deb https://mega.nz/linux/repo/xUbuntu_22.04/ ./" | sudo tee /etc/apt/sources.list.d/megasync.list  
 
 # Installer MEGAsync
-sudo apt update
-sudo apt install megasync
+sudo apt update  
+sudo apt install megasync  
 ```
 
 ---
@@ -1042,21 +1042,21 @@ systemd-run --user --scope -p MemoryLimit=500M dropbox start
 
 ### Pour développeurs
 
-**GitHub** : Gratuit, illimité pour code
-**GitLab** : Alternative avec CI/CD intégré
-**Bitbucket** : Intégration Atlassian
+**GitHub** : Gratuit, illimité pour code  
+**GitLab** : Alternative avec CI/CD intégré  
+**Bitbucket** : Intégration Atlassian  
 
 ### Pour photos
 
-**Google Photos** : Stockage gratuit (qualité réduite)
-**Amazon Photos** : Illimité avec Prime
-**Flickr** : 1000 photos gratuites
+**Google Photos** : Stockage gratuit (qualité réduite)  
+**Amazon Photos** : Illimité avec Prime  
+**Flickr** : 1000 photos gratuites  
 
 ### Pour backup uniquement
 
-**Backblaze B2** : Très économique (0,005$/Go/mois)
-**Wasabi** : Pas de frais de sortie
-**Borg Backup** + serveur personnel : Contrôle total
+**Backblaze B2** : Très économique (0,005$/Go/mois)  
+**Wasabi** : Pas de frais de sortie  
+**Borg Backup** + serveur personnel : Contrôle total  
 
 ---
 
@@ -1087,8 +1087,8 @@ systemd-run --user --scope -p MemoryLimit=500M dropbox start
 
 **Pour Linux Mint, les meilleurs choix sont :**
 
-🥇 **MEGA** : 20 Go gratuits, client natif, chiffrement E2EE, excellent pour Linux
-🥈 **Dropbox** : Client officiel stable, familier, mais seulement 2 Go gratuits
+🥇 **MEGA** : 20 Go gratuits, client natif, chiffrement E2EE, excellent pour Linux  
+🥈 **Dropbox** : Client officiel stable, familier, mais seulement 2 Go gratuits  
 🥉 **pCloud** : 10 Go gratuits, achat à vie intéressant, bon compromis
 
 **Pour OneDrive :** Utilisez rclone ou le client abraunegg si vous avez déjà un abonnement Microsoft 365.

@@ -382,8 +382,8 @@ sudo snap install nextcloud
 sudo nextcloud.manual-install nom_admin mot_de_passe
 ```
 
-**Avantages :** Installation en 2 commandes, mises à jour automatiques
-**Inconvénients :** Moins de contrôle, performances parfois moindres
+**Avantages :** Installation en 2 commandes, mises à jour automatiques  
+**Inconvénients :** Moins de contrôle, performances parfois moindres  
 
 ---
 
@@ -391,8 +391,8 @@ sudo nextcloud.manual-install nom_admin mot_de_passe
 
 ```bash
 # Installer Docker et Docker Compose
-sudo apt update
-sudo apt install docker.io docker-compose
+sudo apt update  
+sudo apt install docker.io docker-compose  
 
 # Télécharger un docker-compose.yml pour Nextcloud
 # (voir documentation officielle)
@@ -401,8 +401,8 @@ sudo apt install docker.io docker-compose
 docker-compose up -d
 ```
 
-**Avantages :** Isolation, facilité de maintenance, portable
-**Inconvénients :** Apprentissage de Docker nécessaire
+**Avantages :** Isolation, facilité de maintenance, portable  
+**Inconvénients :** Apprentissage de Docker nécessaire  
 
 ---
 

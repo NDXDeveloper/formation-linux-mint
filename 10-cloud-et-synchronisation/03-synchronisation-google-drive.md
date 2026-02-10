@@ -97,9 +97,9 @@ Si vous utilisez déjà Google Drive (15 Go gratuits) et que vous migrez vers Li
 
 **Méthode terminal :**
 ```bash
-cd ~/Téléchargements
-sudo dpkg -i insync_*.deb
-sudo apt install -f  # Pour installer les dépendances manquantes
+cd ~/Téléchargements  
+sudo dpkg -i insync_*.deb  
+sudo apt install -f  # Pour installer les dépendances manquantes  
 ```
 
 #### Étape 3 : Lancer Insync
@@ -324,8 +324,8 @@ Si un fichier est modifié simultanément localement et dans le cloud :
 #### Méthode 1 : Via le gestionnaire de paquets (recommandé)
 
 ```bash
-sudo apt update
-sudo apt install rclone
+sudo apt update  
+sudo apt install rclone  
 ```
 
 #### Méthode 2 : Script officiel (version la plus récente)
@@ -376,8 +376,8 @@ Tapez `drive` (ou le numéro correspondant à Google Drive dans la liste).
 #### Étape 5 : Client ID et Secret (optionnel)
 
 ```
-client_id>
-client_secret>
+client_id>  
+client_secret>  
 ```
 Laissez vide (appuyez juste sur Entrée) pour utiliser les valeurs par défaut.
 
@@ -409,9 +409,9 @@ Laissez vide (pour usage personnel).
 #### Étape 9 : Auto config
 
 ```
-Use auto config?
-y) Yes
-n) No
+Use auto config?  
+y) Yes  
+n) No  
 ```
 
 - Si vous êtes sur votre **PC Linux Mint avec interface graphique** : Tapez `y`
@@ -430,8 +430,8 @@ Un navigateur web s'ouvre automatiquement :
 #### Étape 11 : Configurer comme Team Drive ?
 
 ```
-Configure this as a team drive?
-n) No
+Configure this as a team drive?  
+n) No  
 ```
 Tapez `n` (sauf si vous utilisez Google Workspace avec drives partagés).
 
@@ -568,9 +568,9 @@ Contenu :
 Description=Google Drive Sync
 
 [Service]
-Type=oneshot
-ExecStart=/home/votre-nom/sync-gdrive.sh
-User=votre-nom
+Type=oneshot  
+ExecStart=/home/votre-nom/sync-gdrive.sh  
+User=votre-nom  
 ```
 
 **4. Créer un timer systemd**
@@ -584,8 +584,8 @@ Contenu :
 Description=Run Google Drive Sync hourly
 
 [Timer]
-OnBootSec=5min
-OnUnitActiveSec=1h
+OnBootSec=5min  
+OnUnitActiveSec=1h  
 
 [Install]
 WantedBy=timers.target
@@ -593,8 +593,8 @@ WantedBy=timers.target
 
 **5. Activer et démarrer le timer**
 ```bash
-sudo systemctl enable gdrive-sync.timer
-sudo systemctl start gdrive-sync.timer
+sudo systemctl enable gdrive-sync.timer  
+sudo systemctl start gdrive-sync.timer  
 ```
 
 **6. Vérifier le statut**
@@ -612,9 +612,9 @@ Bien que rclone soit principalement en ligne de commande, des interfaces graphiq
 
 Installation :
 ```bash
-sudo add-apt-repository ppa:rclone-browser/rclone-browser
-sudo apt update
-sudo apt install rclone-browser
+sudo add-apt-repository ppa:rclone-browser/rclone-browser  
+sudo apt update  
+sudo apt install rclone-browser  
 ```
 
 **Fonctionnalités :**
