@@ -241,10 +241,10 @@ Identique à Linux Mint Cinnamon :
 
 ### Vos préférences comptent aussi
 
-Si vous aimez les **belles interfaces** et la **personnalisation** : Cinnamon
-Si vous préférez la **simplicité** et la **rapidité** : MATE
-Si vous cherchez un **compromis** équilibré : Xfce
-Si vous êtes **expérimenté** et voulez **Debian** : LMDE
+Si vous aimez les **belles interfaces** et la **personnalisation** : Cinnamon  
+Si vous préférez la **simplicité** et la **rapidité** : MATE  
+Si vous cherchez un **compromis** équilibré : Xfce  
+Si vous êtes **expérimenté** et voulez **Debian** : LMDE  
 
 ## Puis-je changer après installation ?
 
