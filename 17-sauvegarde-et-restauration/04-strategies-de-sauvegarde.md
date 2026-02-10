@@ -173,10 +173,10 @@ rsync -av ~/Documents /media/backup/complete-2024-11-29/
 
 **Schéma de fonctionnement :**
 ```
-Dimanche : Sauvegarde COMPLÈTE (100 Go)
-Lundi : Incrémentale (seuls 2 Go modifiés)
-Mardi : Incrémentale (seuls 1 Go modifié)
-Mercredi : Incrémentale (seuls 3 Go modifiés)
+Dimanche : Sauvegarde COMPLÈTE (100 Go)  
+Lundi : Incrémentale (seuls 2 Go modifiés)  
+Mardi : Incrémentale (seuls 1 Go modifié)  
+Mercredi : Incrémentale (seuls 3 Go modifiés)  
 ...
 Dimanche suivant : Nouvelle sauvegarde COMPLÈTE
 ```
@@ -203,10 +203,10 @@ Backintime fait automatiquement des sauvegardes incrémentales basées sur des l
 
 **Schéma de fonctionnement :**
 ```
-Dimanche : Sauvegarde COMPLÈTE (100 Go)
-Lundi : Différentielle (2 Go modifiés depuis dimanche)
-Mardi : Différentielle (3 Go modifiés depuis dimanche)
-Mercredi : Différentielle (5 Go modifiés depuis dimanche)
+Dimanche : Sauvegarde COMPLÈTE (100 Go)  
+Lundi : Différentielle (2 Go modifiés depuis dimanche)  
+Mardi : Différentielle (3 Go modifiés depuis dimanche)  
+Mercredi : Différentielle (5 Go modifiés depuis dimanche)  
 ...
 Dimanche suivant : Nouvelle sauvegarde COMPLÈTE
 ```
@@ -279,10 +279,10 @@ Timeshift utilise des snapshots pour sauvegarder Linux Mint.
 
 **Planning :**
 ```
-Quotidien : Rien (automatique via cloud sync)
-Hebdomadaire : Timeshift (automatique) + Déjà Dup (automatique)
-Mensuel : Vérification manuelle que tout fonctionne
-Avant changement : Timeshift manuel + copie manuelle documents importants
+Quotidien : Rien (automatique via cloud sync)  
+Hebdomadaire : Timeshift (automatique) + Déjà Dup (automatique)  
+Mensuel : Vérification manuelle que tout fonctionne  
+Avant changement : Timeshift manuel + copie manuelle documents importants  
 ```
 
 **Matériel nécessaire :**
@@ -312,10 +312,10 @@ Avant changement : Timeshift manuel + copie manuelle documents importants
 
 **Planning :**
 ```
-Quotidien : Timeshift + Backintime (automatiques)
-Hebdomadaire : Synchronisation disque externe secondaire
-Mensuel : Image Clonezilla complète + vérification des sauvegardes
-Annuel : Archivage photos/vidéos sur disque offline
+Quotidien : Timeshift + Backintime (automatiques)  
+Hebdomadaire : Synchronisation disque externe secondaire  
+Mensuel : Image Clonezilla complète + vérification des sauvegardes  
+Annuel : Archivage photos/vidéos sur disque offline  
 ```
 
 **Matériel nécessaire :**
@@ -346,11 +346,11 @@ Annuel : Archivage photos/vidéos sur disque offline
 
 **Planning :**
 ```
-Continu : Sync vers NAS
-Quotidien : Timeshift
-Hebdomadaire : Rotation disques externes (1 reste hors site)
-Mensuel : Image système + archivage projets terminés
-Trimestriel : Audit complet des sauvegardes
+Continu : Sync vers NAS  
+Quotidien : Timeshift  
+Hebdomadaire : Rotation disques externes (1 reste hors site)  
+Mensuel : Image système + archivage projets terminés  
+Trimestriel : Audit complet des sauvegardes  
 ```
 
 **Matériel nécessaire :**
@@ -382,10 +382,10 @@ Trimestriel : Audit complet des sauvegardes
 
 **Planning :**
 ```
-Continu : Git push (code)
-Quotidien : Timeshift + rsync automatique vers serveur
-Hebdomadaire : Borg backup complet
-Mensuel : Image système + test restauration
+Continu : Git push (code)  
+Quotidien : Timeshift + rsync automatique vers serveur  
+Hebdomadaire : Borg backup complet  
+Mensuel : Image système + test restauration  
 ```
 
 **Matériel/Services nécessaires :**
@@ -413,9 +413,9 @@ Mensuel : Image système + test restauration
 
 **Planning :**
 ```
-Continu : Données dans le cloud
-Hebdomadaire : Timeshift automatique
-Mensuel : Export manuel fichiers critiques sur USB
+Continu : Données dans le cloud  
+Hebdomadaire : Timeshift automatique  
+Mensuel : Export manuel fichiers critiques sur USB  
 ```
 
 **Matériel nécessaire :**
@@ -912,20 +912,20 @@ ORDINATEUR PERDU/DÉTRUIT:
 
 CONTACTS D'URGENCE
 ------------------
-Support Linux Mint: forums.linuxmint.com
-Ami technicien: Jean (06 XX XX XX XX)
-Disque externe chez: Marie Dupont, 123 rue Example
+Support Linux Mint: forums.linuxmint.com  
+Ami technicien: Jean (06 XX XX XX XX)  
+Disque externe chez: Marie Dupont, 123 rue Example  
 
 MOTS DE PASSE
 -------------
-Conservés dans: Bitwarden (famille.dupont@gmail.com)
-Mot de passe maître: [REDACTED - papier dans coffre]
+Conservés dans: Bitwarden (famille.dupont@gmail.com)  
+Mot de passe maître: [REDACTED - papier dans coffre]  
 
 DERNIÈRE VÉRIFICATION
 --------------------
-Date: 29/11/2024
-Par: Papa
-Prochain test: 29/12/2024
+Date: 29/11/2024  
+Par: Papa  
+Prochain test: 29/12/2024  
 ```
 
 ## Outils complémentaires et ressources

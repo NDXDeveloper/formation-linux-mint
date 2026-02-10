@@ -32,8 +32,8 @@ Bonne nouvelle ! Timeshift est préinstallé sur Linux Mint. Si pour une raison 
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install timeshift
+sudo apt update  
+sudo apt install timeshift  
 ```
 
 ## Premier lancement et configuration

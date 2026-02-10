@@ -44,8 +44,8 @@ Déjà Dup n'est pas toujours préinstallé, mais son installation est très sim
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install deja-dup
+sudo apt update  
+sudo apt install deja-dup  
 ```
 
 ### Premier lancement et configuration
@@ -139,8 +139,8 @@ Backintime est une solution plus complète que Déjà Dup, offrant plus d'option
 ### Installation de Backintime
 
 ```bash
-sudo apt update
-sudo apt install backintime-qt
+sudo apt update  
+sudo apt install backintime-qt  
 ```
 
 Note : `backintime-qt` inclut l'interface graphique. Il existe aussi `backintime-gnome` pour GNOME.
@@ -295,8 +295,8 @@ rsync (remote sync) est un outil qui synchronise des fichiers et dossiers :
 rsync est généralement préinstallé. Sinon :
 
 ```bash
-sudo apt update
-sudo apt install rsync
+sudo apt update  
+sudo apt install rsync  
 ```
 
 ### Syntaxe de base
@@ -403,8 +403,8 @@ nano ~/sauvegarde.sh
 #!/bin/bash
 
 # Script de sauvegarde automatique
-echo "Début de la sauvegarde..."
-rsync -avh --progress \
+echo "Début de la sauvegarde..."  
+rsync -avh --progress \  
   --exclude='.cache' \
   --exclude='.local/share/Trash' \
   --exclude='Téléchargements' \

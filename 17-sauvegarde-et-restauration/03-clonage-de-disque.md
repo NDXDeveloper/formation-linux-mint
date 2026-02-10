@@ -321,8 +321,8 @@ lsblk
 
 Résultat typique :
 ```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 465.8G  0 disk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT  
+sda      8:0    0 465.8G  0 disk  
 ├─sda1   8:1    0   512M  0 part /boot/efi
 ├─sda2   8:2    0 456.3G  0 part /
 └─sda3   8:3    0     9G  0 part [SWAP]
@@ -435,8 +435,8 @@ gunzip -c sauvegarde_sda1.img.gz | sudo dd of=/dev/sda1 bs=4M status=progress
 Comparer deux disques pour vérifier qu'ils sont identiques :
 
 ```bash
-sudo dd if=/dev/sda | md5sum
-sudo dd if=/dev/sdb | md5sum
+sudo dd if=/dev/sda | md5sum  
+sudo dd if=/dev/sdb | md5sum  
 ```
 
 Si les deux md5sum sont identiques, les disques sont parfaitement identiques.
@@ -482,14 +482,14 @@ Si dd vous semble trop dangereux (et c'est légitime !), utilisez des alternativ
 
 **dcfldd** : Version améliorée de dd avec plus de sécurité
 ```bash
-sudo apt install dcfldd
-sudo dcfldd if=/dev/sda of=/dev/sdb
+sudo apt install dcfldd  
+sudo dcfldd if=/dev/sda of=/dev/sdb  
 ```
 
 **ddrescue** : Pour disques avec secteurs défectueux
 ```bash
-sudo apt install gddrescue
-sudo ddrescue /dev/sda /dev/sdb rescue.log
+sudo apt install gddrescue  
+sudo ddrescue /dev/sda /dev/sdb rescue.log  
 ```
 
 ## Comparaison Clonezilla vs dd

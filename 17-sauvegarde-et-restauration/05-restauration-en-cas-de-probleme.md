@@ -706,13 +706,13 @@ Depuis un Live USB :
 
 ```bash
 # Montez votre partition système
-sudo mount /dev/sda2 /mnt
-sudo mount /dev/sda1 /mnt/boot/efi  # Si UEFI
+sudo mount /dev/sda2 /mnt  
+sudo mount /dev/sda1 /mnt/boot/efi  # Si UEFI  
 
 # Montez les systèmes de fichiers nécessaires
-sudo mount --bind /dev /mnt/dev
-sudo mount --bind /proc /mnt/proc
-sudo mount --bind /sys /mnt/sys
+sudo mount --bind /dev /mnt/dev  
+sudo mount --bind /proc /mnt/proc  
+sudo mount --bind /sys /mnt/sys  
 
 # Chroot dans votre système
 sudo chroot /mnt
@@ -726,8 +726,8 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi  # UEFI
 update-grub
 
 # Sortez et redémarrez
-exit
-sudo reboot
+exit  
+sudo reboot  
 ```
 
 **2. Vérifiez le mode de boot (UEFI vs BIOS)**
@@ -835,9 +835,9 @@ sudo nano /etc/fstab
 sudo chown -R $USER:$USER /home/$USER
 
 # Permissions standards
-chmod 755 /home/$USER
-chmod 700 /home/$USER/.ssh
-chmod 600 /home/$USER/.ssh/*
+chmod 755 /home/$USER  
+chmod 700 /home/$USER/.ssh  
+chmod 600 /home/$USER/.ssh/*  
 
 # Pour les dossiers
 find /home/$USER -type d -exec chmod 755 {} \;

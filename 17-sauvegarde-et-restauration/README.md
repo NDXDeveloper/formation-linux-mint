@@ -234,8 +234,8 @@ Imaginez ces scénarios :
 - On pense "je le ferai demain"
 - Et puis le désastre arrive
 
-**La solution :**
-**Automatisez TOUT ce qui peut l'être !**
+**La solution :**  
+**Automatisez TOUT ce qui peut l'être !**  
 
 - ✅ Snapshots Timeshift : automatiques quotidiens
 - ✅ Sauvegarde fichiers : automatique quotidienne/hebdomadaire

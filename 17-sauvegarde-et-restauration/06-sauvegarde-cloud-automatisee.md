@@ -219,9 +219,9 @@ chmod +x Nextcloud-*.AppImage
 ./Nextcloud-*.AppImage
 
 # Méthode 2 : Dépôt officiel
-sudo add-apt-repository ppa:nextcloud-devs/client
-sudo apt update
-sudo apt install nextcloud-desktop
+sudo add-apt-repository ppa:nextcloud-devs/client  
+sudo apt update  
+sudo apt install nextcloud-desktop  
 
 # Méthode 3 : Flatpak
 flatpak install flathub com.nextcloud.desktopclient.nextcloud
@@ -322,8 +322,8 @@ Comme Google Drive n'a pas de client officiel Linux, nous utilisons rclone, un o
 
 ```bash
 # Installation depuis les dépôts
-sudo apt update
-sudo apt install rclone
+sudo apt update  
+sudo apt install rclone  
 
 # Ou dernière version depuis le site officiel
 curl https://rclone.org/install.sh | sudo bash
@@ -361,8 +361,8 @@ Tapez **drive** (ou le numéro correspondant à Google Drive) puis **Entrée**
 **5. Client ID et Secret**
 
 ```
-client_id>
-client_secret>
+client_id>  
+client_secret>  
 ```
 Laissez vides (appuyez juste **Entrée** pour les deux)
 
@@ -383,16 +383,16 @@ Laissez vide, **Entrée**
 **8. Configuration avancée**
 
 ```
-Edit advanced config? (y/n)
-y/n> n
+Edit advanced config? (y/n)  
+y/n> n  
 ```
 **n** puis **Entrée**
 
 **9. Autorisation**
 
 ```
-Use auto config?
-y/n> n
+Use auto config?  
+y/n> n  
 ```
 
 Répondez **n** si vous configurez sur un serveur sans interface graphique, **y** si sur votre desktop.
@@ -409,18 +409,18 @@ Si **n** :
 **10. Configuration en équipe**
 
 ```
-Configure this as a Shared Drive (Team Drive)?
-y/n> n
+Configure this as a Shared Drive (Team Drive)?  
+y/n> n  
 ```
 **n** puis **Entrée** (sauf si vous utilisez Google Workspace)
 
 **11. Confirmation**
 
 ```
-y) Yes this is OK (default)
-e) Edit this remote
-d) Delete this remote
-y/e/d> y
+y) Yes this is OK (default)  
+e) Edit this remote  
+d) Delete this remote  
+y/e/d> y  
 ```
 **y** puis **Entrée**
 
@@ -491,9 +491,9 @@ Contenu du script :
 # Script de sauvegarde automatique vers Google Drive
 
 # Configuration
-SOURCE="/home/$USER/Documents"
-DESTINATION="gdrive:Sauvegardes/Documents"
-LOG_FILE="/home/$USER/.rclone-backup.log"
+SOURCE="/home/$USER/Documents"  
+DESTINATION="gdrive:Sauvegardes/Documents"  
+LOG_FILE="/home/$USER/.rclone-backup.log"  
 
 # Date et heure
 echo "===== Sauvegarde du $(date) =====" >> $LOG_FILE
@@ -552,8 +552,8 @@ Contenu :
 Description=Google Drive Backup
 
 [Service]
-Type=oneshot
-ExecStart=/home/VOTRENOM/scripts/backup-gdrive.sh
+Type=oneshot  
+ExecStart=/home/VOTRENOM/scripts/backup-gdrive.sh  
 ```
 
 Créez le timer :
@@ -567,9 +567,9 @@ Contenu :
 Description=Daily Google Drive Backup
 
 [Timer]
-OnCalendar=daily
-OnCalendar=02:00
-Persistent=true
+OnCalendar=daily  
+OnCalendar=02:00  
+Persistent=true  
 
 [Install]
 WantedBy=timers.target
@@ -577,8 +577,8 @@ WantedBy=timers.target
 
 Activez :
 ```bash
-systemctl --user enable gdrive-backup.timer
-systemctl --user start gdrive-backup.timer
+systemctl --user enable gdrive-backup.timer  
+systemctl --user start gdrive-backup.timer  
 
 # Vérifiez le statut
 systemctl --user list-timers
@@ -671,16 +671,16 @@ Mega offre un client en ligne de commande puissant pour Linux.
 2. Téléchargez le package pour votre distribution
 3. Installez le .deb :
 ```bash
-sudo dpkg -i megacmd-*.deb
-sudo apt install -f  # Résoudre les dépendances
+sudo dpkg -i megacmd-*.deb  
+sudo apt install -f  # Résoudre les dépendances  
 ```
 
 **Via les dépôts :**
 
 ```bash
 # Ajoutez le dépôt Mega
-wget -O - https://mega.nz/linux/MEGAsync/Debian_10.0/amd64/megasync-Debian_10.0_amd64.deb
-sudo apt install ./megasync-*.deb
+wget -O - https://mega.nz/linux/MEGAsync/Debian_10.0/amd64/megasync-Debian_10.0_amd64.deb  
+sudo apt install ./megasync-*.deb  
 ```
 
 #### Configuration et utilisation
@@ -745,16 +745,16 @@ Sauvegardez sur plusieurs clouds pour redondance maximale :
 SOURCE="/home/$USER/Documents"
 
 # Sauvegarde sur Google Drive
-echo "Sauvegarde vers Google Drive..."
-rclone sync "$SOURCE" gdrive:Backup/Documents
+echo "Sauvegarde vers Google Drive..."  
+rclone sync "$SOURCE" gdrive:Backup/Documents  
 
 # Sauvegarde sur Dropbox
-echo "Sauvegarde vers Dropbox..."
-rclone sync "$SOURCE" dropbox:Backup/Documents
+echo "Sauvegarde vers Dropbox..."  
+rclone sync "$SOURCE" dropbox:Backup/Documents  
 
 # Sauvegarde sur Mega
-echo "Sauvegarde vers Mega..."
-rclone sync "$SOURCE" mega:Backup/Documents
+echo "Sauvegarde vers Mega..."  
+rclone sync "$SOURCE" mega:Backup/Documents  
 
 echo "Sauvegarde multi-cloud terminée !"
 ```
@@ -783,10 +783,10 @@ Syncthing synchronise vos fichiers directement entre vos appareils, sans serveur
 
 ```bash
 # Méthode 1 : Dépôt officiel (recommandé)
-sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
-echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
-sudo apt update
-sudo apt install syncthing
+sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg  
+echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list  
+sudo apt update  
+sudo apt install syncthing  
 
 # Méthode 2 : Flatpak
 flatpak install flathub me.kozec.syncthingtk
@@ -802,8 +802,8 @@ syncthing
 
 Ou activez le service pour démarrage automatique :
 ```bash
-systemctl --user enable syncthing.service
-systemctl --user start syncthing.service
+systemctl --user enable syncthing.service  
+systemctl --user start syncthing.service  
 ```
 
 **2. Accéder à l'interface web**
@@ -903,9 +903,9 @@ chmod +x cryptomator-*.AppImage
 ./cryptomator-*.AppImage
 
 # Méthode 2 : PPA
-sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
-sudo apt update
-sudo apt install cryptomator
+sudo add-apt-repository ppa:sebastian-stenzel/cryptomator  
+sudo apt update  
+sudo apt install cryptomator  
 ```
 
 #### Configuration
@@ -971,14 +971,14 @@ rclone config
 
 **1. Créer un remote chiffré**
 ```
-n) New remote
-name> gdrive-crypt
-Storage> crypt
-remote> gdrive:encrypted  # Où stocker les fichiers chiffrés
-filename_encryption> standard
-directory_name_encryption> true
-password> [Votre mot de passe fort]
-password2> [Confirmation]
+n) New remote  
+name> gdrive-crypt  
+Storage> crypt  
+remote> gdrive:encrypted  # Où stocker les fichiers chiffrés  
+filename_encryption> standard  
+directory_name_encryption> true  
+password> [Votre mot de passe fort]  
+password2> [Confirmation]  
 ```
 
 **2. Utilisation**
