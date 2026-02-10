@@ -543,9 +543,9 @@ Trouve "test" mais pas "testing" ou "contest".
 #### `-A` et `-B` : Contexte après et avant
 
 ```bash
-grep -A 3 "erreur" logs.txt    # 3 lignes après
-grep -B 2 "erreur" logs.txt    # 2 lignes avant
-grep -C 2 "erreur" logs.txt    # 2 lignes avant ET après
+grep -A 3 "erreur" logs.txt    # 3 lignes après  
+grep -B 2 "erreur" logs.txt    # 2 lignes avant  
+grep -C 2 "erreur" logs.txt    # 2 lignes avant ET après  
 ```
 
 **Très utile pour comprendre le contexte d'une erreur !**
@@ -565,9 +565,9 @@ grep -rni "erreur" /var/log/
 #### Rechercher un motif
 
 ```bash
-grep "^Erreur" fichier.txt    # Lignes commençant par "Erreur"
-grep "fin$" fichier.txt       # Lignes se terminant par "fin"
-grep "err.*" fichier.txt      # Lignes contenant "err" suivi de n'importe quoi
+grep "^Erreur" fichier.txt    # Lignes commençant par "Erreur"  
+grep "fin$" fichier.txt       # Lignes se terminant par "fin"  
+grep "err.*" fichier.txt      # Lignes contenant "err" suivi de n'importe quoi  
 ```
 
 #### Rechercher plusieurs mots
@@ -669,9 +669,9 @@ Trouve : "rapport.txt", "Rapport.txt", "RAPPORT.TXT", etc.
 #### Utiliser des jokers
 
 ```bash
-find ~ -name "*.pdf"          # Tous les PDF
-find ~ -name "photo*"         # Fichiers commençant par "photo"
-find ~ -name "*2024*"         # Fichiers contenant "2024"
+find ~ -name "*.pdf"          # Tous les PDF  
+find ~ -name "photo*"         # Fichiers commençant par "photo"  
+find ~ -name "*2024*"         # Fichiers contenant "2024"  
 ```
 
 **Important :** Mettez les jokers entre guillemets pour éviter que le shell ne les interprète !
@@ -699,9 +699,9 @@ find ~ -type l
 ### Rechercher par taille
 
 ```bash
-find ~ -size +100M        # Fichiers > 100 Mo
-find ~ -size -1M          # Fichiers < 1 Mo
-find ~ -size 50k          # Fichiers = 50 Ko (environ)
+find ~ -size +100M        # Fichiers > 100 Mo  
+find ~ -size -1M          # Fichiers < 1 Mo  
+find ~ -size 50k          # Fichiers = 50 Ko (environ)  
 ```
 
 **Unités :**
@@ -713,9 +713,9 @@ find ~ -size 50k          # Fichiers = 50 Ko (environ)
 ### Rechercher par date de modification
 
 ```bash
-find ~ -mtime -7          # Modifiés dans les 7 derniers jours
-find ~ -mtime +30         # Modifiés il y a plus de 30 jours
-find ~ -mtime 0           # Modifiés aujourd'hui
+find ~ -mtime -7          # Modifiés dans les 7 derniers jours  
+find ~ -mtime +30         # Modifiés il y a plus de 30 jours  
+find ~ -mtime 0           # Modifiés aujourd'hui  
 ```
 
 **Autres options temporelles :**
@@ -730,15 +730,15 @@ find ~ -mmin -60          # Modifiés dans les 60 dernières minutes
 ### Rechercher par permissions
 
 ```bash
-find ~ -perm 777          # Permissions exactes 777
-find ~ -perm -644         # Au moins les permissions 644
+find ~ -perm 777          # Permissions exactes 777  
+find ~ -perm -644         # Au moins les permissions 644  
 ```
 
 ### Rechercher par propriétaire
 
 ```bash
-find /home -user utilisateur     # Appartenant à "utilisateur"
-find /var -group www-data        # Appartenant au groupe "www-data"
+find /home -user utilisateur     # Appartenant à "utilisateur"  
+find /var -group www-data        # Appartenant au groupe "www-data"  
 ```
 
 ### Limiter la profondeur de recherche
@@ -837,8 +837,8 @@ find ~ -name "*.tmp" -delete
 **⚠️ ATTENTION :** Pas de confirmation ! Testez d'abord sans `-delete` :
 
 ```bash
-find ~ -name "*.tmp"           # Voir ce qui sera supprimé
-find ~ -name "*.tmp" -delete   # Puis supprimer
+find ~ -name "*.tmp"           # Voir ce qui sera supprimé  
+find ~ -name "*.tmp" -delete   # Puis supprimer  
 ```
 
 ### Exemples pratiques courants
@@ -948,12 +948,12 @@ Recherche ultra-rapide dans une base de données pré-indexée.
 
 **Installation (si nécessaire) :**
 ```bash
-sudo apt install mlocate
-sudo updatedb    # Mettre à jour la base de données
+sudo apt install mlocate  
+sudo updatedb    # Mettre à jour la base de données  
 ```
 
-**Avantages :** Extrêmement rapide
-**Inconvénients :** Base de données pas toujours à jour
+**Avantages :** Extrêmement rapide  
+**Inconvénients :** Base de données pas toujours à jour  
 
 ---
 
@@ -964,9 +964,9 @@ sudo updatedb    # Mettre à jour la base de données
 Avant d'utiliser `find` avec `-delete` ou `-exec rm` :
 
 ```bash
-find ~ -name "*.tmp"                    # Vérifier ce qui sera affecté
-find ~ -name "*.tmp" | wc -l            # Compter
-find ~ -name "*.tmp" -delete            # Puis supprimer
+find ~ -name "*.tmp"                    # Vérifier ce qui sera affecté  
+find ~ -name "*.tmp" | wc -l            # Compter  
+find ~ -name "*.tmp" -delete            # Puis supprimer  
 ```
 
 ### 2. Sauvegarder les résultats
@@ -1043,8 +1043,8 @@ find / -name "config"
 
 **Solutions :**
 ```bash
-find / -name "config" 2>/dev/null    # Masque les erreurs
-sudo find / -name "config"           # Avec droits admin
+find / -name "config" 2>/dev/null    # Masque les erreurs  
+sudo find / -name "config"           # Avec droits admin  
 ```
 
 ### Erreur 4 : `cat` avec un fichier binaire
@@ -1157,32 +1157,32 @@ journalctl -p err -S today
 ### `wc` : Compter lignes, mots, caractères
 
 ```bash
-wc fichier.txt           # Lignes, mots, caractères
-wc -l fichier.txt        # Nombre de lignes seulement
-wc -w fichier.txt        # Nombre de mots
-wc -c fichier.txt        # Nombre de caractères
+wc fichier.txt           # Lignes, mots, caractères  
+wc -l fichier.txt        # Nombre de lignes seulement  
+wc -w fichier.txt        # Nombre de mots  
+wc -c fichier.txt        # Nombre de caractères  
 ```
 
 ### `sort` : Trier
 
 ```bash
-sort fichier.txt         # Tri alphabétique
-sort -n fichier.txt      # Tri numérique
-sort -r fichier.txt      # Tri inversé
+sort fichier.txt         # Tri alphabétique  
+sort -n fichier.txt      # Tri numérique  
+sort -r fichier.txt      # Tri inversé  
 ```
 
 ### `uniq` : Supprimer les doublons
 
 ```bash
-sort fichier.txt | uniq         # Lignes uniques
-sort fichier.txt | uniq -c      # Avec compteur
+sort fichier.txt | uniq         # Lignes uniques  
+sort fichier.txt | uniq -c      # Avec compteur  
 ```
 
 ### `cut` : Extraire des colonnes
 
 ```bash
-cut -d: -f1 /etc/passwd    # Premier champ (noms utilisateurs)
-cut -c1-10 fichier.txt     # 10 premiers caractères
+cut -d: -f1 /etc/passwd    # Premier champ (noms utilisateurs)  
+cut -c1-10 fichier.txt     # 10 premiers caractères  
 ```
 
 ---
@@ -1210,11 +1210,11 @@ Vous maîtrisez maintenant les outils essentiels pour afficher et rechercher :
 
 **Commandes favorites à retenir :**
 ```bash
-less fichier.log                              # Lecture confortable
-tail -f /var/log/syslog                       # Surveiller les logs
-grep -rni "mot" ~/Documents                   # Recherche complète
-find ~ -name "*.pdf" -mtime -7                # PDFs récents
-cat fichier.txt | grep "mot" | wc -l          # Compter occurrences
+less fichier.log                              # Lecture confortable  
+tail -f /var/log/syslog                       # Surveiller les logs  
+grep -rni "mot" ~/Documents                   # Recherche complète  
+find ~ -name "*.pdf" -mtime -7                # PDFs récents  
+cat fichier.txt | grep "mot" | wc -l          # Compter occurrences  
 ```
 
 Dans le prochain chapitre, nous verrons comment éditer des fichiers directement dans le terminal avec `nano` et `vim`.

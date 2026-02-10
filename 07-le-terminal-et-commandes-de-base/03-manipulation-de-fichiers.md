@@ -304,9 +304,9 @@ Le dernier argument doit être un dossier.
 ### Utiliser des jokers (wildcards)
 
 ```bash
-cp *.txt Documents/          # Tous les fichiers .txt
-cp photo*.jpg Images/        # Tous les jpg commençant par "photo"
-cp rapport_*.pdf Archives/   # Tous les PDF correspondant au motif
+cp *.txt Documents/          # Tous les fichiers .txt  
+cp photo*.jpg Images/        # Tous les jpg commençant par "photo"  
+cp rapport_*.pdf Archives/   # Tous les PDF correspondant au motif  
 ```
 
 ### Exemples pratiques combinés
@@ -425,8 +425,8 @@ Si le fichier existe déjà, l'opération est annulée sans message.
 ### Utiliser des jokers
 
 ```bash
-mv *.txt Documents/              # Tous les .txt
-mv photo_2024*.jpg Archives/     # Photos de 2024
+mv *.txt Documents/              # Tous les .txt  
+mv photo_2024*.jpg Archives/     # Photos de 2024  
 ```
 
 ### Cas particuliers
@@ -487,8 +487,8 @@ rm fichier1.txt fichier2.txt fichier3.txt
 ### Supprimer avec des jokers
 
 ```bash
-rm *.tmp              # Tous les fichiers .tmp
-rm temp_*             # Tous les fichiers commençant par "temp_"
+rm *.tmp              # Tous les fichiers .tmp  
+rm temp_*             # Tous les fichiers commençant par "temp_"  
 ```
 
 **⚠️ Extrême prudence avec les jokers !**
@@ -554,9 +554,9 @@ Supprime un dossier et tout son contenu, de force, sans confirmation.
 **⚠️ DANGER EXTRÊME :**
 ```bash
 # NE JAMAIS FAIRE :
-rm -rf /          # Supprimerait tout le système !
-rm -rf /*         # Pareil !
-rm -rf ~          # Supprimerait tout votre dossier personnel !
+rm -rf /          # Supprimerait tout le système !  
+rm -rf /*         # Pareil !  
+rm -rf ~          # Supprimerait tout votre dossier personnel !  
 ```
 
 Heureusement, les systèmes modernes ont des protections contre ces commandes, mais restez vigilant !
@@ -571,10 +571,10 @@ sudo apt install trash-cli
 
 Puis utilisez :
 ```bash
-trash fichier.txt          # Envoie à la corbeille
-trash-list                 # Voir la corbeille
-trash-restore             # Restaurer
-trash-empty               # Vider la corbeille
+trash fichier.txt          # Envoie à la corbeille  
+trash-list                 # Voir la corbeille  
+trash-restore             # Restaurer  
+trash-empty               # Vider la corbeille  
 ```
 
 ### Bonnes pratiques avec `rm`
@@ -690,9 +690,9 @@ sudo apt install rename
 
 Exemples :
 ```bash
-rename 's/\.txt$/.md/' *.txt        # Change .txt en .md
-rename 'y/A-Z/a-z/' *               # Tout en minuscules
-rename 's/ /_/g' *                  # Remplace espaces par underscores
+rename 's/\.txt$/.md/' *.txt        # Change .txt en .md  
+rename 'y/A-Z/a-z/' *               # Tout en minuscules  
+rename 's/ /_/g' *                  # Remplace espaces par underscores  
 ```
 
 ### Déplacer en gardant la structure
@@ -874,9 +874,9 @@ mkdir Mes\ Documents
 ### 1. Créez des alias dans ~/.bashrc
 
 ```bash
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+alias rm='rm -i'  
+alias cp='cp -i'  
+alias mv='mv -i'  
 ```
 
 Rechargez avec : `source ~/.bashrc`
@@ -885,8 +885,8 @@ Rechargez avec : `source ~/.bashrc`
 
 Avant de supprimer ou déplacer avec des jokers :
 ```bash
-ls *.txt          # Voir ce qui correspond
-rm -i *.txt       # Puis supprimer
+ls *.txt          # Voir ce qui correspond  
+rm -i *.txt       # Puis supprimer  
 ```
 
 ### 3. Faites des sauvegardes

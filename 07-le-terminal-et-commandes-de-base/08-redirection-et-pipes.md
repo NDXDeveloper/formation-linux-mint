@@ -114,25 +114,25 @@ commande >> fichier
 #### Exemple 1 : Journal d'activités
 
 ```bash
-date >> journal.log
-echo "Système démarré" >> journal.log
+date >> journal.log  
+echo "Système démarré" >> journal.log  
 ```
 
 Chaque ligne s'ajoute à la fin du fichier.
 
 **Résultat dans journal.log :**
 ```
-Sam 30 nov 2024 10:30:15 CET
-Système démarré
+Sam 30 nov 2024 10:30:15 CET  
+Système démarré  
 ```
 
 #### Exemple 2 : Collecter des informations système
 
 ```bash
-echo "=== Informations système ===" > rapport.txt
-date >> rapport.txt
-uname -a >> rapport.txt
-df -h >> rapport.txt
+echo "=== Informations système ===" > rapport.txt  
+date >> rapport.txt  
+uname -a >> rapport.txt  
+df -h >> rapport.txt  
 ```
 
 Crée un rapport avec plusieurs informations.
@@ -149,15 +149,15 @@ Ajoute les PDF trouvés à la liste existante.
 
 ```bash
 # Avec > (écrase)
-echo "Ligne 1" > fichier.txt    # Crée "Ligne 1"
-echo "Ligne 2" > fichier.txt    # Remplace par "Ligne 2"
-cat fichier.txt
+echo "Ligne 1" > fichier.txt    # Crée "Ligne 1"  
+echo "Ligne 2" > fichier.txt    # Remplace par "Ligne 2"  
+cat fichier.txt  
 # Résultat : Ligne 2
 
 # Avec >> (ajoute)
-echo "Ligne 1" > fichier.txt    # Crée "Ligne 1"
-echo "Ligne 2" >> fichier.txt   # Ajoute "Ligne 2"
-cat fichier.txt
+echo "Ligne 1" > fichier.txt    # Crée "Ligne 1"  
+echo "Ligne 2" >> fichier.txt   # Ajoute "Ligne 2"  
+cat fichier.txt  
 # Résultat :
 # Ligne 1
 # Ligne 2
@@ -219,8 +219,8 @@ En pratique, `<` est moins utilisé que `>` car la plupart des commandes accepte
 
 ```bash
 # Ces deux commandes sont équivalentes :
-cat < fichier.txt
-cat fichier.txt
+cat < fichier.txt  
+cat fichier.txt  
 ```
 
 ---
@@ -575,11 +575,11 @@ Surveille les logs en temps réel, filtre les erreurs, et les sauvegarde.
 ### Syntaxe
 
 ```bash
-commande << DELIMITEUR
-Texte
-sur plusieurs
-lignes
-DELIMITEUR
+commande << DELIMITEUR  
+Texte  
+sur plusieurs  
+lignes  
+DELIMITEUR  
 ```
 
 **Effet :** Permet d'envoyer du texte multi-lignes à une commande.
@@ -589,11 +589,11 @@ DELIMITEUR
 #### Exemple 1 : Créer un fichier multi-lignes
 
 ```bash
-cat > fichier.txt << EOF
-Ceci est la ligne 1
-Ceci est la ligne 2
-Ceci est la ligne 3
-EOF
+cat > fichier.txt << EOF  
+Ceci est la ligne 1  
+Ceci est la ligne 2  
+Ceci est la ligne 3  
+EOF  
 ```
 
 **Note :** `EOF` (End Of File) est conventionnel, mais vous pouvez utiliser n'importe quel mot.
@@ -601,10 +601,10 @@ EOF
 #### Exemple 2 : Script SQL
 
 ```bash
-mysql -u root -p database << SQL
-SELECT * FROM users;
-UPDATE settings SET value='new' WHERE key='config';
-SQL
+mysql -u root -p database << SQL  
+SELECT * FROM users;  
+UPDATE settings SET value='new' WHERE key='config';  
+SQL  
 ```
 
 #### Exemple 3 : Créer un script
@@ -612,10 +612,10 @@ SQL
 ```bash
 cat > mon_script.sh << 'END'
 #!/bin/bash
-echo "Bonjour"
-date
-END
-chmod +x mon_script.sh
+echo "Bonjour"  
+date  
+END  
+chmod +x mon_script.sh  
 ```
 
 ### Here Strings : `<<<`
@@ -629,8 +629,8 @@ grep "mot" <<< "voici une phrase avec le mot recherché"
 Ou :
 
 ```bash
-variable="Texte important"
-wc -w <<< "$variable"
+variable="Texte important"  
+wc -w <<< "$variable"  
 ```
 
 ---
@@ -641,8 +641,8 @@ wc -w <<< "$variable"
 
 Au lieu de :
 ```bash
-commande > fichier
-cat fichier
+commande > fichier  
+cat fichier  
 ```
 
 Utilisez :
@@ -695,8 +695,8 @@ sudo bash -c "commande1 | commande2"
 
 **Problème :**
 ```bash
-sudo echo "texte" > /etc/fichier
-bash: /etc/fichier: Permission denied
+sudo echo "texte" > /etc/fichier  
+bash: /etc/fichier: Permission denied  
 ```
 
 **Cause :** La redirection `>` est gérée par le shell, pas par sudo.
@@ -783,8 +783,8 @@ cat fichier.txt > fichier.txt.backup
 ### 2. Vérifier avant de rediriger
 
 ```bash
-commande          # Vérifier le résultat
-commande > fichier # Puis sauvegarder
+commande          # Vérifier le résultat  
+commande > fichier # Puis sauvegarder  
 ```
 
 ### 3. Utiliser `>>` pour les logs
@@ -846,13 +846,13 @@ find ~ -type f -exec du -h {} + 2>/dev/null | \
 ### Combinaisons fréquentes
 
 ```bash
-commande > fichier                  # Sauvegarder sortie
-commande >> fichier                 # Ajouter sortie
-commande 2> /dev/null               # Ignorer erreurs
-commande &> fichier                 # Tout sauvegarder
-commande | tee fichier              # Voir et sauvegarder
-commande1 | commande2               # Connecter deux commandes
-commande1 | commande2 > fichier     # Pipe puis sauvegarder
+commande > fichier                  # Sauvegarder sortie  
+commande >> fichier                 # Ajouter sortie  
+commande 2> /dev/null               # Ignorer erreurs  
+commande &> fichier                 # Tout sauvegarder  
+commande | tee fichier              # Voir et sauvegarder  
+commande1 | commande2               # Connecter deux commandes  
+commande1 | commande2 > fichier     # Pipe puis sauvegarder  
 ```
 
 ---

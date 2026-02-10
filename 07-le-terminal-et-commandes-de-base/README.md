@@ -159,8 +159,8 @@ Pour chaque commande présentée dans ce chapitre :
 Avant de commencer, créez un dossier de test :
 
 ```bash
-mkdir ~/test_terminal
-cd ~/test_terminal
+mkdir ~/test_terminal  
+cd ~/test_terminal  
 ```
 
 Vous pourrez y faire toutes vos expérimentations sans risque de casser quoi que ce soit d'important.
@@ -247,8 +247,8 @@ Tapez la commande sans le `$` (qui représente le prompt).
 Les résultats affichés par le système sont présentés ainsi :
 
 ```
-total 48
-drwxr-xr-x  2 utilisateur utilisateur 4096 nov. 30 14:30 Documents
+total 48  
+drwxr-xr-x  2 utilisateur utilisateur 4096 nov. 30 14:30 Documents  
 ```
 
 ### Commentaires dans le code
@@ -256,8 +256,8 @@ drwxr-xr-x  2 utilisateur utilisateur 4096 nov. 30 14:30 Documents
 Les explications dans le code sont précédées de `#` :
 
 ```bash
-ls -la          # Liste tous les fichiers avec détails
-cd Documents    # Entre dans le dossier Documents
+ls -la          # Liste tous les fichiers avec détails  
+cd Documents    # Entre dans le dossier Documents  
 ```
 
 ### Symboles importants
@@ -282,8 +282,8 @@ cd Documents    # Entre dans le dossier Documents
 
 **Aide intégrée :**
 ```bash
-man commande        # Manuel de la commande
-commande --help     # Aide rapide
+man commande        # Manuel de la commande  
+commande --help     # Aide rapide  
 ```
 
 **Sites web utiles :**

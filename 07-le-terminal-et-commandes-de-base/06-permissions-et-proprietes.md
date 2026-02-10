@@ -635,8 +635,8 @@ Tout le monde peut le lire, vous seul pouvez le modifier.
 Les serveurs web nécessitent souvent des permissions spécifiques.
 
 ```bash
-sudo chown -R www-data:www-data /var/www/monsite
-sudo chmod -R 755 /var/www/monsite
+sudo chown -R www-data:www-data /var/www/monsite  
+sudo chmod -R 755 /var/www/monsite  
 ```
 
 ### Cas 6 : Clés SSH
@@ -644,9 +644,9 @@ sudo chmod -R 755 /var/www/monsite
 Les clés SSH doivent être strictement privées.
 
 ```bash
-chmod 600 ~/.ssh/id_rsa
-chmod 644 ~/.ssh/id_rsa.pub
-chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa  
+chmod 644 ~/.ssh/id_rsa.pub  
+chmod 700 ~/.ssh  
 ```
 
 ---
@@ -691,8 +691,8 @@ drwxrwxrwt
 
 **Configuration :**
 ```bash
-chmod +s fichier    # SUID/SGID
-chmod +t dossier    # Sticky bit
+chmod +s fichier    # SUID/SGID  
+chmod +t dossier    # Sticky bit  
 ```
 
 **Note :** Ces permissions sont avancées. En tant que débutant, vous n'aurez probablement pas besoin de les utiliser souvent.
@@ -755,8 +755,8 @@ chmod +x script.sh
 
 **Problème :**
 ```bash
-cat document.txt
-cat: document.txt: Permission denied
+cat document.txt  
+cat: document.txt: Permission denied  
 ```
 
 **Cause :** Vous n'avez pas la permission de lecture.
@@ -773,8 +773,8 @@ Sinon, demandez au propriétaire de modifier les permissions ou utilisez `sudo`.
 
 **Problème :**
 ```bash
-chown alice fichier.txt
-chown: changing ownership of 'fichier.txt': Operation not permitted
+chown alice fichier.txt  
+chown: changing ownership of 'fichier.txt': Operation not permitted  
 ```
 
 **Cause :** Seul root peut changer le propriétaire.
@@ -788,8 +788,8 @@ sudo chown alice fichier.txt
 
 **Problème :**
 ```bash
-rm -r Dossier
-rm: cannot remove 'Dossier': Permission denied
+rm -r Dossier  
+rm: cannot remove 'Dossier': Permission denied  
 ```
 
 **Cause :** Vous n'avez pas les droits d'écriture sur le dossier parent.
@@ -840,9 +840,9 @@ chmod 644 fichier    # Juste ce qu'il faut
 ### 2. Protégez vos fichiers sensibles
 
 ```bash
-chmod 600 ~/.ssh/id_rsa
-chmod 600 ~/.gnupg/*
-chmod 600 ~/.netrc
+chmod 600 ~/.ssh/id_rsa  
+chmod 600 ~/.gnupg/*  
+chmod 600 ~/.netrc  
 ```
 
 ### 3. Scripts exécutables
@@ -861,15 +861,15 @@ chmod 700 script.sh    # Vous seul pouvez l'exécuter
 
 Pour un dossier de travail en équipe :
 ```bash
-chmod 770 ProjetEquipe    # Vous et votre groupe
-chgrp equipe ProjetEquipe
+chmod 770 ProjetEquipe    # Vous et votre groupe  
+chgrp equipe ProjetEquipe  
 ```
 
 ### 5. Vérifiez avant de modifier récursivement
 
 ```bash
-ls -lR Dossier/        # Voir les permissions actuelles
-chmod -R 755 Dossier/  # Puis modifier
+ls -lR Dossier/        # Voir les permissions actuelles  
+chmod -R 755 Dossier/  # Puis modifier  
 ```
 
 ### 6. Ne jamais 777 !
@@ -899,30 +899,30 @@ C'est presque toujours une mauvaise idée. Il existe toujours une meilleure solu
 
 ```bash
 # Voir les permissions
-ls -l fichier
-ls -ld dossier
+ls -l fichier  
+ls -ld dossier  
 
 # Modifier les permissions (symbolique)
-chmod u+x fichier          # Ajouter exécution au propriétaire
-chmod g-w fichier          # Retirer écriture au groupe
-chmod a+r fichier          # Ajouter lecture à tous
+chmod u+x fichier          # Ajouter exécution au propriétaire  
+chmod g-w fichier          # Retirer écriture au groupe  
+chmod a+r fichier          # Ajouter lecture à tous  
 
 # Modifier les permissions (octal)
-chmod 644 fichier          # rw-r--r--
-chmod 755 script           # rwxr-xr-x
-chmod 600 fichier_prive    # rw-------
+chmod 644 fichier          # rw-r--r--  
+chmod 755 script           # rwxr-xr-x  
+chmod 600 fichier_prive    # rw-------  
 
 # Récursif
 chmod -R 755 dossier
 
 # Changer le propriétaire
-sudo chown utilisateur fichier
-sudo chown utilisateur:groupe fichier
-sudo chown -R utilisateur dossier
+sudo chown utilisateur fichier  
+sudo chown utilisateur:groupe fichier  
+sudo chown -R utilisateur dossier  
 
 # Changer le groupe
-sudo chgrp groupe fichier
-sudo chgrp -R groupe dossier
+sudo chgrp groupe fichier  
+sudo chgrp -R groupe dossier  
 
 # Informations détaillées
 stat fichier
@@ -985,12 +985,12 @@ stat fichier
 ### Commandes à retenir absolument
 
 ```bash
-ls -l                      # Voir les permissions
-chmod +x script.sh         # Rendre exécutable
-chmod 644 fichier.txt      # Permissions standard fichier
-chmod 755 dossier          # Permissions standard dossier
-chmod 600 fichier_prive    # Fichier privé
-sudo chown user fichier    # Changer propriétaire
+ls -l                      # Voir les permissions  
+chmod +x script.sh         # Rendre exécutable  
+chmod 644 fichier.txt      # Permissions standard fichier  
+chmod 755 dossier          # Permissions standard dossier  
+chmod 600 fichier_prive    # Fichier privé  
+sudo chown user fichier    # Changer propriétaire  
 ```
 
 ### Checklist de sécurité

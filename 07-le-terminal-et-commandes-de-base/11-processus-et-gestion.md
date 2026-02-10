@@ -101,9 +101,9 @@ ps aux
 
 **Exemple de sortie :**
 ```
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root         1  0.0  0.1 169316 11984 ?        Ss   10:30   0:02 /sbin/init
-utilisateur 1234  2.5  3.2 2456789 256000 ?    Sl   11:00   1:23 /usr/lib/firefox/firefox
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND  
+root         1  0.0  0.1 169316 11984 ?        Ss   10:30   0:02 /sbin/init  
+utilisateur 1234  2.5  3.2 2456789 256000 ?    Sl   11:00   1:23 /usr/lib/firefox/firefox  
 ```
 
 **Colonnes importantes :**
@@ -238,11 +238,11 @@ top
 
 **Interface :**
 ```
-top - 14:30:25 up 3:45, 2 users, load average: 0.52, 0.58, 0.59
-Tasks: 245 total,   1 running, 244 sleeping,   0 stopped,   0 zombie
+top - 14:30:25 up 3:45, 2 users, load average: 0.52, 0.58, 0.59  
+Tasks: 245 total,   1 running, 244 sleeping,   0 stopped,   0 zombie  
 %Cpu(s):  5.3 us,  2.1 sy,  0.0 ni, 92.3 id,  0.2 wa,  0.0 hi,  0.1 si,  0.0 st
-MiB Mem :  15923.5 total,   3234.2 free,   8234.5 used,   4454.8 buff/cache
-MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6234.2 avail Mem
+MiB Mem :  15923.5 total,   3234.2 free,   8234.5 used,   4454.8 buff/cache  
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6234.2 avail Mem  
 
   PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
  1234 user      20   0 2456789 256000  89234 S   5.3   1.6   1:23.45 firefox
@@ -353,10 +353,10 @@ Une fois dans top, vous pouvez utiliser ces touches :
 ### Options de lancement de top
 
 ```bash
-top -u utilisateur     # Seulement les processus d'un utilisateur
-top -p 1234            # Seulement le processus PID 1234
-top -d 1               # Rafraîchir chaque seconde
-top -b -n 1            # Mode batch (pour scripts)
+top -u utilisateur     # Seulement les processus d'un utilisateur  
+top -p 1234            # Seulement le processus PID 1234  
+top -d 1               # Rafraîchir chaque seconde  
+top -b -n 1            # Mode batch (pour scripts)  
 ```
 
 ---
@@ -562,8 +562,8 @@ Tue tous les processus portant ce nom.
 **Exemples :**
 
 ```bash
-killall firefox          # Tue tous les Firefox
-killall -9 chrome        # Force l'arrêt de tous les Chrome
+killall firefox          # Tue tous les Firefox  
+killall -9 chrome        # Force l'arrêt de tous les Chrome  
 ```
 
 **⚠️ Attention :** Tue TOUS les processus de ce nom !
@@ -580,9 +580,9 @@ Plus flexible que `killall`.
 **Exemples :**
 
 ```bash
-pkill fire               # Tue tout ce qui contient "fire"
-pkill -u utilisateur     # Tue tous les processus d'un utilisateur
-pkill -9 python          # Force l'arrêt de tous les processus Python
+pkill fire               # Tue tout ce qui contient "fire"  
+pkill -u utilisateur     # Tue tous les processus d'un utilisateur  
+pkill -9 python          # Force l'arrêt de tous les processus Python  
 ```
 
 ### `pgrep` : Trouver les PIDs
@@ -597,9 +597,9 @@ Affiche les PIDs correspondants (sans tuer).
 **Exemples :**
 
 ```bash
-pgrep firefox            # Affiche les PIDs de Firefox
-pgrep -u root            # PIDs des processus de root
-pgrep -l firefox         # Avec le nom du processus
+pgrep firefox            # Affiche les PIDs de Firefox  
+pgrep -u root            # PIDs des processus de root  
+pgrep -l firefox         # Avec le nom du processus  
 ```
 
 **Combinaison avec kill :**
@@ -969,8 +969,8 @@ Affiche l'utilisation de la mémoire et du swap.
 **Exemple de sortie :**
 ```
               total       used       free     shared  buff/cache   available
-Mem:           15Gi       8.0Gi      3.1Gi      256Mi       4.3Gi       6.0Gi
-Swap:         2.0Gi          0B      2.0Gi
+Mem:           15Gi       8.0Gi      3.1Gi      256Mi       4.3Gi       6.0Gi  
+Swap:         2.0Gi          0B      2.0Gi  
 ```
 
 ### Commande `vmstat`
@@ -1024,28 +1024,28 @@ sudo lsof -i :80
 ### `systemctl` : Gérer les services
 
 ```bash
-sudo systemctl status nom_service     # Voir l'état
-sudo systemctl start nom_service      # Démarrer
-sudo systemctl stop nom_service       # Arrêter
-sudo systemctl restart nom_service    # Redémarrer
-sudo systemctl enable nom_service     # Activer au démarrage
-sudo systemctl disable nom_service    # Désactiver au démarrage
+sudo systemctl status nom_service     # Voir l'état  
+sudo systemctl start nom_service      # Démarrer  
+sudo systemctl stop nom_service       # Arrêter  
+sudo systemctl restart nom_service    # Redémarrer  
+sudo systemctl enable nom_service     # Activer au démarrage  
+sudo systemctl disable nom_service    # Désactiver au démarrage  
 ```
 
 **Exemples :**
 ```bash
-sudo systemctl status apache2
-sudo systemctl restart networking
-sudo systemctl enable ssh
+sudo systemctl status apache2  
+sudo systemctl restart networking  
+sudo systemctl enable ssh  
 ```
 
 ### `service` : Ancienne méthode
 
 ```bash
-sudo service nom_service start
-sudo service nom_service stop
-sudo service nom_service restart
-sudo service nom_service status
+sudo service nom_service start  
+sudo service nom_service stop  
+sudo service nom_service restart  
+sudo service nom_service status  
 ```
 
 ---
@@ -1114,9 +1114,9 @@ tail -f /var/log/syslog
 Créer des alias dans `~/.bashrc` :
 
 ```bash
-alias cpu='ps aux --sort=-%cpu | head -10'
-alias mem='ps aux --sort=-%mem | head -10'
-alias processes='htop'
+alias cpu='ps aux --sort=-%cpu | head -10'  
+alias mem='ps aux --sort=-%mem | head -10'  
+alias processes='htop'  
 ```
 
 ---
@@ -1127,32 +1127,32 @@ alias processes='htop'
 
 ```bash
 # Voir les processus
-ps aux                      # Tous les processus
-ps aux | grep firefox       # Chercher un processus
-pgrep firefox               # PID de Firefox
-pidof firefox               # PID de Firefox
+ps aux                      # Tous les processus  
+ps aux | grep firefox       # Chercher un processus  
+pgrep firefox               # PID de Firefox  
+pidof firefox               # PID de Firefox  
 
 # Surveillance
-top                         # Surveillance basique
-htop                        # Surveillance améliorée (recommandé)
-btop                        # Surveillance moderne
+top                         # Surveillance basique  
+htop                        # Surveillance améliorée (recommandé)  
+btop                        # Surveillance moderne  
 
 # Tuer des processus
-kill PID                    # Arrêt normal
-kill -9 PID                 # Arrêt forcé
-killall firefox             # Tuer tous les Firefox
-pkill firefox               # Tuer par nom
+kill PID                    # Arrêt normal  
+kill -9 PID                 # Arrêt forcé  
+killall firefox             # Tuer tous les Firefox  
+pkill firefox               # Tuer par nom  
 
 # Arrière-plan
-commande &                  # Lancer en arrière-plan
-Ctrl+Z                      # Suspendre
-bg                          # Reprendre en arrière-plan
-fg                          # Ramener au premier plan
-jobs                        # Voir les jobs
+commande &                  # Lancer en arrière-plan  
+Ctrl+Z                      # Suspendre  
+bg                          # Reprendre en arrière-plan  
+fg                          # Ramener au premier plan  
+jobs                        # Voir les jobs  
 
 # Priorités
-nice -n 10 commande         # Lancer avec faible priorité
-renice 10 -p PID            # Modifier la priorité
+nice -n 10 commande         # Lancer avec faible priorité  
+renice 10 -p PID            # Modifier la priorité  
 ```
 
 ### États des processus

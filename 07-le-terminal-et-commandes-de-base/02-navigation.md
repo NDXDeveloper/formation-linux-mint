@@ -103,8 +103,8 @@ Cette commande affiche la liste des fichiers et dossiers dans le répertoire act
 ### Exemple simple
 
 ```bash
-utilisateur@ordinateur:~$ ls
-Bureau  Documents  Images  Musique  Téléchargements  Vidéos
+utilisateur@ordinateur:~$ ls  
+Bureau  Documents  Images  Musique  Téléchargements  Vidéos  
 ```
 
 ### Options courantes
@@ -194,10 +194,10 @@ ls /home/utilisateur/Documents
 ### Options utiles supplémentaires
 
 ```bash
-ls -lt     # Trier par date de modification (le plus récent en premier)
-ls -lS     # Trier par taille (le plus gros en premier)
-ls -lr     # Ordre inversé
-ls -R      # Récursif (affiche aussi les sous-dossiers)
+ls -lt     # Trier par date de modification (le plus récent en premier)  
+ls -lS     # Trier par taille (le plus gros en premier)  
+ls -lr     # Ordre inversé  
+ls -R      # Récursif (affiche aussi les sous-dossiers)  
 ```
 
 ### Filtrer avec des motifs
@@ -205,9 +205,9 @@ ls -R      # Récursif (affiche aussi les sous-dossiers)
 Vous pouvez utiliser des caractères joker :
 
 ```bash
-ls *.txt          # Tous les fichiers .txt
-ls Documents/*.pdf # Tous les PDF dans Documents
-ls photo*         # Tous les fichiers commençant par "photo"
+ls *.txt          # Tous les fichiers .txt  
+ls Documents/*.pdf # Tous les PDF dans Documents  
+ls photo*         # Tous les fichiers commençant par "photo"  
 ```
 
 ---
@@ -247,9 +247,9 @@ Peu importe où vous êtes, cette commande vous amène directement dans le dossi
 Plusieurs façons de faire :
 
 ```bash
-cd          # Sans argument, retourne au dossier personnel
-cd ~        # Équivalent
-cd $HOME    # Également équivalent
+cd          # Sans argument, retourne au dossier personnel  
+cd ~        # Équivalent  
+cd $HOME    # Également équivalent  
 ```
 
 #### Remonter d'un niveau (dossier parent)
@@ -263,8 +263,8 @@ Si vous êtes dans `/home/utilisateur/Documents`, vous allez dans `/home/utilisa
 #### Remonter de plusieurs niveaux
 
 ```bash
-cd ../..    # Remonte de 2 niveaux
-cd ../../.. # Remonte de 3 niveaux
+cd ../..    # Remonte de 2 niveaux  
+cd ../../.. # Remonte de 3 niveaux  
 ```
 
 #### Retourner au dossier précédent
@@ -277,8 +277,8 @@ Cette commande très pratique vous ramène au dernier dossier où vous étiez.
 
 **Exemple d'utilisation :**
 ```bash
-utilisateur@ordinateur:~$ cd /var/log
-utilisateur@ordinateur:/var/log$ cd -
+utilisateur@ordinateur:~$ cd /var/log  
+utilisateur@ordinateur:/var/log$ cd -  
 /home/utilisateur
 utilisateur@ordinateur:~$ cd -
 /var/log
@@ -317,8 +317,8 @@ Vous pouvez enchaîner plusieurs niveaux directement.
 #### Dossier inexistant
 
 ```bash
-utilisateur@ordinateur:~$ cd Documants
-bash: cd: Documants: Aucun fichier ou dossier de ce type
+utilisateur@ordinateur:~$ cd Documants  
+bash: cd: Documants: Aucun fichier ou dossier de ce type  
 ```
 
 **Solution :** Vérifiez l'orthographe, utilisez la complétion avec **Tab**.
@@ -326,8 +326,8 @@ bash: cd: Documants: Aucun fichier ou dossier de ce type
 #### Permission refusée
 
 ```bash
-utilisateur@ordinateur:~$ cd /root
-bash: cd: /root: Permission non accordée
+utilisateur@ordinateur:~$ cd /root  
+bash: cd: /root: Permission non accordée  
 ```
 
 **Explication :** Certains dossiers sont protégés et nécessitent des privilèges administrateur.
@@ -345,8 +345,8 @@ bash: cd: /root: Permission non accordée
 La commande `tree` n'est pas toujours installée par défaut. Pour l'installer :
 
 ```bash
-sudo apt update
-sudo apt install tree
+sudo apt update  
+sudo apt install tree  
 ```
 
 ### Utilisation de base
@@ -442,16 +442,16 @@ tree -aDh -L 3
 #### Voir la structure d'un autre dossier
 
 ```bash
-tree ~/Documents
-tree /etc -L 1
+tree ~/Documents  
+tree /etc -L 1  
 ```
 
 ### Filtrer par type de fichier
 
 ```bash
-tree -P "*.txt"    # Seulement les fichiers .txt
-tree -P "*.py"     # Seulement les fichiers Python
-tree -I "*.log"    # Exclure les fichiers .log
+tree -P "*.txt"    # Seulement les fichiers .txt  
+tree -P "*.py"     # Seulement les fichiers Python  
+tree -I "*.log"    # Exclure les fichiers .log  
 ```
 
 ---
@@ -495,9 +495,9 @@ Change de dossier, affiche où vous êtes, puis liste le contenu.
 Dans votre fichier `~/.bashrc`, vous pouvez ajouter :
 
 ```bash
-alias docs='cd ~/Documents'
-alias dl='cd ~/Téléchargements'
-alias proj='cd ~/Documents/Projets'
+alias docs='cd ~/Documents'  
+alias dl='cd ~/Téléchargements'  
+alias proj='cd ~/Documents/Projets'  
 ```
 
 Après avoir rechargé la configuration (`source ~/.bashrc`), vous pouvez taper simplement :
@@ -563,40 +563,40 @@ Maintenant, vous pouvez taper `cd nom_dossier` et bash cherchera dans tous ces e
 ### Scénario 1 : Trouver et ouvrir un document
 
 ```bash
-cd ~                    # Retour au dossier personnel
-ls                      # Que contient mon dossier ?
-cd Documents            # J'entre dans Documents
-ls -lt                  # Je liste par date (le plus récent en premier)
+cd ~                    # Retour au dossier personnel  
+ls                      # Que contient mon dossier ?  
+cd Documents            # J'entre dans Documents  
+ls -lt                  # Je liste par date (le plus récent en premier)  
 ```
 
 ### Scénario 2 : Explorer un projet
 
 ```bash
-cd ~/Documents/Projets/MonSite
-tree -L 2               # Je vois la structure sur 2 niveaux
-cd css                  # J'entre dans le dossier CSS
-ls -lh                  # Je regarde les fichiers CSS avec leurs tailles
-cd ..                   # Je remonte
-cd js                   # Je vais dans le dossier JavaScript
+cd ~/Documents/Projets/MonSite  
+tree -L 2               # Je vois la structure sur 2 niveaux  
+cd css                  # J'entre dans le dossier CSS  
+ls -lh                  # Je regarde les fichiers CSS avec leurs tailles  
+cd ..                   # Je remonte  
+cd js                   # Je vais dans le dossier JavaScript  
 ```
 
 ### Scénario 3 : Nettoyer les téléchargements
 
 ```bash
-cd ~/Téléchargements    # J'y vais
-ls -lt                  # Je trie par date
-ls *.pdf                # Je regarde les PDF
-ls *.deb                # Je regarde les paquets
+cd ~/Téléchargements    # J'y vais  
+ls -lt                  # Je trie par date  
+ls *.pdf                # Je regarde les PDF  
+ls *.deb                # Je regarde les paquets  
 ```
 
 ### Scénario 4 : Vérifier la configuration système
 
 ```bash
-cd /etc                 # Configuration système
-ls -l                   # Je liste
-tree -L 1 -d            # Structure des sous-dossiers (1 niveau)
-cd network              # Configuration réseau
-pwd                     # Je vérifie où je suis
+cd /etc                 # Configuration système  
+ls -l                   # Je liste  
+tree -L 1 -d            # Structure des sous-dossiers (1 niveau)  
+cd network              # Configuration réseau  
+pwd                     # Je vérifie où je suis  
 ```
 
 ---
@@ -607,8 +607,8 @@ pwd                     # Je vérifie où je suis
 
 **Problème :**
 ```bash
-cd Documments
-bash: cd: Documments: Aucun fichier ou dossier de ce type
+cd Documments  
+bash: cd: Documments: Aucun fichier ou dossier de ce type  
 ```
 
 **Solutions :**
@@ -621,8 +621,8 @@ bash: cd: Documments: Aucun fichier ou dossier de ce type
 
 **Problème :**
 ```bash
-cd /root
-bash: cd: /root: Permission non accordée
+cd /root  
+bash: cd: /root: Permission non accordée  
 ```
 
 **Solutions :**
@@ -637,20 +637,20 @@ Le dossier contient des centaines de fichiers, l'affichage défile trop vite.
 
 **Solutions :**
 ```bash
-ls | less           # Affichage paginé (q pour quitter)
-ls | head           # Voir seulement les 10 premiers
-ls | tail           # Voir seulement les 10 derniers
-ls | grep "mot"     # Filtrer par mot-clé
+ls | less           # Affichage paginé (q pour quitter)  
+ls | head           # Voir seulement les 10 premiers  
+ls | tail           # Voir seulement les 10 derniers  
+ls | grep "mot"     # Filtrer par mot-clé  
 ```
 
 ### Erreur 4 : Perdu dans l'arborescence
 
 **Solutions :**
 ```bash
-pwd                 # Où suis-je ?
-cd ~                # Retour à la maison
-cd -                # Retour au dossier précédent
-tree -L 1           # Vue rapide de la structure
+pwd                 # Où suis-je ?  
+cd ~                # Retour à la maison  
+cd -                # Retour au dossier précédent  
+tree -L 1           # Vue rapide de la structure  
 ```
 
 ---
@@ -750,10 +750,10 @@ Les commandes de navigation sont votre boussole dans le système Linux :
 ### Workflow typique
 
 ```bash
-pwd         # Je vérifie où je suis
-ls -la      # Je regarde ce qu'il y a
-cd dossier  # Je me déplace
-tree -L 2   # Je visualise la structure
+pwd         # Je vérifie où je suis  
+ls -la      # Je regarde ce qu'il y a  
+cd dossier  # Je me déplace  
+tree -L 2   # Je visualise la structure  
 ```
 
 Avec ces quatre commandes, vous pouvez explorer l'intégralité de votre système Linux de manière efficace. La pratique régulière les rendra bientôt aussi naturelles que de cliquer sur des dossiers !

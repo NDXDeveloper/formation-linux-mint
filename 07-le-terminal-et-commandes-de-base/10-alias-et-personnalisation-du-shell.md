@@ -72,8 +72,8 @@ alias grepr='grep -r --exclude-dir=.git --color=auto'
 
 Vous ne vous souvenez jamais des options de `tar` ? Créez :
 ```bash
-alias extract='tar -xzvf'
-alias compress='tar -czvf'
+alias extract='tar -xzvf'  
+alias compress='tar -czvf'  
 ```
 
 ### Créer un alias temporaire
@@ -86,11 +86,11 @@ alias nom='commande'
 **Exemples :**
 
 ```bash
-alias ll='ls -lah'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias h='history'
-alias c='clear'
+alias ll='ls -lah'  
+alias ..='cd ..'  
+alias ...='cd ../..'  
+alias h='history'  
+alias c='clear'  
 ```
 
 **Important :** Ces alias ne durent que pendant la session actuelle. Quand vous fermez le terminal, ils disparaissent.
@@ -179,17 +179,17 @@ Voici à quoi ressemble un `.bashrc` basique :
 [ -z "$PS1" ] && return
 
 # Historique
-HISTSIZE=10000
-HISTFILESIZE=20000
+HISTSIZE=10000  
+HISTFILESIZE=20000  
 
 # Options du shell
-shopt -s histappend
-shopt -s checkwinsize
+shopt -s histappend  
+shopt -s checkwinsize  
 
 # Alias
-alias ll='ls -lah'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -lah'  
+alias la='ls -A'  
+alias l='ls -CF'  
 
 # Personnalisation du prompt
 PS1='\u@\h:\w\$ '
@@ -231,10 +231,10 @@ Ajoutez vos alias à la fin du fichier :
 
 ```bash
 # Mes alias personnalisés
-alias update='sudo apt update && sudo apt upgrade'
-alias install='sudo apt install'
-alias remove='sudo apt remove'
-alias search='apt search'
+alias update='sudo apt update && sudo apt upgrade'  
+alias install='sudo apt install'  
+alias remove='sudo apt remove'  
+alias search='apt search'  
 ```
 
 Sauvegardez (**Ctrl+O** puis **Entrée**, puis **Ctrl+X**), et rechargez :
@@ -255,32 +255,32 @@ Ajoutez vos alias :
 
 ```bash
 # Navigation
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ..='cd ..'  
+alias ...='cd ../..'  
+alias ....='cd ../../..'  
 
 # Commandes avec options par défaut
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-alias mkdir='mkdir -pv'
+alias cp='cp -i'  
+alias mv='mv -i'  
+alias rm='rm -i'  
+alias mkdir='mkdir -pv'  
 
 # Listing
-alias ll='ls -lah'
-alias la='ls -A'
-alias lt='ls -lth'
+alias ll='ls -lah'  
+alias la='ls -A'  
+alias lt='ls -lth'  
 
 # Git
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
+alias gs='git status'  
+alias ga='git add'  
+alias gc='git commit'  
+alias gp='git push'  
 
 # Système
-alias update='sudo apt update && sudo apt upgrade'
-alias install='sudo apt install'
-alias ports='sudo netstat -tulpn'
-alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+alias update='sudo apt update && sudo apt upgrade'  
+alias install='sudo apt install'  
+alias ports='sudo netstat -tulpn'  
+alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'  
 ```
 
 **Important :** Vérifiez que `.bashrc` charge ce fichier (généralement déjà présent) :
@@ -303,113 +303,113 @@ source ~/.bashrc
 ### Navigation
 
 ```bash
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias ~='cd ~'
-alias -- -='cd -'    # Retour au dossier précédent
+alias ..='cd ..'  
+alias ...='cd ../..'  
+alias ....='cd ../../..'  
+alias ~='cd ~'  
+alias -- -='cd -'    # Retour au dossier précédent  
 
 # Dossiers fréquents
-alias docs='cd ~/Documents'
-alias dl='cd ~/Téléchargements'
-alias proj='cd ~/Projets'
+alias docs='cd ~/Documents'  
+alias dl='cd ~/Téléchargements'  
+alias proj='cd ~/Projets'  
 ```
 
 ### Listing amélioré
 
 ```bash
-alias ll='ls -lah'              # Liste détaillée
-alias la='ls -A'                # Tous les fichiers
-alias lt='ls -lth'              # Trié par date
-alias lS='ls -lSh'              # Trié par taille
-alias ldir='ls -d */'           # Seulement les dossiers
-alias tree='tree -C'            # Arborescence colorée
+alias ll='ls -lah'              # Liste détaillée  
+alias la='ls -A'                # Tous les fichiers  
+alias lt='ls -lth'              # Trié par date  
+alias lS='ls -lSh'              # Trié par taille  
+alias ldir='ls -d */'           # Seulement les dossiers  
+alias tree='tree -C'            # Arborescence colorée  
 ```
 
 ### Commandes avec confirmation
 
 ```bash
-alias cp='cp -i'                # Demande confirmation avant d'écraser
-alias mv='mv -i'
-alias rm='rm -i'
-alias ln='ln -i'
+alias cp='cp -i'                # Demande confirmation avant d'écraser  
+alias mv='mv -i'  
+alias rm='rm -i'  
+alias ln='ln -i'  
 ```
 
 ### Raccourcis système
 
 ```bash
-alias update='sudo apt update && sudo apt upgrade'
-alias install='sudo apt install'
-alias remove='sudo apt remove'
-alias search='apt search'
-alias autoremove='sudo apt autoremove'
-alias clean='sudo apt autoclean && sudo apt clean'
+alias update='sudo apt update && sudo apt upgrade'  
+alias install='sudo apt install'  
+alias remove='sudo apt remove'  
+alias search='apt search'  
+alias autoremove='sudo apt autoremove'  
+alias clean='sudo apt autoclean && sudo apt clean'  
 
-alias reboot='sudo reboot'
-alias shutdown='sudo shutdown -h now'
+alias reboot='sudo reboot'  
+alias shutdown='sudo shutdown -h now'  
 ```
 
 ### Git
 
 ```bash
-alias gs='git status'
-alias ga='git add'
-alias gaa='git add --all'
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gp='git push'
-alias gpl='git pull'
-alias gl='git log --oneline --graph --decorate'
-alias gd='git diff'
-alias gb='git branch'
-alias gco='git checkout'
+alias gs='git status'  
+alias ga='git add'  
+alias gaa='git add --all'  
+alias gc='git commit'  
+alias gcm='git commit -m'  
+alias gp='git push'  
+alias gpl='git pull'  
+alias gl='git log --oneline --graph --decorate'  
+alias gd='git diff'  
+alias gb='git branch'  
+alias gco='git checkout'  
 ```
 
 ### Réseau
 
 ```bash
-alias ping='ping -c 5'          # Seulement 5 pings
-alias ports='sudo netstat -tulpn'
-alias myip='curl ifconfig.me'   # Votre IP publique
-alias localip='ip addr show'
+alias ping='ping -c 5'          # Seulement 5 pings  
+alias ports='sudo netstat -tulpn'  
+alias myip='curl ifconfig.me'   # Votre IP publique  
+alias localip='ip addr show'  
 ```
 
 ### Recherche et filtrage
 
 ```bash
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias h='history'
-alias hgrep='history | grep'
+alias grep='grep --color=auto'  
+alias egrep='egrep --color=auto'  
+alias fgrep='fgrep --color=auto'  
+alias h='history'  
+alias hgrep='history | grep'  
 ```
 
 ### Utilitaires
 
 ```bash
-alias c='clear'
-alias x='exit'
-alias e='nano'                  # Votre éditeur préféré
-alias path='echo -e ${PATH//:/\\n}'
-alias now='date +"%T"'
-alias nowdate='date +"%d-%m-%Y"'
+alias c='clear'  
+alias x='exit'  
+alias e='nano'                  # Votre éditeur préféré  
+alias path='echo -e ${PATH//:/\\n}'  
+alias now='date +"%T"'  
+alias nowdate='date +"%d-%m-%Y"'  
 ```
 
 ### Système de fichiers
 
 ```bash
-alias df='df -h'                # Espace disque lisible
-alias du='du -h'                # Taille lisible
-alias free='free -h'            # Mémoire lisible
-alias mkdir='mkdir -pv'         # Créer parents + verbose
+alias df='df -h'                # Espace disque lisible  
+alias du='du -h'                # Taille lisible  
+alias free='free -h'            # Mémoire lisible  
+alias mkdir='mkdir -pv'         # Créer parents + verbose  
 ```
 
 ### Sécurité
 
 ```bash
-alias chmod='chmod --preserve-root'
-alias chown='chown --preserve-root'
-alias chgrp='chgrp --preserve-root'
+alias chmod='chmod --preserve-root'  
+alias chown='chown --preserve-root'  
+alias chgrp='chgrp --preserve-root'  
 ```
 
 **Protège contre les modifications accidentelles de `/`**
@@ -463,9 +463,9 @@ printenv
 
 **Voir une variable spécifique :**
 ```bash
-echo $HOME
-echo $USER
-echo $PATH
+echo $HOME  
+echo $USER  
+echo $PATH  
 ```
 
 ### Variables importantes
@@ -497,9 +497,9 @@ echo $MA_VARIABLE
 Dans `.bashrc` :
 
 ```bash
-export EDITOR="nano"
-export VISUAL="nano"
-export BROWSER="firefox"
+export EDITOR="nano"  
+export VISUAL="nano"  
+export BROWSER="firefox"  
 ```
 
 **Note :** `export` rend la variable disponible pour les programmes enfants.
@@ -518,8 +518,8 @@ echo $PATH
 Dans `.bashrc` :
 
 ```bash
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/bin"  
+export PATH="$PATH:$HOME/.local/bin"  
 ```
 
 Cela ajoute `~/bin` et `~/.local/bin` au PATH.
@@ -729,8 +729,8 @@ extract() {
 
 **Utilisation :**
 ```bash
-extract archive.tar.gz
-extract fichier.zip
+extract archive.tar.gz  
+extract fichier.zip  
 ```
 
 #### Créer une sauvegarde d'un fichier
@@ -771,8 +771,8 @@ calc() {
 
 **Utilisation :**
 ```bash
-calc 5 + 3
-calc 10 / 3
+calc 5 + 3  
+calc 10 / 3  
 ```
 
 #### Mettre à jour le système
@@ -815,80 +815,80 @@ Voici un exemple de configuration complète dans `.bashrc` :
 # ============================================
 # HISTORIQUE
 # ============================================
-HISTSIZE=10000
-HISTFILESIZE=20000
-HISTCONTROL=ignoreboth:erasedups
-HISTTIMEFORMAT="%F %T  "
-shopt -s histappend
+HISTSIZE=10000  
+HISTFILESIZE=20000  
+HISTCONTROL=ignoreboth:erasedups  
+HISTTIMEFORMAT="%F %T  "  
+shopt -s histappend  
 
 # ============================================
 # OPTIONS DU SHELL
 # ============================================
-shopt -s checkwinsize      # Mise à jour des dimensions de la fenêtre
-shopt -s cdspell           # Correction automatique des fautes de frappe dans cd
-shopt -s cmdhist           # Commandes multi-lignes sur une ligne
+shopt -s checkwinsize      # Mise à jour des dimensions de la fenêtre  
+shopt -s cdspell           # Correction automatique des fautes de frappe dans cd  
+shopt -s cmdhist           # Commandes multi-lignes sur une ligne  
 
 # ============================================
 # VARIABLES D'ENVIRONNEMENT
 # ============================================
-export EDITOR="nano"
-export VISUAL="nano"
-export BROWSER="firefox"
-export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+export EDITOR="nano"  
+export VISUAL="nano"  
+export BROWSER="firefox"  
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin"  
 
 # ============================================
 # COULEURS
 # ============================================
 # ls coloré
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias ls='ls --color=auto'  
+alias grep='grep --color=auto'  
+alias fgrep='fgrep --color=auto'  
+alias egrep='egrep --color=auto'  
 
 # ============================================
 # ALIAS - NAVIGATION
 # ============================================
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias ~='cd ~'
-alias -- -='cd -'
+alias ..='cd ..'  
+alias ...='cd ../..'  
+alias ....='cd ../../..'  
+alias ~='cd ~'  
+alias -- -='cd -'  
 
 # ============================================
 # ALIAS - LISTING
 # ============================================
-alias ll='ls -lah'
-alias la='ls -A'
-alias l='ls -CF'
-alias lt='ls -lth'
-alias lS='ls -lSh'
+alias ll='ls -lah'  
+alias la='ls -A'  
+alias l='ls -CF'  
+alias lt='ls -lth'  
+alias lS='ls -lSh'  
 
 # ============================================
 # ALIAS - SYSTÈME
 # ============================================
-alias update='sudo apt update && sudo apt upgrade'
-alias install='sudo apt install'
-alias remove='sudo apt remove'
-alias search='apt search'
-alias clean='sudo apt autoremove && sudo apt autoclean'
+alias update='sudo apt update && sudo apt upgrade'  
+alias install='sudo apt install'  
+alias remove='sudo apt remove'  
+alias search='apt search'  
+alias clean='sudo apt autoremove && sudo apt autoclean'  
 
 # ============================================
 # ALIAS - UTILITAIRES
 # ============================================
-alias c='clear'
-alias h='history'
-alias hgrep='history | grep'
-alias df='df -h'
-alias free='free -h'
-alias du='du -h'
-alias mkdir='mkdir -pv'
+alias c='clear'  
+alias h='history'  
+alias hgrep='history | grep'  
+alias df='df -h'  
+alias free='free -h'  
+alias du='du -h'  
+alias mkdir='mkdir -pv'  
 
 # ============================================
 # ALIAS - SÉCURITÉ
 # ============================================
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
+alias cp='cp -i'  
+alias mv='mv -i'  
+alias rm='rm -i'  
 
 # ============================================
 # FONCTIONS
@@ -947,8 +947,8 @@ fi
 # ============================================
 # MESSAGE DE BIENVENUE
 # ============================================
-echo "Bienvenue, $USER !"
-echo "Aujourd'hui : $(date '+%A %d %B %Y, %H:%M')"
+echo "Bienvenue, $USER !"  
+echo "Aujourd'hui : $(date '+%A %d %B %Y, %H:%M')"  
 ```
 
 ---
@@ -1098,10 +1098,10 @@ alias reload='source ~/.bashrc'
 Versionnez votre `.bashrc` avec Git :
 
 ```bash
-cd ~
-git init
-git add .bashrc .bash_aliases
-git commit -m "Configuration initiale"
+cd ~  
+git init  
+git add .bashrc .bash_aliases  
+git commit -m "Configuration initiale"  
 ```
 
 ---
@@ -1133,8 +1133,8 @@ git commit -m "Configuration initiale"
 **Solution :**
 Restaurez le prompt par défaut :
 ```bash
-PS1='\u@\h:\w\$ '
-source ~/.bashrc
+PS1='\u@\h:\w\$ '  
+source ~/.bashrc  
 ```
 
 ### Erreur 4 : Terminal lent au démarrage
@@ -1189,8 +1189,8 @@ alias nom='commande'
 **Créer un alias permanent :**
 Dans `~/.bashrc` :
 ```bash
-alias ll='ls -lah'
-alias update='sudo apt update && sudo apt upgrade'
+alias ll='ls -lah'  
+alias update='sudo apt update && sudo apt upgrade'  
 ```
 
 **Recharger :**
@@ -1201,8 +1201,8 @@ source ~/.bashrc
 ### Variables d'environnement
 
 ```bash
-export EDITOR="nano"
-export PATH="$PATH:$HOME/bin"
+export EDITOR="nano"  
+export PATH="$PATH:$HOME/bin"  
 ```
 
 ### Prompt (PS1)
@@ -1237,12 +1237,12 @@ mkcd() {
 ### Commandes essentielles
 
 ```bash
-nano ~/.bashrc           # Éditer la configuration
-source ~/.bashrc         # Recharger
-alias                    # Voir tous les alias
-alias nom                # Voir un alias spécifique
-unalias nom              # Supprimer un alias
-bash -n ~/.bashrc        # Vérifier la syntaxe
+nano ~/.bashrc           # Éditer la configuration  
+source ~/.bashrc         # Recharger  
+alias                    # Voir tous les alias  
+alias nom                # Voir un alias spécifique  
+unalias nom              # Supprimer un alias  
+bash -n ~/.bashrc        # Vérifier la syntaxe  
 ```
 
 ### Checklist de personnalisation

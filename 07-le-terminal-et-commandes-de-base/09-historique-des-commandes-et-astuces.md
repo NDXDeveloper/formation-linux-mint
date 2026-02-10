@@ -271,8 +271,8 @@ sudo systemctl restart apache2
 #### Dernier argument : `!$`
 
 ```bash
-mkdir /chemin/vers/dossier
-cd !$
+mkdir /chemin/vers/dossier  
+cd !$  
 # Équivalent à : cd /chemin/vers/dossier
 ```
 
@@ -280,32 +280,32 @@ Le `!$` représente le dernier argument de la commande précédente.
 
 **Autre exemple :**
 ```bash
-touch fichier.txt
-nano !$
+touch fichier.txt  
+nano !$  
 # Ouvre fichier.txt dans nano
 ```
 
 #### Premier argument : `!^`
 
 ```bash
-ls -la fichier.txt
-cat !^
+ls -la fichier.txt  
+cat !^  
 # Équivalent à : cat fichier.txt
 ```
 
 #### Tous les arguments : `!*`
 
 ```bash
-chmod +x script1.sh script2.sh script3.sh
-ls -l !*
+chmod +x script1.sh script2.sh script3.sh  
+ls -l !*  
 # Équivalent à : ls -l script1.sh script2.sh script3.sh
 ```
 
 ### Argument n d'une commande : `!:n`
 
 ```bash
-cp /source/fichier.txt /destination/
-cd !:2
+cp /source/fichier.txt /destination/  
+cd !:2  
 # Va dans /destination/
 ```
 
@@ -451,12 +451,12 @@ Ajoutez ceci dans votre `~/.bashrc` :
 
 ```bash
 # Configuration de l'historique
-HISTSIZE=10000                          # Historique en mémoire
-HISTFILESIZE=20000                      # Historique dans le fichier
-HISTCONTROL=ignoreboth:erasedups        # Ignorer espaces et doublons
-HISTTIMEFORMAT="%F %T  "                # Format: YYYY-MM-DD HH:MM:SS
-shopt -s histappend                     # Ajouter à l'historique au lieu d'écraser
-PROMPT_COMMAND='history -a'             # Sauvegarder après chaque commande
+HISTSIZE=10000                          # Historique en mémoire  
+HISTFILESIZE=20000                      # Historique dans le fichier  
+HISTCONTROL=ignoreboth:erasedups        # Ignorer espaces et doublons  
+HISTTIMEFORMAT="%F %T  "                # Format: YYYY-MM-DD HH:MM:SS  
+shopt -s histappend                     # Ajouter à l'historique au lieu d'écraser  
+PROMPT_COMMAND='history -a'             # Sauvegarder après chaque commande  
 ```
 
 **Appliquer les changements :**
@@ -527,15 +527,15 @@ chmod +x script1.sh
 ```bash
 cd /var/log
 # ... travail ...
-cd -    # Retourne au dossier précédent
-cd -    # Revient à /var/log
+cd -    # Retourne au dossier précédent  
+cd -    # Revient à /var/log  
 ```
 
 ### 5. Réutiliser des arguments complexes
 
 ```bash
-grep -r "ERROR" /var/log/apache2/error.log
-less !$
+grep -r "ERROR" /var/log/apache2/error.log  
+less !$  
 # Ouvre le fichier directement
 ```
 
@@ -544,15 +544,15 @@ less !$
 Ajoutez dans `~/.bashrc` :
 
 ```bash
-alias h='history'
-alias h10='history 10'
-alias hgrep='history | grep'
+alias h='history'  
+alias h10='history 10'  
+alias hgrep='history | grep'  
 ```
 
 **Utilisation :**
 ```bash
-hgrep apt    # Cherche "apt" dans l'historique
-h10          # Affiche les 10 dernières commandes
+hgrep apt    # Cherche "apt" dans l'historique  
+h10          # Affiche les 10 dernières commandes  
 ```
 
 ### 7. Recherche multi-critères
@@ -682,8 +682,8 @@ PROMPT_COMMAND='history -a; history -n'
 
 ```bash
 # Dans ~/.bashrc
-HISTSIZE=-1
-HISTFILESIZE=-1
+HISTSIZE=-1  
+HISTFILESIZE=-1  
 ```
 
 Aucune limite ! (Peut ralentir avec le temps)
@@ -754,9 +754,9 @@ Créez `~/clean_history.sh` :
 ```bash
 #!/bin/bash
 # Supprimer les doublons de l'historique
-cat ~/.bash_history | sort | uniq > ~/.bash_history_clean
-mv ~/.bash_history_clean ~/.bash_history
-echo "Historique nettoyé !"
+cat ~/.bash_history | sort | uniq > ~/.bash_history_clean  
+mv ~/.bash_history_clean ~/.bash_history  
+echo "Historique nettoyé !"  
 ```
 
 ### 3. Sauvegarder régulièrement
@@ -785,8 +785,8 @@ Sauvegarde hebdomadaire le dimanche à minuit.
 **Solution :**
 Ajoutez dans `~/.bashrc` :
 ```bash
-shopt -s histappend
-PROMPT_COMMAND='history -a'
+shopt -s histappend  
+PROMPT_COMMAND='history -a'  
 ```
 
 ### Erreur 2 : Commandes sensibles dans l'historique
@@ -806,8 +806,8 @@ HISTCONTROL=ignorespace
 
 **Option 2 : Supprimer de l'historique**
 ```bash
-history | grep "mysql"
-history -d 523    # Supprime la ligne 523
+history | grep "mysql"  
+history -d 523    # Supprime la ligne 523  
 ```
 
 **Option 3 : Désactiver temporairement**
@@ -859,35 +859,35 @@ HISTIGNORE="ls:ll:cd:pwd:clear:exit:history"
 
 Personnalisez `~/.bashrc` avec vos préférences :
 ```bash
-HISTSIZE=10000
-HISTFILESIZE=20000
-HISTCONTROL=ignoreboth:erasedups
-HISTTIMEFORMAT="%F %T  "
-shopt -s histappend
+HISTSIZE=10000  
+HISTFILESIZE=20000  
+HISTCONTROL=ignoreboth:erasedups  
+HISTTIMEFORMAT="%F %T  "  
+shopt -s histappend  
 ```
 
 ### 2. Utilisez des alias pour les commandes fréquentes
 
 Au lieu de chercher dans l'historique :
 ```bash
-alias update='sudo apt update && sudo apt upgrade'
-alias ports='sudo netstat -tulpn'
-alias logs='sudo tail -f /var/log/syslog'
+alias update='sudo apt update && sudo apt upgrade'  
+alias ports='sudo netstat -tulpn'  
+alias logs='sudo tail -f /var/log/syslog'  
 ```
 
 ### 3. Nettoyez régulièrement
 
 ```bash
 # Supprimer les vieilles entrées
-history -c
-history -r
+history -c  
+history -r  
 ```
 
 ### 4. Sauvegardez vos configurations
 
 ```bash
-cp ~/.bashrc ~/.bashrc.backup
-cp ~/.bash_history ~/.bash_history.backup
+cp ~/.bashrc ~/.bashrc.backup  
+cp ~/.bash_history ~/.bash_history.backup  
 ```
 
 ### 5. Documentez vos commandes complexes
@@ -912,11 +912,11 @@ Vérifiez toujours avant d'exécuter :
 ### Commandes essentielles
 
 ```bash
-history              # Afficher tout l'historique
-history 20           # 20 dernières commandes
-history | grep "mot" # Rechercher dans l'historique
-history -c           # Effacer l'historique
-history -d 500       # Supprimer la ligne 500
+history              # Afficher tout l'historique  
+history 20           # 20 dernières commandes  
+history | grep "mot" # Rechercher dans l'historique  
+history -c           # Effacer l'historique  
+history -d 500       # Supprimer la ligne 500  
 ```
 
 ### Raccourcis de navigation
@@ -933,20 +933,20 @@ Ctrl+R               # Recherche interactive
 ### Configuration dans ~/.bashrc
 
 ```bash
-HISTSIZE=10000
-HISTFILESIZE=20000
-HISTCONTROL=ignoreboth:erasedups
-HISTTIMEFORMAT="%F %T  "
-shopt -s histappend
-PROMPT_COMMAND='history -a'
+HISTSIZE=10000  
+HISTFILESIZE=20000  
+HISTCONTROL=ignoreboth:erasedups  
+HISTTIMEFORMAT="%F %T  "  
+shopt -s histappend  
+PROMPT_COMMAND='history -a'  
 ```
 
 ### Astuces de productivité
 
 ```bash
-sudo !!              # Dernière commande avec sudo
-touch f.txt && nano !$   # Créer et ouvrir
-cd -                 # Basculer entre deux dossiers
+sudo !!              # Dernière commande avec sudo  
+touch f.txt && nano !$   # Créer et ouvrir  
+cd -                 # Basculer entre deux dossiers  
 ^ancien^nouveau      # Substitution rapide
 ```
 

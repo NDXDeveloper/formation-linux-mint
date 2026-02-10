@@ -632,8 +632,8 @@ set number
 syntax on
 
 " Activer l'indentation automatique
-set autoindent
-set smartindent
+set autoindent  
+set smartindent  
 
 " Afficher la ligne du curseur
 set cursorline
@@ -645,16 +645,16 @@ set incsearch
 set hlsearch
 
 " Utiliser les espaces au lieu des tabulations
-set expandtab
-set tabstop=4
-set shiftwidth=4
+set expandtab  
+set tabstop=4  
+set shiftwidth=4  
 
 " Afficher la position du curseur
 set ruler
 
 " Ne pas créer de fichiers de sauvegarde
-set nobackup
-set noswapfile
+set nobackup  
+set noswapfile  
 ```
 
 Sauvegardez et fermez. La prochaine fois que vous ouvrez vim, ces paramètres seront actifs.
@@ -787,9 +787,9 @@ Tapez :
 #!/bin/bash
 # Script de sauvegarde
 
-echo "Démarrage de la sauvegarde..."
-tar -czf backup_$(date +%Y%m%d).tar.gz ~/Documents
-echo "Sauvegarde terminée !"
+echo "Démarrage de la sauvegarde..."  
+tar -czf backup_$(date +%Y%m%d).tar.gz ~/Documents  
+echo "Sauvegarde terminée !"  
 ```
 
 **Ctrl + O**, **Entrée**, **Ctrl + X**
@@ -1001,8 +1001,8 @@ La documentation est simple, les raccourcis sont affichés à l'écran. Vous êt
 
 **Aide intégrée :**
 ```bash
-nano --help
-man nano
+nano --help  
+man nano  
 ```
 
 ### Pour vim
