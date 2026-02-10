@@ -131,8 +131,8 @@ OpenVPN est le protocole le plus courant. Installez-le ainsi :
 
 **Via le terminal** :
 ```bash
-sudo apt update
-sudo apt install openvpn network-manager-openvpn network-manager-openvpn-gnome
+sudo apt update  
+sudo apt install openvpn network-manager-openvpn network-manager-openvpn-gnome  
 ```
 
 **Explication des paquets** :
@@ -145,8 +145,8 @@ sudo apt install openvpn network-manager-openvpn network-manager-openvpn-gnome
 Pour utiliser WireGuard :
 
 ```bash
-sudo apt update
-sudo apt install wireguard openresolv network-manager-wireguard
+sudo apt update  
+sudo apt install wireguard openresolv network-manager-wireguard  
 ```
 
 ### Installation pour autres protocoles
@@ -283,9 +283,9 @@ NordVPN propose également des fichiers .ovpn et une application native :
 **Application native** :
 ```bash
 # Téléchargez le .deb depuis nordvpn.com
-sudo dpkg -i nordvpn*.deb
-nordvpn login
-nordvpn connect
+sudo dpkg -i nordvpn*.deb  
+nordvpn login  
+nordvpn connect  
 ```
 
 #### Mullvad
@@ -322,8 +322,8 @@ Beaucoup d'entreprises utilisent Cisco AnyConnect :
 
 1. **Installez le plugin** :
 ```bash
-sudo apt install network-manager-openconnect network-manager-openconnect-gnome
-sudo systemctl restart NetworkManager
+sudo apt install network-manager-openconnect network-manager-openconnect-gnome  
+sudo systemctl restart NetworkManager  
 ```
 
 2. **Créez la connexion** :
@@ -338,8 +338,8 @@ sudo systemctl restart NetworkManager
 
 1. **Installez le plugin** :
 ```bash
-sudo apt install network-manager-l2tp network-manager-l2tp-gnome
-sudo systemctl restart NetworkManager
+sudo apt install network-manager-l2tp network-manager-l2tp-gnome  
+sudo systemctl restart NetworkManager  
 ```
 
 2. **Créez la connexion** :
@@ -400,15 +400,15 @@ sudo systemctl enable wg-quick@wg0
 
 ```ini
 [Interface]
-PrivateKey = VOTRE_CLE_PRIVEE
-Address = 10.0.0.2/32
-DNS = 10.0.0.1
+PrivateKey = VOTRE_CLE_PRIVEE  
+Address = 10.0.0.2/32  
+DNS = 10.0.0.1  
 
 [Peer]
-PublicKey = CLE_PUBLIQUE_DU_SERVEUR
-Endpoint = serveur-vpn.example.com:51820
-AllowedIPs = 0.0.0.0/0
-PersistentKeepalive = 25
+PublicKey = CLE_PUBLIQUE_DU_SERVEUR  
+Endpoint = serveur-vpn.example.com:51820  
+AllowedIPs = 0.0.0.0/0  
+PersistentKeepalive = 25  
 ```
 
 Ne partagez jamais votre clé privée !
@@ -540,19 +540,19 @@ Un kill switch empêche toute connexion Internet si le VPN se déconnecte.
 
 ```bash
 # Bloquer tout sauf le VPN
-sudo ufw default deny outgoing
-sudo ufw default deny incoming
+sudo ufw default deny outgoing  
+sudo ufw default deny incoming  
 
 # Autoriser le trafic local
-sudo ufw allow out on lo
-sudo ufw allow in on lo
+sudo ufw allow out on lo  
+sudo ufw allow in on lo  
 
 # Autoriser le serveur VPN (remplacez par votre IP de serveur VPN)
 sudo ufw allow out to ADRESSE_SERVEUR_VPN
 
 # Autoriser le trafic VPN
-sudo ufw allow out on tun0  # ou wg0 pour WireGuard
-sudo ufw allow in on tun0
+sudo ufw allow out on tun0  # ou wg0 pour WireGuard  
+sudo ufw allow in on tun0  
 
 # Activer
 sudo ufw enable
@@ -768,9 +768,9 @@ Pour trouver le serveur le plus rapide :
 
 ```bash
 # Ping vers différents serveurs
-ping -c 5 fr.serveur-vpn.com
-ping -c 5 de.serveur-vpn.com
-ping -c 5 uk.serveur-vpn.com
+ping -c 5 fr.serveur-vpn.com  
+ping -c 5 de.serveur-vpn.com  
+ping -c 5 uk.serveur-vpn.com  
 ```
 
 Plus le ping est bas, meilleure est la connexion.
@@ -920,10 +920,10 @@ Créez un script pour vous connecter facilement :
 nmcli connection up "Nom-de-votre-VPN"
 
 # Vérifier la connexion
-sleep 3
-curl ifconfig.me
-echo ""
-echo "VPN connecté !"
+sleep 3  
+curl ifconfig.me  
+echo ""  
+echo "VPN connecté !"  
 ```
 
 Rendez-le exécutable :
@@ -942,13 +942,13 @@ Utilisez-le :
 #!/bin/bash
 # ~/bin/vpn-check.sh
 
-echo "Vérification du VPN..."
-echo "Votre IP actuelle :"
-curl -s ifconfig.me
-echo ""
-echo ""
-echo "Test de fuites DNS :"
-curl -s https://1.1.1.1/cdn-cgi/trace | grep ip
+echo "Vérification du VPN..."  
+echo "Votre IP actuelle :"  
+curl -s ifconfig.me  
+echo ""  
+echo ""  
+echo "Test de fuites DNS :"  
+curl -s https://1.1.1.1/cdn-cgi/trace | grep ip  
 ```
 
 ### Rotation automatique de serveurs
@@ -1054,29 +1054,29 @@ Gardez une trace de :
 
 ```bash
 # Installation
-sudo apt install openvpn network-manager-openvpn network-manager-openvpn-gnome
-sudo apt install wireguard network-manager-wireguard
+sudo apt install openvpn network-manager-openvpn network-manager-openvpn-gnome  
+sudo apt install wireguard network-manager-wireguard  
 
 # Gestion via nmcli
-nmcli connection show                    # Lister les connexions
-nmcli connection up "Nom-VPN"           # Se connecter
-nmcli connection down "Nom-VPN"         # Se déconnecter
-nmcli connection show --active          # Voir les connexions actives
+nmcli connection show                    # Lister les connexions  
+nmcli connection up "Nom-VPN"           # Se connecter  
+nmcli connection down "Nom-VPN"         # Se déconnecter  
+nmcli connection show --active          # Voir les connexions actives  
 
 # Vérifications
-curl ifconfig.me                        # Voir votre IP publique
-ip addr show tun0                       # Infos sur l'interface VPN
-ip route                                # Voir les routes
-ping -c 4 8.8.8.8                      # Tester la connexion
+curl ifconfig.me                        # Voir votre IP publique  
+ip addr show tun0                       # Infos sur l'interface VPN  
+ip route                                # Voir les routes  
+ping -c 4 8.8.8.8                      # Tester la connexion  
 
 # WireGuard spécifique
-sudo wg-quick up wg0                    # Démarrer WireGuard
-sudo wg-quick down wg0                  # Arrêter WireGuard
-sudo wg show                            # Statut WireGuard
+sudo wg-quick up wg0                    # Démarrer WireGuard  
+sudo wg-quick down wg0                  # Arrêter WireGuard  
+sudo wg show                            # Statut WireGuard  
 
 # Logs
-sudo journalctl -u NetworkManager | grep -i vpn
-sudo tail -f /var/log/syslog | grep vpn
+sudo journalctl -u NetworkManager | grep -i vpn  
+sudo tail -f /var/log/syslog | grep vpn  
 ```
 
 ---

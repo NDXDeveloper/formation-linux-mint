@@ -427,10 +427,10 @@ Activer la journalisation pour surveiller les activités du pare-feu :
 sudo ufw logging on
 
 # Niveau de journalisation
-sudo ufw logging low    # Minimal
-sudo ufw logging medium # Moyen
-sudo ufw logging high   # Détaillé
-sudo ufw logging full   # Complet (beaucoup de données)
+sudo ufw logging low    # Minimal  
+sudo ufw logging medium # Moyen  
+sudo ufw logging high   # Détaillé  
+sudo ufw logging full   # Complet (beaucoup de données)  
 ```
 
 Les logs sont stockés dans `/var/log/ufw.log`.
@@ -447,9 +447,9 @@ sudo ufw logging off
 Configuration de base suffisante :
 
 ```bash
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw enable
+sudo ufw default deny incoming  
+sudo ufw default allow outgoing  
+sudo ufw enable  
 ```
 
 Aucune règle supplémentaire nécessaire sauf si vous utilisez des applications spécifiques.
@@ -460,15 +460,15 @@ Si vous hébergez des services (web, SSH, etc.) :
 
 ```bash
 # Configuration de base
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
+sudo ufw default deny incoming  
+sudo ufw default allow outgoing  
 
 # Autoriser SSH avec limitation
 sudo ufw limit 22/tcp
 
 # Autoriser HTTP et HTTPS
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp  
+sudo ufw allow 443/tcp  
 
 # Activer la journalisation
 sudo ufw logging low
@@ -483,14 +483,14 @@ Protection maximale pour les déplacements :
 
 ```bash
 # Configuration stricte
-sudo ufw default deny incoming
-sudo ufw default deny outgoing
+sudo ufw default deny incoming  
+sudo ufw default deny outgoing  
 
 # Autoriser seulement le nécessaire
-sudo ufw allow out 80/tcp   # HTTP
-sudo ufw allow out 443/tcp  # HTTPS
-sudo ufw allow out 53       # DNS
-sudo ufw allow out 123/udp  # NTP (synchronisation de l'heure)
+sudo ufw allow out 80/tcp   # HTTP  
+sudo ufw allow out 443/tcp  # HTTPS  
+sudo ufw allow out 53       # DNS  
+sudo ufw allow out 123/udp  # NTP (synchronisation de l'heure)  
 
 # Activer
 sudo ufw enable
@@ -504,8 +504,8 @@ Pour les développeurs qui testent des applications localement :
 
 ```bash
 # Configuration de base
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
+sudo ufw default deny incoming  
+sudo ufw default allow outgoing  
 
 # Autoriser le trafic local (localhost)
 sudo ufw allow from 127.0.0.1
@@ -514,10 +514,10 @@ sudo ufw allow from 127.0.0.1
 sudo ufw allow from 192.168.1.0/24
 
 # Ports de développement courants
-sudo ufw allow 3000/tcp  # Node.js
-sudo ufw allow 8000/tcp  # Django
-sudo ufw allow 8080/tcp  # Divers
-sudo ufw allow 5432/tcp  # PostgreSQL (si accès externe nécessaire)
+sudo ufw allow 3000/tcp  # Node.js  
+sudo ufw allow 8000/tcp  # Django  
+sudo ufw allow 8080/tcp  # Divers  
+sudo ufw allow 5432/tcp  # PostgreSQL (si accès externe nécessaire)  
 
 sudo ufw enable
 ```
@@ -614,8 +614,8 @@ sudo ufw allow Samba
 
 Ou manuellement :
 ```bash
-sudo ufw allow 137,138/udp
-sudo ufw allow 139,445/tcp
+sudo ufw allow 137,138/udp  
+sudo ufw allow 139,445/tcp  
 ```
 
 ### SSH ne fonctionne plus
@@ -644,8 +644,8 @@ sudo systemctl stop firewalld
 
 2. **Réinstaller UFW** :
 ```bash
-sudo apt remove --purge ufw
-sudo apt install ufw
+sudo apt remove --purge ufw  
+sudo apt install ufw  
 ```
 
 3. **Vérifier les permissions** :
@@ -677,8 +677,8 @@ Parfois, supprimer et recréer une règle résout le problème.
 
 Vérifier que UFW est configuré pour démarrer automatiquement :
 ```bash
-sudo systemctl enable ufw
-sudo systemctl start ufw
+sudo systemctl enable ufw  
+sudo systemctl start ufw  
 ```
 
 ### Consulter les logs pour diagnostiquer
@@ -761,13 +761,13 @@ Avant des modifications importantes :
 
 ```bash
 # Sauvegarder la configuration actuelle
-sudo cp /etc/ufw/user.rules ~/ufw-backup-$(date +%Y%m%d).rules
-sudo cp /etc/ufw/user6.rules ~/ufw6-backup-$(date +%Y%m%d).rules
+sudo cp /etc/ufw/user.rules ~/ufw-backup-$(date +%Y%m%d).rules  
+sudo cp /etc/ufw/user6.rules ~/ufw6-backup-$(date +%Y%m%d).rules  
 
 # En cas de problème, restaurer :
-sudo cp ~/ufw-backup-YYYYMMDD.rules /etc/ufw/user.rules
-sudo cp ~/ufw6-backup-YYYYMMDD.rules /etc/ufw/user6.rules
-sudo ufw reload
+sudo cp ~/ufw-backup-YYYYMMDD.rules /etc/ufw/user.rules  
+sudo cp ~/ufw6-backup-YYYYMMDD.rules /etc/ufw/user6.rules  
+sudo ufw reload  
 ```
 
 ### Ne jamais bloquer localhost
@@ -776,8 +776,8 @@ Le trafic local (127.0.0.1) doit toujours être autorisé :
 
 ```bash
 # S'assurer que localhost est toujours autorisé
-sudo ufw allow from 127.0.0.0/8
-sudo ufw allow to 127.0.0.0/8
+sudo ufw allow from 127.0.0.0/8  
+sudo ufw allow to 127.0.0.0/8  
 ```
 
 Par défaut, UFW ne bloque pas localhost, mais après des modifications importantes, vérifiez.
@@ -810,12 +810,12 @@ Configuration optimale pour un serveur web accessible publiquement :
 
 ```bash
 # Configuration de base stricte
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
+sudo ufw default deny incoming  
+sudo ufw default allow outgoing  
 
 # Services web
-sudo ufw allow 80/tcp comment "HTTP"
-sudo ufw allow 443/tcp comment "HTTPS"
+sudo ufw allow 80/tcp comment "HTTP"  
+sudo ufw allow 443/tcp comment "HTTPS"  
 
 # SSH limité
 sudo ufw limit 22/tcp comment "SSH avec limitation"
@@ -846,8 +846,8 @@ En cas d'urgence ou d'attaque :
 
 ```bash
 # Bloquer tout
-sudo ufw default deny incoming
-sudo ufw default deny outgoing
+sudo ufw default deny incoming  
+sudo ufw default deny outgoing  
 
 # Garder seulement SSH
 sudo ufw allow 22/tcp
@@ -952,34 +952,34 @@ nmap 192.168.1.100
 
 ```bash
 # Gestion de base
-sudo ufw status              # Vérifier le statut
-sudo ufw enable              # Activer
-sudo ufw disable             # Désactiver
-sudo ufw reload              # Recharger les règles
+sudo ufw status              # Vérifier le statut  
+sudo ufw enable              # Activer  
+sudo ufw disable             # Désactiver  
+sudo ufw reload              # Recharger les règles  
 
 # Politiques par défaut
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
+sudo ufw default deny incoming  
+sudo ufw default allow outgoing  
 
 # Règles simples
-sudo ufw allow 22            # Autoriser un port
-sudo ufw deny 25             # Bloquer un port
-sudo ufw limit 22/tcp        # Limiter les tentatives
-sudo ufw delete allow 80     # Supprimer une règle
+sudo ufw allow 22            # Autoriser un port  
+sudo ufw deny 25             # Bloquer un port  
+sudo ufw limit 22/tcp        # Limiter les tentatives  
+sudo ufw delete allow 80     # Supprimer une règle  
 
 # Règles avancées
-sudo ufw allow from 192.168.1.100        # Autoriser une IP
-sudo ufw allow from 192.168.1.0/24       # Autoriser un sous-réseau
-sudo ufw allow 80/tcp comment "HTTP"     # Règle avec commentaire
+sudo ufw allow from 192.168.1.100        # Autoriser une IP  
+sudo ufw allow from 192.168.1.0/24       # Autoriser un sous-réseau  
+sudo ufw allow 80/tcp comment "HTTP"     # Règle avec commentaire  
 
 # Informations
-sudo ufw status verbose      # Statut détaillé
-sudo ufw status numbered     # Règles numérotées
-sudo ufw show raw           # Règles iptables brutes
+sudo ufw status verbose      # Statut détaillé  
+sudo ufw status numbered     # Règles numérotées  
+sudo ufw show raw           # Règles iptables brutes  
 
 # Journalisation
-sudo ufw logging on         # Activer les logs
-sudo ufw logging off        # Désactiver les logs
+sudo ufw logging on         # Activer les logs  
+sudo ufw logging off        # Désactiver les logs  
 ```
 
 ---

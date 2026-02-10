@@ -217,11 +217,11 @@ Cette section est votre guide de dépannage réseau. Gardez-la comme référence
 
 ### Symboles et icônes
 
-**💡 Astuce** : Conseils pratiques et raccourcis
-**⚠️ Attention** : Points importants à ne pas manquer
-**🔒 Sécurité** : Informations relatives à la sécurité
-**🚀 Performance** : Optimisations et améliorations
-**🛠️ Dépannage** : Solutions aux problèmes courants
+**💡 Astuce** : Conseils pratiques et raccourcis  
+**⚠️ Attention** : Points importants à ne pas manquer  
+**🔒 Sécurité** : Informations relatives à la sécurité  
+**🚀 Performance** : Optimisations et améliorations  
+**🛠️ Dépannage** : Solutions aux problèmes courants  
 
 ### Exemples de code
 
@@ -347,11 +347,11 @@ Un protocole pour accéder à distance à un ordinateur de manière sécurisée.
 
 Ce chapitre est conçu pour vous accompagner dans votre progression :
 
-**Semaine 1** : Maîtrise des connexions de base (9.1, 9.3)
-**Semaine 2** : Sécurité et confidentialité (9.4, partie sécurité de 9.3)
-**Semaine 3** : Partage et collaboration (9.2, 9.6, 9.7)
-**Semaine 4** : Administration avancée (9.5, configurations avancées)
-**En continu** : Référence pour la résolution de problèmes (9.8)
+**Semaine 1** : Maîtrise des connexions de base (9.1, 9.3)  
+**Semaine 2** : Sécurité et confidentialité (9.4, partie sécurité de 9.3)  
+**Semaine 3** : Partage et collaboration (9.2, 9.6, 9.7)  
+**Semaine 4** : Administration avancée (9.5, configurations avancées)  
+**En continu** : Référence pour la résolution de problèmes (9.8)  
 
 ## Conseils pour réussir
 

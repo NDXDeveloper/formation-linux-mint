@@ -143,15 +143,15 @@ hostname -I
 
 ```bash
 # Avec nmcli
-sudo nmcli connection down "Nom-de-votre-connexion"
-sudo nmcli connection up "Nom-de-votre-connexion"
+sudo nmcli connection down "Nom-de-votre-connexion"  
+sudo nmcli connection up "Nom-de-votre-connexion"  
 
 # Ou redémarrer Network Manager
 sudo systemctl restart NetworkManager
 
 # Ou avec dhclient (méthode manuelle)
-sudo dhclient -r  # Libérer
-sudo dhclient     # Renouveler
+sudo dhclient -r  # Libérer  
+sudo dhclient     # Renouveler  
 ```
 
 ### Vérifier la passerelle par défaut
@@ -174,8 +174,8 @@ default via 192.168.1.1 dev enp3s0 proto dhcp metric 100
 - `192.168.1.1` : Votre passerelle (routeur)
 - `dev enp3s0` : Interface utilisée
 
-**Problème** : Pas de route par défaut
-**Solution** : Problème DHCP ou configuration manuelle incorrecte
+**Problème** : Pas de route par défaut  
+**Solution** : Problème DHCP ou configuration manuelle incorrecte  
 
 ### Vérifier les serveurs DNS
 
@@ -189,12 +189,12 @@ cat /etc/resolv.conf
 
 **Exemple** :
 ```
-nameserver 192.168.1.1
-nameserver 8.8.8.8
+nameserver 192.168.1.1  
+nameserver 8.8.8.8  
 ```
 
-**Problème** : Pas de serveur DNS
-**Solution** : Configurer manuellement ou vérifier DHCP
+**Problème** : Pas de serveur DNS  
+**Solution** : Configurer manuellement ou vérifier DHCP  
 
 ## Tests de connectivité
 
@@ -213,8 +213,8 @@ ping -c 4 192.168.1.1
 4 packets transmitted, 4 received, 0% packet loss
 ```
 
-**Si ça fonctionne** : Connexion locale OK, problème ailleurs
-**Si ça ne fonctionne pas** :
+**Si ça fonctionne** : Connexion locale OK, problème ailleurs  
+**Si ça ne fonctionne pas** :  
 - Vérifier câble/WiFi
 - Vérifier adresse IP
 - Vérifier routeur
@@ -229,8 +229,8 @@ ping -c 4 8.8.8.8
 ping -c 4 1.1.1.1
 ```
 
-**Si ça fonctionne** : Connexion Internet OK, problème DNS probablement
-**Si ça ne fonctionne pas** :
+**Si ça fonctionne** : Connexion Internet OK, problème DNS probablement  
+**Si ça ne fonctionne pas** :  
 - Problème de routeur
 - Problème FAI
 - Pare-feu bloque
@@ -241,8 +241,8 @@ ping -c 4 1.1.1.1
 ping -c 4 google.com
 ```
 
-**Si ça fonctionne** : Tout OK !
-**Si ça ne fonctionne pas mais 8.8.8.8 fonctionne** : Problème DNS
+**Si ça fonctionne** : Tout OK !  
+**Si ça ne fonctionne pas mais 8.8.8.8 fonctionne** : Problème DNS  
 
 ### Test 4 : Traceroute
 
@@ -256,8 +256,8 @@ sudo apt install traceroute
 traceroute google.com
 
 # Ou avec mtr (plus moderne)
-sudo apt install mtr
-mtr google.com
+sudo apt install mtr  
+mtr google.com  
 ```
 
 **Utilité** : Identifier où les paquets se perdent ou ralentissent.
@@ -272,8 +272,8 @@ nc -zv google.com 80
 telnet google.com 80
 ```
 
-**Si connexion réussie** : Port accessible
-**Si échec** : Port bloqué ou service non disponible
+**Si connexion réussie** : Port accessible  
+**Si échec** : Port bloqué ou service non disponible  
 
 ## Problèmes courants et solutions
 
@@ -316,9 +316,9 @@ nmcli radio wifi on
 3. **Vérifier le pilote** :
 ```bash
 # Voir si le pilote est chargé
-lsmod | grep -i wifi
-lsmod | grep -i iwl  # Pour Intel
-lsmod | grep -i rt   # Pour Realtek
+lsmod | grep -i wifi  
+lsmod | grep -i iwl  # Pour Intel  
+lsmod | grep -i rt   # Pour Realtek  
 ```
 
 4. **Réinstaller le pilote** :
@@ -373,8 +373,8 @@ sudo systemctl restart NetworkManager
 
 4. **Mettre à jour le pilote** :
 ```bash
-sudo apt update
-sudo apt upgrade
+sudo apt update  
+sudo apt upgrade  
 ```
 
 5. **Réinitialiser la connexion** :
@@ -423,8 +423,8 @@ sudo nano /etc/resolv.conf
 
 Ajoutez :
 ```
-nameserver 8.8.8.8
-nameserver 8.8.4.4
+nameserver 8.8.8.8  
+nameserver 8.8.4.4  
 ```
 
 **Note** : Ce fichier peut être écrasé au redémarrage.
@@ -437,8 +437,8 @@ sudo nano /etc/systemd/resolved.conf
 Décommentez et modifiez :
 ```
 [Resolve]
-DNS=8.8.8.8 8.8.4.4
-FallbackDNS=1.1.1.1 1.0.0.1
+DNS=8.8.8.8 8.8.4.4  
+FallbackDNS=1.1.1.1 1.0.0.1  
 ```
 
 Redémarrez :
@@ -464,12 +464,12 @@ sudo systemctl restart systemd-resolved
 
 ```bash
 # Tester la vitesse (installer speedtest-cli)
-sudo apt install speedtest-cli
-speedtest-cli
+sudo apt install speedtest-cli  
+speedtest-cli  
 
 # Vérifier l'utilisation de la bande passante
-sudo apt install nethogs
-sudo nethogs  # Voir quel programme utilise le réseau
+sudo apt install nethogs  
+sudo nethogs  # Voir quel programme utilise le réseau  
 
 # Vérifier les paquets perdus
 ping -c 100 8.8.8.8 | tail -5
@@ -485,8 +485,8 @@ ping -c 100 8.8.8.8 | tail -5
 2. **Désactiver IPv6** (parfois cause des lenteurs) :
 ```bash
 # Temporaire
-sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1  
+sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1  
 
 # Permanent
 sudo nano /etc/sysctl.conf
@@ -494,9 +494,9 @@ sudo nano /etc/sysctl.conf
 
 Ajoutez :
 ```
-net.ipv6.conf.all.disable_ipv6 = 1
-net.ipv6.conf.default.disable_ipv6 = 1
-net.ipv6.conf.lo.disable_ipv6 = 1
+net.ipv6.conf.all.disable_ipv6 = 1  
+net.ipv6.conf.default.disable_ipv6 = 1  
+net.ipv6.conf.lo.disable_ipv6 = 1  
 ```
 
 Puis :
@@ -511,10 +511,10 @@ sudo nano /etc/sysctl.conf
 
 Ajoutez (pour connexions rapides) :
 ```
-net.core.rmem_max = 16777216
-net.core.wmem_max = 16777216
-net.ipv4.tcp_rmem = 4096 87380 16777216
-net.ipv4.tcp_wmem = 4096 65536 16777216
+net.core.rmem_max = 16777216  
+net.core.wmem_max = 16777216  
+net.ipv4.tcp_rmem = 4096 87380 16777216  
+net.ipv4.tcp_wmem = 4096 65536 16777216  
 ```
 
 Appliquez :
@@ -575,16 +575,16 @@ nmcli connection delete "Nom-WiFi"
 
 4. **Désactiver/Réactiver WiFi** :
 ```bash
-nmcli radio wifi off
-sleep 5
-nmcli radio wifi on
+nmcli radio wifi off  
+sleep 5  
+nmcli radio wifi on  
 ```
 
 5. **Réinitialiser Network Manager** :
 ```bash
-sudo systemctl stop NetworkManager
-sudo rm /var/lib/NetworkManager/NetworkManager.state
-sudo systemctl start NetworkManager
+sudo systemctl stop NetworkManager  
+sudo rm /var/lib/NetworkManager/NetworkManager.state  
+sudo systemctl start NetworkManager  
 ```
 
 ### Ethernet ne fonctionne pas
@@ -635,8 +635,8 @@ sudo dpkg-reconfigure linux-headers-$(uname -r)
 
 5. **Tester avec une adresse IP statique** :
 ```bash
-sudo ip addr add 192.168.1.50/24 dev enp3s0
-sudo ip route add default via 192.168.1.1
+sudo ip addr add 192.168.1.50/24 dev enp3s0  
+sudo ip route add default via 192.168.1.1  
 ```
 
 ### Pas de résolution de noms sur réseau local
@@ -650,9 +650,9 @@ sudo ip route add default via 192.168.1.1
 
 1. **Installer Avahi (mDNS/Zeroconf)** :
 ```bash
-sudo apt install avahi-daemon
-sudo systemctl enable avahi-daemon
-sudo systemctl start avahi-daemon
+sudo apt install avahi-daemon  
+sudo systemctl enable avahi-daemon  
+sudo systemctl start avahi-daemon  
 ```
 
 Utilisez `.local` :
@@ -719,8 +719,8 @@ nmcli connection show "Nom-connexion"
 
 **Activer/désactiver une connexion** :
 ```bash
-nmcli connection up "Nom-connexion"
-nmcli connection down "Nom-connexion"
+nmcli connection up "Nom-connexion"  
+nmcli connection down "Nom-connexion"  
 ```
 
 ### ifconfig (obsolète mais encore utilisé)
@@ -753,8 +753,8 @@ ss -l
 ss -n
 
 # Combinaisons utiles
-ss -tuln  # TCP+UDP, écoute, numérique
-ss -tp    # TCP avec processus
+ss -tuln  # TCP+UDP, écoute, numérique  
+ss -tp    # TCP avec processus  
 ```
 
 ### netstat (ancien mais connu)
@@ -1008,12 +1008,12 @@ sudo nano /etc/systemd/system/wifi-resume.service
 Contenu :
 ```ini
 [Unit]
-Description=Restart WiFi after resume
-After=suspend.target hibernate.target hybrid-sleep.target
+Description=Restart WiFi after resume  
+After=suspend.target hibernate.target hybrid-sleep.target  
 
 [Service]
-Type=oneshot
-ExecStart=/bin/systemctl restart NetworkManager
+Type=oneshot  
+ExecStart=/bin/systemctl restart NetworkManager  
 
 [Install]
 WantedBy=suspend.target hibernate.target hybrid-sleep.target
@@ -1098,14 +1098,14 @@ sudo ufw default allow outgoing
 sudo ufw allow out 53
 
 # Autoriser HTTP/HTTPS
-sudo ufw allow out 80/tcp
-sudo ufw allow out 443/tcp
+sudo ufw allow out 80/tcp  
+sudo ufw allow out 443/tcp  
 ```
 
 3. **Logs du pare-feu** :
 ```bash
-sudo ufw logging on
-sudo tail -f /var/log/ufw.log
+sudo ufw logging on  
+sudo tail -f /var/log/ufw.log  
 ```
 
 ## Scripts de diagnostic automatique
@@ -1116,53 +1116,53 @@ sudo tail -f /var/log/ufw.log
 #!/bin/bash
 # diagnostic-reseau.sh
 
-echo "===== DIAGNOSTIC RÉSEAU COMPLET ====="
-echo ""
+echo "===== DIAGNOSTIC RÉSEAU COMPLET ====="  
+echo ""  
 
-echo "1. Interfaces réseau :"
-ip link show
-echo ""
+echo "1. Interfaces réseau :"  
+ip link show  
+echo ""  
 
-echo "2. Adresses IP :"
-ip addr show
-echo ""
+echo "2. Adresses IP :"  
+ip addr show  
+echo ""  
 
-echo "3. Table de routage :"
-ip route show
-echo ""
+echo "3. Table de routage :"  
+ip route show  
+echo ""  
 
-echo "4. Serveurs DNS :"
-cat /etc/resolv.conf
-echo ""
+echo "4. Serveurs DNS :"  
+cat /etc/resolv.conf  
+echo ""  
 
-echo "5. Test ping passerelle :"
-GATEWAY=$(ip route | grep default | awk '{print $3}' | head -1)
-if [ -n "$GATEWAY" ]; then
+echo "5. Test ping passerelle :"  
+GATEWAY=$(ip route | grep default | awk '{print $3}' | head -1)  
+if [ -n "$GATEWAY" ]; then  
     ping -c 3 $GATEWAY
 else
     echo "Pas de passerelle par défaut trouvée"
-fi
-echo ""
+fi  
+echo ""  
 
-echo "6. Test ping Internet (8.8.8.8) :"
-ping -c 3 8.8.8.8
-echo ""
+echo "6. Test ping Internet (8.8.8.8) :"  
+ping -c 3 8.8.8.8  
+echo ""  
 
-echo "7. Test résolution DNS :"
-nslookup google.com
-echo ""
+echo "7. Test résolution DNS :"  
+nslookup google.com  
+echo ""  
 
-echo "8. État WiFi :"
-nmcli radio all
-echo ""
+echo "8. État WiFi :"  
+nmcli radio all  
+echo ""  
 
-echo "9. Connexions actives :"
-nmcli connection show --active
-echo ""
+echo "9. Connexions actives :"  
+nmcli connection show --active  
+echo ""  
 
-echo "10. État Network Manager :"
-systemctl status NetworkManager --no-pager
-echo ""
+echo "10. État Network Manager :"  
+systemctl status NetworkManager --no-pager  
+echo ""  
 
 echo "===== FIN DU DIAGNOSTIC ====="
 ```
@@ -1181,21 +1181,21 @@ chmod +x diagnostic-reseau.sh
 
 echo "Tentative de réparation du réseau..."
 
-echo "1. Redémarrage Network Manager..."
-sudo systemctl restart NetworkManager
-sleep 5
+echo "1. Redémarrage Network Manager..."  
+sudo systemctl restart NetworkManager  
+sleep 5  
 
-echo "2. Renouvellement DHCP..."
-sudo dhclient -r
-sudo dhclient
-sleep 3
+echo "2. Renouvellement DHCP..."  
+sudo dhclient -r  
+sudo dhclient  
+sleep 3  
 
-echo "3. Vérification DNS..."
-echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
-echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
+echo "3. Vérification DNS..."  
+echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf  
+echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf  
 
-echo "4. Test de connexion..."
-if ping -c 3 8.8.8.8 > /dev/null 2>&1; then
+echo "4. Test de connexion..."  
+if ping -c 3 8.8.8.8 > /dev/null 2>&1; then  
     echo "✓ Connexion Internet OK"
 else
     echo "✗ Toujours pas de connexion"
@@ -1262,9 +1262,9 @@ journalctl -u NetworkManager | grep -i error
 sudo tail -f /var/log/syslog | grep -i network
 
 # Logs noyau (drivers, etc.)
-sudo dmesg | grep -i network
-sudo dmesg | grep -i wifi
-sudo dmesg | grep -i eth
+sudo dmesg | grep -i network  
+sudo dmesg | grep -i wifi  
+sudo dmesg | grep -i eth  
 ```
 
 ### Activer logs détaillés Network Manager
@@ -1276,8 +1276,8 @@ sudo nano /etc/NetworkManager/NetworkManager.conf
 Ajoutez :
 ```ini
 [logging]
-level=DEBUG
-domains=ALL
+level=DEBUG  
+domains=ALL  
 ```
 
 Redémarrez :
@@ -1309,24 +1309,24 @@ sudo systemctl start NetworkManager
 
 ```bash
 # Supprimer toutes les règles iptables
-sudo iptables -F
-sudo iptables -X
-sudo iptables -t nat -F
-sudo iptables -t nat -X
-sudo iptables -t mangle -F
-sudo iptables -t mangle -X
+sudo iptables -F  
+sudo iptables -X  
+sudo iptables -t nat -F  
+sudo iptables -t nat -X  
+sudo iptables -t mangle -F  
+sudo iptables -t mangle -X  
 
 # Réinitialiser les routes
-sudo ip route flush table main
-sudo systemctl restart NetworkManager
+sudo ip route flush table main  
+sudo systemctl restart NetworkManager  
 ```
 
 ### Réinitialiser les paramètres réseau
 
 ```bash
 # Supprimer la configuration
-sudo rm -rf /etc/NetworkManager/system-connections/*
-sudo systemctl restart NetworkManager
+sudo rm -rf /etc/NetworkManager/system-connections/*  
+sudo systemctl restart NetworkManager  
 
 # Reconfigurer via l'interface graphique
 ```
@@ -1339,28 +1339,28 @@ Quand vous demandez de l'aide sur un forum :
 
 1. **Votre distribution** :
 ```bash
-cat /etc/lsb-release
-uname -r
+cat /etc/lsb-release  
+uname -r  
 ```
 
 2. **Votre matériel réseau** :
 ```bash
-lspci | grep -i network
-lspci | grep -i ethernet
-lsusb | grep -i wireless
+lspci | grep -i network  
+lspci | grep -i ethernet  
+lsusb | grep -i wireless  
 ```
 
 3. **Configuration réseau** :
 ```bash
-ip addr show
-ip route show
-cat /etc/resolv.conf
+ip addr show  
+ip route show  
+cat /etc/resolv.conf  
 ```
 
 4. **Tests de base** :
 ```bash
-ping -c 4 8.8.8.8
-ping -c 4 google.com
+ping -c 4 8.8.8.8  
+ping -c 4 google.com  
 ```
 
 5. **Logs récents** :
@@ -1411,53 +1411,53 @@ echo "Rapport sauvegardé dans rapport-reseau-*.txt"
 
 ```bash
 # === DIAGNOSTIC DE BASE ===
-ip addr show                                  # Voir les IP
-ip route show                                 # Voir les routes
-cat /etc/resolv.conf                         # Voir les DNS
-systemctl status NetworkManager               # État Network Manager
+ip addr show                                  # Voir les IP  
+ip route show                                 # Voir les routes  
+cat /etc/resolv.conf                         # Voir les DNS  
+systemctl status NetworkManager               # État Network Manager  
 
 # === TESTS DE CONNECTIVITÉ ===
-ping -c 4 192.168.1.1                        # Ping passerelle
-ping -c 4 8.8.8.8                            # Ping Internet
-ping -c 4 google.com                         # Test DNS
-traceroute google.com                        # Tracer le chemin
-mtr google.com                               # Traceroute interactif
+ping -c 4 192.168.1.1                        # Ping passerelle  
+ping -c 4 8.8.8.8                            # Ping Internet  
+ping -c 4 google.com                         # Test DNS  
+traceroute google.com                        # Tracer le chemin  
+mtr google.com                               # Traceroute interactif  
 
 # === GESTION NETWORK MANAGER ===
-nmcli device status                          # État des appareils
-nmcli connection show                        # Voir connexions
-nmcli radio all                              # État WiFi/radio
-nmcli device wifi list                       # Lister WiFi disponibles
-sudo systemctl restart NetworkManager         # Redémarrer NM
+nmcli device status                          # État des appareils  
+nmcli connection show                        # Voir connexions  
+nmcli radio all                              # État WiFi/radio  
+nmcli device wifi list                       # Lister WiFi disponibles  
+sudo systemctl restart NetworkManager         # Redémarrer NM  
 
 # === RENOUVELER DHCP ===
-sudo dhclient -r                             # Libérer
-sudo dhclient                                # Renouveler
+sudo dhclient -r                             # Libérer  
+sudo dhclient                                # Renouveler  
 
 # === WIFI ===
-iwconfig                                     # Info WiFi
-nmcli radio wifi on                          # Activer WiFi
-nmcli radio wifi off                         # Désactiver WiFi
+iwconfig                                     # Info WiFi  
+nmcli radio wifi on                          # Activer WiFi  
+nmcli radio wifi off                         # Désactiver WiFi  
 
 # === SURVEILLANCE ===
-ss -tuln                                     # Connexions actives
-sudo nethogs                                 # Bande passante par programme
-sudo iftop                                   # Trafic en temps réel
-wavemon                                      # Moniteur WiFi
+ss -tuln                                     # Connexions actives  
+sudo nethogs                                 # Bande passante par programme  
+sudo iftop                                   # Trafic en temps réel  
+wavemon                                      # Moniteur WiFi  
 
 # === LOGS ===
-journalctl -f -u NetworkManager              # Logs en direct
-sudo tail -f /var/log/syslog | grep network # Logs système
-dmesg | grep -i network                      # Logs noyau
+journalctl -f -u NetworkManager              # Logs en direct  
+sudo tail -f /var/log/syslog | grep network # Logs système  
+dmesg | grep -i network                      # Logs noyau  
 
 # === VITESSE ===
-speedtest-cli                                # Test vitesse
-iperf3 -c serveur                           # Test vers serveur
+speedtest-cli                                # Test vitesse  
+iperf3 -c serveur                           # Test vers serveur  
 
 # === DNS ===
-nslookup google.com                          # Test DNS
-dig google.com                               # Test DNS détaillé
-sudo systemd-resolve --flush-caches          # Vider cache DNS
+nslookup google.com                          # Test DNS  
+dig google.com                               # Test DNS détaillé  
+sudo systemd-resolve --flush-caches          # Vider cache DNS  
 ```
 
 ---

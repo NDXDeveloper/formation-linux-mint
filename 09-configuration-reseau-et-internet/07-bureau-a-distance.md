@@ -98,8 +98,8 @@ Nous allons utiliser **TigerVNC**, une implémentation moderne et performante de
 
 ```bash
 # Installer TigerVNC serveur
-sudo apt update
-sudo apt install tigervnc-standalone-server tigervnc-common
+sudo apt update  
+sudo apt install tigervnc-standalone-server tigervnc-common  
 ```
 
 **Alternative : x11vnc** (pour partager la session active) :
@@ -134,25 +134,25 @@ nano ~/.vnc/xstartup
 **Pour Cinnamon** :
 ```bash
 #!/bin/sh
-unset SESSION_MANAGER
-unset DBUS_SESSION_BUS_ADDRESS
-exec cinnamon-session
+unset SESSION_MANAGER  
+unset DBUS_SESSION_BUS_ADDRESS  
+exec cinnamon-session  
 ```
 
 **Pour MATE** :
 ```bash
 #!/bin/sh
-unset SESSION_MANAGER
-unset DBUS_SESSION_BUS_ADDRESS
-exec mate-session
+unset SESSION_MANAGER  
+unset DBUS_SESSION_BUS_ADDRESS  
+exec mate-session  
 ```
 
 **Pour Xfce** :
 ```bash
 #!/bin/sh
-unset SESSION_MANAGER
-unset DBUS_SESSION_BUS_ADDRESS
-exec startxfce4
+unset SESSION_MANAGER  
+unset DBUS_SESSION_BUS_ADDRESS  
+exec startxfce4  
 ```
 
 Rendez le fichier exécutable :
@@ -239,17 +239,17 @@ sudo nano /etc/systemd/system/vncserver@.service
 Contenu :
 ```ini
 [Unit]
-Description=Remote desktop service (VNC)
-After=syslog.target network.target
+Description=Remote desktop service (VNC)  
+After=syslog.target network.target  
 
 [Service]
-Type=simple
-User=votre_nom_utilisateur
-PAMName=login
-PIDFile=/home/votre_nom_utilisateur/.vnc/%H%i.pid
-ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill :%i > /dev/null 2>&1 || :'
-ExecStart=/usr/bin/vncserver :%i -geometry 1920x1080 -depth 24
-ExecStop=/usr/bin/vncserver -kill :%i
+Type=simple  
+User=votre_nom_utilisateur  
+PAMName=login  
+PIDFile=/home/votre_nom_utilisateur/.vnc/%H%i.pid  
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill :%i > /dev/null 2>&1 || :'  
+ExecStart=/usr/bin/vncserver :%i -geometry 1920x1080 -depth 24  
+ExecStop=/usr/bin/vncserver -kill :%i  
 
 [Install]
 WantedBy=multi-user.target
@@ -356,8 +356,8 @@ RDP permet de créer des sessions de bureau dédiées, idéal pour le travail à
 ### Installation de xrdp
 
 ```bash
-sudo apt update
-sudo apt install xrdp
+sudo apt update  
+sudo apt install xrdp  
 ```
 
 **Vérifier l'installation** :
@@ -385,8 +385,8 @@ sudo nano /etc/xrdp/xrdp.ini
 port=3389
 
 ; Niveau de sécurité
-security_layer=negotiate
-crypt_level=high
+security_layer=negotiate  
+crypt_level=high  
 
 ; Autoriser compression
 bulk_compression=true
@@ -457,11 +457,11 @@ sudo nano /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
 Contenu :
 ```ini
 [Allow Colord all Users]
-Identity=unix-user:*
-Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile
-ResultAny=no
-ResultInactive=no
-ResultActive=yes
+Identity=unix-user:*  
+Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile  
+ResultAny=no  
+ResultInactive=no  
+ResultActive=yes  
 ```
 
 **Solution 2 : Désactiver screensaver/écran de verrouillage**
@@ -485,8 +485,8 @@ sudo nano /etc/xrdp/startwm.sh
 Ajoutez en haut (après le shebang) :
 ```bash
 #!/bin/sh
-unset DBUS_SESSION_BUS_ADDRESS
-unset XDG_RUNTIME_DIR
+unset DBUS_SESSION_BUS_ADDRESS  
+unset XDG_RUNTIME_DIR  
 ```
 
 ### Se connecter via RDP
@@ -566,8 +566,8 @@ sudo ufw allow 5900/tcp
 sudo ufw allow 3389/tcp
 
 # Ou limiter à votre réseau local (recommandé)
-sudo ufw allow from 192.168.1.0/24 to any port 5901 proto tcp
-sudo ufw allow from 192.168.1.0/24 to any port 3389 proto tcp
+sudo ufw allow from 192.168.1.0/24 to any port 5901 proto tcp  
+sudo ufw allow from 192.168.1.0/24 to any port 3389 proto tcp  
 
 # Vérifier
 sudo ufw status
@@ -614,8 +614,8 @@ Tout le trafic VNC passe maintenant par SSH chiffré !
 
 ```bash
 # Dans le pare-feu
-sudo ufw delete allow 5901/tcp
-sudo ufw allow from 192.168.1.0/24 to any port 5901 proto tcp
+sudo ufw delete allow 5901/tcp  
+sudo ufw allow from 192.168.1.0/24 to any port 5901 proto tcp  
 ```
 
 #### 4. Utiliser VeNCrypt ou TLS
@@ -656,8 +656,8 @@ passwd
 Dans `/etc/xrdp/xrdp.ini` :
 
 ```ini
-security_layer=negotiate
-crypt_level=high
+security_layer=negotiate  
+crypt_level=high  
 ```
 
 Redémarrez :
@@ -675,9 +675,9 @@ port=13389  # Au lieu de 3389
 
 Puis :
 ```bash
-sudo systemctl restart xrdp
-sudo ufw allow 13389/tcp
-sudo ufw delete allow 3389/tcp
+sudo systemctl restart xrdp  
+sudo ufw allow 13389/tcp  
+sudo ufw delete allow 3389/tcp  
 ```
 
 #### 4. Limiter les tentatives avec fail2ban
@@ -693,13 +693,13 @@ sudo nano /etc/fail2ban/jail.d/xrdp.conf
 Contenu :
 ```ini
 [xrdp]
-enabled = true
-port = 3389
-filter = xrdp
-logpath = /var/log/xrdp.log
-maxretry = 3
-bantime = 3600
-findtime = 600
+enabled = true  
+port = 3389  
+filter = xrdp  
+logpath = /var/log/xrdp.log  
+maxretry = 3  
+bantime = 3600  
+findtime = 600  
 ```
 
 Créer le filtre :
@@ -742,34 +742,34 @@ Pour accéder depuis Internet, utilisez un VPN plutôt que d'exposer directement
 
 ```bash
 # Voir qui est connecté
-who
-w
+who  
+w  
 
 # Logs VNC
 tail -f ~/.vnc/*.log
 
 # Logs RDP
-sudo tail -f /var/log/xrdp.log
-sudo tail -f /var/log/xrdp-sesman.log
+sudo tail -f /var/log/xrdp.log  
+sudo tail -f /var/log/xrdp-sesman.log  
 ```
 
 #### 3. Désactiver quand non nécessaire
 
 ```bash
 # Désactiver VNC
-sudo systemctl stop vncserver@1.service
-sudo systemctl disable vncserver@1.service
+sudo systemctl stop vncserver@1.service  
+sudo systemctl disable vncserver@1.service  
 
 # Désactiver RDP
-sudo systemctl stop xrdp
-sudo systemctl disable xrdp
+sudo systemctl stop xrdp  
+sudo systemctl disable xrdp  
 ```
 
 #### 4. Mettre à jour régulièrement
 
 ```bash
-sudo apt update
-sudo apt upgrade
+sudo apt update  
+sudo apt upgrade  
 ```
 
 #### 5. Sessions avec timeout
@@ -810,8 +810,8 @@ Dans Cinnamon :
 
 ```ini
 [Globals]
-bulk_compression=true
-max_bpp=24  # Au lieu de 32 si performances faibles
+bulk_compression=true  
+max_bpp=24  # Au lieu de 32 si performances faibles  
 ```
 
 #### Côté client Windows
@@ -850,8 +850,8 @@ ps aux | grep x11vnc
 
 2. **Vérifier le pare-feu** :
 ```bash
-sudo ufw status
-sudo ufw allow 5901/tcp
+sudo ufw status  
+sudo ufw allow 5901/tcp  
 ```
 
 3. **Tester la connexion** :
@@ -884,8 +884,8 @@ chmod +x ~/.vnc/xstartup
 
 3. **Relancer le serveur** :
 ```bash
-vncserver -kill :1
-vncserver :1 -geometry 1920x1080 -depth 24
+vncserver -kill :1  
+vncserver :1 -geometry 1920x1080 -depth 24  
 ```
 
 4. **Vérifier les logs** :
@@ -899,8 +899,8 @@ tail -f ~/.vnc/*.log
 
 1. **Réduire résolution et profondeur** :
 ```bash
-vncserver -kill :1
-vncserver :1 -geometry 1366x768 -depth 16
+vncserver -kill :1  
+vncserver :1 -geometry 1366x768 -depth 16  
 ```
 
 2. **Activer compression côté client** :
@@ -917,8 +917,8 @@ VNC bloque après plusieurs échecs de mot de passe.
 **Solution** :
 ```bash
 # Arrêter et redémarrer VNC
-vncserver -kill :1
-vncserver :1
+vncserver -kill :1  
+vncserver :1  
 ```
 
 ### Problèmes RDP
@@ -931,8 +931,8 @@ vncserver :1
 
 2. **Vérifier ~/.xsession** :
 ```bash
-cat ~/.xsession
-chmod +x ~/.xsession
+cat ~/.xsession  
+chmod +x ~/.xsession  
 ```
 
 3. **Vérifier les logs** :
@@ -942,8 +942,8 @@ sudo tail -f /var/log/xrdp-sesman.log
 
 4. **Recréer la configuration** :
 ```bash
-rm ~/.xsession
-nano ~/.xsession
+rm ~/.xsession  
+nano ~/.xsession  
 # Ajouter : cinnamon-session (ou mate-session, etc.)
 chmod +x ~/.xsession
 ```
@@ -954,8 +954,8 @@ chmod +x ~/.xsession
 
 1. **Vérifier que xrdp fonctionne** :
 ```bash
-sudo systemctl status xrdp
-sudo systemctl restart xrdp
+sudo systemctl status xrdp  
+sudo systemctl restart xrdp  
 ```
 
 2. **Vérifier le port** :
@@ -972,8 +972,8 @@ sudo ufw allow 3389/tcp
 
 4. **Logs** :
 ```bash
-sudo tail -f /var/log/xrdp.log
-sudo tail -f /var/log/xrdp-sesman.log
+sudo tail -f /var/log/xrdp.log  
+sudo tail -f /var/log/xrdp-sesman.log  
 ```
 
 #### Déconnexion automatique
@@ -1050,9 +1050,9 @@ Alternative à TeamViewer, également propriétaire.
 
 **Installation** :
 ```bash
-wget https://download.anydesk.com/linux/anydesk_6.3.0-1_amd64.deb
-sudo dpkg -i anydesk_6.3.0-1_amd64.deb
-sudo apt install -f
+wget https://download.anydesk.com/linux/anydesk_6.3.0-1_amd64.deb  
+sudo dpkg -i anydesk_6.3.0-1_amd64.deb  
+sudo apt install -f  
 ```
 
 ### NoMachine
@@ -1094,8 +1094,8 @@ Alternative open source à TeamViewer.
 **Installation** :
 ```bash
 # Téléchargez depuis rustdesk.com
-wget https://github.com/rustdesk/rustdesk/releases/download/1.2.3/rustdesk-1.2.3-x86_64.deb
-sudo dpkg -i rustdesk-1.2.3-x86_64.deb
+wget https://github.com/rustdesk/rustdesk/releases/download/1.2.3/rustdesk-1.2.3-x86_64.deb  
+sudo dpkg -i rustdesk-1.2.3-x86_64.deb  
 ```
 
 ### Comparaison rapide
@@ -1197,9 +1197,9 @@ x11vnc -display :0 -auth guess -viewonly -shared -forever
 #!/bin/bash
 # vnc-start.sh
 
-DISPLAY_NUM=1
-RESOLUTION="1920x1080"
-DEPTH=24
+DISPLAY_NUM=1  
+RESOLUTION="1920x1080"  
+DEPTH=24  
 
 # Vérifier si VNC tourne déjà
 if pgrep -f "Xvnc :$DISPLAY_NUM" > /dev/null; then
@@ -1208,8 +1208,8 @@ if pgrep -f "Xvnc :$DISPLAY_NUM" > /dev/null; then
 fi
 
 # Démarrer VNC
-echo "Démarrage du serveur VNC..."
-vncserver :$DISPLAY_NUM -geometry $RESOLUTION -depth $DEPTH
+echo "Démarrage du serveur VNC..."  
+vncserver :$DISPLAY_NUM -geometry $RESOLUTION -depth $DEPTH  
 
 if [ $? -eq 0 ]; then
     echo "VNC serveur démarré avec succès sur display :$DISPLAY_NUM"
@@ -1236,13 +1236,13 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-SERVER=$1
-DISPLAY=${2:-1}
-LOCAL_PORT=$((5900 + DISPLAY))
-REMOTE_PORT=$((5900 + DISPLAY))
+SERVER=$1  
+DISPLAY=${2:-1}  
+LOCAL_PORT=$((5900 + DISPLAY))  
+REMOTE_PORT=$((5900 + DISPLAY))  
 
-echo "Création du tunnel SSH vers $SERVER..."
-ssh -f -N -L $LOCAL_PORT:localhost:$REMOTE_PORT $SERVER
+echo "Création du tunnel SSH vers $SERVER..."  
+ssh -f -N -L $LOCAL_PORT:localhost:$REMOTE_PORT $SERVER  
 
 if [ $? -eq 0 ]; then
     echo "Tunnel créé. Lancement du viewer VNC..."
@@ -1263,27 +1263,27 @@ fi
 #!/bin/bash
 # monitor-remote-connections.sh
 
-echo "=== Surveillance des connexions bureau à distance ==="
-echo ""
+echo "=== Surveillance des connexions bureau à distance ==="  
+echo ""  
 
-echo "Connexions VNC :"
-netstat -tn 2>/dev/null | grep ':590[0-9]' || echo "Aucune connexion VNC active"
-echo ""
+echo "Connexions VNC :"  
+netstat -tn 2>/dev/null | grep ':590[0-9]' || echo "Aucune connexion VNC active"  
+echo ""  
 
-echo "Connexions RDP :"
-netstat -tn 2>/dev/null | grep ':3389' || echo "Aucune connexion RDP active"
-echo ""
+echo "Connexions RDP :"  
+netstat -tn 2>/dev/null | grep ':3389' || echo "Aucune connexion RDP active"  
+echo ""  
 
-echo "Sessions actives :"
-who
-echo ""
+echo "Sessions actives :"  
+who  
+echo ""  
 
-echo "Processus VNC :"
-ps aux | grep -E '[X]vnc|[x]11vnc' || echo "Aucun serveur VNC actif"
-echo ""
+echo "Processus VNC :"  
+ps aux | grep -E '[X]vnc|[x]11vnc' || echo "Aucun serveur VNC actif"  
+echo ""  
 
-echo "Processus RDP :"
-systemctl status xrdp --no-pager 2>/dev/null || echo "xrdp non installé ou inactif"
+echo "Processus RDP :"  
+systemctl status xrdp --no-pager 2>/dev/null || echo "xrdp non installé ou inactif"  
 ```
 
 ## Résumé des commandes essentielles
@@ -1295,18 +1295,18 @@ systemctl status xrdp --no-pager 2>/dev/null || echo "xrdp non installé ou inac
 sudo apt install tigervnc-standalone-server tigervnc-viewer
 
 # Configuration
-vncpasswd                                     # Définir mot de passe
-nano ~/.vnc/xstartup                         # Configurer session
-chmod +x ~/.vnc/xstartup                     # Rendre exécutable
+vncpasswd                                     # Définir mot de passe  
+nano ~/.vnc/xstartup                         # Configurer session  
+chmod +x ~/.vnc/xstartup                     # Rendre exécutable  
 
 # Gestion serveur
-vncserver :1 -geometry 1920x1080 -depth 24  # Démarrer
-vncserver -kill :1                           # Arrêter
-vncserver -list                              # Lister sessions
+vncserver :1 -geometry 1920x1080 -depth 24  # Démarrer  
+vncserver -kill :1                           # Arrêter  
+vncserver -list                              # Lister sessions  
 
 # Connexion client
-vncviewer 192.168.1.100:1                    # Se connecter
-vncviewer -FullScreen 192.168.1.100:1        # Plein écran
+vncviewer 192.168.1.100:1                    # Se connecter  
+vncviewer -FullScreen 192.168.1.100:1        # Plein écran  
 ```
 
 ### VNC (x11vnc - partage de session)
@@ -1319,8 +1319,8 @@ sudo apt install x11vnc
 x11vnc -storepasswd                          # Définir mot de passe
 
 # Démarrage
-x11vnc -display :0 -auth guess -usepw -forever -bg
-x11vnc -display :0 -auth guess -usepw -forever -bg -ncache 10  # Avec cache
+x11vnc -display :0 -auth guess -usepw -forever -bg  
+x11vnc -display :0 -auth guess -usepw -forever -bg -ncache 10  # Avec cache  
 
 # Arrêt
 pkill x11vnc
@@ -1333,35 +1333,35 @@ pkill x11vnc
 sudo apt install xrdp
 
 # Gestion du service
-sudo systemctl start xrdp                    # Démarrer
-sudo systemctl stop xrdp                     # Arrêter
-sudo systemctl restart xrdp                  # Redémarrer
-sudo systemctl status xrdp                   # Statut
-sudo systemctl enable xrdp                   # Activer au démarrage
+sudo systemctl start xrdp                    # Démarrer  
+sudo systemctl stop xrdp                     # Arrêter  
+sudo systemctl restart xrdp                  # Redémarrer  
+sudo systemctl status xrdp                   # Statut  
+sudo systemctl enable xrdp                   # Activer au démarrage  
 
 # Configuration
-nano ~/.xsession                             # Session utilisateur
-chmod +x ~/.xsession                         # Rendre exécutable
-sudo nano /etc/xrdp/xrdp.ini                # Config serveur
+nano ~/.xsession                             # Session utilisateur  
+chmod +x ~/.xsession                         # Rendre exécutable  
+sudo nano /etc/xrdp/xrdp.ini                # Config serveur  
 
 # Logs
-sudo tail -f /var/log/xrdp.log
-sudo tail -f /var/log/xrdp-sesman.log
+sudo tail -f /var/log/xrdp.log  
+sudo tail -f /var/log/xrdp-sesman.log  
 ```
 
 ### Pare-feu
 
 ```bash
 # VNC
-sudo ufw allow 5900/tcp                      # Display :0
-sudo ufw allow 5901/tcp                      # Display :1
+sudo ufw allow 5900/tcp                      # Display :0  
+sudo ufw allow 5901/tcp                      # Display :1  
 
 # RDP
 sudo ufw allow 3389/tcp
 
 # Limité au réseau local (recommandé)
-sudo ufw allow from 192.168.1.0/24 to any port 5901 proto tcp
-sudo ufw allow from 192.168.1.0/24 to any port 3389 proto tcp
+sudo ufw allow from 192.168.1.0/24 to any port 5901 proto tcp  
+sudo ufw allow from 192.168.1.0/24 to any port 3389 proto tcp  
 ```
 
 ---

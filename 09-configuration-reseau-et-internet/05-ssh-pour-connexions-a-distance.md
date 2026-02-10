@@ -88,8 +88,8 @@ Si vous voyez une version (ex: "OpenSSH_8.9p1"), c'est installé.
 
 Sinon, installez-le :
 ```bash
-sudo apt update
-sudo apt install openssh-client
+sudo apt update  
+sudo apt install openssh-client  
 ```
 
 ### Installation du serveur SSH
@@ -97,8 +97,8 @@ sudo apt install openssh-client
 Si vous voulez que d'autres puissent se connecter à votre machine :
 
 ```bash
-sudo apt update
-sudo apt install openssh-server
+sudo apt update  
+sudo apt install openssh-server  
 ```
 
 **Vérifier que le service fonctionne** :
@@ -184,9 +184,9 @@ ssh utilisateur@192.168.1.100
 3. **Premier message d'avertissement** :
 La première fois, vous verrez :
 ```
-The authenticity of host '192.168.1.100 (192.168.1.100)' can't be established.
-ED25519 key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
+The authenticity of host '192.168.1.100 (192.168.1.100)' can't be established.  
+ED25519 key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxx.  
+Are you sure you want to continue connecting (yes/no/[fingerprint])?  
 ```
 
 Tapez `yes` et appuyez sur Entrée.
@@ -332,8 +332,8 @@ nano ~/.ssh/authorized_keys
 # Collez votre clé publique, sauvegardez et quittez
 
 # Définissez les bonnes permissions
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/authorized_keys
+chmod 700 ~/.ssh  
+chmod 600 ~/.ssh/authorized_keys  
 
 # Déconnectez-vous
 exit
@@ -419,8 +419,8 @@ Host *
 ssh monserveur
 # Au lieu de : ssh -p 22 jean@192.168.1.100 -i ~/.ssh/id_ed25519
 
-ssh travail
-ssh vps
+ssh travail  
+ssh vps  
 ```
 
 ### Options utiles dans le fichier config
@@ -447,8 +447,8 @@ ForwardAgent yes
 
 **StrictHostKeyChecking** : Contrôle de la clé d'hôte (à utiliser avec précaution)
 ```
-StrictHostKeyChecking no  # Dangereux, évitez
-StrictHostKeyChecking ask # Par défaut
+StrictHostKeyChecking no  # Dangereux, évitez  
+StrictHostKeyChecking ask # Par défaut  
 ```
 
 ### Fichier de configuration serveur
@@ -557,34 +557,34 @@ Une fois connecté, vous avez un prompt `sftp>`.
 
 **Navigation** :
 ```bash
-pwd                 # Répertoire distant actuel
-lpwd                # Répertoire local actuel
-ls                  # Lister fichiers distants
-lls                 # Lister fichiers locaux
-cd /chemin          # Changer répertoire distant
-lcd /chemin         # Changer répertoire local
+pwd                 # Répertoire distant actuel  
+lpwd                # Répertoire local actuel  
+ls                  # Lister fichiers distants  
+lls                 # Lister fichiers locaux  
+cd /chemin          # Changer répertoire distant  
+lcd /chemin         # Changer répertoire local  
 ```
 
 **Téléchargement** (distant → local) :
 ```bash
-get fichier.txt                    # Télécharger un fichier
-get -r dossier/                    # Télécharger un dossier
-mget *.txt                         # Télécharger plusieurs fichiers
+get fichier.txt                    # Télécharger un fichier  
+get -r dossier/                    # Télécharger un dossier  
+mget *.txt                         # Télécharger plusieurs fichiers  
 ```
 
 **Envoi** (local → distant) :
 ```bash
-put fichier.txt                    # Envoyer un fichier
-put -r dossier/                    # Envoyer un dossier
-mput *.txt                         # Envoyer plusieurs fichiers
+put fichier.txt                    # Envoyer un fichier  
+put -r dossier/                    # Envoyer un dossier  
+mput *.txt                         # Envoyer plusieurs fichiers  
 ```
 
 **Gestion de fichiers** :
 ```bash
-mkdir nouveau_dossier              # Créer dossier distant
-rmdir ancien_dossier               # Supprimer dossier distant
-rm fichier.txt                     # Supprimer fichier distant
-rename ancien.txt nouveau.txt      # Renommer fichier distant
+mkdir nouveau_dossier              # Créer dossier distant  
+rmdir ancien_dossier               # Supprimer dossier distant  
+rm fichier.txt                     # Supprimer fichier distant  
+rename ancien.txt nouveau.txt      # Renommer fichier distant  
 ```
 
 **Quitter** :
@@ -597,13 +597,13 @@ bye
 
 **Exemple de session complète** :
 ```bash
-sftp utilisateur@192.168.1.100
-sftp> ls                          # Voir fichiers distants
-sftp> cd Documents                # Aller dans Documents
-sftp> get rapport.pdf             # Télécharger rapport.pdf
-sftp> lcd ~/Téléchargements       # Aller dans Téléchargements local
-sftp> put presentation.pptx       # Envoyer la présentation
-sftp> exit
+sftp utilisateur@192.168.1.100  
+sftp> ls                          # Voir fichiers distants  
+sftp> cd Documents                # Aller dans Documents  
+sftp> get rapport.pdf             # Télécharger rapport.pdf  
+sftp> lcd ~/Téléchargements       # Aller dans Téléchargements local  
+sftp> put presentation.pptx       # Envoyer la présentation  
+sftp> exit  
 ```
 
 ### rsync via SSH
@@ -764,8 +764,8 @@ ssh -o ServerAliveInterval=60 -L 8080:localhost:80 utilisateur@serveur.com
 
 **Option 3 : Utiliser autossh** (maintient automatiquement la connexion)
 ```bash
-sudo apt install autossh
-autossh -M 0 -f -N -L 8080:localhost:80 utilisateur@serveur.com
+sudo apt install autossh  
+autossh -M 0 -f -N -L 8080:localhost:80 utilisateur@serveur.com  
 ```
 
 ## Sécurisation de SSH
@@ -799,8 +799,8 @@ sudo systemctl restart ssh
 
 **Mettez à jour le pare-feu** :
 ```bash
-sudo ufw allow 2222/tcp
-sudo ufw delete allow 22/tcp  # Si vous ne voulez plus le port 22
+sudo ufw allow 2222/tcp  
+sudo ufw delete allow 22/tcp  # Si vous ne voulez plus le port 22  
 ```
 
 **Connexion avec le nouveau port** :
@@ -838,9 +838,9 @@ sudo nano /etc/ssh/sshd_config
 
 Modifiez :
 ```
-PasswordAuthentication no
-PubkeyAuthentication yes
-ChallengeResponseAuthentication no
+PasswordAuthentication no  
+PubkeyAuthentication yes  
+ChallengeResponseAuthentication no  
 ```
 
 **Redémarrez SSH** :
@@ -870,8 +870,8 @@ AllowGroups ssh-users
 
 Puis ajoutez les utilisateurs au groupe :
 ```bash
-sudo groupadd ssh-users
-sudo usermod -aG ssh-users jean
+sudo groupadd ssh-users  
+sudo usermod -aG ssh-users jean  
 ```
 
 ### Limiter les tentatives de connexion avec fail2ban
@@ -885,20 +885,20 @@ sudo apt install fail2ban
 
 **Configuration** :
 ```bash
-sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-sudo nano /etc/fail2ban/jail.local
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local  
+sudo nano /etc/fail2ban/jail.local  
 ```
 
 Trouvez la section `[sshd]` et configurez :
 ```
 [sshd]
-enabled = true
-port = ssh
-filter = sshd
-logpath = /var/log/auth.log
-maxretry = 3
-bantime = 3600
-findtime = 600
+enabled = true  
+port = ssh  
+filter = sshd  
+logpath = /var/log/auth.log  
+maxretry = 3  
+bantime = 3600  
+findtime = 600  
 ```
 
 **Explication** :
@@ -908,8 +908,8 @@ findtime = 600
 
 **Démarrer fail2ban** :
 ```bash
-sudo systemctl start fail2ban
-sudo systemctl enable fail2ban
+sudo systemctl start fail2ban  
+sudo systemctl enable fail2ban  
 ```
 
 **Voir les IP bannies** :
@@ -936,8 +936,8 @@ MaxSessions 3
 
 **Timeout d'inactivité** :
 ```
-ClientAliveInterval 300
-ClientAliveCountMax 2
+ClientAliveInterval 300  
+ClientAliveCountMax 2  
 ```
 
 Déconnecte après 10 minutes (300 sec × 2) d'inactivité.
@@ -960,41 +960,41 @@ Voici un exemple de `/etc/ssh/sshd_config` sécurisé :
 
 ```
 # Port et écoute
-Port 2222
-AddressFamily inet
-ListenAddress 0.0.0.0
+Port 2222  
+AddressFamily inet  
+ListenAddress 0.0.0.0  
 
 # Protocole et sécurité
-Protocol 2
-HostKey /etc/ssh/ssh_host_ed25519_key
-HostKey /etc/ssh/ssh_host_rsa_key
+Protocol 2  
+HostKey /etc/ssh/ssh_host_ed25519_key  
+HostKey /etc/ssh/ssh_host_rsa_key  
 
 # Authentification
-PermitRootLogin no
-PubkeyAuthentication yes
-PasswordAuthentication no
-PermitEmptyPasswords no
-ChallengeResponseAuthentication no
-UsePAM yes
+PermitRootLogin no  
+PubkeyAuthentication yes  
+PasswordAuthentication no  
+PermitEmptyPasswords no  
+ChallengeResponseAuthentication no  
+UsePAM yes  
 
 # Utilisateurs autorisés
 AllowUsers jean paul
 
 # Options de connexion
-X11Forwarding no
-PrintMotd no
-AcceptEnv LANG LC_*
-MaxAuthTries 3
-MaxSessions 3
-LoginGraceTime 60
+X11Forwarding no  
+PrintMotd no  
+AcceptEnv LANG LC_*  
+MaxAuthTries 3  
+MaxSessions 3  
+LoginGraceTime 60  
 
 # Keep-alive
-ClientAliveInterval 300
-ClientAliveCountMax 2
+ClientAliveInterval 300  
+ClientAliveCountMax 2  
 
 # Logging
-SyslogFacility AUTH
-LogLevel VERBOSE
+SyslogFacility AUTH  
+LogLevel VERBOSE  
 
 # Sous-système SFTP
 Subsystem sftp /usr/lib/openssh/sftp-server
@@ -1151,8 +1151,8 @@ ssh -XC utilisateur@serveur
 **Lancer une application** :
 ```bash
 # Une fois connecté
-firefox &
-gedit &
+firefox &  
+gedit &  
 ```
 
 L'application s'affiche sur votre écran local mais s'exécute sur le serveur.
@@ -1173,8 +1173,8 @@ ssh -Y utilisateur@serveur
 1. **Le service SSH n'est pas démarré sur le serveur**
 ```bash
 # Sur le serveur
-sudo systemctl status ssh
-sudo systemctl start ssh
+sudo systemctl status ssh  
+sudo systemctl start ssh  
 ```
 
 2. **Mauvaise adresse IP ou nom d'hôte**
@@ -1222,12 +1222,12 @@ cat ~/.ssh/authorized_keys
 2. **Vérifier les permissions** :
 ```bash
 # Sur le serveur
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/authorized_keys
+chmod 700 ~/.ssh  
+chmod 600 ~/.ssh/authorized_keys  
 
 # Sur le client
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/id_ed25519
+chmod 700 ~/.ssh  
+chmod 600 ~/.ssh/id_ed25519  
 ```
 
 3. **Utiliser la bonne clé** :
@@ -1307,8 +1307,8 @@ Host *
 
 Dans `/etc/ssh/sshd_config` :
 ```
-ClientAliveInterval 60
-ClientAliveCountMax 3
+ClientAliveInterval 60  
+ClientAliveCountMax 3  
 ```
 
 3. **Désactiver la gestion d'énergie WiFi** :
@@ -1390,20 +1390,20 @@ Changez vos clés SSH régulièrement (au moins une fois par an) :
 
 **Voir qui est connecté** :
 ```bash
-who
-w
+who  
+w  
 ```
 
 **Voir l'historique des connexions** :
 ```bash
-last
-lastlog
+last  
+lastlog  
 ```
 
 **Surveiller les tentatives échouées** :
 ```bash
-sudo grep "Failed password" /var/log/auth.log
-sudo grep "Invalid user" /var/log/auth.log
+sudo grep "Failed password" /var/log/auth.log  
+sudo grep "Invalid user" /var/log/auth.log  
 ```
 
 **Voir les connexions actives en temps réel** :
@@ -1440,12 +1440,12 @@ serveur-web.com:2222 - Serveur web de production
 #!/bin/bash
 # backup-ssh.sh
 
-SERVER="utilisateur@192.168.1.100"
-SOURCE="/var/www/html"
-DEST="~/backups/serveur-web-$(date +%Y%m%d)"
+SERVER="utilisateur@192.168.1.100"  
+SOURCE="/var/www/html"  
+DEST="~/backups/serveur-web-$(date +%Y%m%d)"  
 
-echo "Démarrage du backup depuis $SERVER..."
-rsync -avzh --progress "$SERVER:$SOURCE" "$DEST"
+echo "Démarrage du backup depuis $SERVER..."  
+rsync -avzh --progress "$SERVER:$SOURCE" "$DEST"  
 
 if [ $? -eq 0 ]; then
     echo "Backup terminé avec succès dans $DEST"
@@ -1509,8 +1509,8 @@ done
 #!/bin/bash
 # deploy.sh
 
-SERVER="deployer@production.com"
-APP_DIR="/var/www/mon-app"
+SERVER="deployer@production.com"  
+APP_DIR="/var/www/mon-app"  
 
 echo "Déploiement sur $SERVER..."
 
@@ -1564,42 +1564,42 @@ Gestionnaire de connexions SSH avec interface graphique.
 
 ```bash
 # Connexion de base
-ssh utilisateur@serveur
-ssh -p 2222 utilisateur@serveur              # Port personnalisé
+ssh utilisateur@serveur  
+ssh -p 2222 utilisateur@serveur              # Port personnalisé  
 
 # Génération de clés
-ssh-keygen -t ed25519 -C "email@exemple.com"
-ssh-copy-id utilisateur@serveur
+ssh-keygen -t ed25519 -C "email@exemple.com"  
+ssh-copy-id utilisateur@serveur  
 
 # Transfert de fichiers
-scp fichier.txt utilisateur@serveur:~/
-scp -r dossier/ utilisateur@serveur:~/
-sftp utilisateur@serveur
-rsync -avzh local/ utilisateur@serveur:distant/
+scp fichier.txt utilisateur@serveur:~/  
+scp -r dossier/ utilisateur@serveur:~/  
+sftp utilisateur@serveur  
+rsync -avzh local/ utilisateur@serveur:distant/  
 
 # Tunneling
-ssh -L 8080:localhost:80 utilisateur@serveur  # Local forwarding
-ssh -R 9000:localhost:8000 utilisateur@serveur # Remote forwarding
-ssh -D 8080 utilisateur@serveur              # SOCKS proxy
+ssh -L 8080:localhost:80 utilisateur@serveur  # Local forwarding  
+ssh -R 9000:localhost:8000 utilisateur@serveur # Remote forwarding  
+ssh -D 8080 utilisateur@serveur              # SOCKS proxy  
 
 # Exécution de commandes
 ssh utilisateur@serveur 'commande'
 
 # Gestion du service SSH
-sudo systemctl status ssh
-sudo systemctl start ssh
-sudo systemctl stop ssh
-sudo systemctl restart ssh
+sudo systemctl status ssh  
+sudo systemctl start ssh  
+sudo systemctl stop ssh  
+sudo systemctl restart ssh  
 
 # Surveillance
-who                                          # Qui est connecté
-last                                         # Historique de connexions
-sudo tail -f /var/log/auth.log              # Logs en temps réel
+who                                          # Qui est connecté  
+last                                         # Historique de connexions  
+sudo tail -f /var/log/auth.log              # Logs en temps réel  
 
 # Configuration
-nano ~/.ssh/config                           # Config client
-sudo nano /etc/ssh/sshd_config              # Config serveur
-sudo sshd -t                                 # Vérifier config serveur
+nano ~/.ssh/config                           # Config client  
+sudo nano /etc/ssh/sshd_config              # Config serveur  
+sudo sshd -t                                 # Vérifier config serveur  
 ```
 
 ---

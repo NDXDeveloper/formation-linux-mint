@@ -81,8 +81,8 @@ NFS est le protocole natif de partage de fichiers sous Unix/Linux. Il a été co
 **Installer les paquets nécessaires** :
 
 ```bash
-sudo apt update
-sudo apt install samba samba-common-bin smbclient cifs-utils
+sudo apt update  
+sudo apt install samba samba-common-bin smbclient cifs-utils  
 ```
 
 **Explication des paquets** :
@@ -159,8 +159,8 @@ sudo nano /etc/samba/smb.conf
 
 Le fichier est divisé en sections :
 
-**Section [global]** : Configuration générale du serveur
-**Sections individuelles** : Chaque partage a sa propre section
+**Section [global]** : Configuration générale du serveur  
+**Sections individuelles** : Chaque partage a sa propre section  
 
 #### Exemple de configuration complète
 
@@ -254,8 +254,8 @@ Cette commande affiche votre configuration et signale les erreurs éventuelles.
 Après toute modification du fichier de configuration :
 
 ```bash
-sudo systemctl restart smbd
-sudo systemctl restart nmbd
+sudo systemctl restart smbd  
+sudo systemctl restart nmbd  
 ```
 
 **nmbd** gère la résolution de noms NetBIOS (permet de voir le serveur par son nom).
@@ -315,8 +315,8 @@ sudo pdbedit -L -v
 sudo mkdir -p /home/partage/medias
 
 # Définir les permissions
-sudo chown -R nobody:nogroup /home/partage/medias
-sudo chmod -R 0775 /home/partage/medias
+sudo chown -R nobody:nogroup /home/partage/medias  
+sudo chmod -R 0775 /home/partage/medias  
 ```
 
 #### Étape 2 : Ajouter à smb.conf
@@ -353,9 +353,9 @@ sudo systemctl restart smbd
 #### Étape 4 : Créer les utilisateurs (si nécessaire)
 
 ```bash
-sudo smbpasswd -a jean
-sudo smbpasswd -a marie
-sudo smbpasswd -a paul
+sudo smbpasswd -a jean  
+sudo smbpasswd -a marie  
+sudo smbpasswd -a paul  
 ```
 
 ### Accéder aux partages Samba
@@ -411,8 +411,8 @@ nano ~/.smbcredentials
 
 Contenu :
 ```
-username=jean
-password=votre_mot_de_passe
+username=jean  
+password=votre_mot_de_passe  
 ```
 
 Sécurisez-le :
@@ -460,8 +460,8 @@ NFS est plus simple à configurer mais principalement utilisé entre machines Li
 **Sur le serveur (machine qui partage)** :
 
 ```bash
-sudo apt update
-sudo apt install nfs-kernel-server
+sudo apt update  
+sudo apt install nfs-kernel-server  
 ```
 
 **Vérifier l'installation** :
@@ -479,8 +479,8 @@ nfsstat -v
 **Sur le client (machine qui accède aux partages)** :
 
 ```bash
-sudo apt update
-sudo apt install nfs-common
+sudo apt update  
+sudo apt install nfs-common  
 ```
 
 ### Configuration de NFS
@@ -581,8 +581,8 @@ sudo nano /etc/exports
 sudo mkdir -p /srv/nfs/donnees
 
 # Définir les permissions
-sudo chown -R nobody:nogroup /srv/nfs/donnees
-sudo chmod -R 755 /srv/nfs/donnees
+sudo chown -R nobody:nogroup /srv/nfs/donnees  
+sudo chmod -R 755 /srv/nfs/donnees  
 ```
 
 #### Étape 2 : Ajouter à /etc/exports
@@ -624,8 +624,8 @@ sudo mkdir -p /mnt/nfs/donnees
 sudo mount -t nfs 192.168.1.100:/srv/nfs/donnees /mnt/nfs/donnees
 
 # Vérifier le montage
-df -h | grep nfs
-mount | grep nfs
+df -h | grep nfs  
+mount | grep nfs  
 ```
 
 #### Monter automatiquement au démarrage
@@ -707,8 +707,8 @@ sudo exportfs -ua
 sudo ufw allow Samba
 
 # Ou manuellement
-sudo ufw allow 137,138/udp
-sudo ufw allow 139,445/tcp
+sudo ufw allow 137,138/udp  
+sudo ufw allow 139,445/tcp  
 
 # Limiter à votre réseau local
 sudo ufw allow from 192.168.1.0/24 to any app Samba
@@ -864,16 +864,16 @@ Les partages réseau ne remplacent pas les sauvegardes ! Sauvegardez régulière
 
 1. **Vérifier que Samba fonctionne** :
 ```bash
-sudo systemctl status smbd
-sudo systemctl status nmbd
-sudo systemctl restart smbd
-sudo systemctl restart nmbd
+sudo systemctl status smbd  
+sudo systemctl status nmbd  
+sudo systemctl restart smbd  
+sudo systemctl restart nmbd  
 ```
 
 2. **Vérifier le pare-feu** :
 ```bash
-sudo ufw status
-sudo ufw allow Samba
+sudo ufw status  
+sudo ufw allow Samba  
 ```
 
 3. **Vérifier le nom du groupe de travail** :
@@ -884,8 +884,8 @@ workgroup = WORKGROUP  # Doit correspondre à celui de Windows
 
 4. **Installer Avahi** (découverte réseau) :
 ```bash
-sudo apt install avahi-daemon
-sudo systemctl restart avahi-daemon
+sudo apt install avahi-daemon  
+sudo systemctl restart avahi-daemon  
 ```
 
 #### Erreur "Permission denied" lors de l'accès
@@ -894,8 +894,8 @@ sudo systemctl restart avahi-daemon
 
 1. **Vérifier les permissions du dossier** :
 ```bash
-ls -ld /chemin/vers/partage
-sudo chmod 755 /chemin/vers/partage
+ls -ld /chemin/vers/partage  
+sudo chmod 755 /chemin/vers/partage  
 ```
 
 2. **Vérifier l'utilisateur Samba** :
@@ -913,8 +913,8 @@ testparm
 
 4. **Vérifier les permissions SELinux** (si applicable) :
 ```bash
-sudo getsebool -a | grep samba
-sudo setsebool -P samba_enable_home_dirs on
+sudo getsebool -a | grep samba  
+sudo setsebool -P samba_enable_home_dirs on  
 ```
 
 #### Lenteur du partage Samba
@@ -935,15 +935,15 @@ sudo setsebool -P samba_enable_home_dirs on
 
 2. **Désactiver les oplocks** (si problèmes de corruption) :
 ```ini
-oplocks = no
-level2 oplocks = no
+oplocks = no  
+level2 oplocks = no  
 ```
 
 3. **Vérifier la connexion réseau** :
 ```bash
-ping adresse_serveur
-iperf3 -s  # Sur le serveur
-iperf3 -c adresse_serveur  # Sur le client
+ping adresse_serveur  
+iperf3 -s  # Sur le serveur  
+iperf3 -c adresse_serveur  # Sur le client  
 ```
 
 #### Impossible de se connecter avec mot de passe
@@ -952,9 +952,9 @@ iperf3 -c adresse_serveur  # Sur le client
 
 1. **Réinitialiser le mot de passe Samba** :
 ```bash
-sudo smbpasswd -d utilisateur  # Désactiver
-sudo smbpasswd -a utilisateur  # Réactiver avec nouveau mot de passe
-sudo smbpasswd -e utilisateur  # Activer
+sudo smbpasswd -d utilisateur  # Désactiver  
+sudo smbpasswd -a utilisateur  # Réactiver avec nouveau mot de passe  
+sudo smbpasswd -e utilisateur  # Activer  
 ```
 
 2. **Vérifier que l'authentification utilisateur est activée** :
@@ -988,8 +988,8 @@ Dans smb.conf :
 
 1. **Vérifier que NFS fonctionne** :
 ```bash
-sudo systemctl status nfs-kernel-server
-sudo systemctl restart nfs-kernel-server
+sudo systemctl status nfs-kernel-server  
+sudo systemctl restart nfs-kernel-server  
 ```
 
 2. **Vérifier les exports** :
@@ -1013,8 +1013,8 @@ showmount -e 192.168.1.100
 
 5. **Vérifier les logs** :
 ```bash
-sudo tail -f /var/log/syslog | grep nfs
-dmesg | grep nfs
+sudo tail -f /var/log/syslog | grep nfs  
+dmesg | grep nfs  
 ```
 
 #### Erreur "Permission denied" sur NFS
@@ -1023,8 +1023,8 @@ dmesg | grep nfs
 
 1. **Vérifier les permissions du dossier** :
 ```bash
-ls -ld /srv/nfs/partage
-sudo chmod 755 /srv/nfs/partage
+ls -ld /srv/nfs/partage  
+sudo chmod 755 /srv/nfs/partage  
 ```
 
 2. **Vérifier le mappage des utilisateurs** :
@@ -1132,12 +1132,12 @@ sudo systemctl restart nfs-kernel-server
 
 **Créer le groupe et ajouter les utilisateurs** :
 ```bash
-sudo groupadd famille
-sudo usermod -aG famille jean
-sudo usermod -aG famille marie
-sudo usermod -aG famille paul
-sudo chown -R :famille /home/partage/medias
-sudo chmod -R 775 /home/partage/medias
+sudo groupadd famille  
+sudo usermod -aG famille jean  
+sudo usermod -aG famille marie  
+sudo usermod -aG famille paul  
+sudo chown -R :famille /home/partage/medias  
+sudo chmod -R 775 /home/partage/medias  
 ```
 
 **Accès depuis** :
@@ -1181,13 +1181,13 @@ sudo chmod -R 775 /home/partage/medias
 
 **Gestion des groupes** :
 ```bash
-sudo groupadd direction
-sudo groupadd compta
-sudo groupadd employes
+sudo groupadd direction  
+sudo groupadd compta  
+sudo groupadd employes  
 
-sudo usermod -aG direction pdg
-sudo usermod -aG compta, employes comptable1
-sudo usermod -aG employes employe1
+sudo usermod -aG direction pdg  
+sudo usermod -aG compta, employes comptable1  
+sudo usermod -aG employes employe1  
 ```
 
 ### Cluster de calcul Linux (NFS)
@@ -1240,8 +1240,8 @@ if ! mountpoint -q /mnt/backup; then
 fi
 
 # Sauvegarder avec rsync
-rsync -avz --delete /home/jean/Documents/ /mnt/backup/documents/
-rsync -avz --delete /home/jean/Images/ /mnt/backup/images/
+rsync -avz --delete /home/jean/Documents/ /mnt/backup/documents/  
+rsync -avz --delete /home/jean/Images/ /mnt/backup/images/  
 
 echo "Sauvegarde terminée $(date)" >> /var/log/backup.log
 ```
@@ -1280,9 +1280,9 @@ Interface web complète pour l'administration système, incluant Samba et NFS.
 
 **Installation** :
 ```bash
-curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
-sudo sh setup-repos.sh
-sudo apt install webmin
+curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh  
+sudo sh setup-repos.sh  
+sudo apt install webmin  
 ```
 
 **Accès** :
@@ -1397,27 +1397,27 @@ sudo cp /etc/exports /etc/exports.backup-$(date +%Y%m%d)
 sudo apt install samba smbclient cifs-utils
 
 # Gestion du service
-sudo systemctl start smbd
-sudo systemctl stop smbd
-sudo systemctl restart smbd
-sudo systemctl status smbd
+sudo systemctl start smbd  
+sudo systemctl stop smbd  
+sudo systemctl restart smbd  
+sudo systemctl status smbd  
 
 # Configuration
-sudo nano /etc/samba/smb.conf
-testparm                                      # Vérifier config
-sudo systemctl restart smbd                   # Appliquer
+sudo nano /etc/samba/smb.conf  
+testparm                                      # Vérifier config  
+sudo systemctl restart smbd                   # Appliquer  
 
 # Gestion utilisateurs
-sudo smbpasswd -a utilisateur                 # Ajouter
-sudo smbpasswd -e utilisateur                 # Activer
-sudo smbpasswd -d utilisateur                 # Désactiver
-sudo smbpasswd -x utilisateur                 # Supprimer
-sudo pdbedit -L                               # Lister
+sudo smbpasswd -a utilisateur                 # Ajouter  
+sudo smbpasswd -e utilisateur                 # Activer  
+sudo smbpasswd -d utilisateur                 # Désactiver  
+sudo smbpasswd -x utilisateur                 # Supprimer  
+sudo pdbedit -L                               # Lister  
 
 # Surveillance
-smbstatus                                     # Connexions actives
-smbstatus -L                                  # Fichiers ouverts
-net usershare list                            # Partages utilisateurs
+smbstatus                                     # Connexions actives  
+smbstatus -L                                  # Fichiers ouverts  
+net usershare list                            # Partages utilisateurs  
 
 # Montage côté client
 sudo mount -t cifs //serveur/partage /mnt/partage -o username=user
@@ -1433,25 +1433,25 @@ sudo apt install nfs-kernel-server
 sudo apt install nfs-common
 
 # Configuration
-sudo nano /etc/exports                        # Éditer
-sudo exportfs -ra                             # Recharger
-sudo exportfs -v                              # Voir exports
-sudo exportfs -u client:/partage              # Retirer export
+sudo nano /etc/exports                        # Éditer  
+sudo exportfs -ra                             # Recharger  
+sudo exportfs -v                              # Voir exports  
+sudo exportfs -u client:/partage              # Retirer export  
 
 # Gestion du service
-sudo systemctl start nfs-kernel-server
-sudo systemctl stop nfs-kernel-server
-sudo systemctl restart nfs-kernel-server
-sudo systemctl status nfs-kernel-server
+sudo systemctl start nfs-kernel-server  
+sudo systemctl stop nfs-kernel-server  
+sudo systemctl restart nfs-kernel-server  
+sudo systemctl status nfs-kernel-server  
 
 # Montage côté client
-sudo mount -t nfs serveur:/partage /mnt/partage
-showmount -e serveur                          # Lister partages disponibles
+sudo mount -t nfs serveur:/partage /mnt/partage  
+showmount -e serveur                          # Lister partages disponibles  
 
 # Surveillance
-nfsstat                                       # Statistiques
-nfsstat -s                                    # Stats serveur
-nfsstat -c                                    # Stats client
+nfsstat                                       # Statistiques  
+nfsstat -s                                    # Stats serveur  
+nfsstat -c                                    # Stats client  
 ```
 
 ---
