@@ -105,8 +105,8 @@ Audacity est un éditeur et enregistreur audio gratuit et open source, devenu le
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install audacity
+sudo apt update  
+sudo apt install audacity  
 ```
 
 **Version Flatpak (plus récente) :**
@@ -419,8 +419,8 @@ Ardour est une station de travail audio numérique (DAW - Digital Audio Workstat
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install ardour
+sudo apt update  
+sudo apt install ardour  
 ```
 
 **Version officielle (recommandée pour pros) :**
@@ -1102,8 +1102,8 @@ sudo rfkill unblock wifi
 1. Fermez toutes les applications audio (navigateur, VLC, etc.)
 2. Redémarrez PulseAudio :
 ```bash
-pulseaudio -k
-pulseaudio --start
+pulseaudio -k  
+pulseaudio --start  
 ```
 3. Relancez JACK
 4. Ou configurez JACK pour utiliser PulseAudio comme backend

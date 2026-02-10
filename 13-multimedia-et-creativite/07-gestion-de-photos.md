@@ -92,8 +92,8 @@ Shotwell est généralement préinstallé. Si ce n'est pas le cas :
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install shotwell
+sudo apt update  
+sudo apt install shotwell  
 ```
 
 ### Premier lancement de Shotwell
@@ -589,8 +589,8 @@ digiKam est un gestionnaire de photos professionnel, comparable à Adobe Lightro
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install digikam
+sudo apt update  
+sudo apt install digikam  
 ```
 
 > **Note :** digiKam installe des dépendances KDE (environ 200-300 Mo). C'est normal.

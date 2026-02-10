@@ -41,8 +41,8 @@ GIMP est souvent préinstallé sur Linux Mint. Pour vérifier ou l'installer :
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install gimp
+sudo apt update  
+sudo apt install gimp  
 ```
 
 ### Première utilisation de GIMP
@@ -147,8 +147,8 @@ Krita est spécialement conçu pour le **dessin numérique** et la **peinture di
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install krita
+sudo apt update  
+sudo apt install krita  
 ```
 
 **Alternative Flatpak (version plus récente) :**
@@ -289,8 +289,8 @@ Inkscape est un logiciel de **dessin vectoriel**. Contrairement aux images matri
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install inkscape
+sudo apt update  
+sudo apt install inkscape  
 ```
 
 ### Première utilisation d'Inkscape
@@ -449,8 +449,8 @@ Menu : `Chemin` → `Union/Différence/Intersection/Exclusion`
 Si vous voulez tout installer rapidement :
 
 ```bash
-sudo apt update
-sudo apt install gimp krita inkscape
+sudo apt update  
+sudo apt install gimp krita inkscape  
 ```
 
 ---

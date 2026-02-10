@@ -143,8 +143,8 @@ Brasero est généralement préinstallé. Si ce n'est pas le cas :
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install brasero
+sudo apt update  
+sudo apt install brasero  
 ```
 
 ### Interface de Brasero
@@ -565,8 +565,8 @@ wodim -v dev=/dev/sr0 speed=4 fichier.iso
 
 Graver des données :
 ```bash
-genisoimage -o image.iso -R -J /chemin/vers/dossier
-wodim -v dev=/dev/sr0 speed=4 image.iso
+genisoimage -o image.iso -R -J /chemin/vers/dossier  
+wodim -v dev=/dev/sr0 speed=4 image.iso  
 ```
 
 #### cdrecord (ancien nom de wodim)
@@ -699,8 +699,8 @@ sudo chmod a+rw /dev/sr0
 
 1. **Mettez à jour Brasero :**
 ```bash
-sudo apt update
-sudo apt upgrade brasero
+sudo apt update  
+sudo apt upgrade brasero  
 ```
 
 2. **Supprimez la configuration :**

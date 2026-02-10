@@ -87,8 +87,8 @@ Kdenlive (KDE Non-Linear Video Editor) est le logiciel de montage vidéo le plus
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install kdenlive
+sudo apt update  
+sudo apt install kdenlive  
 ```
 
 **Version Flatpak (plus récente) :**
@@ -334,8 +334,8 @@ OpenShot est conçu pour être le logiciel de montage le plus simple et accessib
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install openshot-qt
+sudo apt update  
+sudo apt install openshot-qt  
 ```
 
 **Version Flatpak :**
@@ -526,8 +526,8 @@ DaVinci Resolve est un logiciel de montage vidéo professionnel utilisé à Holl
 
 2. **Installez les dépendances** :
 ```bash
-sudo apt update
-sudo apt install libssl1.1 ocl-icd-opencl-dev
+sudo apt update  
+sudo apt install libssl1.1 ocl-icd-opencl-dev  
 ```
 
 3. **Extrayez et installez** :
@@ -977,9 +977,9 @@ sudo apt install libssl1.1
 
 Le montage vidéo sous Linux Mint est une réalité mature et professionnelle. Vous avez le choix entre trois excellents outils :
 
-**OpenShot** pour la simplicité et les débuts.
-**Kdenlive** pour l'équilibre parfait et l'usage régulier.
-**DaVinci Resolve** pour le niveau professionnel absolu.
+**OpenShot** pour la simplicité et les débuts.  
+**Kdenlive** pour l'équilibre parfait et l'usage régulier.  
+**DaVinci Resolve** pour le niveau professionnel absolu.  
 
 Quel que soit votre choix, vous disposez d'outils gratuits et puissants qui rivalisent avec les solutions commerciales payantes. La seule limite est votre créativité et votre motivation à apprendre.
 

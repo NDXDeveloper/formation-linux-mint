@@ -165,8 +165,8 @@ Flameshot est un outil de capture d'écran moderne et puissant avec des fonction
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install flameshot
+sudo apt update  
+sudo apt install flameshot  
 ```
 
 ### Premier lancement de Flameshot
@@ -363,8 +363,8 @@ OBS (Open Broadcaster Software) Studio est LE logiciel professionnel de référe
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install obs-studio
+sudo apt update  
+sudo apt install obs-studio  
 ```
 
 **Version Flatpak (plus récente) :**
@@ -976,8 +976,8 @@ sudo apt install xdg-desktop-portal xdg-desktop-portal-gtk
 
 **Solution PulseAudio :**
 ```bash
-pulseaudio -k
-pulseaudio --start
+pulseaudio -k  
+pulseaudio --start  
 ```
 
 ### Flameshot ne se lance pas
@@ -993,8 +993,8 @@ flameshot gui
 ```
 3. Réinstallez :
 ```bash
-sudo apt remove flameshot
-sudo apt install flameshot
+sudo apt remove flameshot  
+sudo apt install flameshot  
 ```
 
 ### Enregistrement saccadé

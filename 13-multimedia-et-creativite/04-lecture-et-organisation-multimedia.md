@@ -109,8 +109,8 @@ VLC est généralement préinstallé sur Linux Mint. Si ce n'est pas le cas :
 
 **Via le terminal :**
 ```bash
-sudo apt update
-sudo apt install vlc
+sudo apt update  
+sudo apt install vlc  
 ```
 
 ### Interface de VLC
@@ -784,8 +784,8 @@ sudo apt install ubuntu-restricted-extras
 
 **Pour lire des DVD commerciaux (chiffrés) :**
 ```bash
-sudo apt install libdvd-pkg
-sudo dpkg-reconfigure libdvd-pkg
+sudo apt install libdvd-pkg  
+sudo dpkg-reconfigure libdvd-pkg  
 ```
 
 > **Note** : La légalité varie selon les pays. Vérifiez votre législation locale.
@@ -1032,8 +1032,8 @@ sudo apt install backintime-qt
 3. Dans VLC : `Audio` → `Périphérique audio` → essayez différentes sorties
 4. Redémarrez PulseAudio :
 ```bash
-pulseaudio -k
-pulseaudio --start
+pulseaudio -k  
+pulseaudio --start  
 ```
 
 ### Sous-titres mal encodés (caractères bizarres)
@@ -1046,8 +1046,8 @@ pulseaudio --start
 
 **Installez libdvdcss :**
 ```bash
-sudo apt install libdvd-pkg
-sudo dpkg-reconfigure libdvd-pkg
+sudo apt install libdvd-pkg  
+sudo dpkg-reconfigure libdvd-pkg  
 ```
 
 ### Photos RAW non reconnues
