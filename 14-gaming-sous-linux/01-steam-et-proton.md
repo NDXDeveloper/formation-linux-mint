@@ -30,8 +30,8 @@ Steam est la plateforme de distribution numérique de jeux vidéo la plus popula
 ### Méthode 2 : Via le terminal
 
 ```bash
-sudo apt update
-sudo apt install steam
+sudo apt update  
+sudo apt install steam  
 ```
 
 ### Premier lancement

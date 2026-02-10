@@ -54,8 +54,8 @@ Les cartes NVIDIA **nécessitent** les pilotes propriétaires pour le gaming.
 
 ```bash
 # Ajouter le PPA des pilotes graphiques
-sudo add-apt-repository ppa:graphics-drivers/ppa
-sudo apt update
+sudo add-apt-repository ppa:graphics-drivers/ppa  
+sudo apt update  
 
 # Installer le pilote recommandé
 sudo ubuntu-drivers autoinstall
@@ -121,8 +121,8 @@ sudo nano /etc/environment
 
 Ajoutez :
 ```
-RADV_PERFTEST=aco
-AMD_VULKAN_ICD=RADV
+RADV_PERFTEST=aco  
+AMD_VULKAN_ICD=RADV  
 ```
 
 **Explication** :
@@ -137,9 +137,9 @@ Pour les cartes AMD très récentes :
 
 ```bash
 # Ajouter le PPA Mesa
-sudo add-apt-repository ppa:kisak/kisak-mesa
-sudo apt update
-sudo apt upgrade
+sudo add-apt-repository ppa:kisak/kisak-mesa  
+sudo apt update  
+sudo apt upgrade  
 ```
 
 > **Attention** : Plus récent = potentiellement moins stable. Recommandé uniquement si vous avez des problèmes.
@@ -255,8 +255,8 @@ gamemoded -s
 
 ```bash
 # Créer un fichier de configuration personnalisé
-mkdir -p ~/.config
-nano ~/.config/gamemode.ini
+mkdir -p ~/.config  
+nano ~/.config/gamemode.ini  
 ```
 
 **Configuration recommandée** :
@@ -268,19 +268,19 @@ renice=10
 
 [gpu]
 ; Pour NVIDIA : overclock léger (optionnel)
-apply_gpu_optimisations=accept-responsibility
-gpu_device=0
-amd_performance_level=high
+apply_gpu_optimisations=accept-responsibility  
+gpu_device=0  
+amd_performance_level=high  
 
 [cpu]
 ; Passer le CPU en mode performance
-park_cores=no
-pin_policy=prefer-physical
+park_cores=no  
+pin_policy=prefer-physical  
 
 [custom]
 ; Scripts personnalisés (optionnel)
-start=notify-send "GameMode activé"
-end=notify-send "GameMode désactivé"
+start=notify-send "GameMode activé"  
+end=notify-send "GameMode désactivé"  
 ```
 
 ## Gouverneur CPU
@@ -346,8 +346,8 @@ Une icône apparaît dans la barre système pour changer facilement le gouverneu
 
 Le swappiness contrôle à quel point le système utilise le swap.
 
-**Valeur par défaut** : 60
-**Recommandé pour gaming** : 10
+**Valeur par défaut** : 60  
+**Recommandé pour gaming** : 10  
 
 ```bash
 # Vérifier la valeur actuelle
@@ -378,8 +378,8 @@ Le watchdog système peut créer des micro-stutters.
 sudo modprobe -r iTCO_wdt iTCO_vendor_support
 
 # Désactiver définitivement
-echo "blacklist iTCO_wdt" | sudo tee /etc/modprobe.d/blacklist-watchdog.conf
-echo "blacklist iTCO_vendor_support" | sudo tee -a /etc/modprobe.d/blacklist-watchdog.conf
+echo "blacklist iTCO_wdt" | sudo tee /etc/modprobe.d/blacklist-watchdog.conf  
+echo "blacklist iTCO_vendor_support" | sudo tee -a /etc/modprobe.d/blacklist-watchdog.conf  
 ```
 
 Redémarrez.
@@ -403,8 +403,8 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash mitigations=off"
 
 Mettez à jour GRUB :
 ```bash
-sudo update-grub
-sudo reboot
+sudo update-grub  
+sudo reboot  
 ```
 
 ### Augmenter les limites de fichiers ouverts
@@ -419,8 +419,8 @@ ulimit -n
 ulimit -n 524288
 
 # Augmenter définitivement
-echo "* soft nofile 524288" | sudo tee -a /etc/security/limits.conf
-echo "* hard nofile 524288" | sudo tee -a /etc/security/limits.conf
+echo "* soft nofile 524288" | sudo tee -a /etc/security/limits.conf  
+echo "* hard nofile 524288" | sudo tee -a /etc/security/limits.conf  
 ```
 
 ### Optimisation Esync/Fsync
@@ -464,16 +464,16 @@ sudo nano /etc/sysctl.conf
 Ajoutez :
 ```
 # TCP optimizations for gaming
-net.ipv4.tcp_fastopen=3
-net.ipv4.tcp_low_latency=1
-net.ipv4.tcp_timestamps=0
-net.core.netdev_max_backlog=16384
-net.core.rmem_default=1048576
-net.core.rmem_max=16777216
-net.core.wmem_default=1048576
-net.core.wmem_max=16777216
-net.ipv4.tcp_rmem=4096 1048576 2097152
-net.ipv4.tcp_wmem=4096 65536 16777216
+net.ipv4.tcp_fastopen=3  
+net.ipv4.tcp_low_latency=1  
+net.ipv4.tcp_timestamps=0  
+net.core.netdev_max_backlog=16384  
+net.core.rmem_default=1048576  
+net.core.rmem_max=16777216  
+net.core.wmem_default=1048576  
+net.core.wmem_max=16777216  
+net.ipv4.tcp_rmem=4096 1048576 2097152  
+net.ipv4.tcp_wmem=4096 65536 16777216  
 ```
 
 Appliquez :
@@ -501,8 +501,8 @@ TRIM améliore les performances et la longévité des SSD.
 sudo fstrim -v /
 
 # Activer TRIM hebdomadaire automatique
-sudo systemctl enable fstrim.timer
-sudo systemctl start fstrim.timer
+sudo systemctl enable fstrim.timer  
+sudo systemctl start fstrim.timer  
 ```
 
 ### Désactiver l'indexation (optionnel)
@@ -559,9 +559,9 @@ UUID=xxx / ext4 defaults,noatime 0 1
 
 ### FPS vs Qualité
 
-**60 FPS** : Minimum pour gaming fluide
-**144 FPS** : Idéal pour écran 144Hz
-**30 FPS** : Acceptable pour RPG/stratégie
+**60 FPS** : Minimum pour gaming fluide  
+**144 FPS** : Idéal pour écran 144Hz  
+**30 FPS** : Acceptable pour RPG/stratégie  
 
 **Monitorer les FPS** : Utilisez MangoHud (voir section suivante).
 
@@ -605,8 +605,8 @@ mangohud ./mon-jeu
 
 ```bash
 # Créer le fichier de config
-mkdir -p ~/.config/MangoHud
-nano ~/.config/MangoHud/MangoHud.conf
+mkdir -p ~/.config/MangoHud  
+nano ~/.config/MangoHud/MangoHud.conf  
 ```
 
 **Configuration recommandée** :
@@ -616,18 +616,18 @@ nano ~/.config/MangoHud/MangoHud.conf
 position=top-left
 
 # Informations affichées
-fps
-gpu_stats
-gpu_temp
-cpu_stats
-cpu_temp
-ram
-vram
-frame_timing=1
+fps  
+gpu_stats  
+gpu_temp  
+cpu_stats  
+cpu_temp  
+ram  
+vram  
+frame_timing=1  
 
 # Apparence
-font_size=24
-background_alpha=0.4
+font_size=24  
+background_alpha=0.4  
 
 # Limite FPS (optionnel)
 fps_limit=144
@@ -711,8 +711,8 @@ htop
 systemctl list-unit-files --type=service
 
 # Désactiver un service
-sudo systemctl disable nom-du-service
-sudo systemctl stop nom-du-service
+sudo systemctl disable nom-du-service  
+sudo systemctl stop nom-du-service  
 ```
 
 **Services potentiellement inutiles pour le gaming** :
@@ -722,8 +722,8 @@ sudo systemctl stop nom-du-service
 
 **Exemple** :
 ```bash
-sudo systemctl disable cups
-sudo systemctl stop cups
+sudo systemctl disable cups  
+sudo systemctl stop cups  
 ```
 
 > **Attention** : Ne désactivez que ce dont vous êtes sûr de ne pas avoir besoin.
@@ -764,8 +764,8 @@ sudo nano /etc/tlp.conf
 
 **TLP Gaming mode** :
 ```
-CPU_SCALING_GOVERNOR_ON_AC=performance
-CPU_SCALING_GOVERNOR_ON_BAT=powersave
+CPU_SCALING_GOVERNOR_ON_AC=performance  
+CPU_SCALING_GOVERNOR_ON_BAT=powersave  
 ```
 
 **Physique** :
@@ -788,8 +788,8 @@ echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.
 wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
 
 # Installer
-sudo apt update
-sudo apt install linux-xanmod-x64v3
+sudo apt update  
+sudo apt install linux-xanmod-x64v3  
 
 # Redémarrer
 sudo reboot
@@ -812,8 +812,8 @@ Autre kernel optimisé.
 
 ```bash
 # Ajouter le dépôt
-sudo add-apt-repository ppa:damentz/liquorix
-sudo apt update
+sudo add-apt-repository ppa:damentz/liquorix  
+sudo apt update  
 
 # Installer
 sudo apt install linux-image-liquorix-amd64
@@ -1013,8 +1013,8 @@ echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governo
 sudo sysctl vm.swappiness=10
 
 # Fermer processus inutiles
-killall -9 thunderbird 2>/dev/null
-killall -9 transmission-gtk 2>/dev/null
+killall -9 thunderbird 2>/dev/null  
+killall -9 transmission-gtk 2>/dev/null  
 
 # Notification
 notify-send "Gaming Mode" "Système optimisé pour le gaming !"

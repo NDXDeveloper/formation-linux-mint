@@ -136,8 +136,8 @@ Wine (Wine Is Not an Emulator) est la technologie sous-jacente qui permet d'exé
 
 ### DXVK et VKD3D
 
-**DXVK** : Traduit DirectX 9/10/11 en Vulkan
-**VKD3D** : Traduit DirectX 12 en Vulkan
+**DXVK** : Traduit DirectX 9/10/11 en Vulkan  
+**VKD3D** : Traduit DirectX 12 en Vulkan  
 
 **Résultat** : Performances souvent meilleures que sous Windows natif !
 
@@ -177,9 +177,9 @@ Outils pour maximiser les performances (GameMode, MangoHud, etc.).
 
 ### CPU
 
-**Minimum** : 4 cœurs / 8 threads
-**Recommandé** : 6 cœurs / 12 threads ou plus
-**Idéal** : Ryzen 5/7 ou Intel i5/i7 récents
+**Minimum** : 4 cœurs / 8 threads  
+**Recommandé** : 6 cœurs / 12 threads ou plus  
+**Idéal** : Ryzen 5/7 ou Intel i5/i7 récents  
 
 ### GPU
 
@@ -200,9 +200,9 @@ Outils pour maximiser les performances (GameMode, MangoHud, etc.).
 
 ### RAM
 
-**Minimum** : 8 GB
-**Recommandé** : 16 GB
-**Idéal** : 32 GB (pour jeux AAA récents)
+**Minimum** : 8 GB  
+**Recommandé** : 16 GB  
+**Idéal** : 32 GB (pour jeux AAA récents)  
 
 ### Stockage
 
@@ -350,10 +350,10 @@ Le gaming Linux repose sur une communauté active. Nous vous guidons vers les bo
 
 ### 5. Contribuez à l'écosystème
 
-**Achetez des jeux natifs** quand possible
-**Laissez des rapports** sur ProtonDB
-**Signalez les bugs** aux développeurs
-**Partagez vos configurations** qui fonctionnent
+**Achetez des jeux natifs** quand possible  
+**Laissez des rapports** sur ProtonDB  
+**Signalez les bugs** aux développeurs  
+**Partagez vos configurations** qui fonctionnent  
 
 ## À quoi s'attendre
 

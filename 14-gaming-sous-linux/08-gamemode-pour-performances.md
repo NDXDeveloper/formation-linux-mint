@@ -185,9 +185,9 @@ S'applique à tous les nouveaux jeux installés.
 gamemoderun /chemin/vers/le/jeu
 
 # Exemples
-gamemoderun ./MonJeu
-gamemoderun wine MonJeu.exe
-gamemoderun retroarch
+gamemoderun ./MonJeu  
+gamemoderun wine MonJeu.exe  
+gamemoderun retroarch  
 
 # Avec des arguments
 gamemoderun ./jeu --fullscreen --high-quality
@@ -250,8 +250,8 @@ GameMode fonctionne parfaitement avec sa configuration par défaut, mais vous po
 
 Si le fichier n'existe pas, créez-le :
 ```bash
-mkdir -p ~/.config
-nano ~/.config/gamemode.ini
+mkdir -p ~/.config  
+nano ~/.config/gamemode.ini  
 ```
 
 ### Configuration de base (recommandée pour débutants)
@@ -263,8 +263,8 @@ renice=10
 
 [gpu]
 ; Optimisations GPU automatiques
-apply_gpu_optimisations=accept-responsibility
-gpu_device=0
+apply_gpu_optimisations=accept-responsibility  
+gpu_device=0  
 
 [cpu]
 ; Ne pas parker les cœurs CPU
@@ -315,8 +315,8 @@ pin_policy=prefer-physical
 
 [custom]
 ; Scripts personnalisés (optionnel)
-start=notify-send "GameMode activé" -u low -t 2000
-end=notify-send "GameMode désactivé" -u low -t 2000
+start=notify-send "GameMode activé" -u low -t 2000  
+end=notify-send "GameMode désactivé" -u low -t 2000  
 ```
 
 ### Explication des options principales
@@ -385,25 +385,25 @@ start=notify-send "🎮 Gaming Mode" "Optimisations activées" -i gaming
 end=notify-send "💻 Mode Normal" "Optimisations désactivées" -i computer
 
 ; Activer RGB (si vous avez OpenRGB)
-start=openrgb --profile gaming
-end=openrgb --profile normal
+start=openrgb --profile gaming  
+end=openrgb --profile normal  
 
 ; Désactiver compositeur (réduire latence)
-start=killall picom
-end=picom &
+start=killall picom  
+end=picom &  
 ```
 
 ### Configuration pour laptop
 
 ```ini
 [general]
-renice=10
-desiredgov=performance
-defaultgov=powersave
+renice=10  
+desiredgov=performance  
+defaultgov=powersave  
 
 [gpu]
-apply_gpu_optimisations=accept-responsibility
-gpu_device=0
+apply_gpu_optimisations=accept-responsibility  
+gpu_device=0  
 
 [cpu]
 park_cores=no
@@ -416,18 +416,18 @@ start=notify-send "Gaming Mode" "Sur batterie : monitorer la température !"
 
 ```ini
 [general]
-renice=15
-desiredgov=performance
-defaultgov=performance
+renice=15  
+desiredgov=performance  
+defaultgov=performance  
 
 [gpu]
-apply_gpu_optimisations=accept-responsibility
-amd_performance_level=high
-nv_powermizer_mode=1
+apply_gpu_optimisations=accept-responsibility  
+amd_performance_level=high  
+nv_powermizer_mode=1  
 
 [cpu]
-park_cores=no
-pin_policy=prefer-physical
+park_cores=no  
+pin_policy=prefer-physical  
 
 [custom]
 start=echo performance | sudo tee /sys/class/drm/card0/device/power_dpm_force_performance_level
@@ -488,8 +488,8 @@ cat /sys/class/drm/card0/device/power_dpm_force_performance_level
 
 ```bash
 # Éditer le service systemd
-mkdir -p ~/.config/systemd/user/gamemoded.service.d/
-nano ~/.config/systemd/user/gamemoded.service.d/override.conf
+mkdir -p ~/.config/systemd/user/gamemoded.service.d/  
+nano ~/.config/systemd/user/gamemoded.service.d/override.conf  
 ```
 
 Contenu :
@@ -500,8 +500,8 @@ Environment="GAMEMODED_LOG_LEVEL=1"
 
 Rechargez :
 ```bash
-systemctl --user daemon-reload
-systemctl --user restart gamemoded
+systemctl --user daemon-reload  
+systemctl --user restart gamemoded  
 ```
 
 ### Voir les logs
@@ -520,10 +520,10 @@ journalctl --user -u gamemoded --no-pager
 ### Exemple de logs
 
 ```
-GameMode started for process [PID]
-CPU governor changed to performance
-Nice value set to -10
-GPU optimizations applied
+GameMode started for process [PID]  
+CPU governor changed to performance  
+Nice value set to -10  
+GPU optimizations applied  
 ```
 
 ## Tests de performance
@@ -649,12 +649,12 @@ sudo nano /etc/tlp.conf
 
 Ajoutez ou modifiez :
 ```
-CPU_SCALING_GOVERNOR_ON_AC=performance
-CPU_SCALING_GOVERNOR_ON_BAT=powersave
+CPU_SCALING_GOVERNOR_ON_AC=performance  
+CPU_SCALING_GOVERNOR_ON_BAT=powersave  
 
 # Permettre à GameMode de changer le gouverneur
-CPU_BOOST_ON_AC=1
-CPU_BOOST_ON_BAT=0
+CPU_BOOST_ON_AC=1  
+CPU_BOOST_ON_BAT=0  
 ```
 
 Rechargez TLP :
@@ -668,8 +668,8 @@ sudo tlp start
 
 Si vous avez installé cpufrequtils, désactivez-le :
 ```bash
-sudo systemctl disable cpufrequtils
-sudo systemctl stop cpufrequtils
+sudo systemctl disable cpufrequtils  
+sudo systemctl stop cpufrequtils  
 ```
 
 GameMode gère mieux le gouverneur dynamiquement.
@@ -701,8 +701,8 @@ sudo reboot
 **Solution** :
 ```bash
 # Forcer l'arrêt de GameMode
-killall gamemoded
-systemctl --user restart gamemoded
+killall gamemoded  
+systemctl --user restart gamemoded  
 ```
 
 ## GameMode vs autres optimisations
@@ -749,8 +749,8 @@ gamemoderun mangohud %command%
 [general]
 renice=10
 ; Moins agressif sur batterie
-desiredgov=schedutil
-defaultgov=powersave
+desiredgov=schedutil  
+defaultgov=powersave  
 
 [gpu]
 ; Optimisations modérées
@@ -767,26 +767,26 @@ start=notify-send "Gaming sur batterie" "Attention à l'autonomie !"
 
 ```ini
 [general]
-renice=15
-desiredgov=performance
-defaultgov=performance
+renice=15  
+desiredgov=performance  
+defaultgov=performance  
 
 [gpu]
-apply_gpu_optimisations=accept-responsibility
-amd_performance_level=high
-nv_powermizer_mode=1
+apply_gpu_optimisations=accept-responsibility  
+amd_performance_level=high  
+nv_powermizer_mode=1  
 
 [cpu]
-park_cores=no
-pin_policy=prefer-physical
+park_cores=no  
+pin_policy=prefer-physical  
 ```
 
 ### Streaming + Gaming
 
 ```ini
 [general]
-renice=8
-desiredgov=performance
+renice=8  
+desiredgov=performance  
 
 [cpu]
 park_cores=no
@@ -819,12 +819,12 @@ start=nvidia-settings -a "[gpu:1]/GPUPowerMizerMode=1"
 #!/bin/bash
 # test-gamemode.sh
 
-echo "Test GameMode"
-echo "============="
+echo "Test GameMode"  
+echo "============="  
 
-echo ""
-echo "1. Vérification installation..."
-if command -v gamemoded &> /dev/null; then
+echo ""  
+echo "1. Vérification installation..."  
+if command -v gamemoded &> /dev/null; then  
     echo "✅ GameMode installé"
     gamemoded --version
 else
@@ -832,31 +832,31 @@ else
     exit 1
 fi
 
-echo ""
-echo "2. Vérification service..."
-if systemctl --user is-active --quiet gamemoded; then
+echo ""  
+echo "2. Vérification service..."  
+if systemctl --user is-active --quiet gamemoded; then  
     echo "✅ Service actif"
 else
     echo "❌ Service inactif"
     systemctl --user start gamemoded
 fi
 
-echo ""
-echo "3. Test activation..."
-gamemoderun sleep 5 &
-sleep 1
-gamemoded -s
-wait
+echo ""  
+echo "3. Test activation..."  
+gamemoderun sleep 5 &  
+sleep 1  
+gamemoded -s  
+wait  
 
-echo ""
-echo "4. Vérification gouverneur..."
-gamemoderun sleep 5 &
-sleep 1
-cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-wait
+echo ""  
+echo "4. Vérification gouverneur..."  
+gamemoderun sleep 5 &  
+sleep 1  
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor  
+wait  
 
-echo ""
-echo "✅ Test terminé"
+echo ""  
+echo "✅ Test terminé"  
 ```
 
 Utilisez-le :
@@ -871,24 +871,24 @@ chmod +x test-gamemode.sh
 #!/bin/bash
 # benchmark-gamemode.sh
 
-echo "Benchmark avec/sans GameMode"
-echo "============================="
+echo "Benchmark avec/sans GameMode"  
+echo "============================="  
 
 # Sans GameMode
-echo "Test SANS GameMode..."
-FPS1=$(glxgears -fullscreen 2>&1 | grep "frames in" | awk '{print $1/5}')
-echo "FPS sans GameMode: $FPS1"
+echo "Test SANS GameMode..."  
+FPS1=$(glxgears -fullscreen 2>&1 | grep "frames in" | awk '{print $1/5}')  
+echo "FPS sans GameMode: $FPS1"  
 
 sleep 2
 
 # Avec GameMode
-echo "Test AVEC GameMode..."
-FPS2=$(gamemoderun glxgears -fullscreen 2>&1 | grep "frames in" | awk '{print $1/5}')
-echo "FPS avec GameMode: $FPS2"
+echo "Test AVEC GameMode..."  
+FPS2=$(gamemoderun glxgears -fullscreen 2>&1 | grep "frames in" | awk '{print $1/5}')  
+echo "FPS avec GameMode: $FPS2"  
 
 # Calcul amélioration
-GAIN=$(echo "scale=2; ($FPS2 - $FPS1) / $FPS1 * 100" | bc)
-echo "Gain: ${GAIN}%"
+GAIN=$(echo "scale=2; ($FPS2 - $FPS1) / $FPS1 * 100" | bc)  
+echo "Gain: ${GAIN}%"  
 ```
 
 ## Monitoring de GameMode
@@ -934,8 +934,8 @@ CoreCtrl pour overclocking/profils AMD.
 
 ```ini
 [custom]
-start=corectrl --profile gaming
-end=corectrl --profile desktop
+start=corectrl --profile gaming  
+end=corectrl --profile desktop  
 ```
 
 ### GameMode + GreenWithEnvy (NVIDIA)
@@ -944,8 +944,8 @@ GWE pour contrôle ventilateur NVIDIA.
 
 ```ini
 [custom]
-start=gwe --profile gaming
-end=gwe --profile normal
+start=gwe --profile gaming  
+end=gwe --profile normal  
 ```
 
 ### GameMode + RGB
@@ -954,8 +954,8 @@ OpenRGB pour contrôler RGB.
 
 ```ini
 [custom]
-start=openrgb --profile gaming
-end=openrgb --profile normal
+start=openrgb --profile gaming  
+end=openrgb --profile normal  
 ```
 
 ## Ressources et documentation

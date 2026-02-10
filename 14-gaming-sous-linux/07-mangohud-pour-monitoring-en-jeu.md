@@ -29,8 +29,8 @@ MangoHud est un overlay de monitoring des performances pour Linux qui affiche de
 
 ```bash
 # Installer MangoHud
-sudo apt update
-sudo apt install mangohud
+sudo apt update  
+sudo apt install mangohud  
 
 # Vérifier l'installation
 mangohud --version
@@ -40,8 +40,8 @@ mangohud --version
 
 ```bash
 # Ajouter le PPA
-sudo add-apt-repository ppa:flexiondotorg/mangohud
-sudo apt update
+sudo add-apt-repository ppa:flexiondotorg/mangohud  
+sudo apt update  
 
 # Installer
 sudo apt install mangohud
@@ -150,8 +150,8 @@ mangohud wine MonJeu.exe
 mangohud ./jeu
 
 # Exemple concret
-cd ~/Games/SuperTuxKart/
-mangohud ./supertuxkart
+cd ~/Games/SuperTuxKart/  
+mangohud ./supertuxkart  
 ```
 
 ## Raccourcis clavier
@@ -192,15 +192,15 @@ Copiez-collez cette configuration simple :
 position=top-left
 
 # Informations affichées
-fps
-gpu_stats
-cpu_stats
-ram
-vram
+fps  
+gpu_stats  
+cpu_stats  
+ram  
+vram  
 
 # Apparence
-font_size=24
-background_alpha=0.5
+font_size=24  
+background_alpha=0.5  
 ```
 
 **Enregistrez** : `Ctrl+O`, `Entrée`, `Ctrl+X`
@@ -211,47 +211,47 @@ background_alpha=0.5
 
 ```ini
 # Positions disponibles :
-position=top-left        # Haut gauche (défaut)
-position=top-right       # Haut droite
-position=bottom-left     # Bas gauche
-position=bottom-right    # Bas droite
-position=top-center      # Haut centre
-position=bottom-center   # Bas centre
+position=top-left        # Haut gauche (défaut)  
+position=top-right       # Haut droite  
+position=bottom-left     # Bas gauche  
+position=bottom-right    # Bas droite  
+position=top-center      # Haut centre  
+position=bottom-center   # Bas centre  
 ```
 
 #### Informations à afficher
 
 ```ini
 # FPS
-fps                      # Affiche les FPS
-fps_limit=144           # Limite les FPS (optionnel)
+fps                      # Affiche les FPS  
+fps_limit=144           # Limite les FPS (optionnel)  
 
 # GPU
-gpu_stats               # Utilisation et fréquence GPU
-gpu_temp                # Température GPU
-gpu_power               # Consommation GPU (si supporté)
-gpu_mem_clock           # Fréquence mémoire GPU
-gpu_core_clock          # Fréquence core GPU
+gpu_stats               # Utilisation et fréquence GPU  
+gpu_temp                # Température GPU  
+gpu_power               # Consommation GPU (si supporté)  
+gpu_mem_clock           # Fréquence mémoire GPU  
+gpu_core_clock          # Fréquence core GPU  
 
 # CPU
-cpu_stats               # Utilisation CPU (tous les cœurs)
-cpu_temp                # Température CPU
-cpu_power               # Consommation CPU (si supporté)
-core_load               # Charge par cœur (détaillé)
+cpu_stats               # Utilisation CPU (tous les cœurs)  
+cpu_temp                # Température CPU  
+cpu_power               # Consommation CPU (si supporté)  
+core_load               # Charge par cœur (détaillé)  
 
 # Mémoire
-ram                     # RAM utilisée
-vram                    # VRAM utilisée
+ram                     # RAM utilisée  
+vram                    # VRAM utilisée  
 
 # Timing
-frame_timing=1          # Graphique de frame time
-frametime=1             # Affiche le frame time en ms
+frame_timing=1          # Graphique de frame time  
+frametime=1             # Affiche le frame time en ms  
 
 # Informations système
-engine_version          # Moteur du jeu (Unity, Unreal, etc.)
-vulkan_driver           # Version du driver Vulkan
-wine                    # Version de Wine/Proton (si applicable)
-gamemode                # Indique si GameMode est actif
+engine_version          # Moteur du jeu (Unity, Unreal, etc.)  
+vulkan_driver           # Version du driver Vulkan  
+wine                    # Version de Wine/Proton (si applicable)  
+gamemode                # Indique si GameMode est actif  
 
 # Informations de jeu
 resolution              # Résolution du jeu
@@ -263,12 +263,12 @@ resolution              # Résolution du jeu
 
 ```ini
 # Minimal - Impact minimal sur performances
-position=top-right
-fps
-gpu_temp
-cpu_temp
-font_size=20
-background_alpha=0.3
+position=top-right  
+fps  
+gpu_temp  
+cpu_temp  
+font_size=20  
+background_alpha=0.3  
 ```
 
 #### Configuration standard (recommandée)
@@ -278,18 +278,18 @@ background_alpha=0.3
 position=top-left
 
 # Stats principales
-fps
-gpu_stats
-gpu_temp
-cpu_stats
-cpu_temp
-ram
-vram
+fps  
+gpu_stats  
+gpu_temp  
+cpu_stats  
+cpu_temp  
+ram  
+vram  
 
 # Apparence
-font_size=24
-background_alpha=0.5
-text_color=FFFFFF
+font_size=24  
+background_alpha=0.5  
+text_color=FFFFFF  
 ```
 
 #### Configuration complète (monitoring avancé)
@@ -299,39 +299,39 @@ text_color=FFFFFF
 position=top-left
 
 # FPS et timing
-fps
-frametime=1
-frame_timing=1
+fps  
+frametime=1  
+frame_timing=1  
 
 # GPU détaillé
-gpu_stats
-gpu_temp
-gpu_core_clock
-gpu_mem_clock
-gpu_power
+gpu_stats  
+gpu_temp  
+gpu_core_clock  
+gpu_mem_clock  
+gpu_power  
 
 # CPU détaillé
-cpu_stats
-cpu_temp
-core_load
+cpu_stats  
+cpu_temp  
+core_load  
 
 # Mémoire
-ram
-vram
+ram  
+vram  
 
 # Système
-engine_version
-vulkan_driver
-wine
-gamemode
+engine_version  
+vulkan_driver  
+wine  
+gamemode  
 
 # Graphiques
-frame_timing=1
-histogram
+frame_timing=1  
+histogram  
 
 # Apparence
-font_size=22
-background_alpha=0.4
+font_size=22  
+background_alpha=0.4  
 ```
 
 #### Configuration pour benchmarking
@@ -340,19 +340,19 @@ background_alpha=0.4
 # Benchmarking - Avec logging
 position=top-right
 
-fps
-frametime=1
-gpu_temp
-cpu_temp
+fps  
+frametime=1  
+gpu_temp  
+cpu_temp  
 
 # Logging
-output_folder=/home/VOTRE_NOM/mangohud-logs
-log_duration=60
-autostart_log=1
+output_folder=/home/VOTRE_NOM/mangohud-logs  
+log_duration=60  
+autostart_log=1  
 
 # Apparence minimaliste
-font_size=20
-background_alpha=0.3
+font_size=20  
+background_alpha=0.3  
 ```
 
 > **Remplacez** `VOTRE_NOM` par votre nom d'utilisateur Linux.
@@ -363,27 +363,27 @@ background_alpha=0.3
 
 ```ini
 # Couleurs (format RGB hexadécimal)
-text_color=FFFFFF        # Blanc
-gpu_color=2E97CB        # Bleu
-cpu_color=2E9762        # Vert
-vram_color=AD64C1       # Violet
-ram_color=C26693        # Rose
-engine_color=EB5B5B     # Rouge
-background_color=020202 # Noir
+text_color=FFFFFF        # Blanc  
+gpu_color=2E97CB        # Bleu  
+cpu_color=2E9762        # Vert  
+vram_color=AD64C1       # Violet  
+ram_color=C26693        # Rose  
+engine_color=EB5B5B     # Rouge  
+background_color=020202 # Noir  
 ```
 
 #### Taille et transparence
 
 ```ini
 # Taille de la police
-font_size=24            # Défaut : 24
-font_size=18            # Petit
-font_size=32            # Grand
+font_size=24            # Défaut : 24  
+font_size=18            # Petit  
+font_size=32            # Grand  
 
 # Transparence
-background_alpha=0.5    # 50% transparent (défaut)
-background_alpha=0.0    # Complètement transparent
-background_alpha=1.0    # Opaque
+background_alpha=0.5    # 50% transparent (défaut)  
+background_alpha=0.0    # Complètement transparent  
+background_alpha=1.0    # Opaque  
 
 # Arrondi des bords
 round_corners=5         # Bords arrondis (en pixels)
@@ -393,8 +393,8 @@ round_corners=5         # Bords arrondis (en pixels)
 
 ```ini
 # Espacement
-table_columns=3         # Nombre de colonnes
-cellpadding_y=-0.085   # Espacement vertical
+table_columns=3         # Nombre de colonnes  
+cellpadding_y=-0.085   # Espacement vertical  
 ```
 
 ### Graphiques de performances
@@ -403,8 +403,8 @@ cellpadding_y=-0.085   # Espacement vertical
 
 ```ini
 # Graphique de frame time
-frame_timing=1          # Active le graphique
-histogram              # Histogramme au lieu de ligne
+frame_timing=1          # Active le graphique  
+histogram              # Histogramme au lieu de ligne  
 ```
 
 Ce graphique montre la régularité des frames. Une ligne plate = bon. Des pics = stutters.
@@ -416,9 +416,9 @@ Ce graphique montre la régularité des frames. Une ligne plate = bon. Des pics 
 frametime_color=00FF41  # Vert néon
 
 # Taille du graphique
-frame_timing=1
-width=280               # Largeur de l'overlay
-height=140              # Hauteur
+frame_timing=1  
+width=280               # Largeur de l'overlay  
+height=140              # Hauteur  
 ```
 
 ## Logging des performances
@@ -522,60 +522,60 @@ goverlay
 
 ```ini
 # Minimal pour FPS max
-position=top-right
-fps
-font_size=18
-background_alpha=0.2
-no_display              # Masqué par défaut
-toggle_hud=Shift+F12    # Afficher sur demande
+position=top-right  
+fps  
+font_size=18  
+background_alpha=0.2  
+no_display              # Masqué par défaut  
+toggle_hud=Shift+F12    # Afficher sur demande  
 ```
 
 ### RPG / Solo (Witcher, Skyrim, etc.)
 
 ```ini
 # Complet pour surveiller tout
-position=top-left
-fps
-frametime=1
-gpu_stats
-gpu_temp
-cpu_stats
-cpu_temp
-ram
-vram
-engine_version
-font_size=24
-background_alpha=0.5
+position=top-left  
+fps  
+frametime=1  
+gpu_stats  
+gpu_temp  
+cpu_stats  
+cpu_temp  
+ram  
+vram  
+engine_version  
+font_size=24  
+background_alpha=0.5  
 ```
 
 ### Jeux rétro / émulation
 
 ```ini
 # Simple et discret
-position=bottom-right
-fps
-cpu_temp
-font_size=20
-background_alpha=0.3
+position=bottom-right  
+fps  
+cpu_temp  
+font_size=20  
+background_alpha=0.3  
 ```
 
 ### Benchmarking / Tests
 
 ```ini
 # Avec logging automatique
-position=top-right
-fps
-frametime=1
-frame_timing=1
-gpu_temp
-cpu_temp
+position=top-right  
+fps  
+frametime=1  
+frame_timing=1  
+gpu_temp  
+cpu_temp  
 
-output_folder=~/benchmark-logs
-log_duration=120
-autostart_log=1
+output_folder=~/benchmark-logs  
+log_duration=120  
+autostart_log=1  
 
-font_size=22
-background_alpha=0.4
+font_size=22  
+background_alpha=0.4  
 ```
 
 ## Configurations par jeu spécifique
@@ -698,12 +698,12 @@ Vous pouvez contrôler MangoHud via variables d'environnement.
 
 ```bash
 # Activer/Désactiver
-MANGOHUD=1              # Active MangoHud
-MANGOHUD=0              # Désactive MangoHud
+MANGOHUD=1              # Active MangoHud  
+MANGOHUD=0              # Désactive MangoHud  
 
 # Configuration spécifique
-MANGOHUD_CONFIG=fichier # Utilise ~/fichier.conf
-MANGOHUD_CONFIGFILE=/chemin/complet/config.conf
+MANGOHUD_CONFIG=fichier # Utilise ~/fichier.conf  
+MANGOHUD_CONFIGFILE=/chemin/complet/config.conf  
 
 # Options en ligne
 MANGOHUD_CONFIG=fps,gpu_temp,cpu_temp
@@ -802,10 +802,10 @@ Outil NVIDIA pour monitoring détaillé.
 
 ### Positionnement optimal
 
-**Top-left** : Bon pour streaming (pas sur interface jeu)
-**Top-right** : Classique, peu intrusif
-**Bottom-right** : Si interface jeu en haut
-**Bottom-left** : Si map du jeu en bas à droite
+**Top-left** : Bon pour streaming (pas sur interface jeu)  
+**Top-right** : Classique, peu intrusif  
+**Bottom-right** : Si interface jeu en haut  
+**Bottom-left** : Si map du jeu en bas à droite  
 
 ### Informations essentielles
 
@@ -825,9 +825,9 @@ Outil NVIDIA pour monitoring détaillé.
 
 MangoHud a un impact minimal mais réel :
 
-**Configuration minimale** : ~1-2% impact
-**Configuration complète** : ~3-5% impact
-**Avec graphiques** : ~5-8% impact
+**Configuration minimale** : ~1-2% impact  
+**Configuration complète** : ~3-5% impact  
+**Avec graphiques** : ~5-8% impact  
 
 **Recommandation** : Ajustez selon vos besoins.
 
@@ -835,26 +835,26 @@ MangoHud a un impact minimal mais réel :
 
 **Schéma "Matrix"** :
 ```ini
-text_color=00FF00
-gpu_color=00AA00
-cpu_color=00FF00
-background_color=000000
+text_color=00FF00  
+gpu_color=00AA00  
+cpu_color=00FF00  
+background_color=000000  
 ```
 
 **Schéma "Cyberpunk"** :
 ```ini
-text_color=FF00FF
-gpu_color=00FFFF
-cpu_color=FFFF00
-background_color=1A001A
+text_color=FF00FF  
+gpu_color=00FFFF  
+cpu_color=FFFF00  
+background_color=1A001A  
 ```
 
 **Schéma "Discret"** :
 ```ini
-text_color=CCCCCC
-gpu_color=999999
-cpu_color=999999
-background_alpha=0.2
+text_color=CCCCCC  
+gpu_color=999999  
+cpu_color=999999  
+background_alpha=0.2  
 ```
 
 ## Exemples de configurations complètes
@@ -863,14 +863,14 @@ background_alpha=0.2
 
 ```ini
 # Minimal, haute performance, top-right
-position=top-right
-no_display
-toggle_hud=Shift+F12
+position=top-right  
+no_display  
+toggle_hud=Shift+F12  
 
-fps
-font_size=20
-text_color=00FF00
-background_alpha=0.2
+fps  
+font_size=20  
+text_color=00FF00  
+background_alpha=0.2  
 ```
 
 ### Configuration "Streamer"
@@ -879,21 +879,21 @@ background_alpha=0.2
 # Complète, visible, professionnelle
 position=top-left
 
-fps
-frametime=1
-gpu_stats
-gpu_temp
-cpu_stats
-cpu_temp
-ram
-vram
-gamemode
-resolution
+fps  
+frametime=1  
+gpu_stats  
+gpu_temp  
+cpu_stats  
+cpu_temp  
+ram  
+vram  
+gamemode  
+resolution  
 
-font_size=24
-background_alpha=0.5
-text_color=FFFFFF
-round_corners=8
+font_size=24  
+background_alpha=0.5  
+text_color=FFFFFF  
+round_corners=8  
 ```
 
 ### Configuration "Benchmark"
@@ -902,23 +902,23 @@ round_corners=8
 # Logging automatique, données complètes
 position=top-right
 
-fps
-frametime=1
-frame_timing=1
-gpu_stats
-gpu_temp
-gpu_power
-cpu_stats
-cpu_temp
-ram
-vram
+fps  
+frametime=1  
+frame_timing=1  
+gpu_stats  
+gpu_temp  
+gpu_power  
+cpu_stats  
+cpu_temp  
+ram  
+vram  
 
-output_folder=~/mangohud-benchmarks
-log_duration=300
-autostart_log=1
+output_folder=~/mangohud-benchmarks  
+log_duration=300  
+autostart_log=1  
 
-font_size=22
-background_alpha=0.4
+font_size=22  
+background_alpha=0.4  
 ```
 
 ### Configuration "Laptop"
@@ -927,14 +927,14 @@ background_alpha=0.4
 # Focus température et batterie
 position=top-right
 
-fps
-gpu_temp
-cpu_temp
-battery
+fps  
+gpu_temp  
+cpu_temp  
+battery  
 
-font_size=22
-background_alpha=0.4
-text_color=FFAA00
+font_size=22  
+background_alpha=0.4  
+text_color=FFAA00  
 ```
 
 ## Documentation et ressources
@@ -968,16 +968,16 @@ MangoHud est un outil indispensable pour tout joueur Linux sérieux. Il permet d
 
 **Configuration recommandée pour débuter** :
 ```ini
-position=top-left
-fps
-gpu_stats
-gpu_temp
-cpu_stats
-cpu_temp
-ram
-vram
-font_size=24
-background_alpha=0.5
+position=top-left  
+fps  
+gpu_stats  
+gpu_temp  
+cpu_stats  
+cpu_temp  
+ram  
+vram  
+font_size=24  
+background_alpha=0.5  
 ```
 
 Avec MangoHud, vous avez un contrôle total sur les performances de vos jeux et pouvez facilement identifier et résoudre les problèmes. Bon monitoring ! 🎮📊
