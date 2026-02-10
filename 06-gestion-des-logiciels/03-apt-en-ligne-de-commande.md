@@ -127,10 +127,10 @@ sudo apt update
 
 **Exemple de sortie :**
 ```
-Atteint:1 http://packages.linuxmint.com vera InRelease
-Réception de:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
-Lecture des listes de paquets... Fait
-Construction de l'arbre des dépendances... Fait
+Atteint:1 http://packages.linuxmint.com vera InRelease  
+Réception de:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]  
+Lecture des listes de paquets... Fait  
+Construction de l'arbre des dépendances... Fait  
 4 paquets peuvent être mis à jour. Exécutez « apt list --upgradable » pour les voir.
 ```
 
@@ -348,8 +348,8 @@ sudo apt autoremove
 Pour supprimer complètement un logiciel et nettoyer :
 
 ```bash
-sudo apt purge nom-du-paquet
-sudo apt autoremove
+sudo apt purge nom-du-paquet  
+sudo apt autoremove  
 ```
 
 ## Nettoyer le système
@@ -385,10 +385,10 @@ sudo apt autoclean
 Pour un nettoyage complet de votre système :
 
 ```bash
-sudo apt update
-sudo apt upgrade
-sudo apt autoremove
-sudo apt autoclean
+sudo apt update  
+sudo apt upgrade  
+sudo apt autoremove  
+sudo apt autoclean  
 ```
 
 **Explication de cette séquence :**
@@ -427,8 +427,8 @@ L'option `-f` (fix-broken) répare automatiquement les dépendances cassées.
 ### Séquence complète pour installer un .deb
 
 ```bash
-sudo dpkg -i fichier.deb
-sudo apt install -f
+sudo dpkg -i fichier.deb  
+sudo apt install -f  
 ```
 
 ### Lister les paquets installés
@@ -567,8 +567,8 @@ Voici des situations réelles et les commandes à utiliser :
 ### Installer un logiciel de développement complet
 
 ```bash
-sudo apt update
-sudo apt install build-essential git curl
+sudo apt update  
+sudo apt install build-essential git curl  
 ```
 
 ### Installer des codecs multimédia
@@ -608,8 +608,8 @@ sudo apt install vim htop tree curl wget git neofetch
 2. Attendez quelques minutes
 3. En dernier recours :
 ```bash
-sudo killall apt apt-get
-sudo dpkg --configure -a
+sudo killall apt apt-get  
+sudo dpkg --configure -a  
 ```
 
 ### "E: Unable to locate package"
@@ -684,9 +684,9 @@ sudo apt install firefox
 
 Ajoutez dans votre `~/.bashrc` :
 ```bash
-alias maj='sudo apt update && sudo apt upgrade'
-alias install='sudo apt install'
-alias search='apt search'
+alias maj='sudo apt update && sudo apt upgrade'  
+alias install='sudo apt install'  
+alias search='apt search'  
 ```
 
 Après avoir rechargé le terminal, vous pourrez taper simplement `maj` pour mettre à jour !
@@ -705,17 +705,17 @@ Créez un fichier `maintenance.sh` :
 ```bash
 #!/bin/bash
 
-echo "=== Mise à jour de la liste des paquets ==="
-sudo apt update
+echo "=== Mise à jour de la liste des paquets ==="  
+sudo apt update  
 
-echo "=== Installation des mises à jour ==="
-sudo apt upgrade -y
+echo "=== Installation des mises à jour ==="  
+sudo apt upgrade -y  
 
-echo "=== Suppression des paquets inutiles ==="
-sudo apt autoremove -y
+echo "=== Suppression des paquets inutiles ==="  
+sudo apt autoremove -y  
 
-echo "=== Nettoyage du cache ==="
-sudo apt autoclean
+echo "=== Nettoyage du cache ==="  
+sudo apt autoclean  
 
 echo "=== Maintenance terminée ! ==="
 ```

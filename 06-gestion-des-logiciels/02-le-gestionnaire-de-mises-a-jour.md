@@ -463,8 +463,8 @@ sudo apt full-upgrade
 
 ### Nettoyer les anciens paquets
 ```bash
-sudo apt autoremove
-sudo apt autoclean
+sudo apt autoremove  
+sudo apt autoclean  
 ```
 
 **Note** : Ces commandes sont expliquées en détail dans le chapitre "APT en ligne de commande".
@@ -483,8 +483,8 @@ sudo dpkg --configure -a
 ### Problème : Le gestionnaire ne se lance pas
 **Solution** : Ouvrez le terminal et tapez :
 ```bash
-sudo rm /var/lib/apt/lists/lock
-sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/apt/lists/lock  
+sudo rm /var/cache/apt/archives/lock  
 ```
 
 ### Problème : Mises à jour très lentes

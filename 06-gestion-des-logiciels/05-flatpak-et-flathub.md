@@ -211,8 +211,8 @@ Lors de votre première installation Flatpak, le système vous demandera d'insta
 
 **Exemple** :
 ```
-Required runtime for org.gimp.GIMP is not installed.
-Install runtime org.gnome.Platform/x86_64/45 from 'flathub'? [Y/n]:
+Required runtime for org.gimp.GIMP is not installed.  
+Install runtime org.gnome.Platform/x86_64/45 from 'flathub'? [Y/n]:  
 ```
 
 Tapez **Y** et appuyez sur Entrée. C'est normal et nécessaire.
@@ -342,15 +342,15 @@ Cette commande supprime :
 ### Voir l'espace disque utilisé
 
 ```bash
-du -sh ~/.local/share/flatpak
-du -sh /var/lib/flatpak
+du -sh ~/.local/share/flatpak  
+du -sh /var/lib/flatpak  
 ```
 
 ### Nettoyer le cache
 
 ```bash
-flatpak repair --user
-flatpak repair --system
+flatpak repair --user  
+flatpak repair --system  
 ```
 
 ## Gérer les permissions des applications
@@ -503,8 +503,8 @@ flatpak install flathub org.gtk.Gtk3theme.NomDeVotreTheme
 
 Ou donnez accès aux thèmes :
 ```bash
-flatpak override --filesystem=~/.themes
-flatpak override --filesystem=~/.icons
+flatpak override --filesystem=~/.themes  
+flatpak override --filesystem=~/.icons  
 ```
 
 ### L'installation échoue
@@ -581,8 +581,8 @@ Les raccourcis des applications Flatpak sont dans :
 
 Certaines applications ont plusieurs versions (stable, beta) :
 ```bash
-flatpak install flathub nom.de.lapplication//stable
-flatpak install flathub nom.de.lapplication//beta
+flatpak install flathub nom.de.lapplication//stable  
+flatpak install flathub nom.de.lapplication//beta  
 ```
 
 ## Bonnes pratiques

@@ -136,15 +136,15 @@ Les paquets suivants contiennent des dépendances non satisfaites :
 #### Message 2 : Paquets cassés
 
 ```
-Vous pouvez lancer « apt --fix-broken install » pour corriger ces problèmes.
-Les paquets suivants contiennent des dépendances non satisfaites :
+Vous pouvez lancer « apt --fix-broken install » pour corriger ces problèmes.  
+Les paquets suivants contiennent des dépendances non satisfaites :  
 ```
 
 #### Message 3 : Impossible d'installer
 
 ```
-Impossible d'installer nom-paquet
-E: Dépendances cassées. Essayez 'apt --fix-broken install' sans paquet
+Impossible d'installer nom-paquet  
+E: Dépendances cassées. Essayez 'apt --fix-broken install' sans paquet  
    (ou indiquez une solution).
 ```
 
@@ -219,8 +219,8 @@ sudo dpkg --configure -a
 
 **Séquence recommandée** :
 ```bash
-sudo dpkg --configure -a
-sudo apt install -f
+sudo dpkg --configure -a  
+sudo apt install -f  
 ```
 
 ### Niveau 3 : Nettoyer et mettre à jour
@@ -228,9 +228,9 @@ sudo apt install -f
 Parfois, le cache est corrompu. Nettoyons-le :
 
 ```bash
-sudo apt clean
-sudo apt update
-sudo apt install -f
+sudo apt clean  
+sudo apt update  
+sudo apt install -f  
 ```
 
 **Explication** :
@@ -249,15 +249,15 @@ Lisez les messages d'erreur pour identifier quel paquet pose problème.
 #### Supprimer le paquet
 
 ```bash
-sudo apt remove --purge nom-du-paquet-problematique
-sudo apt install -f
+sudo apt remove --purge nom-du-paquet-problematique  
+sudo apt install -f  
 ```
 
 Ou avec dpkg :
 
 ```bash
-sudo dpkg --remove --force-remove-reinstreq nom-du-paquet
-sudo apt install -f
+sudo dpkg --remove --force-remove-reinstreq nom-du-paquet  
+sudo apt install -f  
 ```
 
 **Attention** : Cela supprime le paquet. Vous pourrez le réinstaller après.
@@ -319,11 +319,11 @@ sudo apt-mark unhold nom-du-paquet
 Si APT dit qu'il est "verrouillé" :
 
 ```bash
-sudo rm /var/lib/apt/lists/lock
-sudo rm /var/cache/apt/archives/lock
-sudo rm /var/lib/dpkg/lock*
-sudo dpkg --configure -a
-sudo apt update
+sudo rm /var/lib/apt/lists/lock  
+sudo rm /var/cache/apt/archives/lock  
+sudo rm /var/lib/dpkg/lock*  
+sudo dpkg --configure -a  
+sudo apt update  
 ```
 
 **Attention** : Ne faites cela QUE si aucun gestionnaire de paquets n'est en cours d'exécution !
@@ -351,8 +351,8 @@ sudo software-sources
 
 Puis :
 ```bash
-sudo apt update
-sudo apt install -f
+sudo apt update  
+sudo apt install -f  
 ```
 
 ### Niveau 9 : Vérifier l'intégrité des paquets
@@ -375,10 +375,10 @@ sudo apt install --reinstall nom-du-paquet
 #### Supprimer tous les paquets cassés
 
 ```bash
-sudo dpkg --remove --force-remove-reinstreq $(dpkg -l | grep "^iU\|^iF" | awk '{print $2}')
-sudo apt update
-sudo apt install -f
-sudo apt upgrade
+sudo dpkg --remove --force-remove-reinstreq $(dpkg -l | grep "^iU\|^iF" | awk '{print $2}')  
+sudo apt update  
+sudo apt install -f  
+sudo apt upgrade  
 ```
 
 #### Réinstaller ubuntu-desktop ou cinnamon-desktop
@@ -405,8 +405,8 @@ E: dpkg a été interrompu. Il est nécessaire d'utiliser « sudo dpkg --configu
 
 **Solution** :
 ```bash
-sudo dpkg --configure -a
-sudo apt install -f
+sudo dpkg --configure -a  
+sudo apt install -f  
 ```
 
 ### Cas 2 : "Unmet dependencies"
@@ -419,14 +419,14 @@ The following packages have unmet dependencies:
 
 **Solution** :
 ```bash
-sudo apt update
-sudo apt install firefox
+sudo apt update  
+sudo apt install firefox  
 ```
 
 Si ça ne marche pas :
 ```bash
-sudo apt install libgtk-3-0
-sudo apt install firefox
+sudo apt install libgtk-3-0  
+sudo apt install firefox  
 ```
 
 ### Cas 3 : Installation .deb qui a cassé le système
@@ -439,12 +439,12 @@ sudo apt install firefox
 dpkg -l | tail -20
 
 # Supprimer le paquet
-sudo apt remove nom-du-paquet-problematique
-sudo apt install -f
+sudo apt remove nom-du-paquet-problematique  
+sudo apt install -f  
 
 # Si nécessaire, purger complètement
-sudo apt purge nom-du-paquet-problematique
-sudo apt autoremove
+sudo apt purge nom-du-paquet-problematique  
+sudo apt autoremove  
 ```
 
 ### Cas 4 : Conflit entre PPA
@@ -458,9 +458,9 @@ The following packages have unmet dependencies:
 **Solution** :
 ```bash
 # Désactiver les PPA problématiques
-sudo apt-add-repository --remove ppa:nom/ppa
-sudo apt update
-sudo apt install -f
+sudo apt-add-repository --remove ppa:nom/ppa  
+sudo apt update  
+sudo apt install -f  
 ```
 
 ### Cas 5 : Système figé pendant une mise à jour
@@ -469,20 +469,20 @@ sudo apt install -f
 
 **Solution** (au redémarrage) :
 ```bash
-sudo dpkg --configure -a
-sudo apt clean
-sudo apt update
-sudo apt install -f
-sudo apt dist-upgrade
+sudo dpkg --configure -a  
+sudo apt clean  
+sudo apt update  
+sudo apt install -f  
+sudo apt dist-upgrade  
 ```
 
 ### Cas 6 : "Package is in a very bad inconsistent state"
 
 **Solution** :
 ```bash
-sudo dpkg --remove --force-remove-reinstreq nom-du-paquet
-sudo apt install -f
-sudo apt install nom-du-paquet
+sudo dpkg --remove --force-remove-reinstreq nom-du-paquet  
+sudo apt install -f  
+sudo apt install nom-du-paquet  
 ```
 
 ## Outils de diagnostic
@@ -524,8 +524,8 @@ Montre ce qui serait fait sans réellement le faire.
 ### Debsums : Vérifier l'intégrité
 
 ```bash
-sudo apt install debsums
-sudo debsums -c
+sudo apt install debsums  
+sudo debsums -c  
 ```
 
 Vérifie que les fichiers installés correspondent aux checksums originaux.
@@ -607,8 +607,8 @@ dpkg -l | grep -E "^..r|^..c" > ~/paquets-problematiques.txt
 
 5. **Sources** :
 ```bash
-cat /etc/apt/sources.list
-ls /etc/apt/sources.list.d/
+cat /etc/apt/sources.list  
+ls /etc/apt/sources.list.d/  
 ```
 
 ### Où demander de l'aide
@@ -633,40 +633,40 @@ nano ~/reparer-dependances.sh
 ```bash
 #!/bin/bash
 
-echo "=== Script de réparation des dépendances ==="
-echo "Ce script va tenter de réparer les dépendances cassées"
-echo ""
-read -p "Continuer? (o/n) " -n 1 -r
-echo
-if [[ ! $REPLY =~ ^[Oo]$ ]]
-then
+echo "=== Script de réparation des dépendances ==="  
+echo "Ce script va tenter de réparer les dépendances cassées"  
+echo ""  
+read -p "Continuer? (o/n) " -n 1 -r  
+echo  
+if [[ ! $REPLY =~ ^[Oo]$ ]]  
+then  
     exit 1
 fi
 
-echo "Étape 1: Configuration des paquets en attente..."
-sudo dpkg --configure -a
+echo "Étape 1: Configuration des paquets en attente..."  
+sudo dpkg --configure -a  
 
-echo "Étape 2: Nettoyage du cache..."
-sudo apt clean
+echo "Étape 2: Nettoyage du cache..."  
+sudo apt clean  
 
-echo "Étape 3: Mise à jour de la liste des paquets..."
-sudo apt update
+echo "Étape 3: Mise à jour de la liste des paquets..."  
+sudo apt update  
 
-echo "Étape 4: Réparation des dépendances..."
-sudo apt install -f
+echo "Étape 4: Réparation des dépendances..."  
+sudo apt install -f  
 
-echo "Étape 5: Mise à jour du système..."
-sudo apt upgrade
+echo "Étape 5: Mise à jour du système..."  
+sudo apt upgrade  
 
-echo "Étape 6: Suppression des paquets inutiles..."
-sudo apt autoremove
+echo "Étape 6: Suppression des paquets inutiles..."  
+sudo apt autoremove  
 
-echo "Étape 7: Nettoyage final..."
-sudo apt autoclean
+echo "Étape 7: Nettoyage final..."  
+sudo apt autoclean  
 
-echo ""
-echo "=== Terminé ==="
-echo "Vérifiez s'il reste des erreurs avec: sudo apt check"
+echo ""  
+echo "=== Terminé ==="  
+echo "Vérifiez s'il reste des erreurs avec: sudo apt check"  
 ```
 
 ### Rendre exécutable et utiliser
@@ -733,14 +733,14 @@ Les dépendances cassées sont frustrantes mais rarement fatales. Dans la grande
 sudo apt install -f
 
 # Si ça ne suffit pas
-sudo dpkg --configure -a
-sudo apt install -f
+sudo dpkg --configure -a  
+sudo apt install -f  
 
 # Nettoyage complet
-sudo apt clean
-sudo apt update
-sudo apt install -f
-sudo apt autoremove
+sudo apt clean  
+sudo apt update  
+sudo apt install -f  
+sudo apt autoremove  
 ```
 
 ### Message final

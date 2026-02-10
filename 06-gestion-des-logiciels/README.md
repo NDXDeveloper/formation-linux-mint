@@ -80,8 +80,8 @@ Pour suivre cette section confortablement :
 
 ### 6.1 - Le gestionnaire de logiciels graphique
 
-**Difficulté** : ⭐ Débutant
-**Importance** : ⭐⭐⭐⭐⭐ Essentiel
+**Difficulté** : ⭐ Débutant  
+**Importance** : ⭐⭐⭐⭐⭐ Essentiel  
 
 Le **Gestionnaire de logiciels** est votre point d'entrée principal pour installer des applications. C'est l'interface graphique la plus simple et la plus sûre.
 
@@ -98,8 +98,8 @@ Le **Gestionnaire de logiciels** est votre point d'entrée principal pour instal
 
 ### 6.2 - Le gestionnaire de mises à jour
 
-**Difficulté** : ⭐ Débutant
-**Importance** : ⭐⭐⭐⭐⭐ Essentiel
+**Difficulté** : ⭐ Débutant  
+**Importance** : ⭐⭐⭐⭐⭐ Essentiel  
 
 La **sécurité** de votre système dépend des mises à jour régulières. Ce chapitre vous explique comment garder votre système sûr et stable.
 
@@ -116,8 +116,8 @@ La **sécurité** de votre système dépend des mises à jour régulières. Ce c
 
 ### 6.3 - APT en ligne de commande
 
-**Difficulté** : ⭐⭐ Intermédiaire
-**Importance** : ⭐⭐⭐⭐ Très important
+**Difficulté** : ⭐⭐ Intermédiaire  
+**Importance** : ⭐⭐⭐⭐ Très important  
 
 **APT** est le système de gestion de paquets en ligne de commande. Plus puissant et plus rapide que l'interface graphique.
 
@@ -134,8 +134,8 @@ La **sécurité** de votre système dépend des mises à jour régulières. Ce c
 
 ### 6.4 - Les dépôts et PPA
 
-**Difficulté** : ⭐⭐⭐ Intermédiaire/Avancé
-**Importance** : ⭐⭐⭐ Important
+**Difficulté** : ⭐⭐⭐ Intermédiaire/Avancé  
+**Importance** : ⭐⭐⭐ Important  
 
 Les **dépôts** sont les sources d'où proviennent vos logiciels. Les **PPA** permettent d'ajouter des sources supplémentaires.
 
@@ -152,8 +152,8 @@ Les **dépôts** sont les sources d'où proviennent vos logiciels. Les **PPA** p
 
 ### 6.5 - Flatpak et Flathub
 
-**Difficulté** : ⭐⭐ Débutant/Intermédiaire
-**Importance** : ⭐⭐⭐⭐ Très important
+**Difficulté** : ⭐⭐ Débutant/Intermédiaire  
+**Importance** : ⭐⭐⭐⭐ Très important  
 
 **Flatpak** est un système moderne d'installation d'applications isolées, recommandé par Linux Mint.
 
@@ -170,8 +170,8 @@ Les **dépôts** sont les sources d'où proviennent vos logiciels. Les **PPA** p
 
 ### 6.6 - Snap : La politique de Mint et comment le débloquer
 
-**Difficulté** : ⭐⭐ Intermédiaire
-**Importance** : ⭐⭐ Optionnel
+**Difficulté** : ⭐⭐ Intermédiaire  
+**Importance** : ⭐⭐ Optionnel  
 
 **Snap** est bloqué par défaut sur Linux Mint. Ce chapitre explique pourquoi et comment le débloquer si nécessaire.
 
@@ -188,8 +188,8 @@ Les **dépôts** sont les sources d'où proviennent vos logiciels. Les **PPA** p
 
 ### 6.7 - AppImage
 
-**Difficulté** : ⭐ Débutant
-**Importance** : ⭐⭐⭐ Important
+**Difficulté** : ⭐ Débutant  
+**Importance** : ⭐⭐⭐ Important  
 
 **AppImage** est le format le plus simple : un fichier exécutable unique, aucune installation nécessaire.
 
@@ -206,8 +206,8 @@ Les **dépôts** sont les sources d'où proviennent vos logiciels. Les **PPA** p
 
 ### 6.8 - Installation depuis les sources
 
-**Difficulté** : ⭐⭐⭐⭐ Avancé
-**Importance** : ⭐⭐ Optionnel
+**Difficulté** : ⭐⭐⭐⭐ Avancé  
+**Importance** : ⭐⭐ Optionnel  
 
 Parfois, vous devrez installer des fichiers **.deb** manuellement ou **compiler** depuis le code source.
 
@@ -224,8 +224,8 @@ Parfois, vous devrez installer des fichiers **.deb** manuellement ou **compiler*
 
 ### 6.9 - Gestion des dépendances cassées
 
-**Difficulté** : ⭐⭐⭐ Intermédiaire
-**Importance** : ⭐⭐⭐⭐ Très important
+**Difficulté** : ⭐⭐⭐ Intermédiaire  
+**Importance** : ⭐⭐⭐⭐ Très important  
 
 Les **dépendances cassées** sont un problème courant. Ce chapitre vous donne les outils pour les réparer.
 

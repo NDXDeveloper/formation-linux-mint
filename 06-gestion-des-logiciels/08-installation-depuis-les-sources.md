@@ -18,8 +18,8 @@ Ces méthodes sont plus techniques et comportent plus de risques, mais elles don
 
 Un fichier **.deb** est un paquet d'installation pour Debian, Ubuntu et Linux Mint. C'est l'équivalent d'un fichier **.exe** ou **.msi** sous Windows.
 
-**Extension** : `.deb`
-**Exemple** : `google-chrome-stable_current_amd64.deb`
+**Extension** : `.deb`  
+**Exemple** : `google-chrome-stable_current_amd64.deb`  
 
 ### Pourquoi télécharger un .deb manuellement ?
 
@@ -80,14 +80,14 @@ Vous devrez télécharger un .deb dans ces situations :
 Si l'installation graphique échoue ou si vous préférez le terminal :
 
 ```bash
-cd ~/Téléchargements
-sudo dpkg -i nom-du-fichier.deb
+cd ~/Téléchargements  
+sudo dpkg -i nom-du-fichier.deb  
 ```
 
 **Exemple** :
 ```bash
-cd ~/Téléchargements
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+cd ~/Téléchargements  
+sudo dpkg -i google-chrome-stable_current_amd64.deb  
 ```
 
 **Explication** :
@@ -119,8 +119,8 @@ Cette commande :
 
 **Séquence complète recommandée** :
 ```bash
-sudo dpkg -i nom-du-fichier.deb
-sudo apt install -f
+sudo dpkg -i nom-du-fichier.deb  
+sudo apt install -f  
 ```
 
 ### Installer plusieurs .deb en une fois
@@ -128,8 +128,8 @@ sudo apt install -f
 Si vous avez plusieurs fichiers .deb à installer :
 
 ```bash
-sudo dpkg -i *.deb
-sudo apt install -f
+sudo dpkg -i *.deb  
+sudo apt install -f  
 ```
 
 ### Vérifier qu'un .deb est installé
@@ -235,8 +235,8 @@ Avant de compiler quoi que ce soit, vous devez installer les **outils de dévelo
 #### Installer build-essential
 
 ```bash
-sudo apt update
-sudo apt install build-essential
+sudo apt update  
+sudo apt install build-essential  
 ```
 
 **Contenu de build-essential** :
@@ -266,14 +266,14 @@ sudo apt install git cmake autoconf automake
 #### Depuis GitHub (méthode moderne)
 
 ```bash
-git clone https://github.com/utilisateur/projet.git
-cd projet
+git clone https://github.com/utilisateur/projet.git  
+cd projet  
 ```
 
 **Exemple** : Cloner un projet open source
 ```bash
-git clone https://github.com/vim/vim.git
-cd vim
+git clone https://github.com/vim/vim.git  
+cd vim  
 ```
 
 #### Décompresser une archive
@@ -282,20 +282,20 @@ Si vous avez téléchargé une archive :
 
 **.tar.gz** :
 ```bash
-tar -xzvf nom-fichier.tar.gz
-cd nom-dossier
+tar -xzvf nom-fichier.tar.gz  
+cd nom-dossier  
 ```
 
 **.tar.bz2** :
 ```bash
-tar -xjvf nom-fichier.tar.bz2
-cd nom-dossier
+tar -xjvf nom-fichier.tar.bz2  
+cd nom-dossier  
 ```
 
 **.zip** :
 ```bash
-unzip nom-fichier.zip
-cd nom-dossier
+unzip nom-fichier.zip  
+cd nom-dossier  
 ```
 
 ### Le processus de compilation standard
@@ -304,8 +304,8 @@ La plupart des projets suivent le processus classique en **3 étapes** :
 
 ```
 ./configure
-make
-sudo make install
+make  
+sudo make install  
 ```
 
 Décortiquons chaque étape.
@@ -343,8 +343,8 @@ make
 
 **Options utiles** :
 ```bash
-make -j4  # Utilise 4 cœurs de processeur (plus rapide)
-make -j$(nproc)  # Utilise tous les cœurs disponibles
+make -j4  # Utilise 4 cœurs de processeur (plus rapide)  
+make -j$(nproc)  # Utilise tous les cœurs disponibles  
 ```
 
 **Cette étape est longue** : Soyez patient. Pour de gros projets (LibreOffice, Firefox), comptez des heures.
@@ -374,8 +374,8 @@ sudo make install
 sudo apt install build-essential libncurses5-dev autoconf automake
 
 # 2. Télécharger le code source
-git clone https://github.com/htop-dev/htop.git
-cd htop
+git clone https://github.com/htop-dev/htop.git  
+cd htop  
 
 # 3. Générer le script configure
 ./autogen.sh
@@ -456,22 +456,22 @@ Certains projets modernes utilisent **CMake** au lieu de `./configure`.
 **Processus CMake** :
 
 ```bash
-mkdir build
-cd build
-cmake ..
-make -j$(nproc)
-sudo make install
+mkdir build  
+cd build  
+cmake ..  
+make -j$(nproc)  
+sudo make install  
 ```
 
 **Exemple avec un projet CMake** :
 ```bash
-git clone https://github.com/projet/exemple.git
-cd exemple
-mkdir build
-cd build
-cmake ..
-make -j$(nproc)
-sudo make install
+git clone https://github.com/projet/exemple.git  
+cd exemple  
+mkdir build  
+cd build  
+cmake ..  
+make -j$(nproc)  
+sudo make install  
 ```
 
 ### Désinstaller un programme compilé
@@ -491,8 +491,8 @@ sudo make uninstall
 
 Retrouvez où les fichiers ont été installés et supprimez-les :
 ```bash
-which nom-du-programme  # Trouve le binaire
-sudo rm /usr/local/bin/nom-du-programme
+which nom-du-programme  # Trouve le binaire  
+sudo rm /usr/local/bin/nom-du-programme  
 ```
 
 Supprimez aussi les bibliothèques et fichiers de config associés.
@@ -509,8 +509,8 @@ sudo apt install checkinstall
 **Utilisation** :
 ```bash
 ./configure
-make
-sudo checkinstall  # Au lieu de sudo make install
+make  
+sudo checkinstall  # Au lieu de sudo make install  
 ```
 
 checkinstall vous pose quelques questions puis crée un .deb que vous pourrez désinstaller proprement avec `apt remove`.
@@ -560,16 +560,16 @@ pip install nom-du-paquet
 
 Ou pour une installation système :
 ```bash
-sudo apt install python3-pip
-sudo pip3 install nom-du-paquet
+sudo apt install python3-pip  
+sudo pip3 install nom-du-paquet  
 ```
 
 #### Depuis les sources (setup.py)
 
 ```bash
-git clone https://github.com/projet/python-app.git
-cd python-app
-sudo python3 setup.py install
+git clone https://github.com/projet/python-app.git  
+cd python-app  
+sudo python3 setup.py install  
 ```
 
 **Note** : Privilégiez les environnements virtuels Python (venv) pour éviter de polluer le système.
@@ -617,18 +617,18 @@ Ainsi, tout est dans `/opt/nom-application` et facile à supprimer.
 
 Pour les développeurs, garder le code à jour :
 ```bash
-cd dossier-du-projet
-git pull
-make clean
-make -j$(nproc)
-sudo make install
+cd dossier-du-projet  
+git pull  
+make clean  
+make -j$(nproc)  
+sudo make install  
 ```
 
 #### ccache : Accélérer les recompilations
 
 ```bash
-sudo apt install ccache
-export PATH="/usr/lib/ccache:$PATH"
+sudo apt install ccache  
+export PATH="/usr/lib/ccache:$PATH"  
 ```
 
 ccache met en cache les résultats de compilation, accélérant les recompilations.
@@ -660,8 +660,8 @@ Récapitulatif pour choisir la bonne approche :
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 # Installer
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt install -f
+sudo dpkg -i google-chrome-stable_current_amd64.deb  
+sudo apt install -f  
 
 # Vérifier
 google-chrome --version
@@ -674,8 +674,8 @@ google-chrome --version
 sudo apt install git
 
 # Cloner
-git clone https://github.com/dylanaraps/neofetch.git
-cd neofetch
+git clone https://github.com/dylanaraps/neofetch.git  
+cd neofetch  
 
 # Installer (pas de compilation nécessaire, c'est un script)
 sudo make install
@@ -688,8 +688,8 @@ neofetch
 
 ```bash
 # Cloner
-git clone https://github.com/projet/exemple-cmake.git
-cd exemple-cmake
+git clone https://github.com/projet/exemple-cmake.git  
+cd exemple-cmake  
 
 # Installer dépendances de build
 sudo apt install cmake build-essential

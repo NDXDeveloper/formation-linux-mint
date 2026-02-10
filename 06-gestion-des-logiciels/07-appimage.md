@@ -206,8 +206,8 @@ mv ~/Téléchargements/*.AppImage ~/Applications/
 
 Les noms d'AppImage peuvent être complexes. Renommez-les de façon claire :
 
-**Avant** : `Obsidian-1.4.16-x86_64.AppImage`
-**Après** : `Obsidian.AppImage`
+**Avant** : `Obsidian-1.4.16-x86_64.AppImage`  
+**Après** : `Obsidian.AppImage`  
 
 ```bash
 mv Obsidian-1.4.16-x86_64.AppImage Obsidian.AppImage
@@ -226,9 +226,9 @@ Par défaut, les AppImages ne s'intègrent pas au menu. Voici comment les ajoute
 #### Installation
 
 ```bash
-sudo add-apt-repository ppa:appimagelauncher-team/stable
-sudo apt update
-sudo apt install appimagelauncher
+sudo add-apt-repository ppa:appimagelauncher-team/stable  
+sudo apt update  
+sudo apt install appimagelauncher  
 ```
 
 #### Fonctionnement
@@ -263,26 +263,26 @@ nano ~/.local/share/applications/nom-application.desktop
 
 ```desktop
 [Desktop Entry]
-Name=Nom de l'Application
-Comment=Description de l'application
-Exec=/chemin/complet/vers/application.AppImage
-Icon=/chemin/vers/icone.png
-Type=Application
-Categories=Utility;
-Terminal=false
+Name=Nom de l'Application  
+Comment=Description de l'application  
+Exec=/chemin/complet/vers/application.AppImage  
+Icon=/chemin/vers/icone.png  
+Type=Application  
+Categories=Utility;  
+Terminal=false  
 ```
 
 **Exemple concret pour Obsidian** :
 
 ```desktop
 [Desktop Entry]
-Name=Obsidian
-Comment=Éditeur de notes Markdown
-Exec=/home/votre-nom/Applications/Obsidian.AppImage
-Icon=/home/votre-nom/Applications/obsidian.png
-Type=Application
-Categories=Office;
-Terminal=false
+Name=Obsidian  
+Comment=Éditeur de notes Markdown  
+Exec=/home/votre-nom/Applications/Obsidian.AppImage  
+Icon=/home/votre-nom/Applications/obsidian.png  
+Type=Application  
+Categories=Office;  
+Terminal=false  
 ```
 
 #### Rendre le fichier exécutable
@@ -326,8 +326,8 @@ Certains AppImages incluent un système de mise à jour. Au lancement, ils véri
 #### Installation
 
 ```bash
-wget https://github.com/AppImage/AppImageUpdate/releases/download/continuous/appimageupdatetool-x86_64.AppImage
-chmod +x appimageupdatetool-x86_64.AppImage
+wget https://github.com/AppImage/AppImageUpdate/releases/download/continuous/appimageupdatetool-x86_64.AppImage  
+chmod +x appimageupdatetool-x86_64.AppImage  
 ```
 
 #### Utilisation
@@ -468,8 +468,8 @@ AppImage n'a pas de système de vérification centralisé comme les dépôts off
 Pour plus de sécurité, vous pouvez utiliser Firejail :
 
 ```bash
-sudo apt install firejail
-firejail ./nom-du-fichier.AppImage
+sudo apt install firejail  
+firejail ./nom-du-fichier.AppImage  
 ```
 
 Firejail crée un environnement isolé pour l'AppImage.
@@ -563,14 +563,14 @@ Pour les curieux qui veulent créer leurs propres AppImages :
 
 **linuxdeploy** : Outil moderne de création d'AppImage
 ```bash
-wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
-chmod +x linuxdeploy-x86_64.AppImage
+wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage  
+chmod +x linuxdeploy-x86_64.AppImage  
 ```
 
 **appimagetool** : Outil classique
 ```bash
-wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
-chmod +x appimagetool-x86_64.AppImage
+wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage  
+chmod +x appimagetool-x86_64.AppImage  
 ```
 
 ### Documentation

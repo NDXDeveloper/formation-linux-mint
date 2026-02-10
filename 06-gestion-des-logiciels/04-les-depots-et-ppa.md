@@ -191,15 +191,15 @@ Les PPA ont un format standard : `ppa:utilisateur/nom-du-ppa`
 
 **Syntaxe** :
 ```bash
-sudo add-apt-repository ppa:utilisateur/nom-du-ppa
-sudo apt update
+sudo add-apt-repository ppa:utilisateur/nom-du-ppa  
+sudo apt update  
 ```
 
 **Exemple réel - Ajouter le PPA d'OBS Studio** :
 ```bash
-sudo add-apt-repository ppa:obsproject/obs-studio
-sudo apt update
-sudo apt install obs-studio
+sudo add-apt-repository ppa:obsproject/obs-studio  
+sudo apt update  
+sudo apt install obs-studio  
 ```
 
 **Explication des étapes** :
@@ -242,14 +242,14 @@ Si vous n'utilisez plus un PPA ou s'il pose problème, vous pouvez le supprimer.
 ### Méthode 1 : En ligne de commande
 
 ```bash
-sudo add-apt-repository --remove ppa:utilisateur/nom-du-ppa
-sudo apt update
+sudo add-apt-repository --remove ppa:utilisateur/nom-du-ppa  
+sudo apt update  
 ```
 
 **Exemple** :
 ```bash
-sudo add-apt-repository --remove ppa:obsproject/obs-studio
-sudo apt update
+sudo add-apt-repository --remove ppa:obsproject/obs-studio  
+sudo apt update  
 ```
 
 ### Méthode 2 : Interface graphique
@@ -285,8 +285,8 @@ sudo apt install nom-du-logiciel=version-officielle
 Pour supprimer complètement un PPA et tous ses paquets :
 
 ```bash
-sudo apt install ppa-purge
-sudo ppa-purge ppa:utilisateur/nom-du-ppa
+sudo apt install ppa-purge  
+sudo ppa-purge ppa:utilisateur/nom-du-ppa  
 ```
 
 Cet outil :
@@ -301,40 +301,40 @@ Voici quelques PPA réputés et couramment utilisés :
 ### Graphics Drivers PPA (Pilotes graphiques)
 
 ```bash
-sudo add-apt-repository ppa:graphics-drivers/ppa
-sudo apt update
+sudo add-apt-repository ppa:graphics-drivers/ppa  
+sudo apt update  
 ```
 **Usage** : Pilotes NVIDIA les plus récents
 
 ### LibreOffice Fresh PPA
 
 ```bash
-sudo add-apt-repository ppa:libreoffice/ppa
-sudo apt update
+sudo add-apt-repository ppa:libreoffice/ppa  
+sudo apt update  
 ```
 **Usage** : Dernière version de LibreOffice
 
 ### OBS Studio
 
 ```bash
-sudo add-apt-repository ppa:obsproject/obs-studio
-sudo apt update
+sudo add-apt-repository ppa:obsproject/obs-studio  
+sudo apt update  
 ```
 **Usage** : Dernière version d'OBS pour streaming/enregistrement
 
 ### Inkscape Stable
 
 ```bash
-sudo add-apt-repository ppa:inkscape.dev/stable
-sudo apt update
+sudo add-apt-repository ppa:inkscape.dev/stable  
+sudo apt update  
 ```
 **Usage** : Version stable récente d'Inkscape
 
 ### GIMP
 
 ```bash
-sudo add-apt-repository ppa:ubuntuhandbook1/gimp
-sudo apt update
+sudo add-apt-repository ppa:ubuntuhandbook1/gimp  
+sudo apt update  
 ```
 **Usage** : Version récente de GIMP
 
@@ -371,8 +371,8 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 
 **Étape 3 : Mettre à jour et installer**
 ```bash
-sudo apt update
-sudo apt install docker-ce
+sudo apt update  
+sudo apt install docker-ce  
 ```
 
 **Note** : Cette procédure est plus complexe. Suivez toujours les instructions officielles du projet.
@@ -434,8 +434,8 @@ Remplacez `XXXXXXXX` par l'ID de clé mentionné dans l'erreur.
 
 **Solution** :
 ```bash
-sudo apt install ntpdate
-sudo ntpdate pool.ntp.org
+sudo apt install ntpdate  
+sudo ntpdate pool.ntp.org  
 ```
 
 ### Dépôt non accessible (404 Not Found)
@@ -550,14 +550,14 @@ apt list --installed | grep ppa-name
 
 Créer un script :
 ```bash
-sudo sed -i 's/^deb/#deb/g' /etc/apt/sources.list.d/*.list
-sudo apt update
+sudo sed -i 's/^deb/#deb/g' /etc/apt/sources.list.d/*.list  
+sudo apt update  
 ```
 
 Pour réactiver :
 ```bash
-sudo sed -i 's/^#deb/deb/g' /etc/apt/sources.list.d/*.list
-sudo apt update
+sudo sed -i 's/^#deb/deb/g' /etc/apt/sources.list.d/*.list  
+sudo apt update  
 ```
 
 ## Sauvegarder et restaurer vos sources
@@ -565,16 +565,16 @@ sudo apt update
 ### Sauvegarder votre configuration
 
 ```bash
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
-sudo cp -r /etc/apt/sources.list.d /etc/apt/sources.list.d.backup
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup  
+sudo cp -r /etc/apt/sources.list.d /etc/apt/sources.list.d.backup  
 ```
 
 ### Restaurer depuis une sauvegarde
 
 ```bash
-sudo cp /etc/apt/sources.list.backup /etc/apt/sources.list
-sudo cp -r /etc/apt/sources.list.d.backup/* /etc/apt/sources.list.d/
-sudo apt update
+sudo cp /etc/apt/sources.list.backup /etc/apt/sources.list  
+sudo cp -r /etc/apt/sources.list.d.backup/* /etc/apt/sources.list.d/  
+sudo apt update  
 ```
 
 ## Cas pratique complet
@@ -602,8 +602,8 @@ sudo timeshift --create --comments "Avant ajout PPA Kdenlive"
 ### Étape 4 : Ajouter le PPA
 
 ```bash
-sudo add-apt-repository ppa:kdenlive/kdenlive-stable
-sudo apt update
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable  
+sudo apt update  
 ```
 
 ### Étape 5 : Installer ou mettre à jour

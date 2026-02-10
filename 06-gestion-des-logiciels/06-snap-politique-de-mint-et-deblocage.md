@@ -121,9 +121,9 @@ Le fichier **nosnap.pref** est un petit fichier de configuration que Linux Mint 
 
 **Contenu** :
 ```
-Package: snapd
-Pin: release a=*
-Pin-Priority: -1
+Package: snapd  
+Pin: release a=*  
+Pin-Priority: -1  
 ```
 
 **Explication** :
@@ -213,8 +213,8 @@ sudo systemctl enable --now snapd.socket
 Pour que les applications Snap soient accessibles depuis le terminal :
 
 ```bash
-echo 'export PATH=$PATH:/snap/bin' >> ~/.bashrc
-source ~/.bashrc
+echo 'export PATH=$PATH:/snap/bin' >> ~/.bashrc  
+source ~/.bashrc  
 ```
 
 ### Étape 6 : Redémarrer (recommandé)
@@ -444,20 +444,20 @@ sudo apt purge snapd
 ### Étape 3 : Nettoyer les dossiers
 
 ```bash
-sudo rm -rf ~/snap
-sudo rm -rf /snap
-sudo rm -rf /var/snap
-sudo rm -rf /var/lib/snapd
+sudo rm -rf ~/snap  
+sudo rm -rf /snap  
+sudo rm -rf /var/snap  
+sudo rm -rf /var/lib/snapd  
 ```
 
 ### Étape 4 : Recréer le fichier de blocage
 
 ```bash
-sudo bash -c 'cat > /etc/apt/preferences.d/nosnap.pref << EOF
-Package: snapd
-Pin: release a=*
-Pin-Priority: -1
-EOF'
+sudo bash -c 'cat > /etc/apt/preferences.d/nosnap.pref << EOF  
+Package: snapd  
+Pin: release a=*  
+Pin-Priority: -1  
+EOF'  
 ```
 
 ### Étape 5 : Mettre à jour
