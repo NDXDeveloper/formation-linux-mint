@@ -847,8 +847,8 @@ timedatectl set-local-rtc 1 --adjust-system-clock
 Ou **depuis Windows** (dans l'Éditeur du Registre) :
 
 ```
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation
-RealTimeIsUniversal = 1 (DWORD)
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation  
+RealTimeIsUniversal = 1 (DWORD)  
 ```
 
 ### Windows a fait une mise à jour et GRUB a disparu

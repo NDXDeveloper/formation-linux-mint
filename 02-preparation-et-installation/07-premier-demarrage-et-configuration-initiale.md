@@ -660,8 +660,8 @@ Affiche les informations de votre GPU et confirme que le pilote fonctionne.
 
 **Pour tout matériel :**
 ```bash
-sudo lshw -C video
-sudo lshw -C network
+sudo lshw -C video  
+sudo lshw -C network  
 ```
 
 ---
@@ -1064,8 +1064,8 @@ Paramètres système → Coins actifs
 **Pour installer plusieurs applications d'un coup :**
 
 ```bash
-sudo apt update
-sudo apt install gimp vlc telegram-desktop flameshot
+sudo apt update  
+sudo apt install gimp vlc telegram-desktop flameshot  
 ```
 
 > 💡 Consultez le chapitre **5. Applications essentielles** et **6. Gestion des logiciels** pour plus de détails.
@@ -1079,8 +1079,8 @@ sudo apt install gimp vlc telegram-desktop flameshot
 Si vous avez un **SSD**, activez TRIM pour prolonger sa durée de vie :
 
 ```bash
-sudo systemctl enable fstrim.timer
-sudo systemctl start fstrim.timer
+sudo systemctl enable fstrim.timer  
+sudo systemctl start fstrim.timer  
 ```
 
 **Vérification :**

@@ -595,9 +595,9 @@ Maintenant, suivez les étapes normales :
 
 **Configuration :**
 ```
-Taille : 1 GB
-Type : ext4
-Point de montage : /boot
+Taille : 1 GB  
+Type : ext4  
+Point de montage : /boot  
 ```
 
 ### Partition /var séparée (serveurs)
@@ -609,9 +609,9 @@ Point de montage : /boot
 
 **Configuration :**
 ```
-Taille : 10-20 GB (ou plus selon usage)
-Type : ext4
-Point de montage : /var
+Taille : 10-20 GB (ou plus selon usage)  
+Type : ext4  
+Point de montage : /var  
 ```
 
 ### Partition /tmp séparée
@@ -622,9 +622,9 @@ Point de montage : /var
 
 **Configuration :**
 ```
-Taille : 2-5 GB
-Type : ext4
-Point de montage : /tmp
+Taille : 2-5 GB  
+Type : ext4  
+Point de montage : /tmp  
 ```
 
 ### Partition de partage Windows/Linux
@@ -633,9 +633,9 @@ Point de montage : /tmp
 
 **Configuration :**
 ```
-Taille : Selon besoin (50-200 GB)
-Type : NTFS ou exFAT
-Point de montage : /mnt/partage (ou /media/partage)
+Taille : Selon besoin (50-200 GB)  
+Type : NTFS ou exFAT  
+Point de montage : /mnt/partage (ou /media/partage)  
 ```
 
 **Montage automatique :**
@@ -708,8 +708,8 @@ sudo chown -R 1000:1000 /home/votre-nom
 Certains fichiers cachés (`.bashrc`, `.config/*`) peuvent causer des conflits. Si vous avez des problèmes, renommez le dossier `.config` :
 
 ```bash
-cd ~
-mv .config .config.old
+cd ~  
+mv .config .config.old  
 ```
 
 ---
@@ -789,8 +789,8 @@ sudo swapon --show
 
 **Si vide, activez manuellement :**
 ```bash
-sudo mkswap /dev/sda3  # Remplacez par votre partition swap
-sudo swapon /dev/sda3
+sudo mkswap /dev/sda3  # Remplacez par votre partition swap  
+sudo swapon /dev/sda3  
 ```
 
 **Rendre permanent** (ajoutez dans /etc/fstab) :
@@ -807,8 +807,8 @@ sudo fstrim -v /
 
 **Activer TRIM automatique :**
 ```bash
-sudo systemctl enable fstrim.timer
-sudo systemctl start fstrim.timer
+sudo systemctl enable fstrim.timer  
+sudo systemctl start fstrim.timer  
 ```
 
 ### Partition pleine alors qu'il reste de l'espace
@@ -860,8 +860,8 @@ tmpfs  /tmp  tmpfs  defaults,noatime,mode=1777,nosuid,nodev,noexec  0  0
 **Donner des noms explicites** aux partitions :
 
 ```bash
-sudo e2label /dev/sda2 "mint-root"
-sudo e2label /dev/sda4 "mint-home"
+sudo e2label /dev/sda2 "mint-root"  
+sudo e2label /dev/sda4 "mint-home"  
 ```
 
 **Avantage :** Identification facile, montage par label au lieu de /dev/sdXY.
@@ -889,9 +889,9 @@ Si vous voulez plus de contrôle avant de lancer l'installateur :
 
 **fdisk, gdisk, parted :**
 ```bash
-sudo fdisk /dev/sda   # MBR
-sudo gdisk /dev/sda   # GPT
-sudo parted /dev/sda  # Les deux
+sudo fdisk /dev/sda   # MBR  
+sudo gdisk /dev/sda   # GPT  
+sudo parted /dev/sda  # Les deux  
 ```
 
 > 💡 Ligne de commande = risque élevé d'erreur. Utilisez GParted à la place.

@@ -538,8 +538,8 @@ L'installation commence réellement maintenant !
 ### Barre de progression
 
 ```
-Installation du système...
-Copie des fichiers...
+Installation du système...  
+Copie des fichiers...  
 [████████████████────────] 65%
 
 Temps restant estimé : 8 minutes
@@ -619,8 +619,8 @@ Quand l'installation est terminée :
 3. Un message s'affiche :
 
 ```
-Veuillez retirer le support d'installation,
-puis appuyez sur ENTRÉE pour continuer
+Veuillez retirer le support d'installation,  
+puis appuyez sur ENTRÉE pour continuer  
 ```
 
 4. **Retirez la clé USB** de votre ordinateur
@@ -912,8 +912,8 @@ L'écran de bienvenue vous guide dans les **premières configurations essentiell
 
 **Méthode 2 : Terminal** (Plus rapide)
 ```bash
-sudo apt update
-sudo apt install nom-du-paquet
+sudo apt update  
+sudo apt install nom-du-paquet  
 ```
 
 > 💡 Consultez le chapitre **6. Gestion des logiciels** pour plus de détails.

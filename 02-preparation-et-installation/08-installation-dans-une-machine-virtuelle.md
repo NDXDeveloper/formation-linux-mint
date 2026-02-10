@@ -452,9 +452,9 @@ Avant de démarrer la VM, optimisons quelques paramètres.
 #### Général → Avancé
 
 ```
-Dossier des instantanés : (par défaut)
-Presse-papiers partagé : [Bidirectionnel ▼]
-Glisser-déposer : [Bidirectionnel ▼]
+Dossier des instantanés : (par défaut)  
+Presse-papiers partagé : [Bidirectionnel ▼]  
+Glisser-déposer : [Bidirectionnel ▼]  
 ```
 
 - **Presse-papiers partagé** : Bidirectionnel (copier-coller entre hôte et VM)
@@ -463,8 +463,8 @@ Glisser-déposer : [Bidirectionnel ▼]
 #### Système → Carte mère
 
 ```
-Mémoire vive : 6144 MB
-Ordre d'amorçage :
+Mémoire vive : 6144 MB  
+Ordre d'amorçage :  
   ☑ Disquette (décochez)
   ☑ Disque optique
   ☑ Disque dur
@@ -750,40 +750,40 @@ Ouvrez un **terminal** :
 
 **Installez les prérequis :**
 ```bash
-sudo apt update
-sudo apt install build-essential dkms linux-headers-$(uname -r)
+sudo apt update  
+sudo apt install build-essential dkms linux-headers-$(uname -r)  
 ```
 
 Entrez votre mot de passe quand demandé.
 
 **Montez le CD (si pas déjà fait) :**
 ```bash
-sudo mkdir -p /mnt/cdrom
-sudo mount /dev/cdrom /mnt/cdrom
+sudo mkdir -p /mnt/cdrom  
+sudo mount /dev/cdrom /mnt/cdrom  
 ```
 
 **Lancez l'installation :**
 ```bash
-cd /mnt/cdrom
-sudo ./VBoxLinuxAdditions.run
+cd /mnt/cdrom  
+sudo ./VBoxLinuxAdditions.run  
 ```
 
 **Sortie attendue :**
 ```
-Verifying archive integrity... All good.
-Uncompressing VirtualBox 7.0.12 Guest Additions for Linux
-VirtualBox Guest Additions installer
-Copying additional installer modules ...
-Installing additional modules ...
-VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel
-modules.  This may take a while.
-VirtualBox Guest Additions: To build modules for other installed kernels, run
-VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>
-VirtualBox Guest Additions: or
-VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
-VirtualBox Guest Additions: Building the modules for kernel 5.15.0-91-generic.
-VirtualBox Guest Additions: Running kernel modules will not be replaced until
-the system is restarted
+Verifying archive integrity... All good.  
+Uncompressing VirtualBox 7.0.12 Guest Additions for Linux  
+VirtualBox Guest Additions installer  
+Copying additional installer modules ...  
+Installing additional modules ...  
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel  
+modules.  This may take a while.  
+VirtualBox Guest Additions: To build modules for other installed kernels, run  
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup <version>  
+VirtualBox Guest Additions: or  
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all  
+VirtualBox Guest Additions: Building the modules for kernel 5.15.0-91-generic.  
+VirtualBox Guest Additions: Running kernel modules will not be replaced until  
+the system is restarted  
 ```
 
 **Durée :** 2-5 minutes
@@ -842,8 +842,8 @@ Après redémarrage :
 Le dossier est monté dans `/media/sf_partage` :
 
 ```bash
-cd /media/sf_partage
-ls
+cd /media/sf_partage  
+ls  
 ```
 
 **Problème de permissions ?**
