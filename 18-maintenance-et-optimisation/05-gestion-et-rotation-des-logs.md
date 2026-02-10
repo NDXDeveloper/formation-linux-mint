@@ -39,11 +39,11 @@ Un **log** (ou journal) est un fichier texte dans lequel le système et les appl
 Voici à quoi ressemble un extrait de log typique :
 
 ```
-Nov 29 10:23:15 mint-pc systemd[1]: Started Network Manager.
-Nov 29 10:23:16 mint-pc NetworkManager[845]: <info> NetworkManager (version 1.44.2) is starting...
-Nov 29 10:23:16 mint-pc NetworkManager[845]: <info> WiFi enabled by radio killswitch
-Nov 29 10:23:17 mint-pc kernel: iwlwifi 0000:03:00.0: Detected Intel(R) Wireless AC 9260
-Nov 29 10:23:18 mint-pc NetworkManager[845]: <info> WiFi hardware radio set enabled
+Nov 29 10:23:15 mint-pc systemd[1]: Started Network Manager.  
+Nov 29 10:23:16 mint-pc NetworkManager[845]: <info> NetworkManager (version 1.44.2) is starting...  
+Nov 29 10:23:16 mint-pc NetworkManager[845]: <info> WiFi enabled by radio killswitch  
+Nov 29 10:23:17 mint-pc kernel: iwlwifi 0000:03:00.0: Detected Intel(R) Wireless AC 9260  
+Nov 29 10:23:18 mint-pc NetworkManager[845]: <info> WiFi hardware radio set enabled  
 ```
 
 **Décodage :**
@@ -484,10 +484,10 @@ La **rotation** consiste à :
 
 **Exemple de rotation :**
 ```
-syslog           ← Log actuel (nouvelles entrées)
-syslog.1         ← Rotation d'hier (non compressé)
-syslog.2.gz      ← Rotation d'avant-hier (compressé)
-syslog.3.gz      ← Rotation d'il y a 3 jours
+syslog           ← Log actuel (nouvelles entrées)  
+syslog.1         ← Rotation d'hier (non compressé)  
+syslog.2.gz      ← Rotation d'avant-hier (compressé)  
+syslog.3.gz      ← Rotation d'il y a 3 jours  
 ...
 syslog.7.gz      ← Rotation d'il y a 7 jours (sera supprimé demain)
 ```
@@ -517,12 +517,12 @@ ls /etc/logrotate.d/
 
 **Résultat :**
 ```
-apt
-cups
-dpkg
-rsyslog
-nginx
-mysql
+apt  
+cups  
+dpkg  
+rsyslog  
+nginx  
+mysql  
 ...
 ```
 
@@ -686,11 +686,11 @@ Cela limite les logs journald à 500 Mo maximum.
 **Autres options utiles :**
 
 ```
-SystemMaxUse=500M         # Taille max totale des logs
-SystemKeepFree=1G         # Espace à laisser libre sur le disque
-SystemMaxFileSize=100M    # Taille max d'un fichier de log
-MaxRetentionSec=2week     # Supprime les logs de plus de 2 semaines
-MaxFileSec=1month         # Un fichier de log par mois maximum
+SystemMaxUse=500M         # Taille max totale des logs  
+SystemKeepFree=1G         # Espace à laisser libre sur le disque  
+SystemMaxFileSize=100M    # Taille max d'un fichier de log  
+MaxRetentionSec=2week     # Supprime les logs de plus de 2 semaines  
+MaxFileSec=1month         # Un fichier de log par mois maximum  
 ```
 
 **Appliquer les changements :**
@@ -769,9 +769,9 @@ sudo nano /etc/systemd/journald.conf
 
 Modifiez :
 ```
-SystemMaxUse=500M
-MaxRetentionSec=1week
-MaxFileSec=1day
+SystemMaxUse=500M  
+MaxRetentionSec=1week  
+MaxFileSec=1day  
 ```
 
 Redémarrez :
@@ -1034,14 +1034,14 @@ journalctl -b -p err
 
 **Vérifier si ce sont les logs :**
 ```bash
-sudo du -sh /var/log
-journalctl --disk-usage
+sudo du -sh /var/log  
+journalctl --disk-usage  
 ```
 
 **Nettoyer :**
 ```bash
-sudo journalctl --vacuum-size=500M
-sudo find /var/log -name "*.gz" -mtime +30 -delete
+sudo journalctl --vacuum-size=500M  
+sudo find /var/log -name "*.gz" -mtime +30 -delete  
 ```
 
 ---
@@ -1058,9 +1058,9 @@ sudo nano /etc/systemd/journald.conf
 ```
 
 ```
-SystemMaxUse=500M
-MaxRetentionSec=2weeks
-MaxFileSec=1week
+SystemMaxUse=500M  
+MaxRetentionSec=2weeks  
+MaxFileSec=1week  
 ```
 
 **Rotation logrotate :**
@@ -1068,8 +1068,8 @@ Garder la configuration par défaut (7 jours pour la plupart des logs).
 
 **Nettoyage mensuel :**
 ```bash
-sudo journalctl --vacuum-time=2weeks
-sudo find /var/log -name "*.gz" -mtime +14 -delete
+sudo journalctl --vacuum-time=2weeks  
+sudo find /var/log -name "*.gz" -mtime +14 -delete  
 ```
 
 ### Profil 2 : Utilisateur avec SSD limité (128 Go)
@@ -1082,9 +1082,9 @@ sudo nano /etc/systemd/journald.conf
 ```
 
 ```
-SystemMaxUse=200M
-MaxRetentionSec=1week
-MaxFileSec=3days
+SystemMaxUse=200M  
+MaxRetentionSec=1week  
+MaxFileSec=3days  
 ```
 
 **Rotation logrotate plus agressive :**
@@ -1098,8 +1098,8 @@ Changez `rotate 7` en `rotate 3`.
 Créez `/etc/cron.weekly/clean-logs` :
 ```bash
 #!/bin/bash
-journalctl --vacuum-time=1week
-find /var/log -name "*.gz" -mtime +7 -delete
+journalctl --vacuum-time=1week  
+find /var/log -name "*.gz" -mtime +7 -delete  
 ```
 
 ### Profil 3 : Développeur / Administrateur système
@@ -1112,9 +1112,9 @@ sudo nano /etc/systemd/journald.conf
 ```
 
 ```
-SystemMaxUse=2G
-MaxRetentionSec=3months
-MaxFileSec=1month
+SystemMaxUse=2G  
+MaxRetentionSec=3months  
+MaxFileSec=1month  
 ```
 
 **Rotation logrotate :**
@@ -1123,8 +1123,8 @@ sudo nano /etc/logrotate.d/rsyslog
 ```
 
 ```
-rotate 30
-compress
+rotate 30  
+compress  
 ```
 
 **Logs de debug activés :**
@@ -1191,45 +1191,45 @@ Contenu :
 ```bash
 #!/bin/bash
 
-echo "🧹 Maintenance des logs système"
-echo "==============================="
-echo ""
+echo "🧹 Maintenance des logs système"  
+echo "==============================="  
+echo ""  
 
 # 1. Afficher l'espace actuel
-echo "📊 Espace disque des logs AVANT nettoyage :"
-echo "-------------------------------------------"
-sudo du -sh /var/log
-journalctl --disk-usage
-echo ""
+echo "📊 Espace disque des logs AVANT nettoyage :"  
+echo "-------------------------------------------"  
+sudo du -sh /var/log  
+journalctl --disk-usage  
+echo ""  
 
 # 2. Nettoyer journald (garder 2 semaines)
-echo "🗑️  Nettoyage de journald (conservation : 2 semaines)..."
-sudo journalctl --vacuum-time=2weeks
+echo "🗑️  Nettoyage de journald (conservation : 2 semaines)..."  
+sudo journalctl --vacuum-time=2weeks  
 
 # 3. Supprimer les .gz de plus de 30 jours
-echo "🗑️  Suppression des logs compressés de plus de 30 jours..."
-DELETED=$(sudo find /var/log -name "*.gz" -type f -mtime +30 | wc -l)
-sudo find /var/log -name "*.gz" -type f -mtime +30 -delete
-echo "   → $DELETED fichiers supprimés"
+echo "🗑️  Suppression des logs compressés de plus de 30 jours..."  
+DELETED=$(sudo find /var/log -name "*.gz" -type f -mtime +30 | wc -l)  
+sudo find /var/log -name "*.gz" -type f -mtime +30 -delete  
+echo "   → $DELETED fichiers supprimés"  
 
 # 4. Nettoyer les logs apt
-echo "🗑️  Nettoyage des logs APT..."
-sudo rm -f /var/log/apt/*.gz
+echo "🗑️  Nettoyage des logs APT..."  
+sudo rm -f /var/log/apt/*.gz  
 
 # 5. Afficher l'espace final
-echo ""
-echo "📊 Espace disque des logs APRÈS nettoyage :"
-echo "-------------------------------------------"
-sudo du -sh /var/log
-journalctl --disk-usage
-echo ""
+echo ""  
+echo "📊 Espace disque des logs APRÈS nettoyage :"  
+echo "-------------------------------------------"  
+sudo du -sh /var/log  
+journalctl --disk-usage  
+echo ""  
 
-echo "✅ Maintenance terminée !"
-echo ""
-echo "💡 Conseils :"
-echo "  - Lancez ce script tous les 3 mois"
-echo "  - Vérifiez les erreurs avec : journalctl -p err --since today"
-echo "  - Surveillez l'espace avec : df -h"
+echo "✅ Maintenance terminée !"  
+echo ""  
+echo "💡 Conseils :"  
+echo "  - Lancez ce script tous les 3 mois"  
+echo "  - Vérifiez les erreurs avec : journalctl -p err --since today"  
+echo "  - Surveillez l'espace avec : df -h"  
 ```
 
 Rendez-le exécutable :

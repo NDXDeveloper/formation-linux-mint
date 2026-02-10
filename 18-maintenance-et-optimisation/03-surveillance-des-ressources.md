@@ -293,8 +293,8 @@ Vous verrez une interface colorée en plein écran.
 
 **Informations mémoire :**
 ```
-Mem [|||||||||||||||||||                    3.85G/15.6G]
-Swp [                                        0K/2.00G]
+Mem [|||||||||||||||||||                    3.85G/15.6G]  
+Swp [                                        0K/2.00G]  
 ```
 
 - **Mem** : RAM utilisée / RAM totale
@@ -302,9 +302,9 @@ Swp [                                        0K/2.00G]
 
 **Autres informations :**
 ```
-Tasks: 247, 893 thr; 2 running
-Load average: 1.23 0.98 0.76
-Uptime: 2 days, 14:23:45
+Tasks: 247, 893 thr; 2 running  
+Load average: 1.23 0.98 0.76  
+Uptime: 2 days, 14:23:45  
 ```
 
 - **Tasks** : nombre de processus (247) et threads (893)
@@ -478,9 +478,9 @@ sudo apt install btop
 
 ```bash
 # Ajouter le dépôt personnel (PPA)
-sudo add-apt-repository ppa:bashtop-monitor/bashtop
-sudo apt update
-sudo apt install btop
+sudo add-apt-repository ppa:bashtop-monitor/bashtop  
+sudo apt update  
+sudo apt install btop  
 ```
 
 **Ou installation via snap (si vous l'avez activé) :**
@@ -664,10 +664,10 @@ ps aux
 
 **Résultat :**
 ```
-USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root           1  0.0  0.1 168832 11232 ?        Ss   Nov23   0:05 /sbin/init
-root           2  0.0  0.0      0     0 ?        S    Nov23   0:00 [kthreadd]
-pierre      1234  5.2  2.3 2843952 378432 ?      Sl   09:15  12:34 /usr/lib/firefox/firefox
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND  
+root           1  0.0  0.1 168832 11232 ?        Ss   Nov23   0:05 /sbin/init  
+root           2  0.0  0.0      0     0 ?        S    Nov23   0:00 [kthreadd]  
+pierre      1234  5.2  2.3 2843952 378432 ?      Sl   09:15  12:34 /usr/lib/firefox/firefox  
 ```
 
 **Rechercher un processus spécifique :**
@@ -888,8 +888,8 @@ killall -9 nom-du-programme
 
 **Désactiver l'indexation de fichiers (Tracker) :**
 ```bash
-tracker3 daemon --kill
-gsettings set org.freedesktop.Tracker3.Miner.Files crawling-interval -2
+tracker3 daemon --kill  
+gsettings set org.freedesktop.Tracker3.Miner.Files crawling-interval -2  
 ```
 
 ### Problème : Beaucoup de processus zombie
@@ -925,8 +925,8 @@ Contenu :
 ```bash
 #!/bin/bash
 
-CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}')
-CPU_INT=${CPU_USAGE%.*}
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1}')  
+CPU_INT=${CPU_USAGE%.*}  
 
 if [ "$CPU_INT" -gt 80 ]; then
     notify-send "⚠️ Alerte CPU" "Utilisation CPU: ${CPU_INT}%"

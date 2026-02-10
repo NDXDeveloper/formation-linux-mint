@@ -62,8 +62,8 @@ Les paquets suivants seront ENLEVÉS :
   linux-headers-5.15.0-56 linux-headers-5.15.0-56-generic
   linux-image-5.15.0-56-generic linux-modules-5.15.0-56-generic
 0 mis à jour, 0 nouvellement installés, 4 à enlever et 0 non mis à jour.
-Après cette opération, 325 Mo d'espace disque seront libérés.
-Souhaitez-vous continuer ? [O/n]
+Après cette opération, 325 Mo d'espace disque seront libérés.  
+Souhaitez-vous continuer ? [O/n]  
 ```
 
 **⚠️ Note importante :** Cette commande est sûre et ne supprimera jamais de paquets essentiels au fonctionnement de votre système.
@@ -312,23 +312,23 @@ Copiez-y ce contenu :
 
 ```bash
 #!/bin/bash
-echo "🧹 Début du nettoyage du système..."
-echo ""
+echo "🧹 Début du nettoyage du système..."  
+echo ""  
 
-echo "📦 Suppression des paquets obsolètes..."
-sudo apt autoremove -y
+echo "📦 Suppression des paquets obsolètes..."  
+sudo apt autoremove -y  
 
-echo "🗑️  Nettoyage du cache APT..."
-sudo apt autoclean
+echo "🗑️  Nettoyage du cache APT..."  
+sudo apt autoclean  
 
-echo "📝 Nettoyage des journaux (conservation 30 jours)..."
-sudo journalctl --vacuum-time=30d
+echo "📝 Nettoyage des journaux (conservation 30 jours)..."  
+sudo journalctl --vacuum-time=30d  
 
-echo "🖼️  Suppression des miniatures..."
-rm -rf ~/.cache/thumbnails/*
+echo "🖼️  Suppression des miniatures..."  
+rm -rf ~/.cache/thumbnails/*  
 
-echo "✅ Nettoyage terminé !"
-df -h | grep '/$'
+echo "✅ Nettoyage terminé !"  
+df -h | grep '/$'  
 ```
 
 Rendez-le exécutable :

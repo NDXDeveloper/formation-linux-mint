@@ -93,8 +93,8 @@ sudo debsums -c
 
 **Si des erreurs apparaissent :**
 ```
-debsums: changed file /usr/bin/program (from package-name package)
-debsums: missing file /etc/config.conf (from package-name package)
+debsums: changed file /usr/bin/program (from package-name package)  
+debsums: missing file /etc/config.conf (from package-name package)  
 ```
 
 **Signification :**
@@ -158,8 +158,8 @@ Affiche les paquets avec des problèmes (état "r" = réinstallation nécessaire
 
 **Si des paquets apparaissent :**
 ```bash
-sudo dpkg --configure -a
-sudo apt install -f
+sudo dpkg --configure -a  
+sudo apt install -f  
 ```
 
 Ces commandes réparent les installations incomplètes.
@@ -179,9 +179,9 @@ Affiche les paquets avec des problèmes d'installation ou de configuration.
 **⚠️ Utilisez uniquement si dpkg est vraiment corrompu :**
 
 ```bash
-sudo dpkg --clear-avail
-sudo apt-get update
-sudo apt-get check
+sudo dpkg --clear-avail  
+sudo apt-get update  
+sudo apt-get check  
 ```
 
 ---
@@ -417,8 +417,8 @@ Num  Test_Description    Status                  Remaining  LifeTime(hours)
 **Démarrer smartd (démon de surveillance) :**
 
 ```bash
-sudo systemctl enable smartd
-sudo systemctl start smartd
+sudo systemctl enable smartd  
+sudo systemctl start smartd  
 ```
 
 **smartd** surveille en permanence votre disque et peut vous alerter en cas de problème.
@@ -625,10 +625,10 @@ sudo chkrootkit
 
 **Résultat :**
 ```
-Searching for suspicious files and dirs, it may take a while...
-nothing found
-Searching for rootkits...
-nothing found
+Searching for suspicious files and dirs, it may take a while...  
+nothing found  
+Searching for rootkits...  
+nothing found  
 ```
 
 ✅ **nothing found** : système propre
@@ -754,8 +754,8 @@ sudo grep "Failed password" /var/log/auth.log
 
 **Résultat :**
 ```
-Nov 29 03:45:12 mint sshd[1234]: Failed password for invalid user admin from 192.168.1.100
-Nov 29 03:45:15 mint sshd[1235]: Failed password for invalid user root from 192.168.1.100
+Nov 29 03:45:12 mint sshd[1234]: Failed password for invalid user admin from 192.168.1.100  
+Nov 29 03:45:15 mint sshd[1235]: Failed password for invalid user root from 192.168.1.100  
 ```
 
 ⚠️ **Nombreuses tentatives depuis une IP inconnue** : possible attaque par force brute
@@ -796,8 +796,8 @@ sudo timeshift --list
 
 **Résultat :**
 ```
-Device : /dev/sda2
-Snapshot list:
+Device : /dev/sda2  
+Snapshot list:  
   O  2024-11-29_10-00-00  Daily
   O  2024-11-28_10-00-00  Daily
   O  2024-11-27_10-00-00  Daily
@@ -837,27 +837,27 @@ Contenu :
 ```bash
 #!/bin/bash
 
-echo "============================================"
-echo "🔍 Vérification complète du système"
-echo "============================================"
-echo ""
+echo "============================================"  
+echo "🔍 Vérification complète du système"  
+echo "============================================"  
+echo ""  
 
 # 1. Vérification de l'espace disque
-echo "💾 1. Vérification de l'espace disque"
-echo "--------------------------------------"
-df -h | grep -E "^/dev"
-USAGE=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')
-if [ "$USAGE" -gt 90 ]; then
+echo "💾 1. Vérification de l'espace disque"  
+echo "--------------------------------------"  
+df -h | grep -E "^/dev"  
+USAGE=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')  
+if [ "$USAGE" -gt 90 ]; then  
     echo "⚠️  ATTENTION : Disque presque plein (${USAGE}%)"
 else
     echo "✅ Espace disque OK (${USAGE}% utilisé)"
-fi
-echo ""
+fi  
+echo ""  
 
 # 2. Vérification SMART du disque
-echo "🔧 2. Vérification SMART du disque"
-echo "-----------------------------------"
-if command -v smartctl &> /dev/null; then
+echo "🔧 2. Vérification SMART du disque"  
+echo "-----------------------------------"  
+if command -v smartctl &> /dev/null; then  
     SMART_STATUS=$(sudo smartctl -H /dev/sda 2>/dev/null | grep "PASSED")
     if [ -n "$SMART_STATUS" ]; then
         echo "✅ Disque en bonne santé (SMART: PASSED)"
@@ -866,25 +866,25 @@ if command -v smartctl &> /dev/null; then
     fi
 else
     echo "ℹ️  smartmontools non installé. Installez avec : sudo apt install smartmontools"
-fi
-echo ""
+fi  
+echo ""  
 
 # 3. Vérification des erreurs récentes
-echo "📋 3. Erreurs système récentes"
-echo "-------------------------------"
-ERROR_COUNT=$(journalctl -p err -b | wc -l)
-if [ "$ERROR_COUNT" -eq 0 ]; then
+echo "📋 3. Erreurs système récentes"  
+echo "-------------------------------"  
+ERROR_COUNT=$(journalctl -p err -b | wc -l)  
+if [ "$ERROR_COUNT" -eq 0 ]; then  
     echo "✅ Aucune erreur depuis le démarrage"
 else
     echo "⚠️  $ERROR_COUNT erreurs détectées"
     echo "   Consultez avec : journalctl -p err -b"
-fi
-echo ""
+fi  
+echo ""  
 
 # 4. Vérification des paquets
-echo "📦 4. Intégrité des paquets"
-echo "---------------------------"
-if command -v debsums &> /dev/null; then
+echo "📦 4. Intégrité des paquets"  
+echo "---------------------------"  
+if command -v debsums &> /dev/null; then  
     DEBSUM_ERRORS=$(sudo debsums -c 2>/dev/null | wc -l)
     if [ "$DEBSUM_ERRORS" -eq 0 ]; then
         echo "✅ Tous les paquets sont intègres"
@@ -894,50 +894,50 @@ if command -v debsums &> /dev/null; then
     fi
 else
     echo "ℹ️  debsums non installé. Installez avec : sudo apt install debsums"
-fi
-echo ""
+fi  
+echo ""  
 
 # 5. Vérification des paquets cassés
-echo "🔧 5. Paquets cassés"
-echo "--------------------"
-BROKEN=$(dpkg -l | grep ^..r | wc -l)
-if [ "$BROKEN" -eq 0 ]; then
+echo "🔧 5. Paquets cassés"  
+echo "--------------------"  
+BROKEN=$(dpkg -l | grep ^..r | wc -l)  
+if [ "$BROKEN" -eq 0 ]; then  
     echo "✅ Aucun paquet cassé"
 else
     echo "⚠️  $BROKEN paquet(s) nécessitent une réinstallation"
     echo "   Réparez avec : sudo dpkg --configure -a && sudo apt install -f"
-fi
-echo ""
+fi  
+echo ""  
 
 # 6. Mises à jour disponibles
-echo "🔄 6. Mises à jour disponibles"
-echo "-------------------------------"
-sudo apt update -qq
-UPDATES=$(apt list --upgradable 2>/dev/null | grep -c upgradable)
-if [ "$UPDATES" -le 1 ]; then
+echo "🔄 6. Mises à jour disponibles"  
+echo "-------------------------------"  
+sudo apt update -qq  
+UPDATES=$(apt list --upgradable 2>/dev/null | grep -c upgradable)  
+if [ "$UPDATES" -le 1 ]; then  
     echo "✅ Système à jour"
 else
     echo "ℹ️  $UPDATES mises à jour disponibles"
     echo "   Mettez à jour avec : sudo apt upgrade"
-fi
-echo ""
+fi  
+echo ""  
 
 # 7. Services échoués
-echo "⚙️  7. Services système"
-echo "----------------------"
-FAILED_SERVICES=$(systemctl list-units --failed --no-pager --no-legend | wc -l)
-if [ "$FAILED_SERVICES" -eq 0 ]; then
+echo "⚙️  7. Services système"  
+echo "----------------------"  
+FAILED_SERVICES=$(systemctl list-units --failed --no-pager --no-legend | wc -l)  
+if [ "$FAILED_SERVICES" -eq 0 ]; then  
     echo "✅ Tous les services fonctionnent"
 else
     echo "⚠️  $FAILED_SERVICES service(s) en échec"
     echo "   Consultez avec : systemctl --failed"
-fi
-echo ""
+fi  
+echo ""  
 
 # 8. Dernière sauvegarde Timeshift
-echo "💾 8. Sauvegarde Timeshift"
-echo "--------------------------"
-if command -v timeshift &> /dev/null; then
+echo "💾 8. Sauvegarde Timeshift"  
+echo "--------------------------"  
+if command -v timeshift &> /dev/null; then  
     LAST_SNAPSHOT=$(sudo timeshift --list 2>/dev/null | grep "^  O" | head -n 1 | awk '{print $2}')
     if [ -n "$LAST_SNAPSHOT" ]; then
         echo "✅ Dernier snapshot : $LAST_SNAPSHOT"
@@ -946,24 +946,24 @@ if command -v timeshift &> /dev/null; then
     fi
 else
     echo "⚠️  Timeshift non installé. Installez avec : sudo apt install timeshift"
-fi
-echo ""
+fi  
+echo ""  
 
 # 9. Température (si disponible)
-echo "🌡️  9. Température système"
-echo "--------------------------"
-if command -v sensors &> /dev/null; then
+echo "🌡️  9. Température système"  
+echo "--------------------------"  
+if command -v sensors &> /dev/null; then  
     sensors | grep -E "Core|temp" | head -n 5
 else
     echo "ℹ️  lm-sensors non installé. Installez avec : sudo apt install lm-sensors"
-fi
-echo ""
+fi  
+echo ""  
 
 # 10. Résumé final
-echo "============================================"
-echo "📊 RÉSUMÉ"
-echo "============================================"
-echo ""
+echo "============================================"  
+echo "📊 RÉSUMÉ"  
+echo "============================================"  
+echo ""  
 
 ISSUES=0
 [ "$USAGE" -gt 90 ] && ISSUES=$((ISSUES + 1))
@@ -981,13 +981,13 @@ elif [ "$ISSUES" -le 2 ]; then
 else
     echo "🔴 Plusieurs problèmes détectés ($ISSUES)"
     echo "   Action recommandée : investigation approfondie."
-fi
-echo ""
-echo "Pour une vérification approfondie :"
-echo "  - Rootkits : sudo rkhunter --check"
-echo "  - RAM : Redémarrez en mode Memtest86+"
-echo "  - Disque : sudo smartctl -a /dev/sda"
-echo ""
+fi  
+echo ""  
+echo "Pour une vérification approfondie :"  
+echo "  - Rootkits : sudo rkhunter --check"  
+echo "  - RAM : Redémarrez en mode Memtest86+"  
+echo "  - Disque : sudo smartctl -a /dev/sda"  
+echo ""  
 ```
 
 Rendez-le exécutable :
@@ -1124,8 +1124,8 @@ Affiche tous les composants matériels.
 sudo debsums -c
 
 # Réparer paquets cassés
-sudo dpkg --configure -a
-sudo apt install -f
+sudo dpkg --configure -a  
+sudo apt install -f  
 
 # Réinstaller un paquet
 sudo apt install --reinstall paquet

@@ -86,9 +86,9 @@ lsblk -d -o name,rota
 
 **Résultat :**
 ```
-NAME ROTA
-sda     0
-sdb     1
+NAME ROTA  
+sda     0  
+sdb     1  
 ```
 
 **Explication :**
@@ -202,8 +202,8 @@ sudo systemctl status fstrim.timer
 **Si TRIM n'est PAS activé :**
 
 ```bash
-sudo systemctl enable fstrim.timer
-sudo systemctl start fstrim.timer
+sudo systemctl enable fstrim.timer  
+sudo systemctl start fstrim.timer  
 ```
 
 ### Les deux méthodes TRIM : Automatique vs Continue
@@ -385,8 +385,8 @@ free -h
 **Résultat :**
 ```
                total       utilisé     libre     partagé tamp/cache   disponible
-Mem:            15Gi       4.2Gi       8.1Gi       234Mi       3.0Gi        10Gi
-Swap:          2.0Gi          0B       2.0Gi
+Mem:            15Gi       4.2Gi       8.1Gi       234Mi       3.0Gi        10Gi  
+Swap:          2.0Gi          0B       2.0Gi  
 ```
 
 Si **Swap utilisé = 0B**, parfait ! Rien à optimiser.
@@ -475,8 +475,8 @@ sudo swapon -a
 
 Le **I/O scheduler** gère l'ordre des opérations de lecture/écriture sur le disque.
 
-**Pour HDD :** `deadline` ou `cfq` (optimise les mouvements de tête)
-**Pour SSD :** `noop` ou `none` (pas besoin d'optimiser l'ordre)
+**Pour HDD :** `deadline` ou `cfq` (optimise les mouvements de tête)  
+**Pour SSD :** `noop` ou `none` (pas besoin d'optimiser l'ordre)  
 
 Linux Mint utilise généralement le bon scheduler automatiquement, mais vérifions.
 
@@ -662,8 +662,8 @@ Ici, le SSD est usé à **3%**. Excellent !
 241 Total_LBAs_Written         0x0032   000   000   000    Old_age   Always       -       15428639372
 ```
 
-Pour convertir en To :
-LBAs × 512 octets ÷ 1 000 000 000 000 = To écrits
+Pour convertir en To :  
+LBAs × 512 octets ÷ 1 000 000 000 000 = To écrits  
 
 **3. Power On Hours (Heures d'utilisation)**
 ```
@@ -703,16 +703,16 @@ Contenu :
 ```bash
 #!/bin/bash
 
-echo "=== État de santé du SSD ==="
-sudo smartctl -H /dev/sda
+echo "=== État de santé du SSD ==="  
+sudo smartctl -H /dev/sda  
 
-echo ""
-echo "=== Usure du SSD ==="
-sudo smartctl -a /dev/ssd | grep -i "wear\|percentage"
+echo ""  
+echo "=== Usure du SSD ==="  
+sudo smartctl -a /dev/ssd | grep -i "wear\|percentage"  
 
-echo ""
-echo "=== Température ==="
-sudo smartctl -a /dev/ssd | grep -i temperature
+echo ""  
+echo "=== Température ==="  
+sudo smartctl -a /dev/ssd | grep -i temperature  
 ```
 
 Rendez-le exécutable :
@@ -750,8 +750,8 @@ systemctl status fstrim.timer
 
 Si vous voyez un service nommé `e4defrag` ou similaire, désactivez-le :
 ```bash
-sudo systemctl disable e4defrag.timer
-sudo systemctl stop e4defrag.timer
+sudo systemctl disable e4defrag.timer  
+sudo systemctl stop e4defrag.timer  
 ```
 
 ### ❌ Remplir le SSD à 100%
@@ -836,15 +836,15 @@ sudo systemctl status fstrim.timer
 ### 2. Activer TRIM hebdomadaire (si pas déjà fait)
 
 ```bash
-sudo systemctl enable fstrim.timer
-sudo systemctl start fstrim.timer
+sudo systemctl enable fstrim.timer  
+sudo systemctl start fstrim.timer  
 ```
 
 ### 3. Configurer swappiness
 
 ```bash
-echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
-sudo sysctl -p
+echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf  
+sudo sysctl -p  
 ```
 
 ### 4. Vérifier les options de montage
@@ -888,65 +888,65 @@ Contenu :
 ```bash
 #!/bin/bash
 
-echo "🔧 Optimisation SSD pour Linux Mint"
-echo "===================================="
-echo ""
+echo "🔧 Optimisation SSD pour Linux Mint"  
+echo "===================================="  
+echo ""  
 
 # Vérifier si c'est bien un SSD
-ROTA=$(lsblk -d -o name,rota | grep sda | awk '{print $2}')
-if [ "$ROTA" != "0" ]; then
+ROTA=$(lsblk -d -o name,rota | grep sda | awk '{print $2}')  
+if [ "$ROTA" != "0" ]; then  
     echo "⚠️  Attention : /dev/sda ne semble pas être un SSD (ROTA=$ROTA)"
     echo "Ce script est conçu pour les SSD uniquement."
     exit 1
 fi
 
-echo "✅ SSD détecté sur /dev/sda"
-echo ""
+echo "✅ SSD détecté sur /dev/sda"  
+echo ""  
 
 # 1. Activer TRIM hebdomadaire
-echo "📅 Activation de TRIM hebdomadaire..."
-sudo systemctl enable fstrim.timer
-sudo systemctl start fstrim.timer
-echo "✅ TRIM hebdomadaire activé"
-echo ""
+echo "📅 Activation de TRIM hebdomadaire..."  
+sudo systemctl enable fstrim.timer  
+sudo systemctl start fstrim.timer  
+echo "✅ TRIM hebdomadaire activé"  
+echo ""  
 
 # 2. Configurer swappiness
-echo "💾 Configuration de swappiness à 10..."
-if ! grep -q "vm.swappiness" /etc/sysctl.conf; then
+echo "💾 Configuration de swappiness à 10..."  
+if ! grep -q "vm.swappiness" /etc/sysctl.conf; then  
     echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
     sudo sysctl -p
     echo "✅ Swappiness configuré à 10"
 else
     echo "ℹ️  Swappiness déjà configuré"
-fi
-echo ""
+fi  
+echo ""  
 
 # 3. Vérifier les options de montage
-echo "🔍 Vérification des options de montage..."
-mount | grep ' / ' | grep -q "relatime\|noatime"
-if [ $? -eq 0 ]; then
+echo "🔍 Vérification des options de montage..."  
+mount | grep ' / ' | grep -q "relatime\|noatime"  
+if [ $? -eq 0 ]; then  
     echo "✅ Options de montage optimales détectées"
 else
     echo "⚠️  Vérifiez manuellement /etc/fstab pour ajouter 'relatime' ou 'noatime'"
-fi
-echo ""
+fi  
+echo ""  
 
 # 4. Lancer TRIM immédiatement
-echo "🧹 Lancement de TRIM sur toutes les partitions..."
-sudo fstrim -av
-echo ""
+echo "🧹 Lancement de TRIM sur toutes les partitions..."  
+sudo fstrim -av  
+echo ""  
 
 # 5. Vérifier la santé du SSD
-echo "🏥 Vérification de la santé du SSD..."
-sudo smartctl -H /dev/sda
-echo ""
+echo "🏥 Vérification de la santé du SSD..."  
+sudo smartctl -H /dev/sda  
+echo ""  
 
-echo "================================"
-echo "✅ Optimisation terminée !"
-echo "Redémarrez votre ordinateur pour appliquer tous les changements."
-echo ""
-echo "📊 Pour surveiller votre SSD : sudo smartctl -a /dev/sda"
-echo "🧹 Pour lancer TRIM manuellement : sudo fstrim -av"
+echo "================================"  
+echo "✅ Optimisation terminée !"  
+echo "Redémarrez votre ordinateur pour appliquer tous les changements."  
+echo ""  
+echo "📊 Pour surveiller votre SSD : sudo smartctl -a /dev/sda"  
+echo "🧹 Pour lancer TRIM manuellement : sudo fstrim -av"  
 ```
 
 Rendez-le exécutable :

@@ -99,8 +99,8 @@ systemctl status smartd
 
 Si inactif, activez-le :
 ```bash
-sudo systemctl enable smartd
-sudo systemctl start smartd
+sudo systemctl enable smartd  
+sudo systemctl start smartd  
 ```
 
 **3. Logs système**
@@ -191,8 +191,8 @@ Si des services ont échoué, les redémarrer ou investiguer.
 
 **Nettoyage APT :**
 ```bash
-sudo apt autoremove -y
-sudo apt autoclean
+sudo apt autoremove -y  
+sudo apt autoclean  
 ```
 
 **Nettoyage des logs :**
@@ -246,8 +246,8 @@ sudo timeshift --list
 
 **5. Mise à jour du firmware** ⭐⭐⭐
 ```bash
-fwupdmgr refresh
-fwupdmgr get-updates
+fwupdmgr refresh  
+fwupdmgr get-updates  
 ```
 
 Si des mises à jour sont disponibles :
@@ -306,8 +306,8 @@ bleachbit &
 
 **Prévisualisez**, puis **Nettoyez**.
 
-**Temps estimé :** 15 minutes
-**Espace libéré :** 5-20 Go
+**Temps estimé :** 15 minutes  
+**Espace libéré :** 5-20 Go  
 
 **2. Vérification d'intégrité des paquets** ⭐⭐⭐
 ```bash
@@ -321,8 +321,8 @@ sudo apt install --reinstall nom-du-paquet
 
 **3. Scan antirootkit** ⭐⭐⭐
 ```bash
-sudo rkhunter --update
-sudo rkhunter --check --sk
+sudo rkhunter --update  
+sudo rkhunter --check --sk  
 ```
 
 **Résultat attendu :** 0 rootkits détectés
@@ -336,8 +336,8 @@ apt-mark showmanual | less
 
 **Désinstaller ceux que vous n'utilisez plus :**
 ```bash
-sudo apt remove nom-application
-sudo apt autoremove
+sudo apt remove nom-application  
+sudo apt autoremove  
 ```
 
 **5. Optimisation SSD (si applicable)** ⭐⭐⭐⭐
@@ -469,8 +469,8 @@ sudo e4defrag /
 
 Vérifiez que vos crontabs fonctionnent :
 ```bash
-crontab -l
-sudo crontab -l
+crontab -l  
+sudo crontab -l  
 ```
 
 ---
@@ -501,9 +501,9 @@ sudo crontab -l
 
 **Vérifier tous les composants :**
 ```bash
-sudo lshw -short
-sudo smartctl -a /dev/sda
-sensors
+sudo lshw -short  
+sudo smartctl -a /dev/sda  
+sensors  
 ```
 
 **Points à vérifier :**
@@ -572,40 +572,40 @@ Contenu :
 ```bash
 #!/bin/bash
 
-echo "========================================"
-echo "🔧 Maintenance hebdomadaire automatique"
-echo "========================================"
-echo ""
+echo "========================================"  
+echo "🔧 Maintenance hebdomadaire automatique"  
+echo "========================================"  
+echo ""  
 
 # 1. Mise à jour du système
-echo "📥 1. Mise à jour du système..."
-sudo apt update
-sudo apt upgrade -y
-sudo apt autoremove -y
-echo "✅ Système mis à jour"
-echo ""
+echo "📥 1. Mise à jour du système..."  
+sudo apt update  
+sudo apt upgrade -y  
+sudo apt autoremove -y  
+echo "✅ Système mis à jour"  
+echo ""  
 
 # 2. Vérification de l'espace disque
-echo "💾 2. Vérification de l'espace disque..."
-USAGE=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')
-AVAIL=$(df -h / | awk 'NR==2 {print $4}')
-echo "   Utilisation : ${USAGE}%"
-echo "   Disponible : ${AVAIL}"
-if [ "$USAGE" -gt 80 ]; then
+echo "💾 2. Vérification de l'espace disque..."  
+USAGE=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')  
+AVAIL=$(df -h / | awk 'NR==2 {print $4}')  
+echo "   Utilisation : ${USAGE}%"  
+echo "   Disponible : ${AVAIL}"  
+if [ "$USAGE" -gt 80 ]; then  
     echo "⚠️  ATTENTION : Espace disque > 80% !"
     notify-send "⚠️ Espace disque faible" "Seulement ${AVAIL} disponible"
-fi
-echo ""
+fi  
+echo ""  
 
 # 3. Vider la corbeille
-echo "🗑️  3. Vidage de la corbeille..."
-rm -rf ~/.local/share/Trash/*
-echo "✅ Corbeille vidée"
-echo ""
+echo "🗑️  3. Vidage de la corbeille..."  
+rm -rf ~/.local/share/Trash/*  
+echo "✅ Corbeille vidée"  
+echo ""  
 
 # 4. Vérification SMART
-echo "🔍 4. Vérification SMART du disque..."
-if command -v smartctl &> /dev/null; then
+echo "🔍 4. Vérification SMART du disque..."  
+if command -v smartctl &> /dev/null; then  
     SMART=$(sudo smartctl -H /dev/sda 2>/dev/null | grep "PASSED")
     if [ -n "$SMART" ]; then
         echo "✅ Disque en bonne santé"
@@ -615,18 +615,18 @@ if command -v smartctl &> /dev/null; then
     fi
 else
     echo "ℹ️  smartmontools non installé"
-fi
-echo ""
+fi  
+echo ""  
 
 # 5. Résumé
-echo "========================================"
-echo "✅ Maintenance hebdomadaire terminée !"
-echo "========================================"
-echo ""
-echo "📊 Prochaines actions :"
-echo "  - Maintenance mensuelle : premier dimanche du mois"
-echo "  - Redémarrage : si uptime > 7 jours"
-echo ""
+echo "========================================"  
+echo "✅ Maintenance hebdomadaire terminée !"  
+echo "========================================"  
+echo ""  
+echo "📊 Prochaines actions :"  
+echo "  - Maintenance mensuelle : premier dimanche du mois"  
+echo "  - Redémarrage : si uptime > 7 jours"  
+echo ""  
 
 # Enregistrer dans les logs
 echo "$(date): Maintenance hebdomadaire effectuée" >> ~/.maintenance-log.txt
@@ -657,33 +657,33 @@ Contenu :
 ```bash
 #!/bin/bash
 
-echo "========================================"
-echo "🧹 Maintenance mensuelle complète"
-echo "========================================"
-echo ""
+echo "========================================"  
+echo "🧹 Maintenance mensuelle complète"  
+echo "========================================"  
+echo ""  
 
 # 1. Nettoyage système
-echo "🗑️  1. Nettoyage du système..."
-sudo apt autoremove -y
-sudo apt autoclean
-sudo journalctl --vacuum-time=30d
-rm -rf ~/.cache/thumbnails/*
-echo "✅ Système nettoyé"
-echo ""
+echo "🗑️  1. Nettoyage du système..."  
+sudo apt autoremove -y  
+sudo apt autoclean  
+sudo journalctl --vacuum-time=30d  
+rm -rf ~/.cache/thumbnails/*  
+echo "✅ Système nettoyé"  
+echo ""  
 
 # 2. Vérification SMART détaillée
-echo "🔍 2. Vérification SMART détaillée..."
-sudo smartctl -H /dev/sda
-echo ""
+echo "🔍 2. Vérification SMART détaillée..."  
+sudo smartctl -H /dev/sda  
+echo ""  
 
 # 3. Analyse de l'espace disque
-echo "💾 3. Top 10 des dossiers les plus volumineux..."
-du -h --max-depth=1 ~ 2>/dev/null | sort -rh | head -n 10
-echo ""
+echo "💾 3. Top 10 des dossiers les plus volumineux..."  
+du -h --max-depth=1 ~ 2>/dev/null | sort -rh | head -n 10  
+echo ""  
 
 # 4. Vérification Timeshift
-echo "💾 4. Vérification des snapshots Timeshift..."
-if command -v timeshift &> /dev/null; then
+echo "💾 4. Vérification des snapshots Timeshift..."  
+if command -v timeshift &> /dev/null; then  
     SNAPSHOTS=$(sudo timeshift --list 2>/dev/null | grep "^  O" | wc -l)
     echo "   Snapshots disponibles : $SNAPSHOTS"
     if [ "$SNAPSHOTS" -lt 2 ]; then
@@ -694,12 +694,12 @@ if command -v timeshift &> /dev/null; then
     fi
 else
     echo "⚠️  Timeshift non installé !"
-fi
-echo ""
+fi  
+echo ""  
 
 # 5. Mise à jour firmware
-echo "🔧 5. Vérification firmware..."
-if command -v fwupdmgr &> /dev/null; then
+echo "🔧 5. Vérification firmware..."  
+if command -v fwupdmgr &> /dev/null; then  
     fwupdmgr refresh --force 2>/dev/null
     UPDATES=$(fwupdmgr get-updates 2>/dev/null | grep -c "Update")
     if [ "$UPDATES" -gt 0 ]; then
@@ -710,25 +710,25 @@ if command -v fwupdmgr &> /dev/null; then
     fi
 else
     echo "ℹ️  fwupd non installé"
-fi
-echo ""
+fi  
+echo ""  
 
 # 6. Vérification des services échoués
-echo "⚙️  6. Services système..."
-FAILED=$(systemctl list-units --failed --no-pager --no-legend | wc -l)
-if [ "$FAILED" -eq 0 ]; then
+echo "⚙️  6. Services système..."  
+FAILED=$(systemctl list-units --failed --no-pager --no-legend | wc -l)  
+if [ "$FAILED" -eq 0 ]; then  
     echo "✅ Tous les services fonctionnent"
 else
     echo "⚠️  $FAILED service(s) en échec"
     systemctl --failed
-fi
-echo ""
+fi  
+echo ""  
 
 # 7. Résumé
-echo "========================================"
-echo "✅ Maintenance mensuelle terminée !"
-echo "========================================"
-echo ""
+echo "========================================"  
+echo "✅ Maintenance mensuelle terminée !"  
+echo "========================================"  
+echo ""  
 
 # Log
 echo "$(date): Maintenance mensuelle effectuée" >> ~/.maintenance-log.txt
@@ -950,9 +950,9 @@ Contenu :
 Description=Maintenance hebdomadaire
 
 [Service]
-Type=oneshot
-ExecStart=/home/votre-nom/maintenance-hebdo.sh
-User=votre-nom
+Type=oneshot  
+ExecStart=/home/votre-nom/maintenance-hebdo.sh  
+User=votre-nom  
 ```
 
 **2. Créer le timer :**
@@ -966,8 +966,8 @@ Contenu :
 Description=Lancer maintenance hebdomadaire
 
 [Timer]
-OnCalendar=Sun 10:00
-Persistent=true
+OnCalendar=Sun 10:00  
+Persistent=true  
 
 [Install]
 WantedBy=timers.target
@@ -975,8 +975,8 @@ WantedBy=timers.target
 
 **3. Activer :**
 ```bash
-sudo systemctl enable maintenance-hebdo.timer
-sudo systemctl start maintenance-hebdo.timer
+sudo systemctl enable maintenance-hebdo.timer  
+sudo systemctl start maintenance-hebdo.timer  
 ```
 
 **4. Vérifier :**
@@ -1142,21 +1142,21 @@ Contenu :
 ```bash
 #!/bin/bash
 
-clear
-echo "╔══════════════════════════════════════════╗"
-echo "║     TABLEAU DE BORD SYSTÈME              ║"
-echo "╚══════════════════════════════════════════╝"
-echo ""
+clear  
+echo "╔══════════════════════════════════════════╗"  
+echo "║     TABLEAU DE BORD SYSTÈME              ║"  
+echo "╚══════════════════════════════════════════╝"  
+echo ""  
 
 # Uptime
-echo "⏱️  Uptime : $(uptime -p)"
-echo ""
+echo "⏱️  Uptime : $(uptime -p)"  
+echo ""  
 
 # Espace disque
-USAGE=$(df -h / | awk 'NR==2 {print $5}')
-AVAIL=$(df -h / | awk 'NR==2 {print $4}')
-echo "💾 Espace disque : $USAGE utilisé, $AVAIL disponible"
-echo ""
+USAGE=$(df -h / | awk 'NR==2 {print $5}')  
+AVAIL=$(df -h / | awk 'NR==2 {print $4}')  
+echo "💾 Espace disque : $USAGE utilisé, $AVAIL disponible"  
+echo ""  
 
 # SMART
 if command -v smartctl &> /dev/null; then
@@ -1164,8 +1164,8 @@ if command -v smartctl &> /dev/null; then
     echo "🔧 SMART Status : $SMART"
 else
     echo "🔧 SMART Status : Non disponible"
-fi
-echo ""
+fi  
+echo ""  
 
 # Snapshots
 if command -v timeshift &> /dev/null; then
@@ -1173,30 +1173,30 @@ if command -v timeshift &> /dev/null; then
     echo "💾 Snapshots Timeshift : $SNAPS"
 else
     echo "💾 Snapshots Timeshift : Non configuré"
-fi
-echo ""
+fi  
+echo ""  
 
 # Services
-FAILED=$(systemctl list-units --failed --no-pager --no-legend | wc -l)
-echo "⚙️  Services échoués : $FAILED"
-echo ""
+FAILED=$(systemctl list-units --failed --no-pager --no-legend | wc -l)  
+echo "⚙️  Services échoués : $FAILED"  
+echo ""  
 
 # Erreurs récentes
-ERRORS=$(journalctl -p err -b | wc -l)
-echo "📋 Erreurs depuis démarrage : $ERRORS"
-echo ""
+ERRORS=$(journalctl -p err -b | wc -l)  
+echo "📋 Erreurs depuis démarrage : $ERRORS"  
+echo ""  
 
 # Mises à jour
-UPDATES=$(apt list --upgradable 2>/dev/null | grep -c upgradable)
-if [ "$UPDATES" -le 1 ]; then
+UPDATES=$(apt list --upgradable 2>/dev/null | grep -c upgradable)  
+if [ "$UPDATES" -le 1 ]; then  
     echo "🔄 Mises à jour : Système à jour ✅"
 else
     echo "🔄 Mises à jour : $UPDATES disponibles"
-fi
-echo ""
+fi  
+echo ""  
 
-echo "══════════════════════════════════════════"
-echo "Dernière maintenance : $(tail -n 1 ~/.maintenance-log.txt 2>/dev/null || echo 'Jamais')"
+echo "══════════════════════════════════════════"  
+echo "Dernière maintenance : $(tail -n 1 ~/.maintenance-log.txt 2>/dev/null || echo 'Jamais')"  
 ```
 
 Rendez-le exécutable :
@@ -1236,10 +1236,10 @@ La maintenance préventive n'est **pas une corvée**, c'est un **investissement*
 
 ### Progression graduelle
 
-**Semaine 1-4 :** Mises à jour hebdomadaires uniquement
-**Mois 2 :** Ajoutez le nettoyage mensuel
-**Mois 3 :** Configurez Timeshift
-**Mois 4+ :** Ajoutez les autres vérifications selon vos besoins
+**Semaine 1-4 :** Mises à jour hebdomadaires uniquement  
+**Mois 2 :** Ajoutez le nettoyage mensuel  
+**Mois 3 :** Configurez Timeshift  
+**Mois 4+ :** Ajoutez les autres vérifications selon vos besoins  
 
 **Ne vous surchargez pas dès le début !**
 

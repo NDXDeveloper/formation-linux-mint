@@ -862,61 +862,61 @@ Contenu :
 ```bash
 #!/bin/bash
 
-echo "========================================"
-echo "📊 Rapport d'analyse de l'espace disque"
-echo "========================================"
-echo ""
+echo "========================================"  
+echo "📊 Rapport d'analyse de l'espace disque"  
+echo "========================================"  
+echo ""  
 
 # 1. Vue d'ensemble du système
-echo "💽 Vue d'ensemble des partitions :"
-echo "-----------------------------------"
-df -h | grep -E "^/dev"
-echo ""
+echo "💽 Vue d'ensemble des partitions :"  
+echo "-----------------------------------"  
+df -h | grep -E "^/dev"  
+echo ""  
 
 # 2. Espace utilisé vs disponible
-USAGE=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')
-if [ "$USAGE" -gt 85 ]; then
+USAGE=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')  
+if [ "$USAGE" -gt 85 ]; then  
     echo "⚠️  ATTENTION : Disque utilisé à ${USAGE}% !"
 elif [ "$USAGE" -gt 70 ]; then
     echo "⚠️  Surveillance recommandée : Disque à ${USAGE}%"
 else
     echo "✅ Espace disque OK : ${USAGE}% utilisé"
-fi
-echo ""
+fi  
+echo ""  
 
 # 3. Top 10 des plus gros dossiers dans /home
-echo "📁 Top 10 des plus gros dossiers dans votre profil :"
-echo "----------------------------------------------------"
-du -h --max-depth=1 ~ 2>/dev/null | sort -rh | head -n 10
-echo ""
+echo "📁 Top 10 des plus gros dossiers dans votre profil :"  
+echo "----------------------------------------------------"  
+du -h --max-depth=1 ~ 2>/dev/null | sort -rh | head -n 10  
+echo ""  
 
 # 4. Taille des caches
-echo "🗃️  Taille des fichiers de cache :"
-echo "-----------------------------------"
-echo "Cache navigateur (Firefox) : $(du -sh ~/.cache/mozilla 2>/dev/null | cut -f1)"
-echo "Cache miniatures : $(du -sh ~/.cache/thumbnails 2>/dev/null | cut -f1)"
-echo "Cache total : $(du -sh ~/.cache 2>/dev/null | cut -f1)"
-echo ""
+echo "🗃️  Taille des fichiers de cache :"  
+echo "-----------------------------------"  
+echo "Cache navigateur (Firefox) : $(du -sh ~/.cache/mozilla 2>/dev/null | cut -f1)"  
+echo "Cache miniatures : $(du -sh ~/.cache/thumbnails 2>/dev/null | cut -f1)"  
+echo "Cache total : $(du -sh ~/.cache 2>/dev/null | cut -f1)"  
+echo ""  
 
 # 5. Fichiers de plus de 1 Go
-echo "📦 Fichiers de plus de 1 Go dans votre profil :"
-echo "------------------------------------------------"
-find ~ -type f -size +1G -exec du -h {} + 2>/dev/null | sort -rh | head -n 5
-echo ""
+echo "📦 Fichiers de plus de 1 Go dans votre profil :"  
+echo "------------------------------------------------"  
+find ~ -type f -size +1G -exec du -h {} + 2>/dev/null | sort -rh | head -n 5  
+echo ""  
 
 # 6. Espace récupérable
-echo "♻️  Espace potentiellement récupérable :"
-echo "----------------------------------------"
-APT_CACHE=$(du -sh /var/cache/apt/archives 2>/dev/null | cut -f1)
-JOURNAL=$(journalctl --disk-usage 2>/dev/null | grep -oP '\d+\.\d+[GM]' | head -n1)
-echo "Cache APT : $APT_CACHE (exécutez : sudo apt clean)"
-echo "Journaux système : $JOURNAL (exécutez : sudo journalctl --vacuum-size=500M)"
-echo ""
+echo "♻️  Espace potentiellement récupérable :"  
+echo "----------------------------------------"  
+APT_CACHE=$(du -sh /var/cache/apt/archives 2>/dev/null | cut -f1)  
+JOURNAL=$(journalctl --disk-usage 2>/dev/null | grep -oP '\d+\.\d+[GM]' | head -n1)  
+echo "Cache APT : $APT_CACHE (exécutez : sudo apt clean)"  
+echo "Journaux système : $JOURNAL (exécutez : sudo journalctl --vacuum-size=500M)"  
+echo ""  
 
 # 7. Recommandations
-echo "💡 Recommandations :"
-echo "--------------------"
-if [ "$USAGE" -gt 85 ]; then
+echo "💡 Recommandations :"  
+echo "--------------------"  
+if [ "$USAGE" -gt 85 ]; then  
     echo "1. Supprimez les gros fichiers inutiles"
     echo "2. Videz le cache : rm -rf ~/.cache/*"
     echo "3. Nettoyez APT : sudo apt clean && sudo apt autoremove"
@@ -926,11 +926,11 @@ elif [ "$USAGE" -gt 70 ]; then
     echo "2. Envisagez un nettoyage léger des caches"
 else
     echo "Aucune action urgente nécessaire. Système sain !"
-fi
-echo ""
+fi  
+echo ""  
 
-echo "✅ Analyse terminée !"
-echo "Pour une analyse interactive : ncdu ~ ou baobab"
+echo "✅ Analyse terminée !"  
+echo "Pour une analyse interactive : ncdu ~ ou baobab"  
 ```
 
 Rendez-le exécutable :
@@ -1068,15 +1068,15 @@ find ~ -type f -size +500M -mtime +365 -exec ls -lh {} \;
 
 ```bash
 # Cache navigateur
-rm -rf ~/.cache/mozilla
-rm -rf ~/.cache/chromium
+rm -rf ~/.cache/mozilla  
+rm -rf ~/.cache/chromium  
 
 # Miniatures
 rm -rf ~/.cache/thumbnails/*
 
 # Cache système
-sudo apt clean
-sudo apt autoremove
+sudo apt clean  
+sudo apt autoremove  
 ```
 
 ---

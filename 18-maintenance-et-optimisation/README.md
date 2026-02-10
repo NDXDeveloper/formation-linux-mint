@@ -110,8 +110,8 @@ Ce chapitre est organisé en **8 sections** qui couvrent tous les aspects de la 
 - Nettoyer avec BleachBit pour un nettoyage en profondeur
 - Libérer plusieurs gigaoctets d'espace disque
 
-**Temps requis :** 15-30 minutes par mois
-**Gain typique :** 2-15 Go d'espace récupéré
+**Temps requis :** 15-30 minutes par mois  
+**Gain typique :** 2-15 Go d'espace récupéré  
 
 **Pourquoi c'est important :**
 Un système encombré ralentit, manque d'espace, et peut causer des erreurs lors des mises à jour.
@@ -126,8 +126,8 @@ Un système encombré ralentit, manque d'espace, et peut causer des erreurs lors
 - Désactiver les services inutiles en toute sécurité
 - Optimiser le temps de boot de votre système
 
-**Temps requis :** 30 minutes (configuration unique)
-**Gain typique :** 5-15 secondes de démarrage en moins
+**Temps requis :** 30 minutes (configuration unique)  
+**Gain typique :** 5-15 secondes de démarrage en moins  
 
 **Pourquoi c'est important :**
 Chaque service inutile consomme de la RAM et ralentit le démarrage. Désactiver les services non nécessaires améliore les performances.
@@ -142,8 +142,8 @@ Chaque service inutile consomme de la RAM et ralentit le démarrage. Désactiver
 - Utiliser htop et btop pour un monitoring avancé
 - Arrêter les processus problématiques
 
-**Temps requis :** Consultation ponctuelle (2-5 minutes quand besoin)
-**Gain :** Diagnostic rapide des ralentissements
+**Temps requis :** Consultation ponctuelle (2-5 minutes quand besoin)  
+**Gain :** Diagnostic rapide des ralentissements  
 
 **Pourquoi c'est important :**
 Savoir ce qui se passe "sous le capot" vous permet de comprendre et résoudre les problèmes de performance.
@@ -158,8 +158,8 @@ Savoir ce qui se passe "sous le capot" vous permet de comprendre et résoudre le
 - Réduire l'usure inutile du SSD
 - Surveiller la santé de votre SSD avec SMART
 
-**Temps requis :** 20 minutes (configuration unique)
-**Gain :** +2-5 ans de durée de vie du SSD
+**Temps requis :** 20 minutes (configuration unique)  
+**Gain :** +2-5 ans de durée de vie du SSD  
 
 **Pourquoi c'est important :**
 Un SSD bien optimisé reste rapide et dure beaucoup plus longtemps. Les mauvaises pratiques peuvent réduire sa durée de vie de moitié.
@@ -174,8 +174,8 @@ Un SSD bien optimisé reste rapide et dure beaucoup plus longtemps. Les mauvaise
 - Nettoyer les vieux logs pour libérer de l'espace
 - Lire et interpréter les logs avec journalctl
 
-**Temps requis :** 30 minutes (configuration + nettoyage trimestriel)
-**Gain typique :** 1-10 Go d'espace récupéré
+**Temps requis :** 30 minutes (configuration + nettoyage trimestriel)  
+**Gain typique :** 1-10 Go d'espace récupéré  
 
 **Pourquoi c'est important :**
 Les logs peuvent occuper des dizaines de gigaoctets s'ils ne sont pas gérés. Ils sont essentiels pour le diagnostic mais doivent être limités.
@@ -190,8 +190,8 @@ Les logs peuvent occuper des dizaines de gigaoctets s'ils ne sont pas gérés. I
 - Utiliser Baobab (interface graphique) et ncdu (terminal)
 - Trouver ce qui consomme votre espace
 
-**Temps requis :** 10-20 minutes par mois
-**Gain :** Compréhension claire de votre utilisation disque
+**Temps requis :** 10-20 minutes par mois  
+**Gain :** Compréhension claire de votre utilisation disque  
 
 **Pourquoi c'est important :**
 Impossible d'optimiser ce qu'on ne mesure pas. Ces outils vous montrent précisément où va votre espace disque.
@@ -206,8 +206,8 @@ Impossible d'optimiser ce qu'on ne mesure pas. Ces outils vous montrent précis�
 - Scanner le système à la recherche de rootkits
 - Valider l'intégrité des paquets installés
 
-**Temps requis :** 1-2 heures par trimestre
-**Gain :** Détection précoce des problèmes
+**Temps requis :** 1-2 heures par trimestre  
+**Gain :** Détection précoce des problèmes  
 
 **Pourquoi c'est important :**
 Mieux vaut détecter un disque défaillant 3 mois avant la panne qu'après la perte de données. La vérification d'intégrité est votre assurance.
@@ -454,10 +454,10 @@ La maintenance est efficace uniquement si elle est régulière. Cette section vo
 
 ### Maintenance récurrente (une fois configuré)
 
-**Hebdomadaire :** 5 minutes (automatisé)
-**Mensuel :** 30 minutes
-**Trimestriel :** 1 heure
-**Annuel :** 2-3 heures
+**Hebdomadaire :** 5 minutes (automatisé)  
+**Mensuel :** 30 minutes  
+**Trimestriel :** 1 heure  
+**Annuel :** 2-3 heures  
 
 **Moyenne : 30 minutes par semaine** pour un système toujours optimal.
 

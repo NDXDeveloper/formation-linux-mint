@@ -98,11 +98,11 @@ systemctl list-units --type=service --state=running
 
 **Résultat typique :**
 ```
-UNIT                          LOAD   ACTIVE SUB     DESCRIPTION
-accounts-daemon.service       loaded active running Accounts Service
-avahi-daemon.service          loaded active running Avahi mDNS/DNS-SD Stack
-bluetooth.service             loaded active running Bluetooth service
-NetworkManager.service        loaded active running Network Manager
+UNIT                          LOAD   ACTIVE SUB     DESCRIPTION  
+accounts-daemon.service       loaded active running Accounts Service  
+avahi-daemon.service          loaded active running Avahi mDNS/DNS-SD Stack  
+bluetooth.service             loaded active running Bluetooth service  
+NetworkManager.service        loaded active running Network Manager  
 ```
 
 **Explication des colonnes :**
@@ -243,8 +243,8 @@ sudo systemctl reload-or-restart nom-du-service
 **Exemple concret :**
 
 ```bash
-sudo systemctl stop bluetooth     # Arrête Bluetooth MAINTENANT
-sudo systemctl disable bluetooth  # Bluetooth ne démarrera plus au boot
+sudo systemctl stop bluetooth     # Arrête Bluetooth MAINTENANT  
+sudo systemctl disable bluetooth  # Bluetooth ne démarrera plus au boot  
 ```
 
 Après ces deux commandes :
@@ -360,8 +360,8 @@ Avant de désactiver un service, **assurez-vous de comprendre son rôle**. En ca
 **Si vous n'utilisez JAMAIS le Bluetooth :**
 
 ```bash
-sudo systemctl disable bluetooth
-sudo systemctl stop bluetooth
+sudo systemctl disable bluetooth  
+sudo systemctl stop bluetooth  
 ```
 
 **Services concernés :**
@@ -372,8 +372,8 @@ sudo systemctl stop bluetooth
 **Si vous n'avez pas d'imprimante ou imprimez rarement :**
 
 ```bash
-sudo systemctl disable cups
-sudo systemctl disable cups-browsed
+sudo systemctl disable cups  
+sudo systemctl disable cups-browsed  
 ```
 
 **Services concernés :**
@@ -411,8 +411,8 @@ sudo systemctl disable ModemManager
 Ces services sont installés si vous avez installé VirtualBox :
 
 ```bash
-sudo systemctl disable vboxadd-service
-sudo systemctl disable vboxadd
+sudo systemctl disable vboxadd-service  
+sudo systemctl disable vboxadd  
 ```
 
 ### Services liés au partage réseau
@@ -420,9 +420,9 @@ sudo systemctl disable vboxadd
 **Si vous ne partagez pas de fichiers en réseau local :**
 
 ```bash
-sudo systemctl disable smbd      # Serveur Samba (partage Windows)
-sudo systemctl disable nmbd      # NetBIOS (découverte réseau Windows)
-sudo systemctl disable avahi-daemon  # Découverte automatique réseau local
+sudo systemctl disable smbd      # Serveur Samba (partage Windows)  
+sudo systemctl disable nmbd      # NetBIOS (découverte réseau Windows)  
+sudo systemctl disable avahi-daemon  # Découverte automatique réseau local  
 ```
 
 **⚠️ Attention :** Désactiver `avahi-daemon` peut empêcher certaines imprimantes réseau et périphériques d'être détectés automatiquement.
@@ -510,8 +510,8 @@ systemd-analyze
 
 **Résultat exemple :**
 ```
-Startup finished in 4.231s (firmware) + 2.847s (loader) + 3.125s (kernel) + 8.942s (userspace) = 19.145s
-graphical.target reached after 8.874s in userspace
+Startup finished in 4.231s (firmware) + 2.847s (loader) + 3.125s (kernel) + 8.942s (userspace) = 19.145s  
+graphical.target reached after 8.874s in userspace  
 ```
 
 **Explication :**
@@ -580,12 +580,12 @@ Vous avez un PC de bureau, sans Bluetooth, sans imprimante, et vous n'accédez j
 
 ```bash
 # Désactiver Bluetooth
-sudo systemctl disable bluetooth
-sudo systemctl stop bluetooth
+sudo systemctl disable bluetooth  
+sudo systemctl stop bluetooth  
 
 # Désactiver CUPS (imprimantes)
-sudo systemctl disable cups
-sudo systemctl disable cups-browsed
+sudo systemctl disable cups  
+sudo systemctl disable cups-browsed  
 
 # Désactiver ModemManager (pas de modem)
 sudo systemctl disable ModemManager
@@ -634,8 +634,8 @@ Ajoutez ce contenu :
 ```bash
 #!/bin/bash
 
-echo "🚀 Optimisation des services au démarrage..."
-echo ""
+echo "🚀 Optimisation des services au démarrage..."  
+echo ""  
 
 # Services à désactiver
 SERVICES_A_DESACTIVER=(
@@ -655,11 +655,11 @@ for service in "${SERVICES_A_DESACTIVER[@]}"; do
     fi
 done
 
-echo ""
-echo "✅ Optimisation terminée !"
-echo ""
-echo "📊 Analyse du temps de démarrage :"
-systemd-analyze
+echo ""  
+echo "✅ Optimisation terminée !"  
+echo ""  
+echo "📊 Analyse du temps de démarrage :"  
+systemd-analyze  
 ```
 
 Rendez-le exécutable :
@@ -734,8 +734,8 @@ sudo systemctl restart nom-du-service
 **Solution :** Réactivez-le simplement :
 
 ```bash
-sudo systemctl enable nom-du-service
-sudo systemctl start nom-du-service
+sudo systemctl enable nom-du-service  
+sudo systemctl start nom-du-service  
 ```
 
 **En cas de doute sur le nom exact :**
@@ -772,11 +772,11 @@ reboot
 **Solution :**
 
 ```bash
-sudo systemctl enable bluetooth
-sudo systemctl start bluetooth
+sudo systemctl enable bluetooth  
+sudo systemctl start bluetooth  
 
-sudo systemctl enable NetworkManager
-sudo systemctl start NetworkManager
+sudo systemctl enable NetworkManager  
+sudo systemctl start NetworkManager  
 ```
 
 ---
