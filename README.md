@@ -130,8 +130,8 @@ Parcourez directement les chapitres sur GitHub en commençant par le [SOMMAIRE.m
 
 ### 2. Cloner le dépôt (optionnel)
 ```bash
-git clone https://github.com/NDXDeveloper/formation-linux-mint.git
-cd formation-linux-mint
+git clone https://github.com/NDXDeveloper/formation-linux-mint.git  
+cd formation-linux-mint  
 ```
 
 ### 3. Lire hors ligne
@@ -189,9 +189,9 @@ Ce projet est sous licence **Creative Commons Attribution 4.0 International (CC 
 
 **🎯 Sous condition d'attribution :**
 ```
-Formation Linux Mint par Nicolas DEOUX
-https://github.com/NDXDeveloper/formation-linux-mint
-Licence CC BY 4.0
+Formation Linux Mint par Nicolas DEOUX  
+https://github.com/NDXDeveloper/formation-linux-mint  
+Licence CC BY 4.0  
 ```
 
 Voir le fichier [LICENSE](LICENSE) pour les détails complets.
