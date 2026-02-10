@@ -489,8 +489,8 @@ sudo apt install chromium-browser
 
 **Verdict** : ⭐⭐⭐⭐ Si vous utilisez l'écosystème Google
 
-**Brave** : Navigateur orienté vie privée
-**Vivaldi** : Navigateur hyper-personnalisable
+**Brave** : Navigateur orienté vie privée  
+**Vivaldi** : Navigateur hyper-personnalisable  
 
 ---
 
@@ -545,8 +545,8 @@ sudo apt install steam
 
 **Verdict** : ⭐⭐⭐⭐⭐ Solution gaming principale
 
-**Lutris** : Pour jeux hors Steam (GOG, Epic, etc.)
-**Heroic Games Launcher** : Epic Games + GOG
+**Lutris** : Pour jeux hors Steam (GOG, Epic, etc.)  
+**Heroic Games Launcher** : Epic Games + GOG  
 
 ---
 

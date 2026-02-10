@@ -620,9 +620,9 @@ En soumettant vos propres tests, vous :
 
 ### Chaînes YouTube
 
-**GamingOnLinux** : Actualités et tests de jeux
-**The Linux Experiment** : Tutoriels et découvertes
-**Chris Titus Tech** : Configurations et optimisations
+**GamingOnLinux** : Actualités et tests de jeux  
+**The Linux Experiment** : Tutoriels et découvertes  
+**Chris Titus Tech** : Configurations et optimisations  
 
 ---
 

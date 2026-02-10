@@ -284,8 +284,8 @@ Si Wine pose problème ou si vous voulez repartir de zéro :
 
 ```bash
 # Sauvegarder d'abord vos données importantes !
-rm -rf ~/.wine
-winecfg  # Recréera un préfixe propre
+rm -rf ~/.wine  
+winecfg  # Recréera un préfixe propre  
 ```
 
 ---

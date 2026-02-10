@@ -54,8 +54,8 @@ Ces outils vous permettent de :
 ### Via le terminal
 
 ```bash
-sudo apt update
-sudo apt install playonlinux
+sudo apt update  
+sudo apt install playonlinux  
 ```
 
 ### Premier lancement
@@ -205,8 +205,8 @@ Bottles fonctionne mieux en version Flatpak pour bénéficier des dernières mis
 #### Activer Flatpak (si ce n'est pas déjà fait)
 
 ```bash
-sudo apt install flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo apt install flatpak  
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo  
 ```
 
 #### Installer Bottles
