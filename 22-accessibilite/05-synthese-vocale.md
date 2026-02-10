@@ -123,8 +123,8 @@ Linux Mint prend en charge plusieurs moteurs de synthèse vocale. Voici les prin
 **Via le terminal :**
 
 ```bash
-sudo apt update
-sudo apt install espeak-ng
+sudo apt update  
+sudo apt install espeak-ng  
 ```
 
 **Tester immédiatement :**
@@ -155,8 +155,8 @@ sudo apt install mbrola mbrola-fr1 mbrola-fr4
 **Tester avec MBROLA :**
 
 ```bash
-espeak-ng -v mb-fr1 "Bonjour avec la voix MBROLA féminine"
-espeak-ng -v mb-fr4 "Bonjour avec la voix MBROLA masculine"
+espeak-ng -v mb-fr1 "Bonjour avec la voix MBROLA féminine"  
+espeak-ng -v mb-fr4 "Bonjour avec la voix MBROLA masculine"  
 ```
 
 ### Installer Pico TTS
@@ -168,8 +168,8 @@ sudo apt install libttspico-utils
 **Tester Pico TTS :**
 
 ```bash
-pico2wave -l fr-FR -w test.wav "Bonjour, test de pico TTS"
-aplay test.wav
+pico2wave -l fr-FR -w test.wav "Bonjour, test de pico TTS"  
+aplay test.wav  
 ```
 
 **Note :** Pico génère d'abord un fichier audio qu'il faut ensuite lire avec un lecteur comme `aplay`.
@@ -222,15 +222,15 @@ espeak-ng -v fr "Bonjour tout le monde"
 espeak-ng -v fr -f mon_texte.txt
 
 # Ajuster la vitesse (80 à 450, défaut : 175)
-espeak-ng -v fr -s 150 "Lecture lente"
-espeak-ng -v fr -s 250 "Lecture rapide"
+espeak-ng -v fr -s 150 "Lecture lente"  
+espeak-ng -v fr -s 250 "Lecture rapide"  
 
 # Ajuster le volume (0 à 200, défaut : 100)
 espeak-ng -v fr -a 150 "Volume élevé"
 
 # Ajuster la hauteur (0 à 99, défaut : 50)
-espeak-ng -v fr -p 80 "Voix aiguë"
-espeak-ng -v fr -p 20 "Voix grave"
+espeak-ng -v fr -p 80 "Voix aiguë"  
+espeak-ng -v fr -p 20 "Voix grave"  
 
 # Sauvegarder dans un fichier audio
 espeak-ng -v fr -w sortie.wav "Texte à sauvegarder"
@@ -407,8 +407,8 @@ Faire parler les notifications système :
 ```bash
 #!/bin/bash
 # notification-vocale.sh
-MESSAGE="$1"
-espeak-ng -v fr "$MESSAGE"
+MESSAGE="$1"  
+espeak-ng -v fr "$MESSAGE"  
 ```
 
 **Exemple d'utilisation :**
@@ -475,10 +475,10 @@ Ajouter des alias dans votre fichier `~/.bashrc` :
 nano ~/.bashrc
 
 # Ajouter à la fin :
-alias parle='espeak-ng -v fr -s 150'
-alias parle-rapide='espeak-ng -v fr -s 250'
-alias parle-lent='espeak-ng -v fr -s 120'
-alias parle-fichier='espeak-ng -v fr -s 150 -f'
+alias parle='espeak-ng -v fr -s 150'  
+alias parle-rapide='espeak-ng -v fr -s 250'  
+alias parle-lent='espeak-ng -v fr -s 120'  
+alias parle-fichier='espeak-ng -v fr -s 150 -f'  
 
 # Enregistrer (Ctrl + O) et quitter (Ctrl + X)
 
@@ -489,9 +489,9 @@ source ~/.bashrc
 **Utilisation des alias :**
 
 ```bash
-parle "Bonjour, c'est plus simple maintenant"
-parle-rapide "Lecture rapide"
-parle-fichier mon_document.txt
+parle "Bonjour, c'est plus simple maintenant"  
+parle-rapide "Lecture rapide"  
+parle-fichier mon_document.txt  
 ```
 
 ### Script de lecture interactive
@@ -507,8 +507,8 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-echo "Lecture de $1..."
-echo "Appuyez sur Ctrl+C pour arrêter"
+echo "Lecture de $1..."  
+echo "Appuyez sur Ctrl+C pour arrêter"  
 
 espeak-ng -v fr -s 150 -f "$1"
 ```
@@ -525,9 +525,9 @@ Convertir la sortie eSpeak en MP3 de meilleure qualité :
 
 ```bash
 # Générer avec eSpeak puis convertir
-espeak-ng -v fr -w temp.wav "Votre texte"
-ffmpeg -i temp.wav -codec:a libmp3lame -b:a 192k sortie.mp3
-rm temp.wav
+espeak-ng -v fr -w temp.wav "Votre texte"  
+ffmpeg -i temp.wav -codec:a libmp3lame -b:a 192k sortie.mp3  
+rm temp.wav  
 ```
 
 ---
@@ -550,15 +550,15 @@ espeak-ng --voices=fr
 
 ```bash
 # Voix féminine
-espeak-ng -v fr+f1 "Voix féminine numéro 1"
-espeak-ng -v fr+f2 "Voix féminine numéro 2"
+espeak-ng -v fr+f1 "Voix féminine numéro 1"  
+espeak-ng -v fr+f2 "Voix féminine numéro 2"  
 
 # Voix masculine
 espeak-ng -v fr+m1 "Voix masculine numéro 1"
 
 # Voix avec MBROLA (meilleure qualité)
-espeak-ng -v mb-fr1 "Voix MBROLA féminine"
-espeak-ng -v mb-fr4 "Voix MBROLA masculine"
+espeak-ng -v mb-fr1 "Voix MBROLA féminine"  
+espeak-ng -v mb-fr4 "Voix MBROLA masculine"  
 
 # Voix chuchotée
 espeak-ng -v fr+whisper "Voix chuchotée"
@@ -625,8 +625,8 @@ Créer un réveil qui annonce l'heure :
 ```bash
 #!/bin/bash
 # reveil-parlant.sh
-HEURE=$(date +%H:%M)
-espeak-ng -v fr "Il est $HEURE, il est temps de se réveiller"
+HEURE=$(date +%H:%M)  
+espeak-ng -v fr "Il est $HEURE, il est temps de se réveiller"  
 ```
 
 **Programmer avec cron :**
@@ -643,11 +643,11 @@ crontab -e
 ```bash
 #!/bin/bash
 # rappel.sh
-MESSAGE="$1"
-DELAI="$2"  # en minutes
+MESSAGE="$1"  
+DELAI="$2"  # en minutes  
 
-sleep ${DELAI}m
-espeak-ng -v fr "Rappel : $MESSAGE"
+sleep ${DELAI}m  
+espeak-ng -v fr "Rappel : $MESSAGE"  
 ```
 
 **Utilisation :**
@@ -671,9 +671,9 @@ curl -s https://www.example.com/rss.xml | \
 ```bash
 #!/bin/bash
 # definition.sh
-MOT="$1"
-DEFINITION=$(dict -d fd-fra-fra "$MOT" | grep -A 5 "$MOT")
-espeak-ng -v fr "$DEFINITION"
+MOT="$1"  
+DEFINITION=$(dict -d fd-fra-fra "$MOT" | grep -A 5 "$MOT")  
+espeak-ng -v fr "$DEFINITION"  
 ```
 
 ### 5. Lecteur de mails
@@ -682,8 +682,8 @@ espeak-ng -v fr "$DEFINITION"
 #!/bin/bash
 # lecteur-mails.sh
 # Nécessite fetchmail ou mutt configuré
-SUBJECT=$(mail -H | tail -1 | cut -d' ' -f4-)
-espeak-ng -v fr "Nouveau mail : $SUBJECT"
+SUBJECT=$(mail -H | tail -1 | cut -d' ' -f4-)  
+espeak-ng -v fr "Nouveau mail : $SUBJECT"  
 ```
 
 ---
@@ -714,8 +714,8 @@ engine.setProperty('voice', 'french')
 engine.setProperty('rate', 150)
 
 # Parler
-engine.say("Bonjour depuis Python")
-engine.runAndWait()
+engine.say("Bonjour depuis Python")  
+engine.runAndWait()  
 ```
 
 ### Script Python avancé avec choix de voix
@@ -727,8 +727,8 @@ import pyttsx3
 engine = pyttsx3.init()
 
 # Lister toutes les voix disponibles
-voices = engine.getProperty('voices')
-for voice in voices:
+voices = engine.getProperty('voices')  
+for voice in voices:  
     print(f"ID: {voice.id}")
     print(f"Nom: {voice.name}")
     print(f"Langues: {voice.languages}")
@@ -738,13 +738,13 @@ for voice in voices:
 # engine.setProperty('voice', voices[X].id)
 
 # Paramètres
-engine.setProperty('rate', 150)    # Vitesse
-engine.setProperty('volume', 1.0)  # Volume (0.0 à 1.0)
+engine.setProperty('rate', 150)    # Vitesse  
+engine.setProperty('volume', 1.0)  # Volume (0.0 à 1.0)  
 
 # Lire du texte
-texte = "Ceci est un exemple de synthèse vocale en Python"
-engine.say(texte)
-engine.runAndWait()
+texte = "Ceci est un exemple de synthèse vocale en Python"  
+engine.say(texte)  
+engine.runAndWait()  
 ```
 
 ### Lire un fichier texte avec Python
@@ -753,8 +753,8 @@ engine.runAndWait()
 #!/usr/bin/env python3
 import pyttsx3
 
-engine = pyttsx3.init()
-engine.setProperty('rate', 150)
+engine = pyttsx3.init()  
+engine.setProperty('rate', 150)  
 
 # Lire depuis un fichier
 with open('mon_texte.txt', 'r', encoding='utf-8') as f:
@@ -806,8 +806,8 @@ espeak-ng -v fr "Votre texte"
 Ou définir la langue par défaut dans votre profil :
 
 ```bash
-echo 'export ESPEAK_VOICE=fr' >> ~/.bashrc
-source ~/.bashrc
+echo 'export ESPEAK_VOICE=fr' >> ~/.bashrc  
+source ~/.bashrc  
 ```
 
 ### La voix est trop robotique
@@ -917,9 +917,9 @@ Si vous lisez souvent les mêmes textes :
 ```bash
 #!/bin/bash
 # cache-tts.sh
-TEXTE="$1"
-HASH=$(echo "$TEXTE" | md5sum | cut -d' ' -f1)
-CACHE_FILE="/tmp/tts_cache_$HASH.wav"
+TEXTE="$1"  
+HASH=$(echo "$TEXTE" | md5sum | cut -d' ' -f1)  
+CACHE_FILE="/tmp/tts_cache_$HASH.wav"  
 
 if [ -f "$CACHE_FILE" ]; then
     aplay "$CACHE_FILE"
@@ -974,8 +974,8 @@ espeak-ng -v fr -s 160 -f mon_article.txt
 
 ```bash
 # Aide eSpeak-NG
-espeak-ng --help
-man espeak-ng
+espeak-ng --help  
+man espeak-ng  
 
 # Lister les voix
 espeak-ng --voices
@@ -1005,8 +1005,8 @@ Convertir vos ebooks en audiobooks :
 ```bash
 #!/bin/bash
 # ebook-to-audio.sh
-ebook-convert livre.epub livre.txt
-espeak-ng -v mb-fr1 -s 160 -f livre.txt -w livre.wav
+ebook-convert livre.epub livre.txt  
+espeak-ng -v mb-fr1 -s 160 -f livre.txt -w livre.wav  
 ```
 
 ### 3. Sous-titrage audio

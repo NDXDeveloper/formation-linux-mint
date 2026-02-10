@@ -35,8 +35,8 @@ Orca n'est pas toujours installé par défaut sur Linux Mint. Voici comment l'in
 Si vous êtes à l'aise avec le terminal, ouvrez-le et tapez :
 
 ```bash
-sudo apt update
-sudo apt install orca gnome-orca
+sudo apt update  
+sudo apt install orca gnome-orca  
 ```
 
 **Note :** `gnome-orca` contient des composants supplémentaires utiles pour Orca.

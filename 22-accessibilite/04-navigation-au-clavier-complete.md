@@ -91,11 +91,11 @@ Les espaces de travail sont comme des bureaux séparés pour organiser vos fenê
 - **Flèches** : Naviguer entre les espaces
 - **Entrée** : Aller à l'espace sélectionné
 
-**Ctrl + Alt + Flèche droite** : Passer à l'espace de travail suivant
-**Ctrl + Alt + Flèche gauche** : Passer à l'espace de travail précédent
+**Ctrl + Alt + Flèche droite** : Passer à l'espace de travail suivant  
+**Ctrl + Alt + Flèche gauche** : Passer à l'espace de travail précédent  
 
-**Déplacer une fenêtre vers un autre espace :**
-**Ctrl + Alt + Maj + Flèche droite/gauche** : Déplacer la fenêtre active vers l'espace suivant/précédent
+**Déplacer une fenêtre vers un autre espace :**  
+**Ctrl + Alt + Maj + Flèche droite/gauche** : Déplacer la fenêtre active vers l'espace suivant/précédent  
 
 ---
 
@@ -121,10 +121,10 @@ Après avoir appuyé sur **Alt + F7** (déplacer) ou **Alt + F8** (redimensionne
 
 ### Ancrer les fenêtres
 
-**Super + Flèche gauche** : Ancrer la fenêtre à gauche (50% de l'écran)
-**Super + Flèche droite** : Ancrer la fenêtre à droite (50% de l'écran)
-**Super + Flèche haut** : Maximiser la fenêtre
-**Super + Flèche bas** : Restaurer / Réduire la fenêtre
+**Super + Flèche gauche** : Ancrer la fenêtre à gauche (50% de l'écran)  
+**Super + Flèche droite** : Ancrer la fenêtre à droite (50% de l'écran)  
+**Super + Flèche haut** : Maximiser la fenêtre  
+**Super + Flèche bas** : Restaurer / Réduire la fenêtre  
 
 **Astuce :** Parfait pour travailler avec deux fenêtres côte à côte (navigation web + document, par exemple).
 
@@ -631,9 +631,9 @@ Vous pouvez créer des scripts bash pour automatiser des séquences de touches c
 sudo apt install xdotool
 
 # Exemple de script
-xdotool key ctrl+l  # Active la barre d'adresse
-xdotool type "https://linuxmint.com"  # Tape l'URL
-xdotool key Return  # Appuie sur Entrée
+xdotool key ctrl+l  # Active la barre d'adresse  
+xdotool type "https://linuxmint.com"  # Tape l'URL  
+xdotool key Return  # Appuie sur Entrée  
 ```
 
 ---

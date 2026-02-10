@@ -365,8 +365,8 @@ Une résolution plus basse agrandit tout à l'écran (mais réduit la netteté).
 2. **Résolution** : Choisir une résolution plus basse que celle native
    - Exemple : 1920×1080 → 1600×900 ou 1366×768
 
-**Avantage :** Tout est plus grand
-**Inconvénient :** L'image peut paraître floue sur les écrans modernes
+**Avantage :** Tout est plus grand  
+**Inconvénient :** L'image peut paraître floue sur les écrans modernes  
 
 **Recommandation :** Préférez l'augmentation du facteur d'échelle (section 2) plutôt que la réduction de résolution.
 
