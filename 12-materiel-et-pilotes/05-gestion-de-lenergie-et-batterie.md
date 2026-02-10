@@ -224,13 +224,13 @@ L'icône dans la barre de tâches vous donne des informations rapides :
 upower -i /org/freedesktop/UPower/devices/battery_BAT0
 
 # Ou avec acpi
-sudo apt install acpi
-acpi -V
+sudo apt install acpi  
+acpi -V  
 
 # État détaillé
-cat /sys/class/power_supply/BAT0/status
-cat /sys/class/power_supply/BAT0/capacity
-cat /sys/class/power_supply/BAT0/capacity_level
+cat /sys/class/power_supply/BAT0/status  
+cat /sys/class/power_supply/BAT0/capacity  
+cat /sys/class/power_supply/BAT0/capacity_level  
 ```
 
 **Exemple de sortie upower :**
@@ -352,12 +352,12 @@ sudo nano /etc/tlp.conf
 
 ```bash
 # Fréquence CPU sur batterie (en %)
-CPU_SCALING_MIN_FREQ_ON_BAT=800000
-CPU_SCALING_MAX_FREQ_ON_BAT=2000000
+CPU_SCALING_MIN_FREQ_ON_BAT=800000  
+CPU_SCALING_MAX_FREQ_ON_BAT=2000000  
 
 # Régulateur CPU (governor)
-CPU_SCALING_GOVERNOR_ON_AC=performance
-CPU_SCALING_GOVERNOR_ON_BAT=powersave
+CPU_SCALING_GOVERNOR_ON_AC=performance  
+CPU_SCALING_GOVERNOR_ON_BAT=powersave  
 
 # Désactiver Bluetooth sur batterie
 DEVICES_TO_DISABLE_ON_BAT="bluetooth"
@@ -370,8 +370,8 @@ USB_AUTOSUSPEND=1
 
 # Niveau de charge maximal (pour prolonger la vie de la batterie)
 # Arrête la charge à 80% au lieu de 100%
-START_CHARGE_THRESH_BAT0=75
-STOP_CHARGE_THRESH_BAT0=80
+START_CHARGE_THRESH_BAT0=75  
+STOP_CHARGE_THRESH_BAT0=80  
 ```
 
 **Appliquer les changements :**
@@ -387,9 +387,9 @@ Pour configurer TLP graphiquement :
 
 ```bash
 # Installation
-sudo add-apt-repository ppa:linuxuprising/apps
-sudo apt update
-sudo apt install tlpui
+sudo add-apt-repository ppa:linuxuprising/apps  
+sudo apt update  
+sudo apt install tlpui  
 
 # Lancement
 sudo tlpui
@@ -470,8 +470,8 @@ sudo apt install laptop-mode-tools
 
 **Installation :**
 ```bash
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git
-cd auto-cpufreq && sudo ./auto-cpufreq-installer
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git  
+cd auto-cpufreq && sudo ./auto-cpufreq-installer  
 ```
 
 **Utilisation :**
@@ -529,8 +529,8 @@ echo 1 | sudo tee /sys/class/leds/dell::kbd_backlight/brightness
 # Voir la consommation par processus
 top
 # Ou mieux : htop
-sudo apt install htop
-htop
+sudo apt install htop  
+htop  
 ```
 
 **Tuer un processus gourmand :**
@@ -641,8 +641,8 @@ sudo nano /etc/systemd/logind.conf
 
 Modifiez :
 ```
-HandleLidSwitch=ignore
-HandleLidSwitchExternalPower=ignore
+HandleLidSwitch=ignore  
+HandleLidSwitchExternalPower=ignore  
 ```
 
 Redémarrez le service :
@@ -660,17 +660,17 @@ La partition swap doit être **au moins égale à la taille de votre RAM**.
 
 **Vérifier la taille du swap :**
 ```bash
-free -h
-swapon --show
+free -h  
+swapon --show  
 ```
 
 **Si swap insuffisant, créer un fichier swap :**
 ```bash
 # Créer un fichier swap de 8 Go (ajustez selon votre RAM)
-sudo fallocate -l 8G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
+sudo fallocate -l 8G /swapfile  
+sudo chmod 600 /swapfile  
+sudo mkswap /swapfile  
+sudo swapon /swapfile  
 
 # Rendre permanent
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
@@ -698,14 +698,14 @@ sudo nano /etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pk
 Ajoutez :
 ```
 [Re-enable hibernate by default in upower]
-Identity=unix-user:*
-Action=org.freedesktop.upower.hibernate
-ResultActive=yes
+Identity=unix-user:*  
+Action=org.freedesktop.upower.hibernate  
+ResultActive=yes  
 
 [Re-enable hibernate by default in logind]
-Identity=unix-user:*
-Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit
-ResultActive=yes
+Identity=unix-user:*  
+Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit  
+ResultActive=yes  
 ```
 
 Redémarrez l'ordinateur.
@@ -747,8 +747,8 @@ sudo nano /etc/tlp.conf
 
 Ajoutez (fonctionne sur ThinkPad, certains Dell et ASUS) :
 ```bash
-START_CHARGE_THRESH_BAT0=75
-STOP_CHARGE_THRESH_BAT0=80
+START_CHARGE_THRESH_BAT0=75  
+STOP_CHARGE_THRESH_BAT0=80  
 ```
 
 **Ou avec ASUS Battery Health Charging :**
@@ -774,8 +774,8 @@ echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_control_end_threshold
 **Surveiller la température :**
 ```bash
 # Installer sensors
-sudo apt install lm-sensors
-sudo sensors-detect  # Répondez "yes" à tout
+sudo apt install lm-sensors  
+sudo sensors-detect  # Répondez "yes" à tout  
 
 # Voir les températures
 sensors
@@ -1070,9 +1070,9 @@ Créez des profils selon vos besoins :
 
 **Commandes d'aide :**
 ```bash
-man tlp
-man powertop
-man acpi
+man tlp  
+man powertop  
+man acpi  
 ```
 
 ---

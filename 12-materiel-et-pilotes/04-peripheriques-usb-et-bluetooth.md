@@ -278,15 +278,15 @@ sudo mkfs.ext4 /dev/sdb1
 sudo mkfs.vfat -F 32 /dev/sdb1
 
 # Formater en exFAT (installer d'abord exfat-utils)
-sudo apt install exfat-fuse exfat-utils
-sudo mkfs.exfat /dev/sdb1
+sudo apt install exfat-fuse exfat-utils  
+sudo mkfs.exfat /dev/sdb1  
 
 # Formater en NTFS
 sudo mkfs.ntfs /dev/sdb1
 
 # Donner un nom au volume
-sudo e2label /dev/sdb1 "MonNom"  # Pour ext4
-sudo fatlabel /dev/sdb1 "MonNom"  # Pour FAT32
+sudo e2label /dev/sdb1 "MonNom"  # Pour ext4  
+sudo fatlabel /dev/sdb1 "MonNom"  # Pour FAT32  
 ```
 
 ---
@@ -445,8 +445,8 @@ v4l2-ctl --list-devices
 ls /dev/input/js*
 
 # Tester avec jstest (installer jstest-gtk)
-sudo apt install joystick jstest-gtk
-jstest-gtk
+sudo apt install joystick jstest-gtk  
+jstest-gtk  
 ```
 
 **Configuration avancée :**
@@ -496,8 +496,8 @@ hciconfig
 bluetoothctl show
 
 # Lister les contrôleurs Bluetooth
-sudo lsusb | grep -i bluetooth
-sudo lspci | grep -i bluetooth
+sudo lsusb | grep -i bluetooth  
+sudo lspci | grep -i bluetooth  
 ```
 
 **Si vous n'avez pas de Bluetooth :**
@@ -518,12 +518,12 @@ sudo lspci | grep -i bluetooth
 **Via le terminal :**
 ```bash
 # Activer le Bluetooth
-sudo systemctl start bluetooth
-rfkill unblock bluetooth
+sudo systemctl start bluetooth  
+rfkill unblock bluetooth  
 
 # Désactiver
-sudo systemctl stop bluetooth
-rfkill block bluetooth
+sudo systemctl stop bluetooth  
+rfkill block bluetooth  
 
 # Redémarrer le service
 sudo systemctl restart bluetooth
@@ -714,8 +714,8 @@ lsmod | grep bluetooth
 ```
 Si rien n'apparaît :
 ```bash
-sudo modprobe bluetooth
-sudo modprobe btusb
+sudo modprobe bluetooth  
+sudo modprobe btusb  
 ```
 
 4. **Réinstallez les paquets Bluetooth** :
@@ -740,21 +740,21 @@ sudo systemctl restart bluetooth
 
 4. **Réinitialisez le contrôleur Bluetooth** :
 ```bash
-sudo hciconfig hci0 down
-sudo hciconfig hci0 up
+sudo hciconfig hci0 down  
+sudo hciconfig hci0 up  
 ```
 
 5. **Utilisez bluetoothctl (outil en ligne de commande)** :
 ```bash
 bluetoothctl
 # Dans bluetoothctl :
-power on
-agent on
-scan on
+power on  
+agent on  
+scan on  
 # Attendez que votre périphérique apparaisse
-pair XX:XX:XX:XX:XX:XX  # Remplacez par l'adresse MAC
-connect XX:XX:XX:XX:XX:XX
-quit
+pair XX:XX:XX:XX:XX:XX  # Remplacez par l'adresse MAC  
+connect XX:XX:XX:XX:XX:XX  
+quit  
 ```
 
 ### Appairage échoue ou demande un PIN inconnu
@@ -838,8 +838,8 @@ Recherchez votre casque et notez les profils disponibles.
 
 3. **Installez PulseAudio Bluetooth** :
 ```bash
-sudo apt install pulseaudio-module-bluetooth
-pulseaudio -k  # Redémarre PulseAudio
+sudo apt install pulseaudio-module-bluetooth  
+pulseaudio -k  # Redémarre PulseAudio  
 ```
 
 4. **Redémarrez PipeWire** (Linux Mint récent) :
@@ -885,8 +885,8 @@ lsblk
 sudo lshw -short
 
 # Périphériques d'entrée
-ls /dev/input/
-cat /proc/bus/input/devices
+ls /dev/input/  
+cat /proc/bus/input/devices  
 ```
 
 ### Gestion de l'énergie des périphériques USB
@@ -930,8 +930,8 @@ ACTION=="add", ATTRS{idVendor}=="XXXX", ATTRS{idProduct}=="YYYY", RUN+="/chemin/
 
 Rechargez les règles :
 ```bash
-sudo udevadm control --reload-rules
-sudo udevadm trigger
+sudo udevadm control --reload-rules  
+sudo udevadm trigger  
 ```
 
 ---
@@ -991,17 +991,17 @@ sudo mkfs.ext4 /dev/mapper/ma_cle_usb
 sudo mount /dev/mapper/ma_cle_usb /mnt
 
 # Démonter et fermer
-sudo umount /mnt
-sudo cryptsetup luksClose ma_cle_usb
+sudo umount /mnt  
+sudo cryptsetup luksClose ma_cle_usb  
 ```
 
 **Alternative : VeraCrypt (compatible Windows/macOS/Linux)**
 
 ```bash
 # Installer VeraCrypt
-sudo add-apt-repository ppa:unit193/encryption
-sudo apt update
-sudo apt install veracrypt
+sudo add-apt-repository ppa:unit193/encryption  
+sudo apt update  
+sudo apt install veracrypt  
 ```
 
 Voir chapitre 11.4 pour plus de détails sur le chiffrement.
@@ -1100,8 +1100,8 @@ sudo usbreset 002/004  # Format: bus/device
 
 Ou :
 ```bash
-echo '2-1' | sudo tee /sys/bus/usb/drivers/usb/unbind
-echo '2-1' | sudo tee /sys/bus/usb/drivers/usb/bind
+echo '2-1' | sudo tee /sys/bus/usb/drivers/usb/unbind  
+echo '2-1' | sudo tee /sys/bus/usb/drivers/usb/bind  
 ```
 
 ---
@@ -1126,23 +1126,23 @@ sudo apt install blueman
 
 ```bash
 # USB
-lsusb                    # Lister périphériques USB
-usb-devices              # Infos détaillées
-dmesg | grep -i usb      # Messages du noyau USB
+lsusb                    # Lister périphériques USB  
+usb-devices              # Infos détaillées  
+dmesg | grep -i usb      # Messages du noyau USB  
 
 # Bluetooth
-hciconfig                # Configuration Bluetooth
-hcitool scan             # Scanner périphériques
-bluetoothctl             # Interface de gestion complète
+hciconfig                # Configuration Bluetooth  
+hcitool scan             # Scanner périphériques  
+bluetoothctl             # Interface de gestion complète  
 
 # Montage
-mount                    # Voir tous les points de montage
-df -h                    # Espace disque
-lsblk                    # Arborescence des disques
+mount                    # Voir tous les points de montage  
+df -h                    # Espace disque  
+lsblk                    # Arborescence des disques  
 
 # Général
-sudo lshw                # Tout le matériel
-inxi -Fxz                # Vue d'ensemble système
+sudo lshw                # Tout le matériel  
+inxi -Fxz                # Vue d'ensemble système  
 ```
 
 ---

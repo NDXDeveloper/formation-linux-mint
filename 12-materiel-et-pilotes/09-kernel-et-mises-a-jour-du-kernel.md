@@ -366,14 +366,14 @@ dpkg --list | grep linux-image
 
 **Sortie exemple :**
 ```
-ii  linux-image-5.15.0-89-generic    5.15.0-89.99
-ii  linux-image-5.15.0-91-generic    5.15.0-91.101
-ii  linux-image-generic              5.15.0.91.91
+ii  linux-image-5.15.0-89-generic    5.15.0-89.99  
+ii  linux-image-5.15.0-91-generic    5.15.0-91.101  
+ii  linux-image-generic              5.15.0.91.91  
 ```
 
 **Ou graphiquement :**
-Gestionnaire de mises à jour → Affichage → Noyaux Linux
-Les kernels installés sont marqués.
+Gestionnaire de mises à jour → Affichage → Noyaux Linux  
+Les kernels installés sont marqués.  
 
 ### Choisir le kernel au démarrage
 
@@ -429,8 +429,8 @@ dpkg --list | grep linux-image
 sudo apt remove linux-image-5.15.0-89-generic
 
 # Nettoyer (supprime aussi headers et modules)
-sudo apt autoremove
-sudo apt autoclean
+sudo apt autoremove  
+sudo apt autoclean  
 ```
 
 **Libérer de l'espace :**
@@ -471,9 +471,9 @@ df -h /boot
 
 **Installation :**
 ```bash
-sudo add-apt-repository ppa:cappelikan/ppa
-sudo apt update
-sudo apt install mainline
+sudo add-apt-repository ppa:cappelikan/ppa  
+sudo apt update  
+sudo apt install mainline  
 ```
 
 **Utilisation :**
@@ -499,16 +499,16 @@ echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.
 wget -qO - https://dl.xanmod.org/gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/xanmod-kernel.gpg
 
 # Installer
-sudo apt update
-sudo apt install linux-xanmod-x64v3
+sudo apt update  
+sudo apt install linux-xanmod-x64v3  
 ```
 
 **Kernel Liquorix (faible latence) :**
 ```bash
 # Ajouter le dépôt
-sudo add-apt-repository ppa:damentz/liquorix
-sudo apt update
-sudo apt install linux-image-liquorix-amd64
+sudo add-apt-repository ppa:damentz/liquorix  
+sudo apt update  
+sudo apt install linux-image-liquorix-amd64  
 ```
 
 ---
@@ -526,32 +526,32 @@ Options passées au kernel au démarrage pour modifier son comportement.
 ### Paramètres courants et utiles
 
 #### nomodeset
-**Usage :** Désactive la configuration graphique moderne (KMS)
-**Quand :** Écran noir au démarrage, problèmes graphiques
+**Usage :** Désactive la configuration graphique moderne (KMS)  
+**Quand :** Écran noir au démarrage, problèmes graphiques  
 
 ```
 linux ... quiet splash nomodeset
 ```
 
 #### acpi=off
-**Usage :** Désactive l'ACPI (gestion de l'alimentation)
-**Quand :** Problèmes de démarrage, suspension
+**Usage :** Désactive l'ACPI (gestion de l'alimentation)  
+**Quand :** Problèmes de démarrage, suspension  
 
 #### nouveau.modeset=0
-**Usage :** Désactive le pilote libre NVIDIA
-**Quand :** Conflits avec pilote propriétaire
+**Usage :** Désactive le pilote libre NVIDIA  
+**Quand :** Conflits avec pilote propriétaire  
 
 #### i915.enable_psr=0
-**Usage :** Désactive Panel Self Refresh (Intel)
-**Quand :** Scintillement écran sur laptops Intel
+**Usage :** Désactive Panel Self Refresh (Intel)  
+**Quand :** Scintillement écran sur laptops Intel  
 
 #### mem_sleep_default=deep
-**Usage :** Force le mode suspension profonde
-**Quand :** Problèmes de réveil
+**Usage :** Force le mode suspension profonde  
+**Quand :** Problèmes de réveil  
 
 #### pci=nomsi / pci=noaer
-**Usage :** Désactive certaines fonctionnalités PCI
-**Quand :** Erreurs PCI dans les logs
+**Usage :** Désactive certaines fonctionnalités PCI  
+**Quand :** Erreurs PCI dans les logs  
 
 ### Ajouter un paramètre temporairement
 
@@ -582,8 +582,8 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset"
 
 **Appliquer :**
 ```bash
-sudo update-grub
-sudo reboot
+sudo update-grub  
+sudo reboot  
 ```
 
 ---
@@ -619,10 +619,10 @@ sudo apt install build-essential libncurses-dev bison flex libssl-dev libelf-dev
 
 **1. Télécharger les sources :**
 ```bash
-cd /usr/src
-sudo wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.1.tar.xz
-sudo tar -xf linux-6.6.1.tar.xz
-cd linux-6.6.1
+cd /usr/src  
+sudo wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.1.tar.xz  
+sudo tar -xf linux-6.6.1.tar.xz  
+cd linux-6.6.1  
 ```
 
 **2. Configuration :**
@@ -642,11 +642,11 @@ make -j$(nproc) deb-pkg
 
 **4. Installation :**
 ```bash
-cd ..
-sudo dpkg -i linux-image-*.deb
-sudo dpkg -i linux-headers-*.deb
-sudo update-grub
-sudo reboot
+cd ..  
+sudo dpkg -i linux-image-*.deb  
+sudo dpkg -i linux-headers-*.deb  
+sudo update-grub  
+sudo reboot  
 ```
 
 **⚠️ Cette procédure est volontairement simplifiée. Consultez des guides complets avant de compiler.**
@@ -676,11 +676,11 @@ lsmod
 
 **Sortie :**
 ```
-Module                  Size  Used by
-nvidia_drm             69632  4
-nvidia_modeset       1234567  10 nvidia_drm
-nvidia              18874368  123 nvidia_modeset
-snd_hda_intel          53248  5
+Module                  Size  Used by  
+nvidia_drm             69632  4  
+nvidia_modeset       1234567  10 nvidia_drm  
+nvidia              18874368  123 nvidia_modeset  
+snd_hda_intel          53248  5  
 ```
 
 **Colonnes :**
@@ -702,8 +702,8 @@ sudo modprobe -r nom_module
 
 **Exemple : Recharger le module WiFi**
 ```bash
-sudo modprobe -r iwlwifi
-sudo modprobe iwlwifi
+sudo modprobe -r iwlwifi  
+sudo modprobe iwlwifi  
 ```
 
 ### Informations sur un module
@@ -719,11 +719,11 @@ modinfo nvidia
 
 **Sortie :**
 ```
-filename:       /lib/modules/.../nvidia.ko
-version:        535.129.03
-license:        NVIDIA
-description:    NVIDIA GPU driver
-author:         NVIDIA Corporation
+filename:       /lib/modules/.../nvidia.ko  
+version:        535.129.03  
+license:        NVIDIA  
+description:    NVIDIA GPU driver  
+author:         NVIDIA Corporation  
 ```
 
 ### Blacklister un module
@@ -746,8 +746,8 @@ blacklist nouveau
 
 **Appliquer :**
 ```bash
-sudo update-initramfs -u
-sudo reboot
+sudo update-initramfs -u  
+sudo reboot  
 ```
 
 ---
@@ -834,8 +834,8 @@ df -h /boot
 dpkg --list | grep linux-image
 
 # Supprimer (gardez le kernel actuel + 1 ancien !)
-sudo apt remove linux-image-5.15.0-89-generic
-sudo apt autoremove
+sudo apt remove linux-image-5.15.0-89-generic  
+sudo apt autoremove  
 ```
 
 ---

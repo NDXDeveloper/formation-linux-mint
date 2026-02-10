@@ -314,8 +314,8 @@ Les imprimantes HP bénéficient d'un excellent support sous Linux grâce à **H
 HPLIP est généralement pré-installé sur Linux Mint. Sinon :
 
 ```bash
-sudo apt update
-sudo apt install hplip hplip-gui
+sudo apt update  
+sudo apt install hplip hplip-gui  
 ```
 
 ### HP Device Manager (outil graphique)
@@ -523,9 +523,9 @@ sudo systemctl restart cups
 
 **Réinitialiser CUPS :**
 ```bash
-sudo systemctl stop cups
-sudo rm /var/cache/cups/* -rf
-sudo systemctl start cups
+sudo systemctl stop cups  
+sudo rm /var/cache/cups/* -rf  
+sudo systemctl start cups  
 ```
 
 **Réinstaller le pilote :**
@@ -574,16 +574,16 @@ ls -l /dev/bus/usb/*/*
 
 **Ajouter l'utilisateur au groupe scanner :**
 ```bash
-sudo usermod -a -G scanner $USER
-sudo usermod -a -G lp $USER
+sudo usermod -a -G scanner $USER  
+sudo usermod -a -G lp $USER  
 ```
 
 Déconnectez-vous et reconnectez-vous pour que les changements prennent effet.
 
 **Réinitialiser les règles USB :**
 ```bash
-sudo udevadm control --reload-rules
-sudo udevadm trigger
+sudo udevadm control --reload-rules  
+sudo udevadm trigger  
 ```
 
 **Installer les pilotes supplémentaires :**
@@ -821,8 +821,8 @@ ls /var/spool/cups/
 sudo tail -f /var/log/cups/error_log
 
 # Scanner les périphériques détectés
-sudo lsusb
-sudo lspci | grep -i print
+sudo lsusb  
+sudo lspci | grep -i print  
 
 # Tester le pilote d'une imprimante
 lpadmin -p NOM-IMPRIMANTE -o printer-info="Test"
@@ -857,10 +857,10 @@ lpadmin -p NOM-IMPRIMANTE -o printer-info="Test"
 
 **Aide en ligne de commande :**
 ```bash
-man cups
-man lp
-man scanimage
-man hp-setup
+man cups  
+man lp  
+man scanimage  
+man hp-setup  
 ```
 
 ---

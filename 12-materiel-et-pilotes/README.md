@@ -278,18 +278,18 @@ Vous découvrirez des commandes puissantes :
 
 ```bash
 # Matériel détecté
-lspci          # Périphériques PCI
-lsusb          # Périphériques USB
-inxi -Fxz      # Vue d'ensemble complète
+lspci          # Périphériques PCI  
+lsusb          # Périphériques USB  
+inxi -Fxz      # Vue d'ensemble complète  
 
 # État du système
-dmesg          # Messages du kernel
-journalctl     # Logs système
-sensors        # Températures
+dmesg          # Messages du kernel  
+journalctl     # Logs système  
+sensors        # Températures  
 
 # Gestion kernel
-uname -r       # Version actuelle
-fwupdmgr       # Mises à jour firmware
+uname -r       # Version actuelle  
+fwupdmgr       # Mises à jour firmware  
 ```
 
 **Pas d'inquiétude !** Chaque commande sera expliquée dans son contexte.

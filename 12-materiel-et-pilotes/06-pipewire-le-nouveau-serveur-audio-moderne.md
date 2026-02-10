@@ -74,10 +74,10 @@ Le serveur audio est comme un **chef d'orchestre** qui coordonne tous les sons d
 - 🎥 **Vidéo** : capture webcam, partage d'écran
 - 📱 **Communication** : appels visio, streaming
 
-**Créé par :** Wim Taymans (aussi créateur de GStreamer)
-**Développé par :** Red Hat et la communauté
-**Première version stable :** 2021
-**Adoption :** Ubuntu, Fedora, Arch, Linux Mint (2022+)
+**Créé par :** Wim Taymans (aussi créateur de GStreamer)  
+**Développé par :** Red Hat et la communauté  
+**Première version stable :** 2021  
+**Adoption :** Ubuntu, Fedora, Arch, Linux Mint (2022+)  
 
 ### Les avantages de PipeWire
 
@@ -472,8 +472,8 @@ pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
 **Méthode 3 : WirePlumber (permanent)**
 Créez un fichier de configuration :
 ```bash
-mkdir -p ~/.config/wireplumber/main.lua.d/
-nano ~/.config/wireplumber/main.lua.d/51-default-sink.lua
+mkdir -p ~/.config/wireplumber/main.lua.d/  
+nano ~/.config/wireplumber/main.lua.d/51-default-sink.lua  
 ```
 
 Contenu :
@@ -547,8 +547,8 @@ PipeWire peut **remplacer JACK** pour la production audio.
 
 ```bash
 # Copier la config par défaut
-mkdir -p ~/.config/pipewire/
-cp /usr/share/pipewire/pipewire.conf ~/.config/pipewire/
+mkdir -p ~/.config/pipewire/  
+cp /usr/share/pipewire/pipewire.conf ~/.config/pipewire/  
 
 # Éditer
 nano ~/.config/pipewire/pipewire.conf
@@ -558,10 +558,10 @@ nano ~/.config/pipewire/pipewire.conf
 
 Cherchez la section `default.clock` et modifiez :
 ```
-default.clock.rate = 48000          # Fréquence d'échantillonnage
-default.clock.quantum = 64          # Taille du buffer (latence)
-default.clock.min-quantum = 64
-default.clock.max-quantum = 1024
+default.clock.rate = 48000          # Fréquence d'échantillonnage  
+default.clock.quantum = 64          # Taille du buffer (latence)  
+default.clock.min-quantum = 64  
+default.clock.max-quantum = 1024  
 ```
 
 **Latence selon quantum :**
@@ -583,8 +583,8 @@ pw-top
 
 **Sortie :**
 ```
-DRIVER   QUANT  RATE
-pipewire    64 48000   # Quantum = 64, 48kHz
+DRIVER   QUANT  RATE  
+pipewire    64 48000   # Quantum = 64, 48kHz  
 ```
 
 Latence = (64 / 48000) × 1000 = 1.33ms
@@ -668,8 +668,8 @@ WirePlumber utilise des règles en **Lua** pour gérer les périphériques.
 **Exemple : Auto-basculer vers casque Bluetooth :**
 
 ```bash
-mkdir -p ~/.config/wireplumber/main.lua.d/
-nano ~/.config/wireplumber/main.lua.d/50-auto-switch-bluetooth.lua
+mkdir -p ~/.config/wireplumber/main.lua.d/  
+nano ~/.config/wireplumber/main.lua.d/50-auto-switch-bluetooth.lua  
 ```
 
 Contenu :
@@ -837,8 +837,8 @@ flatpak permission-set microphone APPID yes
 sudo apt install libspa-0.2-bluetooth
 
 # Redémarrer Bluetooth et PipeWire
-sudo systemctl restart bluetooth
-systemctl --user restart pipewire
+sudo systemctl restart bluetooth  
+systemctl --user restart pipewire  
 ```
 
 ### Applications ne produisent pas de son
@@ -885,10 +885,10 @@ pw-cli
 
 **Commandes utiles :**
 ```
-help                  # Aide
-list-objects          # Lister tous les objets
-dump                  # Dump complet de l'état
-quit                  # Quitter
+help                  # Aide  
+list-objects          # Lister tous les objets  
+dump                  # Dump complet de l'état  
+quit                  # Quitter  
 ```
 
 ### pw-top - Moniteur temps réel
@@ -990,8 +990,8 @@ Linux Mint 21+ utilise PipeWire par défaut. Si vous êtes sur une version plus 
 **Installation :**
 ```bash
 # Installer PipeWire et ses composants
-sudo apt install pipewire pipewire-audio-client-libraries
-sudo apt install wireplumber pipewire-pulse
+sudo apt install pipewire pipewire-audio-client-libraries  
+sudo apt install wireplumber pipewire-pulse  
 
 # Supprimer PulseAudio (optionnel, PipeWire peut coexister)
 sudo apt remove pulseaudio
@@ -1010,9 +1010,9 @@ pactl info | grep "Server Name"
 
 La plupart des réglages PulseAudio sont **automatiquement respectés** par PipeWire.
 
-**Volumes sauvegardés :** Préservés
-**Périphérique par défaut :** Conservé
-**Applications :** Fonctionnent sans changement
+**Volumes sauvegardés :** Préservés  
+**Périphérique par défaut :** Conservé  
+**Applications :** Fonctionnent sans changement  
 
 ---
 
@@ -1024,8 +1024,8 @@ Par défaut, PipeWire peut suspendre les périphériques inactifs (économie d'�
 
 **Désactiver globalement :**
 ```bash
-mkdir -p ~/.config/pipewire/pipewire.conf.d/
-nano ~/.config/pipewire/pipewire.conf.d/no-suspend.conf
+mkdir -p ~/.config/pipewire/pipewire.conf.d/  
+nano ~/.config/pipewire/pipewire.conf.d/no-suspend.conf  
 ```
 
 Contenu :
@@ -1111,10 +1111,10 @@ pactl load-module module-loopback latency_msec=1
 ### Aide en ligne de commande
 
 ```bash
-man pipewire
-man pipewire.conf
-man wireplumber
-man pw-cli
+man pipewire  
+man pipewire.conf  
+man wireplumber  
+man pw-cli  
 ```
 
 ### Logs et diagnostic

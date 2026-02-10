@@ -65,8 +65,8 @@ lsblk
 ls /dev/input/
 ```
 
-**Si le périphérique apparaît** → Problème de pilote/configuration
-**Si le périphérique n'apparaît pas** → Problème matériel ou détection BIOS
+**Si le périphérique apparaît** → Problème de pilote/configuration  
+**Si le périphérique n'apparaît pas** → Problème matériel ou détection BIOS  
 
 #### 4. Consulter les logs système
 
@@ -87,10 +87,10 @@ journalctl -f
 
 **Rechercher un périphérique spécifique :**
 ```bash
-dmesg | grep -i wifi
-dmesg | grep -i bluetooth
-dmesg | grep -i audio
-dmesg | grep -i usb
+dmesg | grep -i wifi  
+dmesg | grep -i bluetooth  
+dmesg | grep -i audio  
+dmesg | grep -i usb  
 ```
 
 #### 5. Rechercher et appliquer la solution
@@ -126,12 +126,12 @@ sudo apt install inxi
 inxi -Fxz
 
 # Sections spécifiques :
-inxi -A     # Audio
-inxi -G     # Graphique
-inxi -N     # Réseau
-inxi -D     # Disques
-inxi -B     # Batterie
-inxi -M     # Carte mère
+inxi -A     # Audio  
+inxi -G     # Graphique  
+inxi -N     # Réseau  
+inxi -D     # Disques  
+inxi -B     # Batterie  
+inxi -M     # Carte mère  
 ```
 
 **Exemple de sortie :**
@@ -159,13 +159,13 @@ sudo lshw -short
 sudo lshw
 
 # Classe spécifique
-sudo lshw -C display    # Cartes graphiques
-sudo lshw -C network    # Cartes réseau
-sudo lshw -C multimedia # Audio
-sudo lshw -C disk       # Stockage
-sudo lshw -C input      # Périphériques d'entrée
-sudo lshw -C memory     # Mémoire RAM
-sudo lshw -C processor  # CPU
+sudo lshw -C display    # Cartes graphiques  
+sudo lshw -C network    # Cartes réseau  
+sudo lshw -C multimedia # Audio  
+sudo lshw -C disk       # Stockage  
+sudo lshw -C input      # Périphériques d'entrée  
+sudo lshw -C memory     # Mémoire RAM  
+sudo lshw -C processor  # CPU  
 ```
 
 **Générer un rapport HTML :**
@@ -186,11 +186,11 @@ sudo apt install hwinfo
 sudo hwinfo --short
 
 # Matériel spécifique
-sudo hwinfo --gfxcard
-sudo hwinfo --netcard
-sudo hwinfo --sound
-sudo hwinfo --usb
-sudo hwinfo --bluetooth
+sudo hwinfo --gfxcard  
+sudo hwinfo --netcard  
+sudo hwinfo --sound  
+sudo hwinfo --usb  
+sudo hwinfo --bluetooth  
 ```
 
 ### hardinfo - Interface graphique
@@ -286,8 +286,8 @@ stress-ng --cpu 4 --vm 2 --io 2 --timeout 120s
 **Surveiller pendant le test :**
 ```bash
 # Dans un autre terminal
-sensors    # Températures
-htop       # Utilisation CPU/RAM
+sensors    # Températures  
+htop       # Utilisation CPU/RAM  
 ```
 
 ---
@@ -314,8 +314,8 @@ htop       # Utilisation CPU/RAM
 **2. Installer le pilote propriétaire :**
 ```bash
 # Mode nomodeset actif, installer le pilote NVIDIA
-sudo ubuntu-drivers autoinstall
-sudo reboot
+sudo ubuntu-drivers autoinstall  
+sudo reboot  
 ```
 
 **3. Blacklister le pilote nouveau (NVIDIA) :**
@@ -325,14 +325,14 @@ sudo nano /etc/modprobe.d/blacklist-nouveau.conf
 
 Ajoutez :
 ```
-blacklist nouveau
-options nouveau modeset=0
+blacklist nouveau  
+options nouveau modeset=0  
 ```
 
 Mettez à jour initramfs :
 ```bash
-sudo update-initramfs -u
-sudo reboot
+sudo update-initramfs -u  
+sudo reboot  
 ```
 
 #### Résolution incorrecte
@@ -425,14 +425,14 @@ Redémarrez X (Ctrl+Alt+Backspace) ou redémarrez le système.
 
 1. **Vérifier ALSA :**
 ```bash
-aplay -l  # Liste les périphériques
-speaker-test -c 2  # Test son
+aplay -l  # Liste les périphériques  
+speaker-test -c 2  # Test son  
 ```
 
 2. **Vérifier PulseAudio/PipeWire :**
 ```bash
-pactl info
-pactl list sinks
+pactl info  
+pactl list sinks  
 ```
 
 3. **Vérifier que rien n'est muet :**
@@ -449,8 +449,8 @@ Utilisez les flèches pour naviguer, **'M'** pour activer/désactiver mute.
 systemctl --user restart pipewire pipewire-pulse
 
 # Ou PulseAudio (ancien)
-pulseaudio -k
-pulseaudio --start
+pulseaudio -k  
+pulseaudio --start  
 ```
 
 **2. Forcer la carte son :**
@@ -459,8 +459,8 @@ pulseaudio --start
 cat /proc/asound/cards
 
 # Définir par défaut (dans ~/.asoundrc)
-defaults.pcm.card 0
-defaults.ctl.card 0
+defaults.pcm.card 0  
+defaults.ctl.card 0  
 ```
 
 **3. Réinstaller les paquets audio :**
@@ -479,8 +479,8 @@ sudo nano /etc/pulse/daemon.conf
 
 Décommentez et modifiez :
 ```
-default-fragments = 5
-default-fragment-size-msec = 2
+default-fragments = 5  
+default-fragment-size-msec = 2  
 ```
 
 **2. Désactiver suspension audio :**
@@ -509,8 +509,8 @@ default.clock.quantum = 256
 
 1. **Test simple :**
 ```bash
-arecord -d 5 test.wav
-aplay test.wav
+arecord -d 5 test.wav  
+aplay test.wav  
 ```
 
 2. **Vérifier dans pavucontrol :**
@@ -574,8 +574,8 @@ sudo apt install firmware-realtek
 lsmod | grep -i wifi
 
 # Redémarrer
-sudo modprobe -r iwlwifi
-sudo modprobe iwlwifi
+sudo modprobe -r iwlwifi  
+sudo modprobe iwlwifi  
 ```
 
 #### WiFi lent ou instable
@@ -609,8 +609,8 @@ Moins d'interférences, plus rapide (mais portée réduite).
 
 **Diagnostic :**
 ```bash
-hciconfig
-sudo systemctl status bluetooth
+hciconfig  
+sudo systemctl status bluetooth  
 ```
 
 **Solutions :**
@@ -627,8 +627,8 @@ sudo rfkill unblock bluetooth
 
 **3. Recharger le module :**
 ```bash
-sudo modprobe -r btusb
-sudo modprobe btusb
+sudo modprobe -r btusb  
+sudo modprobe btusb  
 ```
 
 **4. Réinstaller :**
@@ -644,11 +644,11 @@ sudo apt install --reinstall bluez
 ```bash
 bluetoothctl
 # Dans bluetoothctl :
-remove XX:XX:XX:XX:XX:XX
-scan on
-pair XX:XX:XX:XX:XX:XX
-connect XX:XX:XX:XX:XX:XX
-trust XX:XX:XX:XX:XX:XX
+remove XX:XX:XX:XX:XX:XX  
+scan on  
+pair XX:XX:XX:XX:XX:XX  
+connect XX:XX:XX:XX:XX:XX  
+trust XX:XX:XX:XX:XX:XX  
 ```
 
 **2. Réinitialiser le périphérique :**
@@ -689,9 +689,9 @@ lsusb
 # Bus 002 Device 004: ...
 
 # Réinitialiser
-echo -n "0000:00:14.0" | sudo tee /sys/bus/pci/drivers/xhci_hcd/unbind
-sleep 1
-echo -n "0000:00:14.0" | sudo tee /sys/bus/pci/drivers/xhci_hcd/bind
+echo -n "0000:00:14.0" | sudo tee /sys/bus/pci/drivers/xhci_hcd/unbind  
+sleep 1  
+echo -n "0000:00:14.0" | sudo tee /sys/bus/pci/drivers/xhci_hcd/bind  
 ```
 
 **4. Désactiver autosuspend :**
@@ -722,8 +722,8 @@ sudo mount -o remount,rw /dev/sdb1
 sudo umount /dev/sdb1
 
 # Vérifier et réparer
-sudo fsck -y /dev/sdb1  # Pour ext4
-sudo dosfsck -a /dev/sdb1  # Pour FAT32
+sudo fsck -y /dev/sdb1  # Pour ext4  
+sudo dosfsck -a /dev/sdb1  # Pour FAT32  
 ```
 
 **3. Vérifier la protection en écriture physique :**
@@ -735,8 +735,8 @@ Certaines clés USB ont un interrupteur de protection.
 
 **Diagnostic :**
 ```bash
-xinput list
-sudo libinput list-devices
+xinput list  
+sudo libinput list-devices  
 ```
 
 **Solutions :**
@@ -746,8 +746,8 @@ Menu → Préférences → **Souris et Touchpad**
 
 **2. Charger le module :**
 ```bash
-sudo modprobe -r psmouse
-sudo modprobe psmouse
+sudo modprobe -r psmouse  
+sudo modprobe psmouse  
 ```
 
 **3. Activer via synclient :**
@@ -762,24 +762,24 @@ synclient TouchpadOff=0
 synclient -l  # Voir paramètres actuels
 
 # Ajuster la sensibilité
-synclient MinSpeed=0.5
-synclient MaxSpeed=1.0
-synclient AccelFactor=0.05
+synclient MinSpeed=0.5  
+synclient MaxSpeed=1.0  
+synclient AccelFactor=0.05  
 ```
 
 **Rendre permanent :**
 Ajoutez à `~/.xprofile` :
 ```bash
-synclient MinSpeed=0.5
-synclient MaxSpeed=1.0
+synclient MinSpeed=0.5  
+synclient MaxSpeed=1.0  
 ```
 
 #### Désactiver le touchpad quand on tape
 
 ```bash
 # Désactiver pendant 1 seconde après frappe
-synclient PalmDetect=1
-synclient PalmMinWidth=10
+synclient PalmDetect=1  
+synclient PalmMinWidth=10  
 ```
 
 ### Problèmes webcam
@@ -788,8 +788,8 @@ synclient PalmMinWidth=10
 
 **Diagnostic :**
 ```bash
-ls /dev/video*
-v4l2-ctl --list-devices
+ls /dev/video*  
+v4l2-ctl --list-devices  
 ```
 
 **Solutions :**
@@ -810,8 +810,8 @@ sudo modprobe uvcvideo
 **4. Tester :**
 ```bash
 # Installer Cheese
-sudo apt install cheese
-cheese
+sudo apt install cheese  
+cheese  
 ```
 
 #### Mauvaise qualité d'image
@@ -834,8 +834,8 @@ v4l2-ctl -d /dev/video0 --set-ctrl=contrast=32
 
 **Diagnostic :**
 ```bash
-upower -i /org/freedesktop/UPower/devices/battery_BAT0
-acpi -V
+upower -i /org/freedesktop/UPower/devices/battery_BAT0  
+acpi -V  
 ```
 
 **Solutions :**
@@ -850,8 +850,8 @@ acpi -V
 
 **2. Vérifier le module ACPI :**
 ```bash
-lsmod | grep battery
-sudo modprobe battery
+lsmod | grep battery  
+sudo modprobe battery  
 ```
 
 #### Autonomie très faible
@@ -869,8 +869,8 @@ powertop
 
 **1. Installer TLP :**
 ```bash
-sudo apt install tlp
-sudo tlp start
+sudo apt install tlp  
+sudo tlp start  
 ```
 
 **2. Optimiser avec PowerTop :**
@@ -887,8 +887,8 @@ sudo powertop --auto-tune
 **Diagnostic :**
 ```bash
 # Installer sensors
-sudo apt install lm-sensors
-sudo sensors-detect  # Répondez "yes" à tout
+sudo apt install lm-sensors  
+sudo sensors-detect  # Répondez "yes" à tout  
 
 # Voir températures
 sensors
@@ -909,9 +909,9 @@ sudo apt install thinkfan
 **Pour autres laptops :**
 ```bash
 # fancontrol (générique)
-sudo apt install fancontrol
-sudo pwmconfig  # Configuration guidée
-sudo systemctl enable fancontrol
+sudo apt install fancontrol  
+sudo pwmconfig  # Configuration guidée  
+sudo systemctl enable fancontrol  
 ```
 
 **3. Limiter la fréquence CPU :**
@@ -988,9 +988,9 @@ Exemple : `dell xps 15 9520 linux`
 sudo apt install nvidia-prime
 
 # Basculer entre GPU
-sudo prime-select intel  # Économie batterie
-sudo prime-select nvidia  # Performance
-sudo prime-select on-demand  # Hybride (recommandé)
+sudo prime-select intel  # Économie batterie  
+sudo prime-select nvidia  # Performance  
+sudo prime-select on-demand  # Hybride (recommandé)  
 
 # Redémarrer
 sudo reboot
@@ -1001,13 +1001,13 @@ sudo reboot
 **Solution :**
 ```bash
 # Activer les dépôts non-free
-sudo apt install software-properties-common
-sudo add-apt-repository multiverse
-sudo apt update
+sudo apt install software-properties-common  
+sudo add-apt-repository multiverse  
+sudo apt update  
 
 # Installer firmware supplémentaire
-sudo apt install linux-firmware
-sudo apt install firmware-misc-nonfree
+sudo apt install linux-firmware  
+sudo apt install firmware-misc-nonfree  
 ```
 
 ---
@@ -1059,17 +1059,17 @@ sudo hwinfo --log=materiel.txt
 #!/bin/bash
 # rapport-materiel.sh
 
-echo "=== Informations système ===" > rapport.txt
-inxi -Fxz >> rapport.txt
+echo "=== Informations système ===" > rapport.txt  
+inxi -Fxz >> rapport.txt  
 
-echo -e "\n=== Matériel détecté ===" >> rapport.txt
-sudo lshw -short >> rapport.txt
+echo -e "\n=== Matériel détecté ===" >> rapport.txt  
+sudo lshw -short >> rapport.txt  
 
-echo -e "\n=== Erreurs récentes ===" >> rapport.txt
-journalctl -b -p err >> rapport.txt
+echo -e "\n=== Erreurs récentes ===" >> rapport.txt  
+journalctl -b -p err >> rapport.txt  
 
-echo -e "\n=== Messages noyau ===" >> rapport.txt
-dmesg | tail -100 >> rapport.txt
+echo -e "\n=== Messages noyau ===" >> rapport.txt  
+dmesg | tail -100 >> rapport.txt  
 
 echo "Rapport généré : rapport.txt"
 ```
@@ -1108,8 +1108,8 @@ fwupdmgr get-updates
 **Outils spécifiques :**
 ```bash
 # Gestion alimentation
-sudo apt install tlp tlp-rdw
-sudo apt install tp-smapi-dkms  # ThinkPad SMAPI
+sudo apt install tlp tlp-rdw  
+sudo apt install tp-smapi-dkms  # ThinkPad SMAPI  
 
 # Ventilateurs
 sudo apt install thinkfan
@@ -1118,8 +1118,8 @@ sudo apt install thinkfan
 **TrackPoint :**
 ```bash
 # Ajuster sensibilité
-xinput list  # Trouver le TrackPoint
-xinput set-prop [ID] "Device Accel Constant Deceleration" 0.5
+xinput list  # Trouver le TrackPoint  
+xinput set-prop [ID] "Device Accel Constant Deceleration" 0.5  
 ```
 
 ### HP
@@ -1146,9 +1146,9 @@ sudo apt install hplip hplip-gui
 
 **Installer asusctl (ROG) :**
 ```bash
-sudo add-apt-repository ppa:lukejenkins/asusctl
-sudo apt update
-sudo apt install asusctl
+sudo add-apt-repository ppa:lukejenkins/asusctl  
+sudo apt update  
+sudo apt install asusctl  
 ```
 
 ### System76 / Framework
@@ -1264,9 +1264,9 @@ Sujet : WiFi Intel AX201 non détecté - Dell XPS 15 9520
 
 Bonjour,
 
-Matériel : Dell XPS 15 9520
-OS : Linux Mint 21.2 Cinnamon
-Kernel : 5.15.0-91-generic
+Matériel : Dell XPS 15 9520  
+OS : Linux Mint 21.2 Cinnamon  
+Kernel : 5.15.0-91-generic  
 
 Problème : La carte WiFi Intel AX201 n'est pas détectée.
 - `ip link` ne montre aucune interface wlan
@@ -1329,12 +1329,12 @@ dmesg | tail -50
 sensors
 
 # Disques
-lsblk
-sudo smartctl -H /dev/sda
+lsblk  
+sudo smartctl -H /dev/sda  
 
 # Réseau
-ip link show
-iwconfig
+ip link show  
+iwconfig  
 
 # Audio
 pactl list sinks

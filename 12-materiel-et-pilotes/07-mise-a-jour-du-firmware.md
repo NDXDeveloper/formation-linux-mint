@@ -114,9 +114,9 @@ Un SSD Samsung peut voir ses **performances d'écriture doublées** après une m
 
 **fwupd** (Firmware Update Daemon) est un projet qui permet de mettre à jour le firmware directement depuis Linux, sans redémarrer sous Windows ou créer de clé USB bootable.
 
-**Développé par :** Red Hat et la communauté Linux
-**Support :** Plus de 2000 périphériques de dizaines de fabricants
-**Intégration :** Natif dans Linux Mint
+**Développé par :** Red Hat et la communauté Linux  
+**Support :** Plus de 2000 périphériques de dizaines de fabricants  
+**Intégration :** Natif dans Linux Mint  
 
 **Fabricants participants :**
 - Dell, Lenovo, HP
@@ -136,8 +136,8 @@ fwupdmgr --version
 
 **Si non installé :**
 ```bash
-sudo apt update
-sudo apt install fwupd
+sudo apt update  
+sudo apt install fwupd  
 ```
 
 Linux Mint l'installe généralement par défaut.
@@ -551,14 +551,14 @@ microcode: microcode updated early to revision 0xXX
 
 **Intel :**
 ```bash
-sudo apt update
-sudo apt install intel-microcode
+sudo apt update  
+sudo apt install intel-microcode  
 ```
 
 **AMD :**
 ```bash
-sudo apt update
-sudo apt install amd64-microcode
+sudo apt update  
+sudo apt install amd64-microcode  
 ```
 
 **Application du microcode :**
@@ -589,8 +589,8 @@ La version devrait être plus récente.
 
 **Vérifier les mises à jour SSD :**
 ```bash
-fwupdmgr get-devices | grep -i nvme
-fwupdmgr get-devices | grep -i ssd
+fwupdmgr get-devices | grep -i nvme  
+fwupdmgr get-devices | grep -i ssd  
 ```
 
 **Mettre à jour :**
@@ -617,10 +617,10 @@ sudo dd if=samsung-firmware.iso of=/dev/sdX bs=4M status=progress
 Crucial propose un outil Linux :
 ```bash
 # Téléchargez depuis crucial.com
-wget https://.../.../crucial-firmware-tool.tar.gz
-tar -xzf crucial-firmware-tool.tar.gz
-cd crucial-firmware-tool
-sudo ./update-firmware.sh
+wget https://.../.../crucial-firmware-tool.tar.gz  
+tar -xzf crucial-firmware-tool.tar.gz  
+cd crucial-firmware-tool  
+sudo ./update-firmware.sh  
 ```
 
 **Western Digital / SanDisk :**
@@ -651,8 +651,8 @@ Idem, les mises à jour sont gérées par le pilote AMDGPU.
 
 **Généralement géré par fwupd :**
 ```bash
-fwupdmgr get-devices | grep -i wireless
-fwupdmgr get-devices | grep -i bluetooth
+fwupdmgr get-devices | grep -i wireless  
+fwupdmgr get-devices | grep -i bluetooth  
 ```
 
 **Fabricants courants :**
@@ -673,8 +673,8 @@ Support variable, vérifier le site du fabricant.
 
 **Souvent mis à jour via fwupd :**
 ```bash
-fwupdmgr get-devices | grep -i touchpad
-fwupdmgr get-devices | grep -i keyboard
+fwupdmgr get-devices | grep -i touchpad  
+fwupdmgr get-devices | grep -i keyboard  
 ```
 
 **Fabricants supportant fwupd :**
@@ -687,8 +687,8 @@ fwupdmgr get-devices | grep -i keyboard
 ### Webcam
 
 ```bash
-fwupdmgr get-devices | grep -i camera
-fwupdmgr get-devices | grep -i webcam
+fwupdmgr get-devices | grep -i camera  
+fwupdmgr get-devices | grep -i webcam  
 ```
 
 ### Dock USB / Hub / Thunderbolt
@@ -702,8 +702,8 @@ Bien supportés, mises à jour fréquentes.
 Critiques pour la sécurité (failles Thunderspy).
 
 ```bash
-fwupdmgr get-devices | grep -i thunderbolt
-fwupdmgr update
+fwupdmgr get-devices | grep -i thunderbolt  
+fwupdmgr update  
 ```
 
 ---
@@ -1000,8 +1000,8 @@ sudo lshw -C disk
 
 **hwinfo - Informations détaillées**
 ```bash
-sudo apt install hwinfo
-sudo hwinfo --short
+sudo apt install hwinfo  
+sudo hwinfo --short  
 ```
 
 **inxi - Résumé système**
@@ -1037,12 +1037,12 @@ inxi -M
 
 ```bash
 # Pages man
-man fwupd
-man fwupdmgr
+man fwupd  
+man fwupdmgr  
 
 # Aide en ligne
-fwupdmgr --help
-fwupdmgr update --help
+fwupdmgr --help  
+fwupdmgr update --help  
 ```
 
 **Documentation complète :**

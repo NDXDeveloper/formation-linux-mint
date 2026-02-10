@@ -278,9 +278,9 @@ Mesa fournit l'accélération OpenGL/Vulkan pour AMD. Pour les meilleures perfor
 
 ```bash
 # Ajouter le PPA Mesa (Ubuntu/Mint)
-sudo add-apt-repository ppa:kisak/kisak-mesa
-sudo apt update
-sudo apt upgrade
+sudo add-apt-repository ppa:kisak/kisak-mesa  
+sudo apt update  
+sudo apt upgrade  
 ```
 
 > **Note** : Cette étape n'est généralement nécessaire que si vous voulez absolument la toute dernière version de Mesa pour du gaming de pointe.
@@ -303,8 +303,8 @@ Pour améliorer les performances en jeu :
 
 ```bash
 # Ajouter à ~/.profile ou ~/.bashrc
-export RADV_PERFTEST=aco
-export AMD_VULKAN_ICD=RADV
+export RADV_PERFTEST=aco  
+export AMD_VULKAN_ICD=RADV  
 ```
 
 - `RADV_PERFTEST=aco` : Active le compilateur de shaders optimisé
@@ -324,8 +324,8 @@ Si vous voyez "llvmpipe" au lieu de votre carte AMD, l'accélération matériell
 **Solution :**
 ```bash
 # Installer les paquets nécessaires
-sudo apt install mesa-utils mesa-vulkan-drivers
-sudo apt install libgl1-mesa-dri libglx-mesa0
+sudo apt install mesa-utils mesa-vulkan-drivers  
+sudo apt install libgl1-mesa-dri libglx-mesa0  
 ```
 
 #### Écran noir ou freeze au démarrage
@@ -415,8 +415,8 @@ Broadcom est le fabricant le plus problématique sous Linux. Leurs cartes sont c
 
 ```bash
 # Méthode 1 : Installation directe
-sudo apt update
-sudo apt install bcmwl-kernel-source
+sudo apt update  
+sudo apt install bcmwl-kernel-source  
 
 # Méthode 2 : Via le gestionnaire de firmware
 sudo apt install firmware-b43-installer
@@ -448,9 +448,9 @@ Vous devriez voir le pilote utilisé (wl, b43, etc.)
 Parfois, seul le firmware manque :
 
 ```bash
-sudo apt install firmware-iwlwifi
-sudo modprobe -r iwlwifi
-sudo modprobe iwlwifi
+sudo apt install firmware-iwlwifi  
+sudo modprobe -r iwlwifi  
+sudo modprobe iwlwifi  
 ```
 
 ### Cartes WiFi Realtek
@@ -494,8 +494,8 @@ lsusb
 
 **Installation générique :**
 ```bash
-sudo apt install linux-firmware
-sudo apt install firmware-misc-nonfree
+sudo apt install linux-firmware  
+sudo apt install firmware-misc-nonfree  
 ```
 
 ### Problèmes WiFi courants
@@ -515,8 +515,8 @@ sudo apt install firmware-misc-nonfree
 rfkill list
 
 # Débloquer le WiFi si nécessaire
-sudo rfkill unblock wifi
-sudo rfkill unblock all
+sudo rfkill unblock wifi  
+sudo rfkill unblock all  
 
 # Redémarrer le gestionnaire réseau
 sudo systemctl restart NetworkManager
@@ -548,8 +548,8 @@ sudo systemctl restart NetworkManager
 2. Changez le canal WiFi de votre routeur
 3. Mettez à jour le firmware :
 ```bash
-sudo apt update
-sudo apt install linux-firmware
+sudo apt update  
+sudo apt install linux-firmware  
 ```
 
 #### Mot de passe WiFi refusé (alors qu'il est correct)
@@ -582,8 +582,8 @@ Si votre carte WiFi n'apparaît nulle part :
 ip link show
 
 # Vérifier les modules du noyau
-lsmod | grep -i wifi
-lsmod | grep -i 80211
+lsmod | grep -i wifi  
+lsmod | grep -i 80211  
 
 # Réinstaller les firmwares
 sudo apt install --reinstall linux-firmware
@@ -670,8 +670,8 @@ sudo lshw -short
 lsmod
 
 # Messages du noyau (erreurs)
-dmesg | grep -i error
-dmesg | grep -i firmware
+dmesg | grep -i error  
+dmesg | grep -i firmware  
 ```
 
 ---
