@@ -120,8 +120,8 @@ lsblk -f
 
 **Résultat typique :**
 ```
-NAME   FSTYPE LABEL       SIZE MOUNTPOINT
-sda                       500G
+NAME   FSTYPE LABEL       SIZE MOUNTPOINT  
+sda                       500G  
 ├─sda1 vfat   EFI         100M /boot/efi
 ├─sda2                     16M
 ├─sda3 ntfs   Windows     200G
@@ -286,14 +286,14 @@ Pour accéder rapidement à vos fichiers Windows :
 
 Quand vous essayez d'écrire sur la partition Windows depuis Linux :
 ```
-Erreur lors de la création du fichier :
-Système de fichiers monté en lecture seule
+Erreur lors de la création du fichier :  
+Système de fichiers monté en lecture seule  
 ```
 
 Ou :
 ```
-The disk contains an unclean file system (0, 0).
-Metadata kept in Windows cache, refused to mount.
+The disk contains an unclean file system (0, 0).  
+Metadata kept in Windows cache, refused to mount.  
 ```
 
 ### Solution : Désactiver le démarrage rapide
@@ -488,9 +488,9 @@ ln -s /media/votre-nom/Windows/Users/VotreNomWindows/Documents ~/Documents-Windo
 **Créer plusieurs liens :**
 
 ```bash
-ln -s /media/votre-nom/Windows/Users/VotreNomWindows/Desktop ~/Bureau-Windows
-ln -s /media/votre-nom/Windows/Users/VotreNomWindows/Pictures ~/Images-Windows
-ln -s /media/votre-nom/Windows/Users/VotreNomWindows/Music ~/Musique-Windows
+ln -s /media/votre-nom/Windows/Users/VotreNomWindows/Desktop ~/Bureau-Windows  
+ln -s /media/votre-nom/Windows/Users/VotreNomWindows/Pictures ~/Images-Windows  
+ln -s /media/votre-nom/Windows/Users/VotreNomWindows/Music ~/Musique-Windows  
 ```
 
 ---
@@ -619,8 +619,8 @@ ln -s /media/votre-nom/Windows/Users/VotreNomWindows/Music ~/Musique-Windows
 
 **Message d'erreur :**
 ```
-The disk contains an unclean file system (0, 0).
-Metadata kept in Windows cache, refused to mount.
+The disk contains an unclean file system (0, 0).  
+Metadata kept in Windows cache, refused to mount.  
 ```
 
 **Cause :** Démarrage rapide Windows activé, ou arrêt incorrect

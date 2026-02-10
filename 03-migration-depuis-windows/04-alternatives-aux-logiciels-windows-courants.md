@@ -715,8 +715,8 @@ BleachBit nettoie fichiers inutiles et historiques.
 
 **Nettoyage système natif :**
 ```bash
-sudo apt autoremove
-sudo apt autoclean
+sudo apt autoremove  
+sudo apt autoclean  
 ```
 
 ---
@@ -816,8 +816,8 @@ OBS existe sous Linux, identique à Windows !
 - ✅ Raccourcis clavier nombreux
 
 **Double Commander :**
-✅ Similaire à Total Commander
-✅ Multi-plateforme
+✅ Similaire à Total Commander  
+✅ Multi-plateforme  
 ✅ Plugins
 
 ---

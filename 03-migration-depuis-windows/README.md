@@ -353,32 +353,32 @@ Voici une estimation réaliste du temps nécessaire pour chaque phase :
 Apprenez des erreurs des autres ! Voici ce qu'il **ne faut pas faire** :
 
 ### ❌ Erreur 1 : Ne pas sauvegarder
-**Problème :** Perte de données irréversible
-**Solution :** TOUJOURS sauvegarder avant toute manipulation
+**Problème :** Perte de données irréversible  
+**Solution :** TOUJOURS sauvegarder avant toute manipulation  
 
 ### ❌ Erreur 2 : Vouloir tout faire en une fois
-**Problème :** Stress, erreurs, abandon
-**Solution :** Procéder étape par étape, à votre rythme
+**Problème :** Stress, erreurs, abandon  
+**Solution :** Procéder étape par étape, à votre rythme  
 
 ### ❌ Erreur 3 : Abandonner au premier obstacle
-**Problème :** Frustration, retour à Windows
-**Solution :** Demander de l'aide, consulter la documentation
+**Problème :** Frustration, retour à Windows  
+**Solution :** Demander de l'aide, consulter la documentation  
 
 ### ❌ Erreur 4 : Vouloir que Linux soit identique à Windows
-**Problème :** Déception, incompréhension
-**Solution :** Accepter les différences, explorer les nouvelles possibilités
+**Problème :** Déception, incompréhension  
+**Solution :** Accepter les différences, explorer les nouvelles possibilités  
 
 ### ❌ Erreur 5 : Sous-estimer le temps d'adaptation
-**Problème :** Impatience, sentiment d'échec
-**Solution :** Se donner 2-3 semaines pour s'habituer
+**Problème :** Impatience, sentiment d'échec  
+**Solution :** Se donner 2-3 semaines pour s'habituer  
 
 ### ❌ Erreur 6 : Formater Windows sans tester Linux
-**Problème :** Pas de retour en arrière possible
-**Solution :** Tester en dual-boot ou VM d'abord
+**Problème :** Pas de retour en arrière possible  
+**Solution :** Tester en dual-boot ou VM d'abord  
 
 ### ❌ Erreur 7 : Négliger la compatibilité matérielle
-**Problème :** Matériel non reconnu, pilotes manquants
-**Solution :** Vérifier avant (mode Live ou recherche en ligne)
+**Problème :** Matériel non reconnu, pilotes manquants  
+**Solution :** Vérifier avant (mode Live ou recherche en ligne)  
 
 ---
 
