@@ -765,17 +765,17 @@ Linux utilise des fichiers `.desktop` pour les lanceurs.
 2. Contenu :
 ```
 [Desktop Entry]
-Name=Gmail
-Exec=firefox --new-window https://mail.google.com
-Icon=gmail
-Type=Application
-Categories=Network;Email;
+Name=Gmail  
+Exec=firefox --new-window https://mail.google.com  
+Icon=gmail  
+Type=Application  
+Categories=Network;Email;  
 ```
 3. Enregistrez
 4. Rafraîchissez le menu
 
-**Avantage** : Contrôle total
-**Inconvénient** : Plus complexe, Web Apps Manager plus simple
+**Avantage** : Contrôle total  
+**Inconvénient** : Plus complexe, Web Apps Manager plus simple  
 
 ### Applications Electron natives
 

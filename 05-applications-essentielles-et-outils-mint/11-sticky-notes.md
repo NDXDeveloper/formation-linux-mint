@@ -52,8 +52,8 @@ Sticky Notes vous permet de :
 
 **Si absent, installer** :
 ```bash
-sudo apt update
-sudo apt install sticky
+sudo apt update  
+sudo apt install sticky  
 ```
 
 **Note** : Il existe plusieurs applications de notes adhésives. Nous parlons ici de "Sticky" développé pour Linux Mint.
@@ -366,14 +366,14 @@ TODO - Lundi 15/04
 ```
 Commandes utiles :
 
-Mise à jour système :
-sudo apt update && sudo apt upgrade
+Mise à jour système :  
+sudo apt update && sudo apt upgrade  
 
-Espace disque :
-df -h
+Espace disque :  
+df -h  
 
-Processus :
-htop
+Processus :  
+htop  
 ```
 
 **Avantage** : Copier-coller rapide sans chercher.
@@ -383,9 +383,9 @@ htop
 **Informations passagères** :
 
 ```
-Livraison colis :
-Code de suivi : AB123456789FR
-Arrivée prévue : 18/04
+Livraison colis :  
+Code de suivi : AB123456789FR  
+Arrivée prévue : 18/04  
 ```
 
 **Supprimez** après usage.
@@ -592,8 +592,8 @@ dpkg -l | grep sticky
 
 **Réinstaller** :
 ```bash
-sudo apt remove sticky
-sudo apt install sticky
+sudo apt remove sticky  
+sudo apt install sticky  
 ```
 
 **Lancer depuis terminal** (voir erreurs) :
@@ -618,8 +618,8 @@ ou
 ls ~/.config/sticky/
 ```
 
-**Si fichiers présents** : Notes sauvegardées, problème d'affichage
-**Si fichiers absents** : Notes perdues
+**Si fichiers présents** : Notes sauvegardées, problème d'affichage  
+**Si fichiers absents** : Notes perdues  
 
 **Restaurer depuis backup** :
 - Si vous aviez sauvegardé le dossier
@@ -697,20 +697,20 @@ ln -s ~/.local/share/sticky/ ~/Nextcloud/Sticky-Notes/
 **Avec Git** :
 
 ```bash
-cd ~/.local/share/sticky/
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/votrecompte/sticky-notes.git
-git push -u origin master
+cd ~/.local/share/sticky/  
+git init  
+git add .  
+git commit -m "Initial commit"  
+git remote add origin https://github.com/votrecompte/sticky-notes.git  
+git push -u origin master  
 ```
 
 **Mise à jour régulière** :
 ```bash
-cd ~/.local/share/sticky/
-git add .
-git commit -m "Mise à jour notes"
-git push
+cd ~/.local/share/sticky/  
+git add .  
+git commit -m "Mise à jour notes"  
+git push  
 ```
 
 **Sur un autre PC** :

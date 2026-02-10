@@ -146,8 +146,8 @@ VLC est le lecteur multimédia le plus populaire au monde, et pour de bonnes rai
 **DVDs protégés** :
 Certains DVDs commerciaux sont protégés. Pour les lire :
 ```bash
-sudo apt install libdvd-pkg
-sudo dpkg-reconfigure libdvd-pkg
+sudo apt install libdvd-pkg  
+sudo dpkg-reconfigure libdvd-pkg  
 ```
 Sélectionnez **Oui** pour installer libdvdcss.
 
@@ -841,8 +841,8 @@ VLC supporte des extensions pour ajouter des fonctionnalités.
 
 **Solution** :
 ```bash
-sudo apt install libdvd-pkg
-sudo dpkg-reconfigure libdvd-pkg
+sudo apt install libdvd-pkg  
+sudo dpkg-reconfigure libdvd-pkg  
 ```
 Sélectionnez **Oui** pour installer les codecs de décryptage.
 
@@ -895,9 +895,9 @@ sudo apt install mpv
 
 **Utilisation** :
 ```bash
-mpv video.mp4
-mpv --fs video.mp4  # Plein écran
-mpv https://exemple.com/stream.m3u8  # Stream
+mpv video.mp4  
+mpv --fs video.mp4  # Plein écran  
+mpv https://exemple.com/stream.m3u8  # Stream  
 ```
 
 ### Parole (lecteur vidéo GNOME)

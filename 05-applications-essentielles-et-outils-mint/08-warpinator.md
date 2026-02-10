@@ -70,8 +70,8 @@ Warpinator permet de partager des fichiers **sans câble USB**, **sans email**, 
 2. Si absent, installez-le :
 
 ```bash
-sudo apt update
-sudo apt install warpinator
+sudo apt update  
+sudo apt install warpinator  
 ```
 
 ### Sur d'autres distributions Linux
@@ -563,8 +563,8 @@ sudo systemctl status avahi-daemon
 ```
 Si inactif :
 ```bash
-sudo systemctl start avahi-daemon
-sudo systemctl enable avahi-daemon
+sudo systemctl start avahi-daemon  
+sudo systemctl enable avahi-daemon  
 ```
 
 **6. IPv6 vs IPv4** :
@@ -632,8 +632,8 @@ sudo systemctl enable avahi-daemon
 
 **Réinstallation** :
 ```bash
-sudo apt remove warpinator
-sudo apt install warpinator
+sudo apt remove warpinator  
+sudo apt install warpinator  
 ```
 
 **Vérifier les logs** :

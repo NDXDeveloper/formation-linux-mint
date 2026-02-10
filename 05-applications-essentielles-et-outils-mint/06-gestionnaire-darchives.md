@@ -444,10 +444,10 @@ Avec le gestionnaire graphique, c'est limité. Pour avancé, utilisez la ligne d
 
 ### Outils en ligne de commande
 
-**zip / unzip** : ZIP
-**tar** : TAR, TAR.GZ, TAR.BZ2, TAR.XZ
-**7z** : 7Z
-**rar / unrar** : RAR
+**zip / unzip** : ZIP  
+**tar** : TAR, TAR.GZ, TAR.BZ2, TAR.XZ  
+**7z** : 7Z  
+**rar / unrar** : RAR  
 
 ### Installation des outils
 
@@ -730,8 +730,8 @@ unrar t archive.rar
 **Sauvegarder un dossier avec la date** :
 ```bash
 #!/bin/bash
-DATE=$(date +%Y-%m-%d)
-tar -czf sauvegarde-$DATE.tar.gz ~/Documents/
+DATE=$(date +%Y-%m-%d)  
+tar -czf sauvegarde-$DATE.tar.gz ~/Documents/  
 ```
 
 **Archiver et supprimer les fichiers de plus de 30 jours** :
@@ -767,9 +767,9 @@ dd if=/dev/cdrom of=image.iso bs=2048
 
 **Monter un ISO** (accéder au contenu sans graver) :
 ```bash
-sudo mkdir /mnt/iso
-sudo mount -o loop image.iso /mnt/iso
-cd /mnt/iso
+sudo mkdir /mnt/iso  
+sudo mount -o loop image.iso /mnt/iso  
+cd /mnt/iso  
 # Parcourez le contenu
 sudo umount /mnt/iso
 ```
@@ -791,15 +791,15 @@ Linux n'a pas de format .exe auto-extractible comme Windows.
 ```bash
 #!/bin/bash
 # auto-extract.sh
-tail -n +4 "$0" | tar -xzf -
-exit 0
+tail -n +4 "$0" | tar -xzf -  
+exit 0  
 # Archive data follows
 ```
 
 Puis concaténer :
 ```bash
-cat auto-extract.sh archive.tar.gz > package.sh
-chmod +x package.sh
+cat auto-extract.sh archive.tar.gz > package.sh  
+chmod +x package.sh  
 ```
 
 Pour extraire :
@@ -845,8 +845,8 @@ tar -tzf archive.tar.gz > /dev/null
 7z t archive.7z
 ```
 
-**Si "OK"** : Archive intègre
-**Si erreur** : Archive corrompue, ne supprimez pas les originaux !
+**Si "OK"** : Archive intègre  
+**Si erreur** : Archive corrompue, ne supprimez pas les originaux !  
 
 ### Sommes de contrôle
 
@@ -864,8 +864,8 @@ md5sum -c archive.zip.md5
 
 **SHA256 (plus sécurisé)** :
 ```bash
-sha256sum archive.zip > archive.zip.sha256
-sha256sum -c archive.zip.sha256
+sha256sum archive.zip > archive.zip.sha256  
+sha256sum -c archive.zip.sha256  
 ```
 
 **Utilité** :
@@ -970,8 +970,8 @@ tar -czf - dossier/ | split -b 100M - archive.tar.gz.part
 
 **Reconstituer** :
 ```bash
-cat archive.tar.gz.part* > archive.tar.gz
-tar -xzf archive.tar.gz
+cat archive.tar.gz.part* > archive.tar.gz  
+tar -xzf archive.tar.gz  
 ```
 
 ## Gestionnaires alternatifs
@@ -1016,9 +1016,9 @@ sudo apt install atool
 
 **Usage** :
 ```bash
-atool -x archive.zip    # Extraire (auto-détecte format)
-atool -a archive.zip fichiers/  # Créer
-atool -l archive.zip    # Lister
+atool -x archive.zip    # Extraire (auto-détecte format)  
+atool -a archive.zip fichiers/  # Créer  
+atool -l archive.zip    # Lister  
 ```
 
 **Avantage** : Une commande pour tous les formats !
@@ -1113,10 +1113,10 @@ sudo apt install p7zip-full p7zip-rar unrar
 #!/bin/bash
 # sauvegarde-auto.sh
 
-DOSSIER_SOURCE="$HOME/Documents"
-DOSSIER_DEST="$HOME/Sauvegardes"
-DATE=$(date +%Y-%m-%d)
-FICHIER="documents-$DATE.tar.gz"
+DOSSIER_SOURCE="$HOME/Documents"  
+DOSSIER_DEST="$HOME/Sauvegardes"  
+DATE=$(date +%Y-%m-%d)  
+FICHIER="documents-$DATE.tar.gz"  
 
 # Créer dossier de destination si inexistant
 mkdir -p "$DOSSIER_DEST"
@@ -1162,10 +1162,10 @@ Ajoutez :
 #!/bin/bash
 # sauvegarde-incrementale.sh
 
-DOSSIER="$HOME/Documents"
-DEST="$HOME/Sauvegardes"
-DATE=$(date +%Y-%m-%d)
-SNAPSHOT="$DEST/backup.snar"
+DOSSIER="$HOME/Documents"  
+DEST="$HOME/Sauvegardes"  
+DATE=$(date +%Y-%m-%d)  
+SNAPSHOT="$DEST/backup.snar"  
 
 mkdir -p "$DEST"
 
@@ -1177,8 +1177,8 @@ tar -czf "$DEST/incremental-$DATE.tar.gz" \
 echo "Sauvegarde incrémentale créée : incremental-$DATE.tar.gz"
 ```
 
-**Première exécution** : Sauvegarde complète
-**Suivantes** : Seulement les changements
+**Première exécution** : Sauvegarde complète  
+**Suivantes** : Seulement les changements  
 
 ### Surveillance de taille
 
@@ -1188,8 +1188,8 @@ echo "Sauvegarde incrémentale créée : incremental-$DATE.tar.gz"
 #!/bin/bash
 # verif-taille.sh
 
-FICHIER="archive.tar.gz"
-TAILLE_MAX=1000000000  # 1 Go en octets
+FICHIER="archive.tar.gz"  
+TAILLE_MAX=1000000000  # 1 Go en octets  
 
 tar -czf "$FICHIER" dossier/
 
@@ -1207,9 +1207,9 @@ fi
 
 **Manuels** :
 ```bash
-man zip
-man tar
-man 7z
+man zip  
+man tar  
+man 7z  
 ```
 
 **Guides en ligne** :

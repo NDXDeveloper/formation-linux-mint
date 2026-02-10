@@ -845,8 +845,8 @@ qpdf --linearize document.pdf optimise-web.pdf
 
 **Installation** :
 ```bash
-sudo apt install ocrmypdf
-sudo apt install tesseract-ocr-fra  # Langue française
+sudo apt install ocrmypdf  
+sudo apt install tesseract-ocr-fra  # Langue française  
 ```
 
 **Usage de base** :
@@ -918,8 +918,8 @@ pdftk document.pdf output protege.pdf user_pw MOTDEPASSE
 qpdf --encrypt MOTDEPASSE_USER MOTDEPASSE_OWNER 256 -- document.pdf protege.pdf
 ```
 
-**user_pw** : Mot de passe pour ouvrir
-**owner_pw** : Mot de passe pour modifier les permissions
+**user_pw** : Mot de passe pour ouvrir  
+**owner_pw** : Mot de passe pour modifier les permissions  
 
 **Avec LibreOffice** :
 1. Créez votre document
@@ -1109,8 +1109,8 @@ convert capture1.png capture2.png capture3.png tutoriel.pdf
 **Permissions** :
 - Vérifiez les droits de lecture
 ```bash
-ls -l fichier.pdf
-chmod +r fichier.pdf
+ls -l fichier.pdf  
+chmod +r fichier.pdf  
 ```
 
 **Solution** :

@@ -103,8 +103,8 @@ C'est comme Netflix ou YouTube, mais pour les chaînes de télévision tradition
 
 **Installation si nécessaire** :
 ```bash
-sudo apt update
-sudo apt install hypnotix
+sudo apt update  
+sudo apt install hypnotix  
 ```
 
 ### Sur autres distributions
@@ -605,8 +605,8 @@ Lance en mode debug, affiche erreurs dans le terminal
 
 **Mettre à jour** :
 ```bash
-sudo apt update
-sudo apt upgrade hypnotix
+sudo apt update  
+sudo apt upgrade hypnotix  
 ```
 
 ### Provider ne charge pas
@@ -852,8 +852,8 @@ Si Hypnotix sur PC, TV connectée :
 Script bash pour ouvrir Hypnotix sur une chaîne :
 ```bash
 #!/bin/bash
-hypnotix &
-sleep 3
+hypnotix &  
+sleep 3  
 # Nécessite configuration manuelle ou CLI (si supporté)
 ```
 

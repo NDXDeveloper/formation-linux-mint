@@ -1169,8 +1169,8 @@ sudo apt install optipng jpegoptim
 
 **Usage** :
 ```bash
-optipng image.png  # Optimise PNG
-jpegoptim --max=85 photo.jpg  # Optimise JPEG
+optipng image.png  # Optimise PNG  
+jpegoptim --max=85 photo.jpg  # Optimise JPEG  
 ```
 
 ### Services en ligne
@@ -1281,8 +1281,8 @@ sudo apt install shutter
 
 **Supprimer les métadonnées** (vie privée) :
 ```bash
-sudo apt install exiftool
-exiftool -all= photo.jpg  # Supprime toutes les métadonnées
+sudo apt install exiftool  
+exiftool -all= photo.jpg  # Supprime toutes les métadonnées  
 ```
 
 **Ou avec GIMP** :
